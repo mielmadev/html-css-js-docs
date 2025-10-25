@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28. jQuery</title>
+    <link rel="icon" type="image/x-icon" href="../imagenes/MielmaDev/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="../estilos/estilo.css">
+</head>
+
+<body>
+  <main>
+    <article class="jQuery">
+      <h2>28. jQuery</h2>
+      <section class="nota-codepen">
+        <h2>Falta agregar la documentación</h2>
+      </section>
+      <section class="notas-mielmadev-jquery">
+        <h2>Notas sobre jQuery (MielmaDev)</h2>
+        <p>jQuery es una biblioteca de JavaScript rápida, pequeña y rica en funciones. Simplifica tareas comunes de
+          JavaScript como la manipulación del DOM, el manejo de eventos, la animación y las solicitudes AJAX.</p>
+        <p><strong>¿Cuándo usar jQuery hoy en día?</strong> Aunque jQuery fue muy popular, hoy la mayoría de sus
+          funciones ya existen en JavaScript moderno. Sin embargo, sigue siendo útil si trabajas en proyectos antiguos o
+          necesitas compatibilidad con navegadores antiguos.</p>
+        <p><strong>Ventajas principales:</strong></p>
+        <ul>
+          <li>Sintaxis sencilla para seleccionar y modificar elementos del DOM.</li>
+          <li>Facilita el manejo de eventos y animaciones.</li>
+          <li>Permite hacer peticiones AJAX de forma simple.</li>
+        </ul>
+        <p><strong>Desventajas:</strong> Añade peso extra a la web y no es necesario en proyectos nuevos con JavaScript
+          moderno.</p>
+        <p><strong>¿Cómo se usa?</strong> Solo tienes que incluir la librería en tu HTML y puedes empezar a usar la
+          sintaxis <code>$(selector)</code>.</p>
+        <h3>¿Por qué usar jQuery?</h3>
+        <ul>
+          <li>Simplifica la sintaxis de JavaScript.</li>
+          <li>Gestiona automáticamente las diferencias entre navegadores.</li>
+          <li>Proporciona una amplia gama de funciones útiles.</li>
+        </ul>
+        <h3>Ejemplo básico de jQuery</h3>
+        <pre><code>// Asegurarse de que el DOM esté listo
+$(document).ready(function() {
+  // Código jQuery aquí
+});
+</code></pre>
+        <p>Por ejemplo, para ocultar un elemento con id <code>caja</code> al hacer clic en un botón:</p>
+        <pre><code>$('#boton').click(function() {
+  $('#caja').hide();
+});
+</code></pre>
+      </section>
+    </article>
+  </main>
+</body>
+
+</html>
