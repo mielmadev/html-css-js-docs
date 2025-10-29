@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>26. Mas funcionalidade JS</title>
-    <link rel="icon" type="image/x-icon" href="../imagenes/MielmaDev/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
-      rel="stylesheet">
-    <link rel="stylesheet" href="../estilos/estilo.css">
-</head>
+      rel="stylesheet" />
+    <link rel="stylesheet" href="../estilos/normalize.css" />
+    <link rel="stylesheet" href="../estilos/reset.css" />
+    <link rel="stylesheet" href="../estilos/estilos.css" />
+  </head>
 
   <body>
     <header>
@@ -25,17 +29,33 @@
         </section>
         <section class="notas-mielmadev">
           <h2>for...of</h2>
-          <p>Es similar a <code>for...in</code>, pero recorre valores en vez de claves.</p>
-          <p>El bucle <code>for...of</code> permite iterar sobre objetos iterables como arrays, strings, etc.</p>
+          <p>
+            Es similar a <code>for...in</code>, pero recorre valores en vez de
+            claves.
+          </p>
+          <p>
+            El bucle <code>for...of</code> permite iterar sobre objetos
+            iterables como arrays, strings, etc.
+          </p>
           <pre><code>const array = [1, 2, 3];
 for (const elemento of array) {
   console.log(elemento);
 }
         </code></pre>
           <h2>forEach</h2>
-          <p>Solo funciona con arrays, es obligatorio llamarlo desde un array. Nació porque en otra librería existía ese concepto.</p>
-          <p><code>forEach</code> es un método que se llama desde el array, no es un bucle como tal. Utiliza una función anónima que puede tener hasta tres parámetros: valor (elemento), índice y el array completo.</p>
-          <p>El método <code>forEach</code> permite ejecutar una función en cada elemento de un array.</p>
+          <p>
+            Solo funciona con arrays, es obligatorio llamarlo desde un array.
+            Nació porque en otra librería existía ese concepto.
+          </p>
+          <p>
+            <code>forEach</code> es un método que se llama desde el array, no es
+            un bucle como tal. Utiliza una función anónima que puede tener hasta
+            tres parámetros: valor (elemento), índice y el array completo.
+          </p>
+          <p>
+            El método <code>forEach</code> permite ejecutar una función en cada
+            elemento de un array.
+          </p>
           <pre><code>const array = [1, 2, 3];
 array.forEach(function(elemento) {
   console.log(elemento);
@@ -60,7 +80,10 @@ array.forEach(function(elemento) {
                 <td>Arrays, strings, cualquier iterable</td>
                 <td>Sí (<code>i</code>)</td>
                 <td>Sí</td>
-                <td>Ideal para recorrer arrays con índice o cuando necesitas saltos/condiciones</td>
+                <td>
+                  Ideal para recorrer arrays con índice o cuando necesitas
+                  saltos/condiciones
+                </td>
               </tr>
               <tr>
                 <td><code>for...in</code></td>
@@ -68,7 +91,9 @@ array.forEach(function(elemento) {
                 <td>Objetos, arrays (índices como string)</td>
                 <td>Sí (clave)</td>
                 <td>Sí</td>
-                <td>No recomendado para arrays (el orden no está garantizado)</td>
+                <td>
+                  No recomendado para arrays (el orden no está garantizado)
+                </td>
               </tr>
               <tr>
                 <td><code>for...of</code></td>
@@ -84,15 +109,31 @@ array.forEach(function(elemento) {
                 <td>Arrays</td>
                 <td>Sí (como segundo parámetro)</td>
                 <td>No</td>
-                <td>No se puede usar break/continue, solo return dentro de la función</td>
+                <td>
+                  No se puede usar break/continue, solo return dentro de la
+                  función
+                </td>
               </tr>
             </tbody>
           </table>
           <h2>Cadenas</h2>
-          <p>Las cadenas de texto en JavaScript son objetos inmutables que representan una secuencia de caracteres.</p>
-          <p>Para poder insertar variables dentro de una cadena y evitar problemas con comillas y espacios, se usa la sintaxis <code>${}</code> dentro de las comillas invertidas o backticks (<code>`aquí va el resultado ${resultadoFuncion}`</code>).</p>
+          <p>
+            Las cadenas de texto en JavaScript son objetos inmutables que
+            representan una secuencia de caracteres.
+          </p>
+          <p>
+            Para poder insertar variables dentro de una cadena y evitar
+            problemas con comillas y espacios, se usa la sintaxis
+            <code>${}</code> dentro de las comillas invertidas o backticks
+            (<code>`aquí va el resultado ${resultadoFuncion}`</code>).
+          </p>
           <h2>Condicionales</h2>
-          <p>El operador ternario es una forma concisa de escribir una estructura condicional <code>if...else</code> en una sola línea. Solo devuelve un valor, no sirve para dos líneas, es para un único <code>if...else</code>.</p>
+          <p>
+            El operador ternario es una forma concisa de escribir una estructura
+            condicional <code>if...else</code> en una sola línea. Solo devuelve
+            un valor, no sirve para dos líneas, es para un único
+            <code>if...else</code>.
+          </p>
           <pre><code>condición ? expresiónSiVerdadero : expresiónSiFalso;</code></pre>
           <p>Ejemplo:</p>
           <pre><code>const nombreVariable = condiciónIfElse ? valorSiVerdadero : valorSiFalso;
@@ -102,7 +143,12 @@ array.forEach(function(elemento) {
 const esMayorDeEdad = edad >= 18 ? "Sí" : "No";
 console.log(esMayorDeEdad);</code></pre>
           <h2>Expresión de función</h2>
-          <p>Una expresión de función es una forma de definir una función en JavaScript. A diferencia de las declaraciones de función, que se definen con la palabra clave <code>function</code>, las expresiones de función se pueden asignar a variables y usar como valores.</p>
+          <p>
+            Una expresión de función es una forma de definir una función en
+            JavaScript. A diferencia de las declaraciones de función, que se
+            definen con la palabra clave <code>function</code>, las expresiones
+            de función se pueden asignar a variables y usar como valores.
+          </p>
           <pre><code>// Declaración de función
 function saludar(nombre) {
   return "Hola, " + nombre + "!";
@@ -110,8 +156,15 @@ function saludar(nombre) {
 console.log(saludar("MielmaDev")); // Hola, MielmaDev!
         </code></pre>
           <h2>Funciones flecha</h2>
-          <p>Las funciones flecha (<em>arrow functions</em>) son una forma más concisa de escribir funciones en JavaScript. Se introdujeron en ES6 y tienen una sintaxis más corta que las funciones tradicionales.</p>
-          <p>Se ponen paréntesis si no hay parámetros o si hay varios; cuando solo hay un parámetro, no se ponen paréntesis.</p>
+          <p>
+            Las funciones flecha (<em>arrow functions</em>) son una forma más
+            concisa de escribir funciones en JavaScript. Se introdujeron en ES6
+            y tienen una sintaxis más corta que las funciones tradicionales.
+          </p>
+          <p>
+            Se ponen paréntesis si no hay parámetros o si hay varios; cuando
+            solo hay un parámetro, no se ponen paréntesis.
+          </p>
           <p class="nota-codepen">Agregar función con parámetros</p>
           <pre><code>// Función tradicional
 function suma(a, b) {
@@ -124,14 +177,26 @@ const suma = (a, b) => a + b;
 console.log(suma(5, 3)); // 8
         </code></pre>
           <h2>Parámetros por defecto</h2>
-          <p>Los parámetros por defecto permiten asignar un valor predeterminado a un parámetro de una función en caso de que no se proporcione un valor al llamar a la función.</p>
-          <p>Se puede poner un valor por defecto a los parámetros que se especifican, por ejemplo:</p>
+          <p>
+            Los parámetros por defecto permiten asignar un valor predeterminado
+            a un parámetro de una función en caso de que no se proporcione un
+            valor al llamar a la función.
+          </p>
+          <p>
+            Se puede poner un valor por defecto a los parámetros que se
+            especifican, por ejemplo:
+          </p>
           <pre><code>function saludar(nombre = "Mundo") { return "Hola, " + nombre + "!"; }
         saludar(); // "Hola, Mundo!"
         saludar("MielmaDev"); // "Hola, MielmaDev!"
         </code></pre>
           <h2>Parámetros rest</h2>
-          <p>Los parámetros rest permiten representar un número indefinido de argumentos como un array. Se definen utilizando tres puntos (...) antes del nombre del parámetro. Al menos un parámetro es obligatorio.</p>
+          <p>
+            Los parámetros rest permiten representar un número indefinido de
+            argumentos como un array. Se definen utilizando tres puntos (...)
+            antes del nombre del parámetro. Al menos un parámetro es
+            obligatorio.
+          </p>
           <p>Si fueran nombres, hay que recorrerlos como un array.</p>
           <pre><code>function sumar(...numeros) {
             let total = 0;
@@ -144,19 +209,35 @@ console.log(suma(5, 3)); // 8
             console.log(sumar(5, 10, 15, 20)); // 50
         </code></pre>
           <h2>map</h2>
-          <p>El método <code>map()</code> crea un nuevo array con los resultados de la función proporcionada aplicada a cada elemento del array original. Si quieres transformar los datos de un array a otro formato, puedes usar <code>map()</code>.</p>
+          <p>
+            El método <code>map()</code> crea un nuevo array con los resultados
+            de la función proporcionada aplicada a cada elemento del array
+            original. Si quieres transformar los datos de un array a otro
+            formato, puedes usar <code>map()</code>.
+          </p>
           <pre><code>const numeros = [1, 2, 3, 4, 5];
 const dobles = numeros.map(num => num * 2);
 console.log(dobles); // [2, 4, 6, 8, 10]
         </code></pre>
           <h2>filter</h2>
-          <p>El método <code>filter()</code> crea un nuevo array con todos los elementos que cumplan la condición implementada por la función proporcionada. Si quieres filtrar elementos de un array según algún criterio, puedes usar <code>filter()</code>.</p>
+          <p>
+            El método <code>filter()</code> crea un nuevo array con todos los
+            elementos que cumplan la condición implementada por la función
+            proporcionada. Si quieres filtrar elementos de un array según algún
+            criterio, puedes usar <code>filter()</code>.
+          </p>
           <pre><code>const numeros = [1, 2, 3, 4, 5];
 const pares = numeros.filter(num => num % 2 === 0);
 console.log(pares); // [2, 4]
         </code></pre>
           <h2>reduce</h2>
-          <p>El método <code>reduce()</code> aplica una función contra un acumulador y cada elemento del array (de izquierda a derecha) para reducirlo a un solo valor. Si quieres realizar una acumulación o una operación que implique todos los elementos de un array, puedes usar <code>reduce()</code>.</p>
+          <p>
+            El método <code>reduce()</code> aplica una función contra un
+            acumulador y cada elemento del array (de izquierda a derecha) para
+            reducirlo a un solo valor. Si quieres realizar una acumulación o una
+            operación que implique todos los elementos de un array, puedes usar
+            <code>reduce()</code>.
+          </p>
           <pre><code>const numeros = [1, 2, 3, 4, 5];
 const suma = numeros.reduce((acumulador, actual) => acumulador + actual, 0);
 console.log(suma); // 15

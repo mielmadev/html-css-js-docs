@@ -1,0 +1,29 @@
+.menus-flex {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.menus-flex>div {
+  flex: 1 1 0;
+  min-width: 220px;
+}
+
+/* Scroll individual para cada menú */
+#sidebar-menu-html,
+#sidebar-menu-css,
+#sidebar-menu-js {
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  padding-right: 8px;
+  border-radius: 6px;
+  outline: none;
+}
+
+#sidebar-menu-html:focus,
+#sidebar-menu-css:focus,
+#sidebar-menu-js:focus {
+  outline: 2px solid var(--focus-color, #60c5f7);
+  outline-offset: 2px;
+}
