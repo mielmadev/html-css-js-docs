@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>29. Float</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header><h1>29. Float</h1></header>
+  <main>
+    
+    <section>
+      <h2>¿Qué es float?</h2>
+      <p>
+        La propiedad float permite ubicar un elemento al lado izquierdo o derecho de su contenedor (elemento padre),
+        haciendo
+        que el resto del contenido que existe en el contenedor vaya rodeando a este elemento.
+      </p>
+      <p>
+        Los valores que puede llevar esta propiedad son:
+      </p>
+      <ul>
+        <li>float: left; posicionado a la izquierda</li>
+        <li>float: right; posicionado a la derecha</li>
+        <li>float: none; elimina posicionado</li>
+      </ul>
+      <p>
+        No existe un valor center porque no es una propiedad para centrar bloques de contenido. Es simplemente para
+        posicionar a
+        la izquierda o derecha y que el resto de contenido vaya rellenando los huecos:
+      </p>
+      <blockquote>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia cum ipsum praesentium nam numquam officiis
+        quo quos cumque, repellendus adipisci.
+      </blockquote>
+      <pre>
+p:first-letter{
+float:left;
+}
+      </pre>
+      <p>
+        Esta propiedad fue la que permitió dejar de utilizar tablas para maquetar y sustituirlas por código CSS. Sin
+        embargo, no
+        estaba pensada para ello, por lo que resultaba complicado maquetar con ella y provocaba muchos quebraderos de
+        cabeza,
+        por un lado por la cantidad de bugs y problemas que daba la propiedad en ciertos navegadores (principalmente
+        Internet
+        Explorer, en cada versión los problemas eran distintos) y por otro por el propio funcionamiento en sí mismo de
+        la
+        propiedad.
+      </p>
+      <p>
+        A día de hoy, aunque podríamos maquetar una web completamente con esta propiedad (como se hacía en el pasado),
+        no es
+        recomendable puesto que disponemos de propiedades de maquetación creadas para este fin, y serán las que debamos
+        utilizar.
+      </p>
+    </section>
+    <aside>
+      <h2>Referencias</h2>
+      <ul>
+        <li><a href="https://css-tricks.com/all-about-floats/">Todo sobre float</a></li>
+        <li><a href="https://css.maxdesign.com.au/floatutorial/">Tutorial y casos de uso</a></li>
+      </ul>
+    </aside>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>31. Posicionamiento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>31. Posicionamiento</h1>
+    <p>
+      La propiedad <strong>position</strong> indica cómo se va a posicionar un elemento con respecto al contenido
+      general de la página en sí
+      mismo, o bien con respecto a otro elemento padre (o ancestro).
+    </p>
+  </header>
+  <main>
+    <section>
+      <h2>Tipos de posicionamiento</h2>
+      <p>
+        Existen 5 tipos de posicionamiento y en la mayoría de ellos podremos y/o tendremos que utilizar las propiedades
+        <code>left</code>,
+        <code>right</code>, <code>top</code>, <code>bottom</code> para indicar las coordenadas de nuestro
+        posicionamiento.
+      </p>
+      <section>
+        <h3>Nota importante</h3>
+        <p>
+          Cuando se aplica cualquier tipo de posicionamiento (<code>relative</code>,
+          <code>absolute</code>, <code>fixed</code> o <code>sticky</code>), el elemento sale del flujo normal del
+          documento y
+          pierde la referencia directa a su elemento padre. Esto puede provocar que también pierda algunos estilos CSS
+          heredados del padre, como el tamaño, el alineamiento o el comportamiento de flexbox/grid. Por eso, es
+          importante
+          tener en cuenta cómo afecta el posicionamiento a la relación entre elementos y sus estilos.
+        </p>
+        <h3>Elementos fantasma</h3>
+        <p>
+          Se denomina <strong>elemento fantasma</strong> a un elemento invisible o sin contenido que se utiliza en el
+          diseño web para resolver problemas de posicionamiento o de flujo.
+          Por ejemplo, se puede usar un elemento fantasma para "empujar" otros elementos, crear separaciones, limpiar
+          flotados (<code>clearfix</code>) o mantener la estructura visual cuando un elemento posicionado sale del flujo
+          normal.
+          Normalmente, estos elementos se crean con etiquetas vacías (<code>&lt;div&gt;</code> o
+          <code>&lt;span&gt;</code>) y se les aplica estilos CSS como <code>display: block</code>, <code>height</code> o
+          <code>clear</code> según la necesidad.
+        </p>
+        <p>
+          <strong>¿Para qué se usan?</strong><br>
+          Los elementos fantasma son útiles para:
+        <ul>
+          <li>Evitar que el contenido se superponga o se desplace inesperadamente al usar posicionamiento absoluto o
+            flotado.</li>
+          <li>Crear espacios o separaciones en el diseño sin añadir contenido real.</li>
+          <li>Limpiar el efecto de los elementos flotados (<code>float</code>) y evitar que el contenedor se colapse.
+          </li>
+          <li>Solucionar problemas de compatibilidad visual entre navegadores.</li>
+        </ul>
+        </p>
+        <h4>Decoración con pseudoelementos</h4>
+        <p>
+          También es posible crear elementos fantasma usando pseudoelementos CSS como <code>:before</code> y
+          <code>:after</code>.
+          Por ejemplo, puedes decorar los títulos <code>&lt;h2&gt;</code> añadiendo símbolos antes y después del texto:
+        </p>
+        <pre><code>h2:before {
+  content: ".:";
+}
+h2:after {
+  content: " :.";
+}</code></pre>
+        <p>
+          Esto agrega los símbolos <code>.:</code> antes y <code>:.</code> después de cada título
+          <code>&lt;h2&gt;</code> solo con CSS,
+          sin modificar el HTML. Es útil para decoración visual o para insertar contenido adicional de forma dinámica.
+        </p>
+        <h4>Ejemplo visual de elemento fantasma con <code>:before</code> y <code>:after</code></h4>
+        <p>
+          También puedes crear elementos fantasma usando pseudoelementos CSS <code>:before</code> y <code>:after</code>.
+          En este ejemplo, se añade un bloque fucsia antes y después de un elemento usando solo CSS:
+        </p>
+        <div class="ejemplo-fantasma-pseudo">
+          Elemento principal
+        </div>
+        <style>
+          .ejemplo-fantasma-pseudo {
+            display: inline-block;
+            background: #e0e0e0;
+            padding: 10px 20px;
+            position: relative;
+            margin-bottom: 1em;
+          }
+
+          .ejemplo-fantasma-pseudo::before,
+          .ejemplo-fantasma-pseudo::after {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: fuchsia;
+            vertical-align: middle;
+            margin: 0 8px;
+            border-radius: 6px;
+          }
+
+          .ejemplo-fantasma-pseudo::before {
+            margin-left: 0;
+            margin-right: 8px;
+          }
+
+          .ejemplo-fantasma-pseudo::after {
+            margin-left: 8px;
+            margin-right: 0;
+          }
+        </style>
+        <p>
+          Los bloques fucsia que ves a los lados del texto son elementos fantasma generados con pseudoelementos, útiles
+          para decoración o separación visual sin modificar el HTML.
+        </p>
+      </section>
+      <article>
+        <h3>Estático</h3>
+        <p>
+          Es la posición nativa que tienen la mayor parte de los elementos y se corresponde al lugar natural que tiene
+          según el
+          flujo de contenido de la página:
+        </p>
+        <pre><code>position: static;</code></pre>
+        <p>
+          En este posicionamiento no se aplican las coordenadas (así que por mucho que las pongamos el navegador las
+          ignorará).
+        </p>
+        <p>
+          No tenemos que indicar esta propiedad en todos nuestros elementos porque ya se aplica automáticamente.
+        </p>
+        <!-- Ejemplo estático -->
+        <div style="border:2px solid #aaa; padding:10px; margin-bottom:1em;">
+          <span style="background:#e0e0e0; padding:5px;">position: static;</span>
+          <span style="background:#c0ffc0; padding:5px;">position: static;</span>
+        </div>
+      </article>
+      <article>
+        <h3>Relativo</h3>
+        <p>
+          En este caso, el elemento se posiciona según el flujo normal de contenido (igual que en static) pero si le
+          añadimos unas
+          coordenadas, se desplaza con relación a sí mismo:
+        </p>
+        <pre><code>position: relative;
+left:50px; bottom:10px;</code></pre>
+        <p>
+          También sirve para marcar como punto de referencia para un elemento hijo (o descendiente) absoluto, siendo
+          éste el uso
+          habitual que se le va a dar.
+        </p>
+        <!-- Ejemplo relativo -->
+        <div style="border:2px solid #aaa; padding:10px; margin-bottom:1em; position: relative;">
+          <span style="background:#e0e0e0; padding:5px;">position: relative;</span>
+          <span style="background:#ffd700; padding:5px; position: relative; left:30px;">
+            position: relative;<br>left: 30px;
+          </span>
+        </div>
+      </article>
+      <article>
+        <h3>Absoluto</h3>
+        <p>
+          Con este posicionamiento, el elemento sale fuera del flujo normal de contenido y se ubica en las coordenadas
+          que
+          indiquemos de manera fija:
+        </p>
+        <pre><code>position: absolute;
+left:50px; bottom:10px;</code></pre>
+        <p>
+          Este posicionamiento absoluto será relativo a la ventana del navegador, salvo que uno de sus ancestros tenga
+          establecido
+          explícitamente un posicionamiento establecido (diferente a static).
+        </p>
+        <p>
+          En ese caso, el elemento se posicionará de forma absoluta en relación a ese ancestro. Si varios ancestros
+          tienen
+          especificado un posicionamiento, el ancestro más cercano será el que marque la relación.
+        </p>
+        <p style="background: rebeccapurple; border-left: 4px solid #fc0; padding: 8px;">
+          <strong>Nota:</strong> Para que <code>position: absolute</code> funcione como se espera, el elemento padre (o
+          ancestro) debe tener <code>position: relative</code>, <code>absolute</code>, <code>fixed</code> o
+          <code>sticky</code>. Si no, el posicionamiento será relativo a la ventana del navegador.
+        </p>
+        <!-- Ejemplo absoluto -->
+        <div style="position: relative; border:2px solid #aaa; height:80px; margin-bottom:1em;">
+          <span style="background:#e0e0e0; padding:5px;">position: relative;</span>
+          <span style="background:#ffb6c1; padding:5px; position: absolute; top:0; right:0;">
+            position: absolute;<br>top: 0;<br>right: 0;
+          </span>
+        </div>
+      </article>
+      <article>
+        <h3>Fijo</h3>
+        <p>
+          Este posicionamiento es ligeramente parecido al absoluto pero con dos diferencias:
+        </p>
+        <ul>
+          <li>El posicionamiento siempre será relativo a la ventana del navegador.</li>
+          <li>El elemento se mantendrá anclado (fijo) en esas proporciones aunque hagamos scroll (como si pegamos un
+            post-it en
+            nuestra pantalla).</li>
+        </ul>
+        <pre><code>position: fixed;
+left:0; bottom:0;</code></pre>
+        <!-- Ejemplo fijo -->
+        <div style="border:2px solid #aaa; padding:10px; margin-bottom:1em;">
+          <span style="background:#e0e0e0; padding:5px;">position: static;</span>
+          <span style="background:#87ceeb; padding:5px; position: fixed; bottom:10px; right:10px; z-index:999;">
+            position: fixed;<br>bottom: 10px;<br>right: 10px;<br>z-index: 999;
+          </span>
+        </div>
+      </article>
+      <article>
+        <h3>Sticky</h3>
+        <p>
+          Este posicionamiento es una combinación entre el posicionamiento fijo y el absoluto. Mientras hagamos scroll
+          en la
+          página, el elemento se mantendrá fijo con respecto a otro elemento (ancestro) y no con respecto a la ventana
+          del
+          navegador.
+        </p>
+        <p style="background: #ffe; border-left: 4px solid #fc0; padding: 8px;">
+          <strong>Nota:</strong> Para que <code>position: sticky</code> funcione correctamente, el elemento padre debe
+          tener un <code>overflow</code> distinto de <code>visible</code> y no debe estar oculto por otros estilos.
+          Además, el contexto de apilamiento puede verse afectado por el posicionamiento del padre.
+        </p>
+        <p>
+          Una vez que el elemento ancestro ha desaparecido de pantalla (al hacer scroll), el elemento sticky también
+          desaparecerá:
+        </p>
+        <p>
+          <strong>Sticky es especialmente útil en tablas largas</strong>, ya que permite que el encabezado
+          (<code>&lt;th&gt;</code>) permanezca siempre visible mientras se hace scroll vertical. Así, los títulos de las
+          columnas se mantienen accesibles y facilitan la lectura de datos extensos.
+        </p>
+        <p>
+          Para lograr esto, basta con aplicar <code>position: sticky; top: 0;</code> al elemento del encabezado de la
+          tabla.
+        </p>
+        <p>
+          <strong>¿Cuándo es útil sticky?</strong><br>
+          El posicionamiento <code>sticky</code> es especialmente útil en los siguientes casos:
+        <ul>
+          <li>Encabezados de tablas largas, para mantener los títulos de las columnas visibles al hacer scroll.</li>
+          <li>Menús de navegación que deben permanecer accesibles mientras se recorre la página.</li>
+          <li>Secciones importantes como avisos, filtros o botones de acción que deben estar siempre a la vista.</li>
+          <li>Listas o paneles laterales con información relevante o accesos rápidos.</li>
+        </ul>
+        En general, <code>sticky</code> mejora la experiencia de usuario al mantener elementos clave siempre visibles
+        durante el desplazamiento.
+        </p>
+        <!-- Ejemplo visual sticky -->
+        <div style="height:120px; overflow:auto; border:2px solid #aaa; margin-bottom:1em;">
+          <div style="background:#ffe4b5; position: sticky; top:0; padding:5px; border-bottom:1px solid #fc0;">
+            position: sticky;<br>top: 0;
+          </div>
+          <div style="padding:5px;">Fila 1</div>
+          <div style="padding:5px;">Fila 2</div>
+          <div style="padding:5px;">Fila 3</div>
+          <div style="padding:5px;">Fila 4</div>
+          <div style="padding:5px;">Fila 5</div>
+          <div style="padding:5px;">Fila 6</div>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2>Orden de apilamiento</h2>
+      <p style="background: #eef; border-left: 4px solid #36c; padding: 8px;">
+        <strong>Nota:</strong> No es necesario usar <code>z-index</code> desde el principio en todos los elementos
+        posicionados.
+        Solo se debe aplicar cuando realmente se necesita controlar el orden de apilamiento entre elementos que se
+        superponen.
+        Utilízalo según el caso y el contexto visual.
+      </p>
+      <p>
+        Con la propiedad <strong>z-index</strong> indicamos el orden de apilamiento de los elementos que tengan un
+        posicionamiento establecido
+        (diferente a static) cuando estos elementos comparten coordenadas.
+      </p>
+      <p>
+        De este modo podemos determinar que un elemento esté por encima, o por debajo de otro (como si tenemos varios
+        post-it
+        uno encima de otro y queremos mover el último al principio...):
+      </p>
+      <pre><code>z-index: 3;</code></pre>
+      <p>
+        Sólo se indica un número. No lleva unidad de medida porque no lo es. A mayor número, estará en más primer plano.
+      </p>
+    </section>
+    <section>
+      <h2>Referencias</h2>
+      <ul>
+        <li>
+          <a href="https://developer.mozilla.org/es/docs/Web/CSS/position">Guía Posicionamiento</a>
+        </li>
+      </ul>
+      <h2>Ejemplos</h2>
+      <ul>
+        <li>
+          <a href="https://codepen.io/antxoa/pen/QWaGrKW">Ejemplos de cada posicionamiento</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>

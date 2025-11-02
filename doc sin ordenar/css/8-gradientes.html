@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../estilo.css">
+  <title>8. Gradientes</title>
+</head>
+
+<body>
+  <header>
+    <h1>8. Gradientes</h1>
+  </header>
+  <main>
+    <section>
+      <p>Podemos generar colores con gradientes, sin necesidad de utilizar imágenes, configurando múltiples
+        combinaciones de colores, tamaños, direcciones... Para ello utilizaremos un generador automático la mayoría de
+        las veces.</p>
+      <p>Los gradientes en CSS se definen principalmente con las funciones <code>linear-gradient()</code>,
+        <code>radial-gradient()</code> y <code>conic-gradient()</code>. Permiten crear transiciones suaves entre dos o
+        más colores, y pueden aplicarse como fondo a cualquier elemento.
+      </p>
+      <figure>
+        <figcaption>Ejemplo interactivo de gradientes en CodePen:</figcaption>
+        <iframe
+          src="https://codepen.io/antxoa/embed/LYvWOWz?height=300&theme-id=light&default-tab=html%2Cresult&slug-hash=LYvWOWz&user=antxoa&name=cp_embed_1#html-box"
+          height="300" style="width:100%; border:0;" allowfullscreen title="Gradiente lineal"></iframe>
+        <a
+          href="https://codepen.io/antxoa/embed/LYvWOWz?height=300&theme-id=light&default-tab=html%2Cresult&slug-hash=LYvWOWz&user=antxoa&name=cp_embed_1#html-box">Gradientes</a>
+      </figure>
+    </section>
+    <section>
+      <h2>Gradiente lineal</h2>
+      <p>Para crear un gradiente lineal establecemos un punto de partida y una dirección (indicada mediante un ángulo) a
+        lo largo de la cual se aplicará el efecto. Es decir, la dirección del degradado lineal es una línea recta, que
+        puede aplicar en cualquier ángulo.</p>
+      <p>También se pueden definir paradas de color e indicar si la transición entre estos colores será más o menos
+        suave.</p>
+      <p>Ejemplo de sintaxis básica:<br>
+        <code>background: linear-gradient(90deg, #ff0000, #0000ff);</code>
+      </p>
+      <p>Se pueden añadir más colores y posiciones:<br>
+        <code>background: linear-gradient(45deg, #ff0000 0%, #00ff00 50%, #0000ff 100%);</code>
+      </p>
+    </section>
+    <section>
+      <h2>Gradiente radial</h2>
+      <p>Este tipo de gradiente nos permite crear degradados con formas circulares, ya que el gradiente radial se
+        extiende hacia afuera en forma elíptica desde el punto central del círculo.</p>
+      <p>Ejemplo de sintaxis básica:<br>
+        <code>background: radial-gradient(circle, #ff0000, #0000ff);</code>
+      </p>
+      <p>Se pueden definir el centro, el tamaño y más colores:<br>
+        <code>background: radial-gradient(ellipse at center, #ff0000 0%, #00ff00 70%, #0000ff 100%);</code>
+      </p>
+    </section>
+    <section>
+      <h2>Gradiente cónico</h2>
+      <p>En este tipo de gradiente el punto de partida es el centro del gráfico y luego gira en el sentido de las agujas
+        del reloj alrededor del centro para lograr un efecto de degradado.</p>
+      <p>Este tipo de gradiente cónico es muy reciente y hasta el año 2020 no hemos tenido un soporte generalizado del
+        mismo.</p>
+      <p>Ejemplo de sintaxis básica:<br>
+        <code>background: conic-gradient(from 0deg, #ff0000, #0000ff);</code>
+      </p>
+      <p>Se pueden definir ángulos de inicio y múltiples colores:<br>
+        <code>background: conic-gradient(from 90deg, #ff0000 0deg, #00ff00 120deg, #0000ff 240deg);</code>
+      </p>
+    </section>
+    <section>
+      <h2>Patrones para fondos</h2>
+      <p>Combinando múltiples fondos y gradientes repetidos (y mucha imaginación y tiempo libre), podemos llevar los
+        gradientes a otro nivel, consiguiendo originales fondos a modo de patrón, sin necesidad de utilizar archivos de
+        imagen.</p>
+      <p>Para crear patrones complejos, se pueden superponer varios gradientes usando la propiedad
+        <code>background</code> con múltiples valores separados por comas. Ejemplo:<br>
+        <code>background: linear-gradient(90deg, #fff 25%, transparent 25%), linear-gradient(180deg, #fff 25%, transparent 25%);</code>
+      </p>
+      <figure>
+        <figcaption>Ejemplo de patrones con gradientes en CodePen:</figcaption>
+        <iframe
+          src="https://codepen.io/antxoa/embed/abxJVyW?height=300&theme-id=light&default-tab=html%2Cresult&slug-hash=abxJVyW&user=antxoa&name=cp_embed_2#html-box"
+          height="300" style="width:100%; border:0;" allowfullscreen title="Patrones con gradientes"></iframe>
+        <a
+          href="https://codepen.io/antxoa/embed/abxJVyW?height=300&theme-id=light&default-tab=html%2Cresult&slug-hash=abxJVyW&user=antxoa&name=cp_embed_2#html-box">Patrones
+          fondos</a>
+      </figure>
+    </section>
+    <section>
+      <h2>referencias</h2>
+      <nav>
+        <ul>
+          <li><a href="https://www.smashingmagazine.com/2022/01/css-radial-conic-gradient/">Guía Gradientes 1</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/conic-gradient">Guía Gradientes 2</a>
+          </li>
+          <li><a href="https://css-tricks.com/a-complete-guide-to-css-gradients/">Guía Gradientes cónicos</a></li>
+          <li><a href="https://projects.verou.me/conic-gradient/">Ejemplos de Gradientes Cónicos</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section>
+      <h2>Recursos adicionales</h2>
+      <nav>
+        <ul>
+          <li><a href="https://www.colorzilla.com/gradient-editor/">Generador de gradientes</a></li>
+          <li><a href="https://www.uisurgeon.com/tools/conic-gradient-generator">Generador cónico</a></li>
+          <li><a href="https://projects.verou.me/css3patterns/">Galería de patrones 1</a></li>
+          <li><a href="https://bennettfeely.com/gradients/">Galería patrones 2</a></li>
+          <li><a href="https://www.magicpattern.design/tools/css-backgrounds">Galería patrones 3</a></li>
+          <li><a href="https://web.archive.org/web/20180602061958/https://gradient-scanner.com/">Generar gradiente a
+              partir de una imagen</a></li>
+          <li><a href="https://textgradients.com/">Gradiente como color de texto</a></li>
+        </ul>
+      </nav>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Ejemplo de gradientes CSS. Recurso educativo.</p>
+  </footer>
+</body>
+
+</html>

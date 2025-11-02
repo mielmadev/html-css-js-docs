@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>27. Normalización y Reseteo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>27. Normalización y Reseteo</h1>
+  <main>
+    <section>
+      <h2>Introducción</h2>
+      <p>Así como el cambio del Modelo de Caja es imprescindible en cualquier maquetación, también es altamente recomendable
+        utilizar una serie de estilos predeterminados, tanto para igualar los estilos estándar de los elementos entre
+        navegadores como para establecer unos estilos de uso frecuente.</p>
+    </section>
+    <section>
+      <h2>Normalización</h2>
+      <p>Para igual los estilos predeterminados que los navegadores aplican a los elementos podemos normalizar las propiedades
+        CSS que aplican.</p>
+      <p>Por ejemplo, ante una lista desordenada <code>ul</code>, algunos navegadores añaden un margen lateral izquierdo en el propio <code>ul</code> para
+        simular la sangría, mientras que otros navegadores añaden ese margen en el elemento <code>li</code>. Visualmente es imposible saber
+        en qué elemento está aplicando el margen el navegador.</p>
+      <p>Como no es viable probar todos los elementos en todos los navegadores y versiones e implementar esta normalización
+        partiendo desde cero, vamos a utilizar una CSS que recoge todos estos cambios entre navegadores y los normaliza.</p>
+    </section>
+    <section>
+      <h2>Reseteo</h2>
+      <p>Hay desarrolladores que, además de utilizar la normalización, quieren empezar con todos los elementos sin ningún tipo de
+        estilo, reseteándolos, para ir añadiendo los necesarios a demanda.</p>
+    </section>
+    <section>
+      <h2>Personalización</h2>
+      <p>Lo más recomendable y habitual es utilizar los estilos de normalización, algunos (o todos) los de reseto y todos ellos
+        juntarlos con estilos CSS que vamos a querer utilizar siempre en nuestros proyectos: modelo de caja alterado, quitar
+        subrayado a los enlaces, cambio de cursores en algunos elementos, comportamientos de scroll... De esta manera podremos
+        empezar a maquetar nuestra página sabiendo que nos vamos a ahorrar tiempo y pruebas.</p>
+      <p>A medida que vayamos haciendo proyectos, podremos ir averiguando cuáles vamos a utilizar siempre de inicio, por lo que
+        nuestra CSS inicial será flexible e irá cambiando a lo largo del tiempo.</p>
+    </section>
+    <section>
+      <h2>Referencias</h2>
+      <ul>
+        <li><a href="https://necolas.github.io/normalize.css/">Normalización</a></li>
+        <li><a href="https://meyerweb.com/eric/tools/css/reset/">Reseteo</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Recursos</h2>
+      <p><a href="https://codepen.io/antxoa/pen/qBwoqma">Propuesta de CSS base</a></p>
+    </section>
+  </main>
+</body>
+
+</html>

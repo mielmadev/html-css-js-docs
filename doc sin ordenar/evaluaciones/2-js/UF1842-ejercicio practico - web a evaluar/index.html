@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda de Libros - Prueba</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .error {
+        color: red;
+        display: none;
+      }
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tienda de Libros</h1>
+    <nav>
+      <a href="#" id="mostrarOfertas">Mostrar Ofertas</a>
+    </nav>
+    <p id="mensaje">Bienvenidos a la tienda.</p>
+    <form id="busquedaForm">
+      <label for="busqueda">Buscar libro:</label>
+      <input type="text" id="busqueda" />
+      <button type="submit">Buscar</button>
+    </form>
+    <p id="resultadoBusqueda"></p>
+    <button id="cambiarColor">Cambiar Color de Fondo</button>
+    <p id="contador">Contador: 0</p>
+    <button id="incrementar">Incrementar Contador</button>
+    <button id="mostrarAlerta">Mostrar Alerta</button>
+    <input type="text" id="nombreUsuario" placeholder="Tu nombre" />
+    <p id="saludo"></p>
+    <button id="limpiar">Limpiar Formulario</button>
+    <div id="ofertas" class="error">¡Ofertas especiales disponibles!</div>
+
+    <script>
+      // Error 1
+      var mensaje = "¡Oferta del día!";
+      // Error 2
+      document.getElementById("mostrarOfertas").onclick = showOfertas;
+      // Error 3
+      function showOfertas() {
+        document.getElementById("ofertas").style.display = "block";
+      }
+      // Error 4
+      document.getElementById("busquedaForm").onsubmit = function () {
+        event.preventDefault();
+        var busqueda = document.getElementById("busqueda").value;
+        if (busqueda === "") {
+          document.getElementById("resultadoBusqueda").innerHTML = "Por favor, introduce un término.";
+        } else {
+          document.getElementById("resultadoBusqueda").innerHTML = "Buscando: " + busqueda;
+        }
+      };
+      // Error 5
+      document.getElementById("cambiarColor").onclick = function () {
+        document.body.style.background = "lightblue";
+      };
+      // Error 6
+      var contador = 0;
+      document.getElementById("incrementar").onclick = function () {
+        contador = contador + 1;
+        document.getElementById("contador").innerHTML = "Contador: " + contador;
+      };
+      // Error 7
+      document.getElementById("mostrarAlerta").onclick = function () {
+        alert("Hola " + document.getElementById("nombreUsuario").value);
+      };
+      // Error 8
+      document.getElementById("nombreUsuario").oninput = function () {
+        var nombre = document.getElementById("nombreUsuario").value;
+        document.getElementById("saludo").innerHTML = "Hola, " + nombre + "!";
+      };
+      // Error 9
+      document.getElementById("limpiar").onclick = function () {
+        document.getElementById("busqueda").value = "";
+        document.getElementById("resultadoBusqueda").innerHTML = "";
+        document.getElementById("nombreUsuario").value = "";
+        document.getElementById("saludo").innerHTML = "";
+        contador = 0;
+        document.getElementById("contador").innerHTML = "Contador: 0";
+        document.body.style.background = "white";
+        document.getElementById("ofertas").style.display = "none";
+      };
+      // Error 10
+      for (let i = 1; i < 3; i++) {
+        console.log("Libro " + i);
+      }
+    </script>
+  </body>
+</html>

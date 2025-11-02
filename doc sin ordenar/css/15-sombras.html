@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15. Sombras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <main>
+    <h1>15. Sombras</h1>
+    <section>
+      <h2>Sombras en bloques</h2>
+      <p>Para aplicar una sombra a un bloque, configuraremos el color, longitud horizontal y vertical, así como el radio
+        de
+        desenfoque de la sombra.</p>
+      <pre><code>box-shadow: 5px 55px 5px #F00;</code></pre>
+      <div
+        style="box-shadow: 5px 5px 5px #F00; width: 200px; height: 100px; background: aliceblue; margin-bottom: 20px;">
+        ;MielmaDev</div>
+      <p>También es posible aplicar la sombra en el interior del bloque. Para ello añadiremos un parámetro adicional al
+        inicio:</p>
+      <pre><code>box-shadow: inset 10px 25px 5px #F00;</code></pre>
+      <div
+        style="box-shadow: inset 10px 25px 5px #F00; width: 200px; height: 100px; background: aliceblue; margin-bottom: 20px;">
+        MielmaDev</div>
+      <p>Y podemos aplicar varias sombras a la vez. Basta con separar cada sombra con una coma:</p>
+      <pre><code>box-shadow: 5px 5px 5px #000, -5px -5px 5px #F00;</code></pre>
+      <div
+        style="box-shadow: 5px 5px 5px #000, -5px -5px 5px #F00; width: 200px; height: 100px; background: aliceblue; margin-bottom: 20px;">
+        MielmaDev</div>
+    </section>
+    <section>
+      <h2>Sombras en textos</h2>
+      <p>De la misma forma que podemos hacer sombras en los bloques, también vamos a poder aplicárselas a los textos:
+      </p>
+      <pre><code>text-shadow: 1px 1px 2px aliceblue</code></pre>
+      <p style="text-shadow: 1px 1px 2px #F00">MielmaDev</p>
+      <pre><code>text-shadow: 1px 5px 2px #F00;</code></pre>
+      <p style="text-shadow: 1px 5px 2px #F00;">MielmaDev</p>
+      <p>También podremos aplicar varias sombras al mismo elemento, igual que hemos hecho en los bloques, separando cada
+        sombra
+        con una coma.</p>
+      <pre><code>text-shadow: 0 1px 0 #F00, 0 -1px 0 #000;</code></pre>
+      <p style="text-shadow: 0 1px 0 #F00, 0 -1px 0 #00F;">MielmaDev</p>
+    </section>
+    <section>
+      <h2>editar desde explorador chrome</h2>
+      <p>Si vamos a shadow, aparece un recuadro al lado de los <code>:</code> allí, nos sale una paleta para mover y ver
+        mejor
+        y luego poder apuntar los datos.</p>
+    </section>
+    <section>
+      <h2>Sombras gradientes</h2>
+      <p>No se puede hacer con shadow.
+        antes se hacia con divs y colores de fondo, moviendo los divs para que se viera el efecto. </p>
+      <h3>Ejemplo</h3>
+      <div
+        style="width: 200px; height: 100px; background: linear-gradient(to right, #F00,#000); box-shadow: 5px 5px 5px #000;">
+      </div>
+      <p>y luego con margin y padding, se puede mover el div para dar el efecto deseado</p>
+    </section>
+    <section>
+      <h2>Recursos</h2>
+      <ul>
+        <li><a href="http://www.layerstyles.org/builder.html">Generador de sombras 1</a></li>
+        <li><a href="https://www.joshwcomeau.com/shadow-palette/">Generador de sombras 2</a></li>
+      </ul>
+      <h2>Ejemplo de sombras</h2>
+      <ul>
+        <li><a href="http://nicolasgallagher.com/css-drop-shadows-without-images/demo/">Ejemplo de sombra 1</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>

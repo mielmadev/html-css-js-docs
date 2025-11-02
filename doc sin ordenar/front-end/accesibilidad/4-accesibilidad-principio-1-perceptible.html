@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Accesibilidad y WCAG: Principio 1 - Perceptible</title>
+    <link rel="icon" type="image/x-icon" href="/imagenes/MielmaDev/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../estilos/estilo.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>4. Accesibilidad y WCAG: Principio 1 - Perceptible</h1>
+    </header>
+    <main>
+      <article class="">
+        <section class="nota-codepen">
+          <h2>Falta agregar documentación</h2>
+        </section>
+      </article>
+
+      <article class="notas-mielmadev">
+        <h2>4. Principio 1 - Perceptible</h2>
+        <p>El primer principio de las WCAG, "Perceptible", se centra en garantizar que la información y los componentes de la interfaz de usuario sean presentados de manera que los usuarios puedan percibirlos. Esto significa que el contenido debe ser accesible a través de diferentes sentidos, como la vista y el oído, y debe ser presentado de manera clara y comprensible.</p>
+        <p class="nota"><strong>Nota:</strong> El principio "Perceptible" no solo contempla a personas ciegas o sordas, sino también a quienes tienen baja visión, daltonismo, dificultades cognitivas, personas mayores, o cualquier usuario que requiera adaptar la presentación del contenido. Por eso, se incluyen criterios como el contraste de colores, la posibilidad de aumentar el tamaño del texto, la claridad en la estructura, y evitar depender solo del color para transmitir información.</p>
+        <p>Algunas de las pautas clave bajo este principio incluyen:</p>
+        <ul>
+          <p><strong>Herramienta útil:</strong> <a href="https://colorblindly.com/" target="_blank" rel="noopener">Colorblindly</a> es una extensión para el navegador que permite simular cómo ven las personas con diferentes tipos de daltonismo. Es muy útil para comprobar si el contraste y los colores elegidos en un sitio web son accesibles para todos los usuarios.</p>
+          <li>Proporcionar texto alternativo para contenido no textual, como imágenes y gráficos, para que los usuarios con discapacidades visuales puedan comprender su significado.</li>
+          <li>Ofrecer subtítulos y alternativas para contenido multimedia, como videos y audios, para que los usuarios con discapacidades auditivas puedan acceder a la información.</li>
+          <li>Crear contenido que pueda presentarse de diferentes maneras sin perder información o estructura, como permitir el cambio de tamaño del texto o el uso de lectores de pantalla.</li>
+          <li>Hacer que el contenido sea más fácil de ver y escuchar, por ejemplo, mediante el uso de contrastes adecuados entre el texto y el fondo, y evitando el uso exclusivo del color para transmitir información.</li>
+        </ul>
+        <section>
+          <h2>Pauta 1.1 Alternativas textuales</h2>
+          <p>Proporcione alternativas textuales para todo contenido no textual, de manera que pueda modificarse para ajustarse a las necesidades de las personas, como por ejemplo en una letra mayor, braille, voz, símbolos o un lenguaje más simple.</p>
+
+          <h3>1.1.1 Contenido no textual <span>Nivel A</span></h3>
+          <p>Todo contenido no textual que se presenta al usuario cuenta con una alternativa textual que sirve para un propósito equivalente, excepto en los supuestos listados abajo.</p>
+
+          <dl>
+            <dt>Controles, entrada de datos</dt>
+            <dd>Si el contenido no textual es un control o acepta datos de entrada del usuario, entonces debe tener un nombre que describa su propósito. (Véase la Pauta 4.1 para los requisitos adicionales establecidos para controles y contenidos que aceptan entrada de datos de usuarios.)</dd>
+
+            <dt>Contenido multimedia dependiente del tiempo</dt>
+            <dd>Si el contenido no textual es contenido multimedia dependiente del tiempo, entonces el texto proporciona al menos una descripción identificativa del contenido no textual. (Véase la Pauta 1.2 para los requisitos adicionales establecidos para contenidos multimedia.)</dd>
+
+            <dt>Prueba</dt>
+            <dd>Si el contenido no textual es una prueba o ejercicio que pudiera resultar inválido al presentarse como texto, entonces el texto alternativo proporciona al menos una descripción identificativa del contenido no textual.</dd>
+
+            <dt>Experiencia sensorial</dt>
+            <dd>Si el contenido ha sido creado principalmente para proporcionar una experiencia sensorial específica, entonces el texto proporciona al menos una descripción identificativa del contenido no textual.</dd>
+
+            <dt>CAPTCHA</dt>
+            <dd>Si el propósito del contenido no textual es confirmar si al contenido está accediendo un humano y no un ordenador, entonces los textos alternativos identifican y describen el propósito del contenido no textual, y se proporcionan maneras alternativas de CAPTCHA con emisiones dirigidas a distintos sentidos que se ajusten a distintas discapacidades.</dd>
+
+            <dt>Decoración, formato, invisible</dt>
+            <dd>Si el contenido no textual es pura decoración, se emplea exclusivamente por una cuestión de formato visual o no se presenta a los usuarios, entonces se ha implementado de manera que pueda ser ignorado por las tecnologías asistivas.</dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Pauta 1.2 Contenido multimedia dependiente del tiempo</h2>
+          <p>Proporcione alternativas sincronizadas para contenidos multimedia sincronizados dependientes del tiempo.</p>
+
+          <p class="nota"><strong>Nota sobre audio-descripción:</strong> Cuando un video contiene información relevante en las imágenes (por ejemplo, acciones, gestos, escenas importantes) que no se transmite únicamente a través del audio, es necesario ofrecer una <strong>audio-descripción</strong>. La audio-descripción es una narración adicional que describe lo que ocurre en pantalla para personas ciegas o con baja visión. Si el video solo tiene audio relevante, se debe proporcionar una transcripción textual. Si el video solo tiene imágenes sin audio, se debe ofrecer una pista de audio o una alternativa textual que describa las imágenes.</p>
+
+          <p class="nota"><strong>Nota sobre accesibilidad para personas sordas:</strong> Cuando un video o audio contiene información relevante en el sonido (diálogos, música, efectos), es fundamental ofrecer <strong>subtítulos</strong> sincronizados que incluyan no solo los diálogos, sino también descripciones de sonidos importantes. Además, para mayor accesibilidad, se puede ofrecer una <strong>interpretación en lengua de signos</strong> integrada en el video. Estas medidas permiten que las personas sordas o con discapacidad auditiva comprendan completamente el contenido multimedia.</p>
+          <p class="nota"><strong>Otras opciones de accesibilidad para personas sordas:</strong> También se pueden ofrecer <strong>transcripciones completas</strong> del contenido multimedia, alertas visuales para sonidos importantes (como timbres o alarmas), y la posibilidad de personalizar los subtítulos (tamaño, color, fondo). El uso de pictogramas o símbolos visuales y la compatibilidad con dispositivos de asistencia pueden mejorar aún más la accesibilidad.</p>
+
+          <h3>1.2.1 Sólo audio y sólo vídeo (pregrabado) <span>Nivel A</span></h3>
+          <p>Para contenidos pregrabados que consisten en sólo audio y sólo vídeo, lo siguiente es cierto, excepto para cuando el audio o el vídeo es un contenido multimedia alternativo al texto y está claramente identificado como tal:</p>
+
+          <dl>
+            <dt>Sólo audio pregrabado</dt>
+            <dd>Se proporciona una alternativa para contenido multimedia dependiente del tiempo que presenta la información equivalente a la del contenido de sólo audio pregrabado.</dd>
+
+            <dt>Sólo vídeo pregrabado</dt>
+            <dd>Se proporciona o bien una alternativa para contenido multimedia dependiente del tiempo, o bien una pista de audio que presenten la información equivalente a la del contenido de sólo vídeo pregrabado.</dd>
+          </dl>
+
+          <h3>1.2.2 Subtítulos (pregrabados) <span>Nivel A</span></h3>
+          <p>Se proporcionan subtítulos para todo audio pregrabado presente en un contenido multimedia sincronizado, excepto cuando tal contenido es un contenido multimedia alternativo al texto y está claramente identificado como tal.</p>
+
+          <h3>1.2.3 Audiodescripción o alternativa multimedia (pregrabada) <span>Nivel A</span></h3>
+          <p>Se proporciona una alternativa para contenido multimedia dependiente del tiempo o una audiodescripción para el contenido de vídeo pregrabado del contenido multimedia sincronizado, excepto cuando tal contenido es un contenido multimedia alternativo al texto y está claramente identificado como tal.</p>
+
+          <h3>1.2.4 Subtítulos (directo) <span class="aa">Nivel AA</span></h3>
+          <p>Se proporcionan subtítulos para todo contenido de audio en directo del contenido multimedia sincronizado.</p>
+
+          <h3>1.2.5 Audiodescripción (pregrabada) <span class="aa">Nivel AA</span></h3>
+          <p>Se proporciona una audiodescripción para todo contenido de vídeo pregrabado del contenido multimedia sincronizado.</p>
+
+          <h3>1.2.6 Lengua de signos (pregrabada) <span class="aaa">Nivel AAA</span></h3>
+          <p>Se proporciona una interpretación a lengua de signos para todo contenido de audio pregrabado del contenido multimedia sincronizado.</p>
+
+          <h3>1.2.7 Audiodescripción extendida (pregrabada) <span class="aaa">Nivel AAA</span></h3>
+          <p>Donde las pausas del audio de un vídeo sean insuficientes para permitir que la audiodescripción transmita el sentido del vídeo, se proporciona una audiodescripción extendida para todo contenido de vídeo pregrabado del contenido multimedia sincronizado.</p>
+
+          <h3>1.2.8 Alternativa multimedia (pregrabada) <span class="aaa">Nivel AAA</span></h3>
+          <p>Se proporciona una alternativa para contenido multimedia dependiente del tiempo para todo contenido multimedia sindronizado pregrabado y para todo contenido pregrabado que consista en sólo vídeo.</p>
+
+          <h3>1.2.9 Sólo audio (directo) <span class="aaa">Nivel AAA</span></h3>
+          <p>Se proporciona una alternativa para contenido multimedia dependiente del tiempo que presenta la información equivalente para todo contenido que consiste en sólo audio en directo.</p>
+        </section>
+        <section>
+          <h2>Pauta 1.3 Adaptabilidad</h2>
+          <p>Cree contenidos que puedan presentarse de diversas maneras (como por ejemplo una composición más simple) sin perder la información ni su estructura.</p>
+
+          <h3>1.3.1 Información y relaciones <span>Nivel A</span></h3>
+          <p>La información, la estructura, y las relaciones transmitidas a través de la presentación pueden ser programablemente determinadas o se encuentran disponibles en texto.</p>
+
+          <h3>1.3.2 Secuencia significativa <span>Nivel A</span></h3>
+          <p>Cuando la secuencia en la que se presenta un contenido afecta a su significado, la secuencia correcta de lectura puede ser programablemente determinada.</p>
+
+          <h3>1.3.3 Características sensoriales <span>Nivel A</span></h3>
+          <p>Las instrucciones que se proporcionan para comprender y operar con un contenido no confían solamente en las características sensoriales de los componentes, tales como forma, tamaño, ubicación visual, orientación o sonido.</p>
+
+          <h3>1.3.4 Orientación <span>Nivel AA</span></h3>
+          <p>El contenido no obliga a verlo y utilizarlo en una orientación específica.</p>
+          <p class="nota"><em>Nota:</em> Ejemplos de excepciones: un cheque bancario, una aplicación de piano, contenido de realidad virtual... En estos casos será necesario avisar de la orientación obligatoria.</p>
+
+          <h3>1.3.5 Identificar el objetivo de entrada <span>Nivel AA</span></h3>
+          <p>El propósito de cada campo de formulario que recoge información sobre la persona puede ser determinado por software cuando:</p>
+          <ul class="lista-facts">
+            <li>El campo tiene un propósito identificado y concreto.</li>
+            <li>El campo está implementado usando tecnologías con soporter para identificar su significado esperado en un formulario.</li>
+          </ul>
+
+          <p class="nota"><em>Nota:</em> por ejemplo, en un campo que le pide que complete el correo electrónico, debe quedar claro qué correo electrónico debe completarse (personal, comercial, etc).</p>
+
+          <p class="nota"><em>Nota:</em> ver junto con los criterios 2.4.6 (AA) y 3.3.2 (A).</p>
+
+          <h3>1.3.6 Identificar el objetivo <span>Nivel AAA</span></h3>
+          <p>En contenidos implementados con lenguajes de marcado, el objetivo de los componentes de la interfaz de usuario, iconos y regiones puede ser determinado por programación.</p>
+        </section>
+        <section>
+          <h2>Pauta 1.4 Distinguible</h2>
+          <p>Haga más fácil para los usuarios ver y oír el contenido, incluyendo la separación entre primer plano y fondo.</p>
+
+          <h3>1.4.1 Empleo del color <span>Nivel A</span></h3>
+          <p>El color no se emplea como el único medio visual para transmitir una información, indicar una acción, provocar una respuesta o distinguir visualmente un elemento.</p>
+
+          <p class="nota"><em>Nota:</em> Este criterio de éxito trata específicamente acerca de la percepción del color. Otras formas de percepción se cubren en la Pauta 1.3, que incluye el acceso programado al color y a otros códigos de presentación visual.</p>
+
+          <h3>1.4.2 Control de audio <span>Nivel A</span></h3>
+          <p>Si cualquier audio se reproduce automáticamente en una página web durante más de tres segundos, o bien existe un mecanismo que permita pausar o detener el audio, o bien existe un mecanismo que permita controlar el volumen del audio de manera independiente al del resto del sistema.</p>
+
+          <p class="nota"><em>Nota:</em> En la medida en que cualquier contenido que no satisfaga este criterio puede interferir con la capacidad del usuario para emplear la página como un todo, todo contenido de la página web (tanto si cumple o no con otros criterios de éxito) debe satisfacer este criterio. Véase Requisito de conformidad 5: No interferencia.</p>
+
+          <h3>1.4.3 Contraste (mínimo) <span class="aa">Nivel AA</span></h3>
+          <p>La presentación visual del texto y las imágenes de texto tienen una relación de contraste de al menos 4.5:1, excepto para los siguientes casos:</p>
+
+          <dl>
+            <dt>Gran tamaño</dt>
+            <dd>El texto a gran tamaño y las imágenes de texto a gran tamaño tienen una relación de contraste de al menos 3:1;</dd>
+
+            <dt>Incidental</dt>
+            <dd>El texto o las imágenes de texto que son parte de un componente de interfaz de usuario inactivo, que son pura decoración, que no son visibles para nadie o que son parte de una imagen cuyo contenido significativo es otro contenido visual, no tienen un requisito mínimo de contraste.</dd>
+
+            <dt>Logotipos</dt>
+            <dd>El texto que es parte de un logo o de un nombre de marca no tiene un requisito mínimo de contraste.</dd>
+          </dl>
+
+          <h3>1.4.4 Variar el tamaño de texto <span class="aa">Nivel AA</span></h3>
+          <p>Excepto para subtítulos e imágenes de texto, se puede variar el tamaño del texto sin necesidad de emplear una tecnología asistiva hasta un 200 por ciento sin pérdida de contenido o funcionalidad.</p>
+
+          <h3>1.4.5 Imágenes de texto <span class="aa">Nivel AA</span></h3>
+          <p>Si con las tecnologías empleadas se puede lograr la presentación visual deseada, se prefiere emplear texto para transmitir la información antes que imágenes de texto excepto para los siguientes casos:</p>
+
+          <dl>
+            <dt>Personalizable</dt>
+            <dd>La imagen de texto puede ser visualmente personalizada según los requisitos del usuario;</dd>
+
+            <dt>Esencial</dt>
+            <dd>La presentación de un texto en particular es esencial para la información que se está transmitiendo.</dd>
+          </dl>
+
+          <p class="nota"><em>Nota:</em> Los logotipos (textos que son parte de un logo o de un nombre de marca) se consideran esenciales.</p>
+
+          <h3>1.4.6 Contraste (mejorado) <span class="aaa">Nivel AAA</span></h3>
+          <p>La presentación visual del texto y de las imágenes de texto mantienen una relación de contraste de al menos 7:1, excepto para los siguientes casos:</p>
+
+          <dl>
+            <dt>Gran tamaño</dt>
+            <dd>El texto a gran tamaño y las imágenes de texto a gran tamaño tienen una relación de contraste de al menos 4.5:1;</dd>
+
+            <dt>Incidental</dt>
+            <dd>El texto o las imágenes de texto que son parte de un componente de interfaz de usuario inactivo, que son pura decoración, que no son visibles para nadie o que son parte de una imagen cuyo contenido significativo es otro contenido visual, no tienen un requisito mínimo de contraste.</dd>
+
+            <dt>Logotipos</dt>
+            <dd>El texto que es parte de un logo o de un nombre de marca no tiene un requisito mínimo de contraste.</dd>
+          </dl>
+
+          <h3>1.4.7 Fondo de audio bajo o inexistente <span class="aaa">Nivel AAA</span></h3>
+          <p>Para todo contenido consistente en sólo audio pregrabado que (1) contiene principalmente una locución, (2) no es un CAPTCHA de audio o un audiologo, y (3) no es una vocalización cuya interpretación sea principalmente una expresión musical (como el canto o el rap), al menos uno de los siguientes enunciados es verdadero:</p>
+
+          <dl>
+            <dt>Sin fondo</dt>
+            <dd>El audio no contiene sonidos de fondo.</dd>
+
+            <dt>Apagable</dt>
+            <dd>El sonido de fondo se puede apagar.</dd>
+
+            <dt>20 dB</dt>
+            <dd>El sonido de fondo es al menos a 20 decibelios más bajo que la locución principal, exceptuando sonidos ocasionales que no duren más de uno o dos segundos.</dd>
+          </dl>
+
+          <p class="nota"><em>Nota:</em> Para la definición de "decibelio," el sonido de fondo que cumple con este requisito es aproximadamente cuatro veces más tenue que la locución principal.</p>
+
+          <h3>1.4.8 Presentación visual <span class="aaa">Nivel AAA</span></h3>
+          <p>Para la presentación visual de bloques de texto, se proporciona un mecanismo que logre que:</p>
+
+          <ul class="lista-pasos">
+            <li>El usuario pueda seleccionar los colores de primer plano y fondo.</li>
+            <li>El ancho de línea no pueda exceder los 80 caracteres o glifos (40 para CJK).</li>
+            <li>El texto no se justifique (alinearse en sus márgenes derecho e izquierdo).</li>
+            <li>El espacio entre líneas (altura de línea) sea al menos un espacio y medio en el interior de los párrafos, y que el espacio entre párrafos sea al menos una vez y media más amplio que el espacio entre línea.</li>
+            <li>El texto pueda escalarse sin necesidad de una tecnología asistiva hasta un 200 por ciento de manera que el usuario no necesite de una barra de scroll horizontal para leer una línea de texto en una ventana a pantalla completa.</li>
+          </ul>
+          <p>&nbsp;</p>
+
+          <h3>1.4.9 Imágenes de texto (sin excepción) <span class="aaa">Nivel AAA</span></h3>
+          <p>Las imágenes de texto sólo se emplean como pura decoración o donde una presentación en particular del texto es esencial para la información que se transmite.</p>
+
+          <p class="nota"><em>Nota:</em> Los logotipos (textos que son parte de un logo o de un nombre de marca) se consideran esenciales.</p>
+
+          <h3>1.4.10 Reajuste de elementos <span class="aa">Nivel AA</span></h3>
+          <p>El contenido puede presentarse sin perder información o funcionalidad, y sin requerir scroll en las dos dimensiones si se desplaza:</p>
+          <ul class="lista-facts">
+            <li>En vertical con una anchura equivalente a 320 píxeles CSS.</li>
+            <li>En horizontal con una altura equivalente a 256 píxeles CSS.</li>
+          </ul>
+          <p class="nota"><em>Excepción:</em> Aquellas partes del contenido que requieren ese desplazamiento en dos dimensiones por su uso o significado.</p>
+
+          <p class="nota"><em>Nota:</em> ver junto con el criterio 1.4.5 (AA).</p>
+
+          <h3>1.4.11 Contraste no textual <span class="aa">Nivel AA</span></h3>
+          <p>El contraste de los componentes de la interfaz de usuarios (p.e. botones, campos de formulario, etc..) y otros objetos gráficos (iconos, banderas, logos...) tiene una ratio de contraste de al menos 3:1 con los colores adyacentes.</p>
+
+          <p class="nota"><em>Nota:</em> ver junto con los criterios 1.4.3 (AA) y 1.4.6 (AAA).</p>
+
+          <h3>1.4.12 Espaciado de texto <span class="aa">Nivel AA</span></h3>
+          <p>Si el lenguaje de marcado utilizado admite las propiedades de estilo que se indican a continuación, el texto se podrá formatear de la siguiente manera sin perder contenido ni funcionalidad y sin necesidad de alterar otros estilos:</p>
+          <dl>
+            <dt>Espacio entre líneas:</dt>
+            <dd>al menos 1.5 veces el tamaño de la fuente.</dd>
+            <dt>Espacio entre párrafos:</dt>
+            <dd>al menos 2 veces el tamaño de la fuente.</dd>
+            <dt>Espacio entre letras:</dt>
+            <dd>al menos 0.12 veces el tamaño de la fuente.</dd>
+            <dt>Espacio entre palabras:</dt>
+            <dd>al menos 0.16 veces el tamaño de la fuente.</dd>
+          </dl>
+
+          <p class="nota"><em>Nota:</em> ver junto con el criterio 1.4.8 (AAA).</p>
+
+          <h3>1.4.13 Contenido al pasar el ratón o teclado al ganar el foco <span class="aa">Nivel AA</span></h3>
+          <p>Cuando un componente de la interfaz recibe y luego pierde el foco y esto genera que un contenido adicional se haga visible y luego se oculte, se cumplen las siguientes condiciones:</p>
+          <dl>
+            <dt>Descartable:</dt>
+            <dd>existe un mecanismo para descartar el contenido adicional sin mover el puntero o el foco de teclado (por ejemplo, con la tecla ESC), a no ser que el contenido comunique un error de entrada de datos, o no tape o no reemplace a otro contenido.</dd>
+            <dt>Desplazable:</dt>
+            <dd>si el puntero del cursor puede activar el contenido adicional, entonces el puntero se puede desplazar sobre él sin que desaparezca.</dd>
+            <dt>Persistente:</dt>
+            <dd>el nuevo contenido permanece visible hasta que se retira el puntero o el foco, la persona lo descarta o su información ya no es válida.</dd>
+          </dl>
+        </section>
+        <footer class="pag-pie indice-maxi">
+          <p class="titulo-indice articulo-titulo-indice">Ejemplos</p>
+          <ul class="descargas-lista articulo-indice">
+            <li><a href="https://www.youtube.com/watch?v=Rz3nUB7f9f8" rel="external">Audiodescripción</a></li>
+            <li><a href="http://sidar.org/ableplayer2/tests/test16.html" rel="external">Lengua de signos integrado</a></li>
+          </ul>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

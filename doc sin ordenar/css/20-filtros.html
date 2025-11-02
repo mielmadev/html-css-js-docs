@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20 - Filtros CSS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>20. Filtros CSS</h1>
+    </header>
+    <section>
+      <p>Los filtros nos permiten manipular tanto elementos html como imágenes en varios aspectos. La sintaxis base es
+        la siguiente:</p>
+      <pre><code>filter: nombrefiltro(valor);
+filter: nombrefiltro(valor);
+
+filter: blur(20px); /* ejemplo filtro de desenfoque */
+      </code></pre>
+    </section>
+    <section>
+      <p>En función del tipo de filtro que usemos, tendremos diferentes valores de configuración:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Filtro</th>
+            <th>Para qué es</th>
+            <th>Unidades</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>blur()</td>
+            <td>Desenfoca el elemento</td>
+            <td>px</td>
+          </tr>
+          <tr>
+            <td>brightness()</td>
+            <td>Ajusta el brillo</td>
+            <td>número (0 a ∞, 1=normal)</td>
+          </tr>
+          <tr>
+            <td>saturate()</td>
+            <td>Aumenta o reduce la saturación</td>
+            <td>% o número (1=normal)</td>
+          </tr>
+          <tr>
+            <td>hue-rotate()</td>
+            <td>Rota el tono de color</td>
+            <td>deg</td>
+          </tr>
+          <tr>
+            <td>contrast()</td>
+            <td>Ajusta el contraste</td>
+            <td>% o número (1=normal)</td>
+          </tr>
+          <tr>
+            <td>invert()</td>
+            <td>Invierte los colores</td>
+            <td>%</td>
+          </tr>
+          <tr>
+            <td>grayscale()</td>
+            <td>Convierte a escala de grises</td>
+            <td>%</td>
+          </tr>
+          <tr>
+            <td>sepia()</td>
+            <td>Aplica efecto sepia</td>
+            <td>%</td>
+          </tr>
+          <tr>
+            <td>opacity()</td>
+            <td>Ajusta la opacidad</td>
+            <td>%</td>
+          </tr>
+          <tr>
+            <td>drop-shadow()</td>
+            <td>Agrega sombra al elemento</td>
+            <td>offset-x, offset-y, blur-radius, color</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Podemos combinar varios filtros a la vez:</p>
+      <pre>
+filter: grayscale(100%) sepia(100%);
+      </pre>
+      <p>Y existe la posibilidad de crear filtros personalizados con SVG:</p>
+      <pre>
+HTML:
+        <code>&lt;svg&gt;
+  &lt;filter id="filtroperso"&gt;
+    &lt;feTurbulence type="turbulence" baseFrequency="0.01 0.02" numOctaves="1" result="noise"&gt;
+    &lt;/feTurbulence&gt;
+    &lt;feDisplacementMap in="SourceGraphic" in2="noise" scale="50"&gt;
+    &lt;/feDisplacementMap&gt;
+  &lt;/filter&gt;
+&lt;/svg&gt;
+
+&lt;img src="ruta/imagen.ext" alt="Imagen con Filtro SVG"&gt;
+</code>
+CSS:
+<code>img{
+filter:url(#filtroperso);
+}
+      </code></pre>
+      <p>Filtro SVG</p>
+    </section>
+
+    <section>
+<h2>Referencias</h2>
+<ul>
+  <li>
+    <a href="https://css-tricks.com/almanac/properties/f/filter/" target="_blank" rel="noopener">Filtros básicos</a>
+  </li>
+  <li></li>
+    <a href="https://blog.logrocket.com/complete-guide-using-css-filters-svgs/" target="_blank" rel="noopener">Filtros SVG</a>
+  </li>
+  <li>
+    <a href="https://www.smashingmagazine.com/2015/05/why-the-svg-filter-is-awesome/" target="_blank" rel="noopener">Filtros SVG sobre textos</a>
+  </li>
+</ul>
+
+<h2>Recursos</h2>
+<ul>
+  <li>
+    <a href="https://front-end-tools.com/en/generateFilter/" target="_blank" rel="noopener">Generador automático 1</a>
+  </li>
+  <li>
+    <a href="https://justcode.today/filters/" target="_blank" rel="noopener">Generador automático 2 (posibilidad de SVG)</a>
+  </li>
+  <li>
+    <a href="https://yoksel.github.io/svg-filters/#/" target="_blank" rel="noopener">Filtros SVG</a>
+  </li>
+</ul>
+
+    </section>
+  </main>
+</body>
+
+</html>

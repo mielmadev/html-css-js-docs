@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Accesibilidad y WCAG</title>
+    <link rel="icon" type="image/x-icon" href="/imagenes/MielmaDev/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../estilos/estilo.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>3. Accesibilidad y WCAG</h1>
+    </header>
+    <main>
+      <article class="">
+        <section class="nota-codepen">
+          <h2>Falta agregar documentación</h2>
+        </section>
+      </article>
+
+      <article class="notas-mielmadev">
+        <section>
+          <h2>¿Qué son las WCAG?</h2>
+          <p>Las Pautas de Accesibilidad para el Contenido Web (WCAG) son un conjunto de directrices desarrolladas por la Iniciativa de Accesibilidad Web (WAI) del W3C. Su objetivo es mejorar la accesibilidad del contenido web para personas con discapacidades.</p>
+          <p>Las WCAG se basan en cuatro principios fundamentales, conocidos como los principios POUR:</p>
+          <table>
+        <caption>Principios WCAG (POUR)</caption>
+        <thead>
+          <tr>
+            <th>Principio</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Perceptible</strong></td>
+            <td>La información y los componentes de la interfaz de usuario deben ser presentados de manera que los usuarios puedan percibirlos.</td>
+          </tr>
+          <tr>
+            <td><strong>Operable</strong></td>
+            <td>Los componentes de la interfaz de usuario y la navegación deben ser operables por todos los usuarios.</td>
+          </tr>
+          <tr>
+            <td><strong>Comprensible</strong></td>
+            <td>La información y el funcionamiento de la interfaz de usuario deben ser comprensibles.</td>
+          </tr>
+          <tr>
+            <td><strong>Robusto</strong></td>
+            <td>El contenido debe ser lo suficientemente robusto como para ser interpretado de manera confiable por una amplia variedad de agentes de usuario, incluidas las tecnologías de asistencia.</td>
+          </tr>
+        </tbody>
+          </table>
+          <p>Las WCAG se actualizan periódicamente para abordar las nuevas tecnologías y las necesidades cambiantes de los usuarios. La versión más reciente, WCAG 2.1, incluye criterios adicionales para mejorar la accesibilidad en dispositivos móviles y para personas con discapacidades cognitivas y de aprendizaje.</p>
+        </section>
+        <section>
+          <h2>Contenido</h2>
+          <p>Las WCAG se organizan en 4 principios y 13 pautas principales:</p>
+          <ol>
+        <li>Proporcionar texto alternativo para contenido no textual.</li>
+        <li>Ofrecer subtítulos y alternativas para contenido multimedia.</li>
+        <li>Crear contenido que pueda presentarse de diferentes maneras sin perder información.</li>
+        <li>Hacer que el contenido sea más fácil de ver y escuchar.</li>
+        <li>Hacer que todas las funciones sean accesibles desde el teclado.</li>
+        <li>Dar a los usuarios tiempo suficiente para leer y usar el contenido.</li>
+        <li>No diseñar contenido de manera que se sepa que causa convulsiones.</li>
+        <li>Proporcionar formas de ayudar a los usuarios a navegar, encontrar contenido y determinar dónde se encuentran.</li>
+        <li>Hacer que el texto sea legible y comprensible.</li>
+        <li>Hacer que las páginas web funcionen y se comporten de manera predecible.</li>
+        <li>Ayudar a los usuarios a evitar y corregir errores.</li>
+        <li>Maximizar la compatibilidad con agentes de usuario actuales y futuros, incluidas tecnologías de asistencia.</li>
+        <li>Identificar el idioma de las páginas y partes del contenido.</li>
+          </ol>
+          <p>Están preparando la versión 3 pero está en pañales.</p>
+        </section>
+        <section>
+          <h2>Niveles de cumplimiento</h2>
+          <p>Las WCAG definen tres niveles de conformidad para medir el grado de accesibilidad de un sitio web:</p>
+          <table>
+        <caption>Niveles de conformidad WCAG</caption>
+        <thead>
+          <tr>
+            <th>Nivel</th>
+            <th>Descripción</th>
+            <th>Obligatoriedad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>A (mínimo)</strong></td>
+            <td>Aborda los problemas de accesibilidad más críticos, pero aún pueden existir barreras significativas.</td>
+            <td>Obligatorio</td>
+          </tr>
+          <tr>
+            <td><strong>AA (medio)</strong></td>
+            <td>Recomendado para la mayoría de los sitios web. Mejora significativamente la experiencia para la mayoría de los usuarios con discapacidades.</td>
+            <td>Obligatorio</td>
+          </tr>
+          <tr>
+            <td><strong>AAA (máximo)</strong></td>
+            <td>Ofrece la mejor experiencia posible, pero es difícil de lograr en su totalidad y no siempre es necesario.</td>
+            <td>Opcional</td>
+          </tr>
+        </tbody>
+          </table>
+          <p class="nota">Los dos primeros niveles son obligatorios.</p>
+        </section>
+        <section>
+          <h2>Clasificación por principios y niveles de conformidad</h2>
+          <table>
+        <caption>
+          Principios WCAG: número de pautas y criterios
+        </caption>
+        <thead>
+          <tr>
+            <th>Principio</th>
+            <th>Nº de pautas</th>
+            <th>Nº de criterios</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Perceptible</td>
+            <td>4</td>
+            <td>29</td>
+          </tr>
+          <tr>
+            <td>2. Operable</td>
+            <td>5</td>
+            <td>35</td>
+          </tr>
+          <tr>
+            <td>3. Comprensible</td>
+            <td>3</td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>4. Robusto</td>
+            <td>1</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <th>Total</th>
+            <th>13</th>
+            <th>86</th>
+          </tr>
+        </tbody>
+          </table>
+        </section>
+        <section>
+          <h2>Estándar internacional</h2>
+          <p>Las WCAG 2.0 y 2.1 han sido adoptadas como estándares internacionales bajo la designación ISO/IEC 40500. Esto significa que las pautas tienen reconocimiento oficial y pueden ser utilizadas como referencia en contextos legales y regulatorios en todo el mundo.</p>
+        </section>
+        <footer class="pag-pie indice-maxi">
+          <p class="titulo-indice articulo-titulo-indice">Referencias</p>
+          <ul class="descargas-lista articulo-indice">
+        <li><a href="https://www.w3.org/WAI/" rel="external">WAI</a></li>
+        <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/es" rel="external">Intro WCAG 2</a></li>
+        <li><a href="https://www.w3.org/TR/WCAG22/" rel="external">WCAG 2.2</a></li>
+        <li><a href="https://www.iso.org/standard/91029.html" rel="external">ISO/IEC 40500</a></li>
+          </ul>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

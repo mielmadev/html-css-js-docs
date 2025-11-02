@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13. Bordes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>13. Bordes</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Bordes básicos</h2>
+      <p>Sobre un elemento HTML podemos aplicar un borde, el cual puede ser idéntico en los 4 lados o bien tener bordes
+        diferentes.</p>
+
+      <p>Un borde se compone de 3 elementos: <strong>grosor</strong>, <strong>estilo de la línea</strong> y
+        <strong>color</strong>, separados por un espacio. Es igual que las propiedades de decoración que hemos visto
+        anteriormente. El orden en que se indiquen estos 3 elementos es irrelevante.
+      </p>
+
+      <p>Vamos a ver primero las propiedades por separado y luego las abreviaremos.</p>
+
+      <section>
+        <h3>Grosor</h3>
+        <p>Establecemos el grosor del borde. No se pueden utilizar porcentajes para establecer el grosor.</p>
+        <p>
+          <span style="border-width: 20px; border-style: solid; border-color: #FF0000;">border-width: 20px;</span>
+          <span style="border-width: 10px; border-style: solid; border-color: #FF0000;">border-width: 10px;</span>
+        </p>
+      </section>
+
+      <section>
+        <h3>Estilo</h3>
+        <p>Disponemos de diferentes estilos de borde:</p>
+        <p>
+          <span style="border: 3px solid black; padding: 2px 8px; margin:2px; display:inline-block;">border:
+            solid;</span>
+          <span style="border: 3px dotted black; padding: 2px 8px; margin:2px; display:inline-block;">border:
+            dotted;</span>
+          <span style="border: 3px dashed black; padding: 2px 8px; margin:2px; display:inline-block;">border:
+            dashed;</span>
+          <span style="border: 3px double black; padding: 2px 8px; margin:2px; display:inline-block;">border:
+            double;</span>
+          <span style="border: 3px inset black; padding: 2px 8px; margin:2px; display:inline-block;">border:
+            inset;</span>
+          <span style="border: 3px outset black; padding: 2px 8px; margin:2px; display:inline-block;">border:
+            outset;</span>
+          <span style="border: 3px groove black; padding: 2px 8px; margin:2px; display:inline-block;">border:
+            groove;</span>
+          <span style="border: 3px ridge black; padding: 2px 8px; margin:2px; display:inline-block;">border:
+            ridge;</span>
+          <span style="border: none; padding: 2px 8px; margin:2px; display:inline-block;">border: none;</span>
+        </p>
+      </section>
+
+      <section>
+        <h3>Color</h3>
+        <p>Utilizamos un color con el formato que queramos (RGB, Hexadecimal, etc.).</p>
+        <p>
+          <span style="border: 2px solid #FF0000; padding: 2px 8px; margin:2px; display:inline-block;">border-color:
+            #FF0000;</span>
+          <span style="border: 2px solid #00FF00; padding: 2px 8px; margin:2px; display:inline-block;">border-color:
+            #00FF00;</span>
+          <span style="border: 2px solid #0000FF; padding: 2px 8px; margin:2px; display:inline-block;">border-color:
+            #0000FF;</span>
+          <span style="border: 2px solid #00FFFF; padding: 2px 8px; margin:2px; display:inline-block;">border-color:
+            #00FFFF;</span>
+          <span style="border: 2px solid #FFFF00; padding: 2px 8px; margin:2px; display:inline-block;">border-color:
+            #FFFF00;</span>
+          <span style="border: 2px solid #000000; padding: 2px 8px; margin:2px; display:inline-block;">border-color:
+            #000000;</span>
+        </p>
+      </section>
+
+      <p>Combinando las 3 opciones, obtenemos este resultado:</p>
+
+      <pre><code>border-width: 0px</code></pre>
+      <pre><code>border-width</code></pre>
+      <pre><code>border-style:</code></pre>
+
+      <ul>
+        <li>None</li>
+        <li>Solid</li>
+        <li>Dotted</li>
+        <li>Dashed</li>
+        <li>Double</li>
+        <li>Inset</li>
+        <li>Outset</li>
+        <li>Groove</li>
+        <li>Ridge</li>
+      </ul>
+      <pre><code>border-color: Transparent Red Green Blue Yellow Black</code></pre>
+      <p>Hasta el infinito y más allá</p>
+
+      <p>Si tenemos 4 lados y 3 propiedades por lado, en total tendríamos que utilizar 12 propiedades para establecer un
+        borde completo.</p>
+
+      <p>Vamos a abreviar las 3 propiedes en una única, border:</p>
+
+      <pre><code>border: grosor estilo color; (o el orden que queramos, es irrelevante)</code></pre>
+
+      <pre><code>border: 20px solid #FF0000;</code></pre>
+      <p>Si queremos dar estilo a cada lado de forma individual, llamaremos a las propiedades de cada lado:</p>
+
+      <pre><code>border-top: 20px solid #FF0000; /* borde superior */
+border-right: 10px dashed #00FF00; /* borde derecho */
+border-bottom: 5px double #0000FF; /* borde inferior */
+border-left: 3px dotted #00FFFF; /* borde izquierdo */</code></pre>
+    </section>
+
+    <section>
+      <h2>Bordes multicolor</h2>
+      <p>Para que el borde double funcione correctamente, será necesario utilizar un grosor con número impar.</p>
+      <p>Para visualizar el borde inset | outset | groove | ridge, necesitaremos los 4 bordes visibles.</p>
+    </section>
+
+    <section>
+      <h2>Bordes redondeados</h2>
+      <p>Podemos cambiar la apariencia de nuestros bordes, de cuadrados a redondeados.</p>
+      <p>Se puede configurar el radio de la curvatura con el mismo valor para todos los lados del borde, o bien
+        configurar
+        uno diferente para cada lado, de manera individual:</p>
+
+      <section>
+        <h3>Todas las esquinas iguales</h3>
+        <pre><code>border-radius</code></pre>
+      </section>
+
+      <section>
+        <h3>Esquinas individuales</h3>
+        <pre><code>border-top-left-radius
+border-top-right-radius
+border-bottom-right-radius
+border-bottom-left-radius</code></pre>
+        <p>No hace falta escribir las propiedades de forma individual. Podemos unificar las propiedades. En este caso
+          utilizaremos 4 parámetros separados por espacios y el orden debe ser en el sentido de las agujas de reloj,
+          empezando por esquina superior izquierda:</p>
+        <pre><code>border-radius: 10px 20px 30px 60px;</code></pre>
+      </section>
+
+      <section>
+        <h3>Esquinas simétricas</h3>
+        <p>Si tenemos esquinas simétricas, podemos escribir tan solo 2 valores:</p>
+        <pre><code>border-radius: 50px 20px;</code></pre>
+        <p>En este caso, el primer valor (50px) se aplicará en la esquina superior izquierda y en la inferior derecha, y
+          el
+          segundo valor (20px) se aplicará en la esquina superior derecha y en la inferior izquierda.</p>
+      </section>
+
+      <section>
+        <h3>Elementos redondos</h3>
+        <p>Podemos hacer que un bloque de contenido o una imagen tenga forma de círculo perfecto simplemente poniendo un
+          borde redondeado igual para las cuatro esquinas y cuyo tamaño sea el 50% de cada lado:</p>
+        <pre><code>/* cuadrado (el general): */
+img{
+  border: 2px solid #000;
+}
+
+/* redondo: */
+img{
+  border: 2px solid #000;
+  border-radius: 50%;
+}</code></pre>
+        <p>Para que este efecto se visualice bien, es necesario que la imagen o el bloque tengan un tamaño cuadrado
+          (misma
+          anchura y altura).</p>
+      </section>
+    </section>
+
+    <section>
+      <h2>Otros bordes</h2>
+      <p>Existe la posibilidad de crear bordes con imágenes, gradientes y bordes animados, combinando más propiedades y
+        técnicas.</p>
+    </section>
+  </main>
+</body>
+
+</html>

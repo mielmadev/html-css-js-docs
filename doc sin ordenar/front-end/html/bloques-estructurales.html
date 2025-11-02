@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bloques estructurales</title>
+  <link rel="stylesheet" href="../estilo.css">
+
+</head>
+
+<body>
+  <h1>Bloques estructurales</h1>
+  <p>
+    Para estructurar de forma semántica los diferentes bloques estructurales de una página web (cabecera, pie, contenido
+    principal, secciones...) disponemos de varios elementos.
+  </p>
+
+  <h2>Header</h2>
+  <p>
+    El elemento <strong>header</strong> representa un grupo introductorio de información y donde se incluirá un
+    encabezado (<code>h1-h6</code>). También puede usarse para agrupar la tabla de contenidos de una sección, logotipos
+    relevantes, ayudas de navegación, etc. Pueden existir varios <code>header</code> en una página (en función del
+    contenido).
+  </p>
+  <pre class="codigo-ejemplo"><code>
+  &lt;header&gt;
+    Aquí va la cabecera de la página siempre tiene que tener algún encabezado.
+  &lt;/header&gt;
+    </code></pre>
+  <div class="resultado-ejemplo">
+    <header>
+      Aquí va la cabecera de la página siempre tiene que tener algún encabezado.
+    </header>
+  </div>
+
+  <h2>Footer</h2>
+  <p>
+    El elemento <strong>footer</strong> representa el pie de la sección de contenido predecesora más cercana, o la
+    sección del contenido raíz. Normalmente contiene información acerca de su sección, como el autor, enlaces a
+    documentos relacionados, licencias, apéndices, índices, etc. También es posible incluir la información que
+    habitualmente se incluye en el elemento <code>address</code> (información de contacto del autor o editor, por
+    ejemplo). El elemento <code>footer</code> no tiene por qué aparecer en el final de la sección. Pueden existir varios
+    <code>footer</code> en una página.
+  </p>
+  <pre class="codigo-ejemplo"><code>
+  &lt;footer&gt;
+    Aquí va el pie de página.
+  &lt;/footer&gt;
+    </code></pre>
+  <div class="resultado-ejemplo">
+    <footer>
+      Aquí va el pie de página.
+    </footer>
+  </div>
+
+  <h2>Main</h2>
+  <p>
+    El elemento <strong>main</strong> representa la parte de la página donde se encuentra el contenido principal de la
+    misma. Debe ser un contenido único en el documento y excluye el contenido que se repite en la web como menús de
+    navegación, copyright, logotipo, banners, formulario de búsqueda (salvo que estemos en la página específica de
+    búsqueda). No puede haber más de un elemento <code>main</code> visible en la página. El elemento <code>main</code>
+    sólo puede tener como ancestros a <code>body</code>, <code>div</code> y <code>form</code> (este último, bajo ciertas
+    circunstancias).
+  </p>
+  <pre class="codigo-ejemplo"><code>
+  &lt;header&gt;
+    Header: Aquí va la cabecera de la página.
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    Main: Aquí va el contenido principal de la página.
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    Footer: Aquí va el pie de página.
+  &lt;/footer&gt;
+    </code></pre>
+  <div class="resultado-ejemplo">
+    <header>
+      Header: Aquí va la cabecera de la página.
+    </header>
+    <main>
+      Main: Aquí va el contenido principal de la página.
+    </main>
+    <footer>
+      Footer: Aquí va el pie de página.
+    </footer>
+  </div>
+
+  <h2>Nav</h2>
+  <p>
+    El elemento <strong>nav</strong> representa una sección de la página que contiene enlaces de navegación a zonas de
+    la misma página o a otras páginas. No todos los grupos de enlaces tienen que implementarse con el elemento
+    <code>nav</code>. Sólo se implementarán los bloques principales de navegación. Por ejemplo, el menú principal de la
+    web sí que se incluiría en un elemento <code>nav</code>, pero un listado de enlaces a recursos externos, no.
+  </p>
+  <pre class="codigo-ejemplo"><code>
+  &lt;header&gt;
+    Aquí va la cabecera de la página.
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=""&gt;Quienes Somos&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=""&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+    Aquí termina la cabecera
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    Aquí va el contenido principal de la página.
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    Aquí va el pie de página.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=""&gt;Aviso Legal&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=""&gt;Política de Privacidad&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=""&gt;Política de Cookies&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    ...
+  &lt;/footer&gt;
+    </code></pre>
+  <div class="resultado-ejemplo">
+    <header>
+      Aquí va la cabecera de la página.
+      <nav>
+        <ul>
+          <li><a href="">Quienes Somos</a></li>
+          <li><a href="">Servicios</a></li>
+          <li><a href="">Contacto</a></li>
+        </ul>
+      </nav>
+      Aquí termina la cabecera
+    </header>
+    <main>
+      Aquí va el contenido principal de la página.
+    </main>
+    <footer>
+      Aquí va el pie de página.
+      <ul>
+        <li><a href="">Aviso Legal</a></li>
+        <li><a href="">Política de Privacidad</a></li>
+        <li><a href="">Política de Cookies</a></li>
+      </ul>
+      Aquí termina el pie de página.
+    </footer>
+  </div>
+
+  <h2>Aside</h2>
+  <p>
+    El elemento <strong>aside</strong> representa una sección de la página cuyo contenido está relacionado
+    tangencialmente con el contenido que tiene a su alrededor, pero se considera contenido independiente, adicional. Se
+    puede usar para implementar barras laterales, publicidad, elementos con efectos tipográficos (como las citas). No es
+    adecuado utilizarlo para estructurar contenido explicativo, porque forma parte del contenido principal.
+  </p>
+  <pre class="codigo-ejemplo"><code>
+  &lt;aside&gt;
+    Aquí va una barra lateral con enlaces a artículos relacionados o publicidad.
+  &lt;/aside&gt;
+    </code></pre>
+  <div class="resultado-ejemplo">
+    <aside>
+      Aquí va una barra lateral con enlaces a artículos relacionados o publicidad.
+    </aside>
+  </div>
+
+  <h2>Article</h2>
+  <p>
+    El elemento <strong>article</strong> representa una composición autónoma (contenido único) en un documento,
+    página,aplicación o sitio web, con intención de poder ser reutilizado (por ejemplo, en un lector RSS, al imprimir la
+    página, visualización de página simplificada en dispositivo móvil...). Puede utilizarse en un artículo de un foro,
+    revista, artículo de periódico, entrada (post) de un blog, comentario escrito por un usuario, widget interactivo o
+    gadget e incluso en cualquier otro elemento independiente de contenido. Cuando existen elementos
+    <code>article</code> anidados, los elementos <code>article</code> interiores estarían relacionados con los
+    <code>article</code> exteriores (por ejemplo, un <code>article</code> que contenga un artículo de un blog, contendrá
+    también <code>article</code> para los comentarios de un usuario).
+  </p>
+  <pre class="codigo-ejemplo"><code>
+  &lt;article&gt;
+    ...
+  &lt;/article&gt;
+
+  &lt;article&gt;
+    ...
+    ...
+    &lt;article&gt;
+      ...
+    &lt;/article&gt;
+  &lt;/article&gt;
+    </code></pre>
+  <div class="resultado-ejemplo">
+    <article>
+      ...
+    </article>
+    <article>
+      ...
+      ...
+      <article>
+        ...
+      </article>
+    </article>
+  </div>
+
+  <h2>Section</h2>
+  <p>
+    El elemento <strong>section</strong> representa una sección genérica de un documento o aplicación. Una sección, en
+    este contexto, es una agrupación temática de contenido, habitualmente con un encabezado. El elemento
+    <code>section</code> no es un elemento contenedor genérico. Si sólo se necesita el elemento para aplicar estilos,
+    entonces se deberá utilizar el elemento <code>div</code>. El elemento <code>section</code> puede contener más
+    elementos <code>section</code>.
+  </p>
+  <pre class="codigo-ejemplo"><code>
+  &lt;section&gt;
+    Aquí va una sección de contenido.
+  &lt;/section&gt;
+    </code></pre>
+  <div class="resultado-ejemplo">
+    <section>
+      Aquí va una sección de contenido.
+    </section>
+  </div>
+
+  <h2>Media</h2>
+
+  <h3>Imágenes con figure y figcaption</h3>
+  <p>
+    El elemento <strong>figure</strong> permite asociar contenido embebido (diagramas, ilustraciones, fotos, video,
+    audio...) con un texto. Preferiblemente debe hacerse una referencia en el texto de la página hacia el bloque figure.
+    El elemento <strong>figcaption</strong> se utiliza para implementar el texto asociado al contenido embebido, a modo
+    de pie de foto.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;figure&gt;
+    &lt;img src="img/grafica-vida.jpg" alt="Gráfica"&gt;
+    &lt;figcaption&gt;
+      Gráfica 1: Vida de un desarrollador.
+    &lt;/figcaption&gt;
+  &lt;/figure&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <figure>
+      <img src="img/grafica-vida.jpg" alt="Gráfica">
+      <figcaption>
+        Gráfica 1: Vida de un desarrollador.
+      </figcaption>
+    </figure>
+  </div>
+
+  <h3>Imágenes adaptativas con picture y srcset</h3>
+  <p>
+    El elemento <strong>picture</strong>, junto con el atributo <strong>srcset</strong>, permite adaptar una imagen a
+    los distintos dispositivos (tamaños, calidades...), permitiendo utilizar varias imágenes de las cuales sólo será
+    visible una de ellas (la que sea más óptima en cada dispositivo).
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;picture&gt;
+    &lt;source media="(min-width: 1000px)" srcset="img/kitten-large.png"&gt;
+    &lt;source media="(min-width: 600px)" srcset="img/kitten-medium.png"&gt;
+    &lt;img src="img/kitten-small.png" alt="Gatito"&gt;
+  &lt;/picture&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <picture>
+      <source media="(min-width: 1000px)" srcset="img/kitten-large.png">
+      <source media="(min-width: 600px)" srcset="img/kitten-medium.png">
+      <img src="img/kitten-small.png" alt="Gatito">
+    </picture>
+  </div>
+
+  <h3>Video</h3>
+  <p>
+    Mediante el elemento <strong>video</strong> y una serie de atributos, podemos insertar un video de manera nativa.
+    Los atributos más comunes son:
+  </p>
+  <ul>
+    <li><strong>src</strong>: La URL del contenido de audio/video (puede reemplazarse por el atributo source).</li>
+    <li><strong>autoplay</strong> (true|false): Indica si el archivo debe reproducirse automáticamente o no.</li>
+    <li><strong>loop</strong> (true|false): Indica si el archivo debe volverse a reproducir una vez llegado a su fin.
+    </li>
+    <li><strong>muted</strong> (true|false): Indica si el sonido debe estar activado inicialmente o no.</li>
+    <li><strong>preload</strong> (none|metadata|auto): Indica al navegador cierta información del archivo.</li>
+    <li><strong>controls</strong>: Indica si se deben mostrar los controles de reproducción o no.</li>
+    <li><strong>source</strong>: Permite ofrecer el contenido en diferentes formatos.</li>
+    <li><strong>poster</strong>: Imagen estática que se muestra mientras el video carga.</li>
+  </ul>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;video src="video-publicidad.webm" autoplay="false" loop="true" muted="true" preload="auto" controls
+    poster="caratula-video.png"&gt;&lt;/video&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <video src="video-publicidad.webm" autoplay="false" loop="true" muted="true" preload="auto" controls
+      poster="caratula-video.png"></video>
+  </div>
+
+  <p>
+    Es recomendable ofrecer el contenido en diferentes formatos para asegurar la compatibilidad entre navegadores.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;video controls&gt;
+    &lt;source src="video-sorteo.mp4"&gt;
+    &lt;source src="video-sorteo.webm"&gt;
+    &lt;source src="video-sorteo.ogg"&gt;
+  &lt;/video&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <video controls>
+      <source src="video-sorteo.mp4">
+      <source src="video-sorteo.webm">
+      <source src="video-sorteo.ogg">
+    </video>
+  </div>
+
+  <h3>Pistas y subtítulos en video</h3>
+  <p>
+    El elemento <strong>track</strong> permite ofrecer subtítulos, títulos, descripciones, capítulos o metadatos para el
+    elemento multimedia. La información textual se implementa en un archivo separado, generalmente en formato WebVTT.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;video controls&gt;
+    &lt;source src="video.mp4"&gt;
+    &lt;track src="subtitulos.vtt" kind="subtitles" srclang="es" label="Español"&gt;
+  &lt;/video&gt;
+    </code></pre>
+  </div>
+  <!-- Ejemplo visual omitido por falta de archivos -->
+
+  <h3>Controles personalizados</h3>
+  <p>
+    Es posible programar y diseñar controles personalizados para el reproductor de audio/video usando JavaScript y los
+    métodos y atributos del elemento multimedia, o bien utilizar alguna librería ya creada.
+  </p>
+
+  <h3>Audio</h3>
+  <p>
+    El elemento <strong>audio</strong> permite insertar archivos de sonido en la página. Se utilizan los mismos
+    atributos que en el elemento video, a excepción de la carátula y las pistas.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;audio src="entrevista.mp3" controls&gt;&lt;/audio&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <audio src="entrevista.mp3" controls></audio>
+  </div>
+
+  <h1>Bloques estructurales</h1>
+  <h2>Otras estructuras</h2>
+
+  <h3>Fieldset y Legend</h3>
+  <p>
+    El elemento <strong>fieldset</strong> se utiliza para categorizar, diferenciar y agrupar campos de formulario y los
+    propios formularios. El elemento <strong>legend</strong> se usa para indicar el rótulo o título de cada grupo de
+    campos.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;fieldset&gt;
+    &lt;legend&gt;Formulario de búsqueda&lt;/legend&gt;
+    &lt;form name="formBusqueda"&gt;
+      ... campos del formulario ...
+    &lt;/form&gt;
+  &lt;/fieldset&gt;
+
+  &lt;fieldset&gt;
+    &lt;legend&gt;Formulario de contacto&lt;/legend&gt;
+    &lt;form name="formContacto"&gt;
+      ... campos del formulario ...
+    &lt;/form&gt;
+  &lt;/fieldset&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <fieldset>
+      <legend>Formulario de búsqueda</legend>
+      <form name="formBusqueda">
+        ... campos del formulario ...
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>Formulario de contacto</legend>
+      <form name="formContacto">
+        ... campos del formulario ...
+      </form>
+    </fieldset>
+  </div>
+
+  <h3>Progress</h3>
+  <p>
+    El elemento <strong>progress</strong> se utiliza para indicar el progreso o avance de una operación o tarea, de tal
+    manera que el usuario pueda saber cuánto falta para terminar la tarea o en qué estado está. Visualmente se
+    representa con una barra visual que va mostrando este progreso.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;progress value="70" max="100"&gt;70%&lt;/progress&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <progress value="70" max="100">70%</progress>
+  </div>
+
+  <h3>Meter</h3>
+  <p>
+    El elemento <strong>meter</strong> indica el nivel o escala de un cierto valor, por ejemplo, cuánto de segura es tu
+    contraseña, espacio libre en un servicio, cuántos conocimientos tenemos sobre un tema, etc. No se debe utilizar para
+    medir cosas de las que no conocemos el valor máximo.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;meter value="0.6"&gt;60%&lt;/meter&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <meter value="0.6">60%</meter>
+  </div>
+
+  <h3>Time</h3>
+  <p>
+    El elemento <strong>time</strong> permite indicar una fecha en un formato legible para máquinas, facilitando la
+    interpretación de fechas por parte de sistemas automáticos.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;time datetime="2024-01-25"&gt;25/01/2024&lt;/time&gt;
+  &lt;time datetime="2024-01-25"&gt;25 de Enero de 2024&lt;/time&gt;
+  &lt;time datetime="2024-01-25"&gt;25 - Enero - 2024&lt;/time&gt;
+  &lt;time datetime="2024-01-25"&gt;Veinticinco de Enero de dos mil veinticuatro&lt;/time&gt;
+  El plazo de inscripción terminó &lt;time datetime="2024-03-19"&gt;ayer&lt;/time&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <time datetime="2024-01-25">25/01/2024</time><br>
+    <time datetime="2024-01-25">25 de Enero de 2024</time><br>
+    <time datetime="2024-01-25">25 - Enero - 2024</time><br>
+    <time datetime="2024-01-25">Veinticinco de Enero de dos mil veinticuatro</time><br>
+    El plazo de inscripción terminó <time datetime="2024-03-19">ayer</time>
+  </div>
+
+  <h3>Details y Summary</h3>
+  <p>
+    El elemento <strong>details</strong> permite implementar bloques de contenido que se muestran y ocultan a petición
+    del usuario, conocidos como bloques acordeón o desplegables. El elemento <strong>summary</strong> define el título
+    visible del bloque.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;details&gt;
+    &lt;summary&gt;Más información&lt;/summary&gt;
+    Este es el contenido adicional que se puede mostrar u ocultar.
+  &lt;/details&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <details>
+      <summary>Más información</summary>
+      Este es el contenido adicional que se puede mostrar u ocultar.
+    </details>
+  </div>
+
+  <h3>Div y Span</h3>
+  <p>
+    Los elementos <strong>div</strong> y <strong>span</strong> son elementos sin significado semántico. Se utilizan para
+    agrupar código y aplicar estilos a través de CSS. Se recomienda usarlos solo cuando sea necesario para maquetación o
+    estilos.
+  </p>
+  <div class="codigo-ejemplo">
+    <pre><code>
+  &lt;div&gt;
+    ....
+  &lt;/div&gt;
+
+  &lt;span&gt;....&lt;/span&gt;
+    </code></pre>
+  </div>
+  <div class="resultado-ejemplo">
+    <div>
+      ....
+    </div>
+    <span>....</span>
+  </div>
+
+</body>
+
+</html>

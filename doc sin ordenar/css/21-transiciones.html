@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21 - Transiciones CSS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>21. Transiciones</h1>
+    </header>
+    <section>
+      <p>Las transiciones nos permiten indicar cómo queremos que se realice el cambio de propiedades CSS de un elemento
+        cuando
+        hay una acción, por ejemplo: al posicionarnos con el cursor en un elemento, al ganar el foco en un enlace o
+        campo de
+        formulario, etc.</p>
+      <p>soy un enlace</p>
+    </section>
+    <section>
+      <h2>Declaración individual</h2>
+      <p>Las transiciones necesitan 3 atributos obligatorios: propiedad, duración y tipo de transición. Se puede añadir
+        de manera
+        opcional un 4º parámetro que será la demora/retardo con la que se iniciará la transición:</p>
+      <h3>Propiedad:</h3>
+      <p>Se puede aplicar la transición a una, varias o todas las propiedades de un elemento:</p>
+      <pre>
+transition-property: all; se aplica a todas las propiedades
+transition-property: color; se aplica solo a la propiedad color
+transition-property: color, background; se aplica a la propiedad color y fondo
+      </pre>
+      <table>
+        <caption>Propiedades de <code>transition-property</code></caption>
+        <thead>
+          <tr>
+            <th>Propiedad</th>
+            <th>¿Para qué es?</th>
+            <th>Ejemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>all</code></td>
+            <td>Aplica la transición a todas las propiedades animables.</td>
+            <td><code>transition-property: all;</code></td>
+          </tr>
+          <tr>
+            <td><code>none</code></td>
+            <td>No aplica ninguna transición.</td>
+            <td><code>transition-property: none;</code></td>
+          </tr>
+          <tr>
+            <td><code>color</code></td>
+            <td>Transiciona el color del texto.</td>
+            <td><code>transition-property: color;</code></td>
+          </tr>
+          <tr>
+            <td><code>background-color</code></td>
+            <td>Transiciona el color de fondo.</td>
+            <td><code>transition-property: background-color;</code></td>
+          </tr>
+          <tr>
+            <td><code>width</code></td>
+            <td>Transiciona el ancho del elemento.</td>
+            <td><code>transition-property: width;</code></td>
+          </tr>
+          <tr>
+            <td><code>height</code></td>
+            <td>Transiciona la altura del elemento.</td>
+            <td><code>transition-property: height;</code></td>
+          </tr>
+          <tr>
+            <td><code>opacity</code></td>
+            <td>Transiciona la opacidad (transparencia).</td>
+            <td><code>transition-property: opacity;</code></td>
+          </tr>
+          <tr>
+            <td><code>transform</code></td>
+            <td>Transiciona transformaciones como rotar, escalar o mover.</td>
+            <td><code>transition-property: transform;</code></td>
+          </tr>
+          <tr>
+            <td><code>border</code></td>
+            <td>Transiciona el borde (color, grosor, etc.).</td>
+            <td><code>transition-property: border;</code></td>
+          </tr>
+          <tr>
+            <td><code>lista de propiedades</code></td>
+            <td>Transiciona varias propiedades separadas por comas.</td>
+            <td><code>transition-property: color, background-color;</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Duración:</h3>
+      <p>Indicamos el tiempo, en segundos, que va a durar la transición:</p>
+      <pre>
+transition-duration: 5s; la transición durará 5 segundos
+transition-duration: 0.2s; la transición durará 0.2 segundos
+      </pre>
+
+      <h3>Tipo de Transición:</h3>
+      <p>Existen unos valores pre-establecidos y si necesitamos algo más especial, seguimos el patrón de Curvas de
+        Bézier:</p>
+      <p>Empezar transición al lado oscuro</p>
+      <pre><code>transition-timing-function: default;
+transition-timing-function: linear;
+transition-timing-function: ease-in;
+transition-timing-function: ease-out;
+transition-timing-function: ease-in-out;
+transition-timing-function: cubic-bezier(... valores ...);
+
+transition-timing-function:cubic-bezier(.18,.89,.32,1.28);
+transition-timing-function:cubic-bezier(.39,2.05,.35,-0.76);
+</code></pre>
+      <table>
+        <caption>Tipos de transición (<code>transition-timing-function</code>)</caption>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>¿Para qué sirve?</th>
+            <th>Ejemplo de uso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>linear</code></td>
+            <td>La transición ocurre a velocidad constante.</td>
+            <td><code>transition-timing-function: linear;</code></td>
+          </tr>
+          <tr>
+            <td><code>ease</code></td>
+            <td>Transición suave, empieza y termina despacio.</td>
+            <td><code>transition-timing-function: ease;</code></td>
+          </tr>
+          <tr>
+            <td><code>ease-in</code></td>
+            <td>Empieza despacio y termina rápido.</td>
+            <td><code>transition-timing-function: ease-in;</code></td>
+          </tr>
+          <tr>
+            <td><code>ease-out</code></td>
+            <td>Empieza rápido y termina despacio.</td>
+            <td><code>transition-timing-function: ease-out;</code></td>
+          </tr>
+          <tr>
+            <td><code>ease-in-out</code></td>
+            <td>Empieza y termina despacio, rápido en el medio.</td>
+            <td><code>transition-timing-function: ease-in-out;</code></td>
+          </tr>
+          <tr>
+            <td><code>cubic-bezier</code></td>
+            <td>Permite definir una curva personalizada para la transición.</td>
+            <td><code>transition-timing-function: cubic-bezier(.42,0,.58,1);</code></td>
+          </tr>
+          <tr>
+            <td><code>step-start</code></td>
+            <td>La transición ocurre de golpe al inicio.</td>
+            <td><code>transition-timing-function: step-start;</code></td>
+          </tr>
+          <tr>
+            <td><code>step-end</code></td>
+            <td>La transición ocurre de golpe al final.</td>
+            <td><code>transition-timing-function: step-end;</code></td>
+          </tr>
+          <tr>
+            <td><code>steps(n, start/end)</code></td>
+            <td>Divide la transición en pasos definidos.</td>
+            <td><code>transition-timing-function: steps(4, end);</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <img src="imagenes/imagenes/transiciones-css.png" alt="">
+      </p>
+      <a href="http://www.netzgesta.de/dev/cubic-bezier-timing-function.html">Netzgesta</a>
+      <h3>Retardo:</h3>
+      <p>Esta propiedad es opcional e indica que la transición empieza con un retardo, no al momento:</p>
+      <pre>
+transition-delay: 2s; la transición empezará 2 segundos tarde
+      </pre>
+    </section>
+    <section>
+      <h2>Forma abreviada</h2>
+      <p>En vez de utilizar las 4 propiedades de forma individual, podemos indicar en una única propiedad la declaración
+        agrupada
+        de todas ellas, siguiendo un orden concreto: propiedad, duración, tipo y demora.</p>
+      <pre>
+transition: all 2.5s linear;
+transition: all 2.5s linear 1s;
+
+transition: color 1s ease-in;
+transition: color 1s ease-in 0.5s;
+      </pre>
+      <p>Si la transición se indica en la declaración del estado inicial, se mostrará la transición tanto cuando se
+        cambia el
+        estado como cuando se vuelve al inicial.</p>
+      <p>Si la transición sólo se indica en la declaración del cambio de estado, ésta sólo se realiza al cambiar, no al
+        volver al
+        estado inicial:</p>
+    </section>
+    <section>
+      <h2>Transiciones diferentes a varias propiedades</h2>
+      <p>Por último, Si nuestra transición se aplica a 2 o más propiedades, tenemos que realizar una forma abreviada por
+        cada una
+        de ellas, separadas por comas:</p>
+      <pre><code>
+transition: color 3s linear, background 3s linear;
+      </code></pre>
+    </section>
+    <section>
+      <h2>Referencias</h2>
+      <ul>
+        <li>Curvas de Bézier <a href="http://www.netzgesta.de/dev/cubic-bezier-timing-function.html" target="_blank"
+            rel="noopener">http://www.netzgesta.de/dev/cubic-bezier-timing-function.html</a></li>
+        <li>Guía interactiva <a href="https://www.joshwcomeau.com/animation/css-transitions/" target="_blank"
+            rel="noopener">https://www.joshwcomeau.com/animation/css-transitions/</a></li>
+        <li>Generador de Curvas de Bézier <a href="https://cubic-bezier.com/" target="_blank"
+            rel="noopener">https://cubic-bezier.com/</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>

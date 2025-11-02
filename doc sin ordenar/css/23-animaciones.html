@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>23 Animaciones CSS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>23. Animaciones</h1>
+  </header>
+  <main>
+    <section>
+      <p>
+        Las transformaciones básicas que hemos visto, sólo permiten animar un elemento con un determinado tipo de
+        transición.
+        Podemos añadir más complejidad, juntando varias transiciones en un mismo elemento, incluso interactuando varios
+        elementos entre sí. Para ello crearemos nuestra propia animación o Keyframe.
+      </p>
+    </section>
+
+    <section>
+      <h2>Propiedades individuales</h2>
+      <p>
+        Para definir una animación necesitamos varias propiedades, que podemos utilizar de forma individual o bien
+        abreviada.
+      </p>
+      <article>
+        <table border="1" style="border-collapse:collapse; text-align:center; width:100%; margin-bottom:2em;">
+          <thead>
+            <tr>
+              <th>¿Qué hace?</th>
+              <th>Código usado</th>
+              <th>Efecto visual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>La animación se reproduce siempre en la misma dirección (<b>normal</b>).</td>
+              <td>
+                <pre style="text-align:left; font-size:0.9em; margin:0;">
+animation: normal-demo 1.5s linear infinite;
+@keyframes normal-demo {
+  0% { left:0; }
+  100% { left:40px; }
+}
+                </pre>
+              </td>
+              <td>
+                <div style="width:60px; height:20px; background:#eee; position:relative; overflow:hidden; margin:auto;">
+                  <div
+                    style="width:20px; height:20px; background:#e7484f; position:absolute; left:0; animation:normal-demo 1.5s linear infinite;">
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>La animación alterna la dirección en cada ciclo (<b>alternate</b>).</td>
+              <td>
+                <pre style="text-align:left; font-size:0.9em; margin:0;">
+animation: alternate-demo 1.5s linear infinite alternate;
+@keyframes alternate-demo {
+  0% { left:0; }
+  100% { left:40px; }
+}
+                </pre>
+              </td>
+              <td>
+                <div style="width:60px; height:20px; background:#eee; position:relative; overflow:hidden; margin:auto;">
+                  <div
+                    style="width:20px; height:20px; background:#f68b1d; position:absolute; left:0; animation:alternate-demo 1.5s linear infinite alternate;">
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>La animación se reproduce siempre al revés (<b>reverse</b>).</td>
+              <td>
+                <pre style="text-align:left; font-size:0.9em; margin:0;">
+animation: reverse-demo 1.5s linear infinite reverse;
+@keyframes reverse-demo {
+  0% { left:40px; }
+  100% { left:0; }
+}
+                </pre>
+              </td>
+              <td>
+                <div style="width:60px; height:20px; background:#eee; position:relative; overflow:hidden; margin:auto;">
+                  <div
+                    style="width:20px; height:20px; background:#639b47; position:absolute; left:0; animation:reverse-demo 1.5s linear infinite reverse;">
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>La animación alterna la dirección, empezando al revés (<b>alternate-reverse</b>).</td>
+              <td>
+                <pre style="text-align:left; font-size:0.9em; margin:0;">
+animation: alternate-reverse-demo 1.5s linear infinite alternate-reverse;
+@keyframes alternate-reverse-demo {
+  0% { left:40px; }
+  100% { left:0; }
+}
+                </pre>
+              </td>
+              <td>
+                <div style="width:60px; height:20px; background:#eee; position:relative; overflow:hidden; margin:auto;">
+                  <div
+                    style="width:20px; height:20px; background:#00aac3; position:absolute; left:0; animation:alternate-reverse-demo 1.5s linear infinite alternate-reverse;">
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <style>
+          @keyframes normal-demo {
+            0% {
+              left: 0;
+            }
+
+            100% {
+              left: 40px;
+            }
+          }
+
+          @keyframes alternate-demo {
+            0% {
+              left: 0;
+            }
+
+            100% {
+              left: 40px;
+            }
+          }
+
+          @keyframes reverse-demo {
+            0% {
+              left: 40px;
+            }
+
+            100% {
+              left: 0;
+            }
+          }
+
+          @keyframes alternate-reverse-demo {
+            0% {
+              left: 40px;
+            }
+
+            100% {
+              left: 0;
+            }
+          }
+        </style>
+      </article>
+    </section>
+
+    <section>
+      <h2>Nombre</h2>
+      <p>
+        La propiedad animation-name especifica el nombre que va a llevar nuestra animación y que se establecerá
+        posteriormente
+        en la regla @keyframes que describe los fotogramas de la animación:
+      </p>
+      <pre><code>animation-name: NombreAnimacion;</code></pre>
+    </section>
+
+    <section>
+      <h2>Duración</h2>
+      <p>
+        La propiedad animation-duration indica la cantidad de tiempo que tarda la animación en completarse, es decir, su
+        duración:
+      </p>
+      <pre><code>animation-duration: 10s;</code></pre>
+    </section>
+
+    <section>
+      <h2>Dirección</h2>
+      <p>
+        La propiedad animation-direction indica si la animación debe retroceder hasta el fotograma de inicio al
+        finalizar la secuencia o si debe comenzar desde el principio al llegar al final. Se pueden utilizar los
+        siguientes valores:
+      </p>
+      <ul>
+        <li><strong>normal:</strong> Cada vez que termina un ciclo, la animación se reinicia al estado inicial y
+          comienza desde el principio.</li>
+        <li><strong>alternate:</strong> Cuando la animación termina, invierte su dirección, es decir, se reproduce al
+          revés.</li>
+        <li><strong>reverse:</strong> Cada ciclo de la animación se reproduce al revés.</li>
+        <li><strong>alternate-reverse:</strong> Es similar a alternate pero la animación se reproduce al revés. Es
+          decir, la primera reproducción empieza en el final, se reproduce al revés hasta al inicio y la segunda
+          reproducción será normal, la tercera otra vez del revés, etc...</li>
+      </ul>
+      <pre><code>animation-direction: normal;</code></pre>
+    </section>
+
+    <section>
+      <h2>Repetición</h2>
+      <p>
+        La propiedad animation-iteration-count indica el número de veces que se repetirá la animación. Podemos
+        especificar
+        tanto un número de veces como hacer que sea infinita:
+      </p>
+      <ul>
+        <li><strong>número:</strong> El número de veces que se repite la animación. Por defecto es 1.</li>
+        <li><strong>infinite:</strong> Utilizando esta palabra clave la animación se repetirá continuamente, sin fin.
+        </li>
+      </ul>
+      <pre><code>animation-iteration-count: 3;
+animation-iteration-count: infinite;</code></pre>
+    </section>
+
+    <section>
+      <h2>Ritmo</h2>
+      <p>
+        La propiedad animation-timing-function indica el ritmo de la animación, es decir, como se muestran los
+        fotogramas de
+        la animación, estableciendo curvas de aceleración.
+      </p>
+      <p>
+        Los valores son los mismos que hemos visto en las Transiciones con la propiedad de Tipo de transición (linear,
+        ease-in, ease-out...):
+      </p>
+      <pre><code>animation-timing-function: linear;</code></pre>
+    </section>
+
+    <section>
+      <h2>Estado</h2>
+      <p>
+        La propiedad animation-play-state permite pausar y reanudar la secuencia de la animación. Es muy útil si, por
+        ejemplo,
+        queremos detener una animación al pasar por encima (en el estado :hover) y luego reanudarla:
+      </p>
+      <ul>
+        <li><strong>running:</strong> la animación se está ejecutando.</li>
+        <li><strong>paused:</strong> la animación está pausada.</li>
+      </ul>
+      <pre><code>animation-play-state: running;</code></pre>
+    </section>
+
+    <section>
+      <h2>Retención de estilos</h2>
+      <p>
+        La propiedad animation-fill-mode especifica qué valores tendrán las propiedades después de finalizar la
+        animación (los
+        de antes de ejecutarla, los del último fotograma de la animación o ambos):
+      </p>
+      <ul>
+        <li><strong>none:</strong> la animación no aplicará los estilos antes ni después de su ejecución.</li>
+        <li><strong>forwards:</strong> el objeto sobre el que se aplica la animación mantendrá los valores y estilos que
+          le aplique el último fotograma de la ejecución de la animación.</li>
+        <li><strong>backwards:</strong> la animación aplicará los valores definidos en el primer fotograma tan pronto
+          como se aplique al objeto, y los retendrá durante el tiempo indicado en animation-delay. El primer fotograma
+          dependerá del valor de animation-direction.</li>
+        <li><strong>both:</strong> la animación seguirá las reglas de las opciones forwards y backwards, extendiendo las
+          propiedades de la animación en ambas direcciones.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Retardo</h2>
+      <p>
+        La propiedad opcional animation-delay indica el tiempo de retardo entre el momento en que el elemento se carga y
+        el
+        comienzo de la secuencia de la animación:
+      </p>
+      <pre><code>animation-delay: 2s;</code></pre>
+    </section>
+
+    <section>
+      <h2>Propiedades Resumidas</h2>
+      <p>
+        Podemos también escribir las propiedades resumidas. El orden en que pongamos cada uno de los valores no importa,
+        a
+        excepción de la duración y el retrardo. El primer tiempo será siempre el de la duración y el segundo tiempo, el
+        del
+        retardo:
+      </p>
+      <pre><code>animation: MiAnimacion 5s 1s 2 alternate backwards;</code></pre>
+    </section>
+
+    <section>
+      <h2>Declaración @keyframes</h2>
+      <p>
+        Una vez definido el comportamiento de la animación tenemos que declarar la animación en sí misma, indicando los
+        cambios de comportamiento en cada fotograma, etc:
+      </p>
+      <pre><code>
+.btn-rainbow{
+  background-color:#FFF;
+  color:#000;
+}
+
+.btn-rainbow:hover, .btn-rainbow:focus{
+  animation: 10s infinite arcoiris;
+}
+
+@keyframes arcoiris {
+  0% {background-color: #FFFFFF; color:#000;}
+  12% {background-color: #E7484F;}
+  24% {background-color: #f68B1D;}
+  36% {background-color: #e1e23b;}
+  50% {background-color: #639b47;}
+  64% {background-color: #00AAC3; color:#000;}
+  77% {background-color: #272b66; color:#FFF;}
+  90% {background-color: #c466c1}
+  100% {background-color: #FFFFFF; color:#000;}
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Ejemplo de animación en imágenes</h2>
+      <pre><code>
+img {
+  animation-name: camino;
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: running;
+  animation-fill-mode: forwards;
+}
+
+img:hover{
+  animation-play-state: paused;
+}
+
+@keyframes camino {
+  0% {
+    margin-left:0%;
+    transform: rotate(0deg);
+  }
+  40%{
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(360deg);
+  }
+  100% {
+    margin-left: calc(100% - 175px);
+    transform: rotate(360deg);
+  }
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Combinación de Animaciones</h2>
+      <p>
+        Podemos combinar las transformaciones con las animaciones, así como aplicar varias animaciones a un mismo
+        elemento de
+        manera simultánea.
+      </p>
+    </section>
+    <section>
+      <h2>Recursos</h2>
+      <ul>
+        <li>Generador de animaciones simples: <a href="https://animista.net/" target="_blank">animista.net</a></li>
+        <li>Generador avanzado: <a href="https://angrytools.com/css/animation/"
+            target="_blank">angrytools.com/css/animation</a></li>
+        <li>Galería de animaciones: <a href="https://animate.style/" target="_blank">animate.style</a></li>
+      </ul>
+      <h2>Ejemplos</h2>
+      <ul>
+        <li>Ejemplos de este manual: <a href="https://codepen.io/antxoa/pen/PogQQWa" target="_blank">CodePen</a></li>
+        <li>Banner: <a href="https://tympanus.net/Tutorials/AnimatedWebBanners/index.html"
+            target="_blank">tympanus.net</a></li>
+        <li>Cabecera: <a href="https://catalin.red/dist/uploads/2011/12/css3-animated-header-demo.html"
+            target="_blank">catalin.red</a></li>
+        <li>Postal: <a
+            href="https://web.archive.org/web/20170704131414/http://pehaa.com/wp-content/uploads/2011/08/demo/cartedeParis1.html"
+            target="_blank">pehaa.com (web archive)</a></li>
+        <li>Mary Poppins: <a href="https://codepen.io/DiklaGefen/pen/NWxBGYZ" target="_blank">CodePen</a></li>
+        <li>Una vaca: <a href="https://codepen.io/justyouraverageonion/pen/oJmRgr" target="_blank">CodePen</a></li>
+        <li>Google "roto": <a href="https://mrdoob.com/projects/chromeexperiments/google-gravity/"
+            target="_blank">mrdoob.com</a></li>
+        <li>Más animaciones: <a href="https://css-tricks.com/snippets/css/star-wars-crawl-text/"
+            target="_blank">css-tricks.com</a></li>
+        <li>Transiciones entre escenas: <a
+            href="https://codersblock.com/blog/star-wars-scene-transition-effects-in-css/"
+            target="_blank">codersblock.com</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>

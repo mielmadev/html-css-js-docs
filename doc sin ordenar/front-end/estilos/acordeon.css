@@ -1,0 +1,88 @@
+/* ==========================================
+   ESTILOS PARA ACORDEÓN DE ARTÍCULOS
+   ========================================== */
+
+/* Contenedor principal del artículo */
+article {
+  background: #181c23;
+  position: relative;
+}
+
+/* Cabecera del artículo (clickeable) */
+.article-header {
+  cursor: pointer;
+  padding: 1em;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  border-bottom: 1px solid #374151;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.article-header:hover {
+  background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+}
+
+/* Título del artículo */
+.article-title {
+  margin: 0;
+  font-size: 1.4em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* Contenido del artículo (inicialmente oculto) */
+.article-content {
+  display: none;
+  padding: 1em;
+  background: #181c23;
+}
+
+.article-content.expanded {
+  display: block;
+}
+
+/* ===== ESTILO PEGAJOSO PARA ACORDEONES ===== */
+/* Título que se queda pegado arriba al hacer scroll - SÚPER SIMPLE */
+.article-header.pegado-arriba {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  border-bottom: 2px solid #4a90e2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Mismo ancho que cuando está cerrado - SIN MOVIMIENTOS */
+  left: 0;
+  right: 0;
+  margin: 0 3rem; /* Mismo margen que el body */
+  max-width: calc(1200px - 6rem); /* Resta márgenes del max-width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* En pantallas medianas */
+@media (max-width: 768px) {
+  .article-header.pegado-arriba {
+    margin: 0 2rem; /* Mismo que body en tablet */
+  }
+}
+
+/* En pantallas pequeñas */
+@media (max-width: 480px) {
+  .article-header.pegado-arriba {
+    margin: 0 1rem; /* Mismo que body en móvil */
+  }
+}
+
+/* Ajuste para que el contenido no se tape */
+.article-header.pegado-arriba + .article-content {
+  margin-top: 80px;
+}

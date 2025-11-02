@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19. Formularios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>19. Formularios</h1>
+    </header>
+    <section>
+      <p>
+        Los campos de formulario tienen algunas propiedades, pseudoclases y pseudoelementos específicamente para ellos,
+        y combinadas con otras propiedades generales, nos permiten personalizarlos.
+      </p>
+    </section>
+
+    <section>
+      <h2>Selectores de atributo</h2>
+      <p>
+        Como se ha explicado anteriormente en el capítulo de Selectores, mediante los selectores de atributo es posible
+        llamar directamente a los diferentes campos de formulario generados por el elemento <code>input</code>:
+      </p>
+      <pre><code>input[type="text"]</code>formulario texto</pre>
+      <pre><code>input[type="email"]</code>formulario email</pre>
+      <pre><code>input[type="submit"]</code>formulario submit</pre>
+      <pre><code>...</code></pre>
+    </section>
+
+    <section>
+      <h2>Pseudo-clases</h2>
+      <p>
+        Para dar estilo a nuestros formularios serán muy útiles todas las pseudo-clases de interacción y formulario.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Pseudo-clase</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>:active</code></td>
+            <td>Elemento activado (por ejemplo, al hacer clic).</td>
+          </tr>
+          <tr>
+            <td><code>:hover</code></td>
+            <td>Elemento al pasar el cursor por encima.</td>
+          </tr>
+          <tr>
+            <td><code>:focus</code></td>
+            <td>Elemento enfocado (por ejemplo, al hacer clic o tabular).</td>
+          </tr>
+          <tr>
+            <td><code>:focus-visible</code></td>
+            <td>Elemento enfocado y visible para el usuario.</td>
+          </tr>
+          <tr>
+            <td><code>:focus-within</code></td>
+            <td>Elemento que contiene un elemento enfocado.</td>
+          </tr>
+          <tr>
+            <td><code>:enabled</code></td>
+            <td>Elemento habilitado.</td>
+          </tr>
+          <tr>
+            <td><code>:disabled</code></td>
+            <td>Elemento deshabilitado.</td>
+          </tr>
+          <tr>
+            <td><code>:read-only</code></td>
+            <td>Elemento de solo lectura.</td>
+          </tr>
+          <tr>
+            <td><code>:checked</code></td>
+            <td>Elemento marcado (checkbox/radio).</td>
+          </tr>
+          <tr>
+            <td><code>:indeterminate</code></td>
+            <td>Elemento en estado indeterminado.</td>
+          </tr>
+          <tr>
+            <td><code>:required</code></td>
+            <td>Elemento obligatorio.</td>
+          </tr>
+          <tr>
+            <td><code>:optional</code></td>
+            <td>Elemento opcional.</td>
+          </tr>
+          <tr>
+            <td><code>:valid</code></td>
+            <td>Elemento con valor válido.</td>
+          </tr>
+          <tr>
+            <td><code>:invalid</code></td>
+            <td>Elemento con valor no válido.</td>
+          </tr>
+          <tr>
+            <td><code>:in-range</code></td>
+            <td>Valor dentro del rango permitido.</td>
+          </tr>
+          <tr>
+            <td><code>:out-of-range</code></td>
+            <td>Valor fuera del rango permitido.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Generalmente se combinan entre sí para poder optimizar el uso del formulario:</p>
+      <ul>
+        <li><code>input:focus:valid</code></li>
+        <li><code>input:focus:invalid</code></li>
+        <li><code>input:required:valid</code></li>
+        <li><code>input:required:focus:valid</code></li>
+        <li>...</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Pseudo-elementos</h2>
+      <p>
+        Entre todos los pseudo-elementos, tenemos dos específicos para los campos de formulario:
+      </p>
+      <ul>
+        <li><code>::placeholder</code></li>
+        <li><code>::file-selection-button</code></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Propiedades específicas</h2>
+      <article>
+        <h3>Color del cursor</h3>
+        <p>
+          Mediante la propiedad <code>caret-color</code> podemos cambiar el color del cursor mientras estamos dentro de
+          un
+          campo escribiendo el texto.
+        </p>
+        <p>
+          Habitualmente el cursor es una línea vertical que parpadea, si no se ha modificado el cursor de sistema. El
+          parpadeo no se puede alterar al ser una característica propia del Sistema Operativo.
+        </p>
+        <pre><code>input[type="text"]{caret-color:#F00;}</code></pre>
+        <p>Escribe algo:</p>
+      </article>
+      <article>
+        <h3>Color destacado</h3>
+        <p>
+          Las propiedades CSS que se pueden aplicar a checkbox, radio, rango y progress son muy escasas, ya que utilizan
+          la interfaz a nivel de Sistema Operativo o Navegador. Podemos cambiar el color de estos elementos, para
+          asemejarlos al color que hayamos aplicado al resto de elementos de formulario, a nuestro color corporativo,
+          etc,
+          mediante la propiedad <code>accent-color</code>:
+        </p>
+        <!-- Aquí podrías agregar ejemplos visuales si lo deseas -->
+        <p>
+          Si queremos personalizarlos al máximo, entonces tenemos que construir desde cero el elemento, con un
+          cargamento
+          de CSS y probablemente JS, cuidando mucho que sea funcional bajo cualquier dispositivo y respetando las normas
+          de accesibilidad. Esto lleva bastante tiempo, incluso si utilizamos alguna librería JS para ello.
+        </p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Lista de selección</h2>
+      <p>
+        En un elemento <code>select</code> vamos a poder modificar los estilos generales (colores, bordes...) y también
+        el símbolo del desplegable.
+      </p>
+      <p>
+        Para modificar este símbolo, primero tenemos que eliminar el símbolo estándar con la propiedad
+        <code>appearance</code> y después ubicar nuestro símbolo personalizado (combinando varias propiedades CSS).
+      </p>
+      <pre><code>select{
+appearance: none;
+}</code></pre>
+      <p>
+        Esta propiedad <code>appearance</code> elimina la apariencia característica de cualquier campo de formulario,
+        por lo que no se debe utilizar a la ligera, ya que también elimina el comportamiento nativo del campo a nivel de
+        navegador y Sistema Operativo, lo que puede provocar errores de funcionamiento y accesibilidad.
+      </p>
+      <p>
+        Están en proceso una serie de propiedades para poder modificar completamente el aspecto del elemento select de
+        manera más sencilla y sin interferir en la accesibilidad, pero todavía no hay soporte completo.
+      </p>
+      <p>
+        Si con esto no es suficiente, entonces se tendría que valorar la opción de utilizar una librería JS para
+        modificar por completo su interfaz.
+      </p>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <ul>
+        <li>
+          <a href="https://codepen.io/antxoa/pen/bGJayOX" target="_blank" rel="noopener">Ejemplos formularios</a>
+        </li>
+      </ul>
+    </section>
+    <footer>
+      <section>
+        <h2>Recursos</h2>
+        <ul>
+          <li>
+            <a href="https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/" target="_blank"
+              rel="noopener">Input file personalizado</a>
+          </li>
+          <li>
+            <a href="https://webdesign.tutsplus.com/how-to-make-custom-accessible-checkboxes-and-radio-buttons--cms-32074t"
+              target="_blank" rel="noopener">Checkbox personalizado</a>
+          </li>
+          <li>
+            <a href="http://720kb.github.io/checkbox.css/" target="_blank" rel="noopener">Checkbox animados</a>
+          </li>
+          <li>
+            <a href="https://720kb.github.io/radiobox.css/" target="_blank" rel="noopener">Radiobutton animados</a>
+          </li>
+          <li>
+            <a href="https://tympanus.net/codrops/2013/10/15/animated-checkboxes-and-radio-buttons-with-svg/"
+              target="_blank" rel="noopener">Checkbox y Radiobutton animados con SVG</a>
+          </li>
+          <li>
+            <a href="https://tympanus.net/Development/CreativeButtons/" target="_blank" rel="noopener">Botones
+              creativos</a>
+          </li>
+        </ul>
+      </section>
+    </footer>
+  </main>
+</body>
+
+</html>

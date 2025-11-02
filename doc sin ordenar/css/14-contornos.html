@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>14. Contorno Html</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>14. Contornos</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Contorno general</h2>
+      <p>El contorno de un elemento es similar al borde, con la diferencia de que todos los lados tienen que ser
+        iguales,
+        no se permite poner un estilo diferente a cada lado.</p>
+      <p>El contorno no afecta al tamaño del elemento, es decir, no forma parte del modelo de caja.</p>
+      <p>El contorno se puede dibujar encima del borde o separado de él.</p>
+      <p>El contorno no admite bordes redondeados.</p>
+
+      <ul>
+        <li><strong>outline</strong>: forma abreviada</li>
+        <li><strong>outline-color</strong>: color</li>
+        <li><strong>outline-style</strong>: estilo</li>
+        <li><strong>outline-width</strong>: grosor</li>
+        <li><strong>outline-offset</strong>: separación</li>
+      </ul>
+
+      <ul>
+        <li><strong>outline</strong>: forma abreviada</li>
+        <li><strong>outline-color</strong>: color</li>
+        <li><strong>outline-style</strong>: estilo</li>
+        <li><strong>outline-width</strong>: grosor</li>
+        <li><strong>outline-offset</strong>: separación</li>
+      </ul>
+
+      <p>Por defecto, el contorno empieza justo por fuera del límite del borde, pero se puede ajustar a más distancia
+        con
+        la
+        propiedad <strong>outline-offset</strong>:</p>
+
+      <figure>
+        <figcaption>Ejemplo de outline y outline-offset</figcaption>
+        <p style="border:2px solid #F00; outline:5px dashed cyan; padding:10px;">outline:5px dashed cyan;</p>
+        <p style="border:2px solid #F00; outline:5px dashed cyan; outline-offset:5px; padding:10px;">
+          outline:5px dashed cyan; outline-offset:5px;
+        </p>
+      </figure>
+    </section>
+
+    <section>
+      <h2>"Borde" en los enlaces</h2>
+      <p>El borde o marco que aparece en los enlaces, cuando tenemos el foco en ellos, no es un borde realmente, sino
+        que
+        se
+        está aplicando este elemento de contorno.</p>
+
+      <p>Es posible quitar este contorno, sin embargo esto hará que una persona que utilice el teclado para desplazarse
+        por
+        pantalla no pueda saber por dónde va el tabulador.</p>
+
+      <p>Por lo tanto, si se decide eliminar este contorno, será necesario implementar la pseudo-clase
+        <code>:focus</code>
+        del enlace con los mismos estilos que la pseudo-clase <code>:hover</code> para no perder funcionalidad y
+        accesibilidad.</p>
+
+      <h3>Se elimina el contorno del enlace:</h3>
+      <pre><code>a{outline:none;}</code></pre>
+
+      <p>Bien usemos el ratón o bien el teclado, al posicionarnos en el enlace
+        aparecerá el mismo formato visual:</p>
+      <pre><code>a:hover, a:focus {
+    color: #F00;
+    outline: 2px solid #F00;
+    outline-offset: 2px;
+  }</code></pre>
+
+      <p>Ejemplo de enlace:</p>
+      <nav>
+        <a href="#" style="padding:6px 12px; text-decoration:none;">Enlace de ejemplo</a>
+      </nav>
+    </section>
+  </main>
+  <footer>
+    <p>© 2025 Ejemplo de contornos en CSS</p>
+  </footer>
+</body>
+
+</html>

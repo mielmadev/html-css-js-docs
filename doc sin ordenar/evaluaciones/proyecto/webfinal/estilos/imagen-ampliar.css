@@ -1,0 +1,58 @@
+/* imagen-ampliar.css */
+.imagen-ampliar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 20, 30, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.imagen-ampliar-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.imagen-ampliar-img {
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(50, 50, 93, 0.18), 0 3px 12px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+.imagen-ampliar-cerrar,
+.imagen-ampliar-prev,
+.imagen-ampliar-next {
+  position: absolute;
+  color: #fff;
+  font-size: 2.2rem;
+  cursor: pointer;
+  user-select: none;
+  text-shadow: 0 2px 8px #000;
+  transition: color 0.2s;
+}
+.imagen-ampliar-cerrar {
+  top: 2rem;
+  right: 2.5rem;
+  font-size: 2.5rem;
+}
+.imagen-ampliar-prev {
+  left: 2vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.imagen-ampliar-next {
+  right: 2vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.imagen-ampliar-cerrar:hover,
+.imagen-ampliar-prev:hover,
+.imagen-ampliar-next:hover {
+  color: #32fff6;
+}

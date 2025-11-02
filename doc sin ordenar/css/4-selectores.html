@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4. Selectores CSS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>4. Selectores</h1>
+    </header>
+    <section>
+      <p>Como hemos indicado anteriormente, los selectores nos permiten indicar sobre qué elemento o elementos
+        aplicaremos las propiedades CSS.</p>
+    </section>
+    <section>
+      <h2>Universal</h2>
+      <p>Se aplica a todos los elementos HTML.
+      </p>
+      <pre><code>* {color: red;}</code></pre>
+      <p>Como norma general no se debe utilizar, salvo en ciertas excepciones que ya explicaremos más adelante.</p>
+    </section>
+    <section>
+      <h2>Elemento</h2>
+      <p>Se aplica al elemento HTML indicado:</p>
+      <p>HTML</p>
+      <pre><code>&lt;a href=""&gt;....&lt;/a&gt;
+&lt;p&gt;.....&lt;/p&gt;</code></pre>
+      <p>CSS</p>
+      <pre><code>a{ ...... }
+p{ ...... }</code></pre>
+    </section>
+    <section>
+      <h2>ID</h2>
+      <p>Se aplica al elemento HTML que tenga el ID correspondiente:</p>
+      <p>HTML</p>
+      <pre><code>&lt;h1 id="cabecera"&gt;...&lt;/h1&gt;
+&lt;ul id="menu"&gt;...&lt;/ul&gt;</code></pre>
+      <p>CSS</p>
+      <pre><code>#cabecera{ ...... }
+#menu{ ...... }</code></pre>
+    </section>
+    <section>
+      <h2>Clase</h2>
+      <p>Se aplica al elemento (o elementos) HTML que tenga la clase correspondiente:</p>
+      <p>HTML</p>
+      <pre><code>&lt;p class="aviso"&gt;...&lt;/p&gt;
+&lt;p class="error"&gt;...&lt;/p&gt;</code></pre>
+      <p>CSS</p>
+      <pre><code>.aviso{ ...... }
+.error{ ...... }</code></pre>
+      <p>También es posible aplicar varias clases a un mismo elemento:</p>
+      <p>HTML</p>
+      <pre><code>&lt;p class="boton contacto"&gt;...&lt;/p&gt;
+&lt;p class="boton buscador"&gt;...&lt;/p&gt;</code></pre>
+      <p>CSS</p>
+      <pre><code>.boton{ font-weight: bold; }
+.contacto{ color: red; }
+.buscador{ color: blue; }</code></pre>
+    </section>
+    <section>
+      <h2>Adyacente</h2>
+      <p>Se aplica para elementos que están uno detrás del otro:</p>
+      <p>En este ejemplo aplico estilos a un elemento strong si va precedido de un elemento em.</p>
+      <p>HTML</p>
+      <pre><code>&lt;p&gt;Hay un &lt;strong&gt;texto&lt;/strong&gt;, después hay otro &lt;em&gt;texto&lt;/em&gt; y finalmente
+&lt;strong&gt;otro texto más&lt;/strong&gt;.&lt;/p&gt;</code></pre>
+      <p>CSS</p>
+      <pre><code>em + strong {
+color: red;
+}</code></pre>
+      <p>Hay un texto, después hay otro texto y finalmente otro texto más.</p>
+    </section>
+    <section>
+      <h2>Hermano</h2>
+      <p>Similar al adyacente, pero en este caso no es necesario que vayan adyacentes, sólo que sean hermanos. Se aplica
+        al último elemento:</p>
+      <pre><code>strong ~ strong {
+color: red;
+}</code></pre>
+      <pre><code>&lt;p&gt;Hay un &lt;strong&gt;texto&lt;/strong&gt;, después hay otro &lt;em&gt;texto&lt;/em&gt; y finalmente otro &lt;strong&gt;texto más&lt;/strong&gt;.&lt;/p&gt;
+</code></pre>
+      <p>Hay un <strong>texto</strong>, después hay otro <em>texto</em> y finalmente otro <strong
+          style="color:red;">texto más</strong>.</p>
+      <p>El símbolo ~ (virgulilla de la eñe) se puede copiar del texto, o utilizar dos combinaciones de teclas:
+      <ul>
+        <li>Alt Gr + 4/$ (no vale el 4 del panel numérico)</li>
+        <li>Alt + 126</li>
+      </ul>
+      </p>
+    </section>
+    <section>
+      <h2>Descendente</h2>
+      <p>Se aplica al último elemento del selector, siempre que tenga como ancestro (padre, abuelo...) al resto de
+        selectores que le precedan (siguiendo el orden jerárquico):</p>
+      <p>HTML</p>
+      <pre><code>&lt;ul&gt;
+    &lt;li&gt;
+      item1
+      &lt;ol&gt;
+        &lt;li&gt;sub-item 1&lt;/li&gt;
+        &lt;li&gt;sub-item 2&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;item2&lt;/li&gt;
+    &lt;li&gt;item3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      <p>CSS</p>
+      <pre><code>ul li{
+    border-left: 5px solid red;
+;
+}</code></pre>
+      <ul>
+        <li style="border-left: 5px solid red;">
+          item1
+          <ol>
+            <li style="border-left: 5px solid red;">sub-item 1</li>
+            <li style="border-left: 5px solid red;">sub-item 2</li>
+          </ol>
+        </li>
+        <li style="border-left: 5px solid red;">item2</li>
+        <li style="border-left: 5px solid red;">item3</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Hijo directo</h2>
+      <p>Estos selectores se utilizan para aplicar propiedades a un elemento que es un hijo directo del elemento
+        padre. Es decir, solo selecciona los elementos que están directamente dentro del contenedor especificado, y no
+        los descendientes más profundos. Por ejemplo, <code>ul > li</code> selecciona solo los <code>li</code> que son
+        hijos directos de <code>ul</code>, pero no los <code>li</code> que estén dentro de un <code>ol</code> anidado
+        dentro del <code>ul</code>.</p>
+      <p>HTML</p>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;
+    item1
+    &lt;ol&gt;
+      &lt;li&gt;sub-item 1&lt;/li&gt;
+      &lt;li&gt;sub-item 2&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;item2&lt;/li&gt;
+  &lt;li&gt;item3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      <p>CSS</p>
+      <pre><code>ul > li{
+color: red;
+}
+</code></pre>
+      <ul>
+        <li style="color: red;">
+          item1
+          <ol>
+            <li>sub-item 1</li>
+            <li>sub-item 2</li>
+          </ol>
+        </li>
+        <li style="color: red;">item2</li>
+        <li style="color: red;">item3</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Recomendaciones sobre selectores de hijo directo</h2>
+      <p>
+        Usar el selector de hijo directo (<code>&gt;</code>) en estructuras con muchas generaciones (niveles de
+        anidamiento) puede dificultar el mantenimiento y la claridad del código. Además, los selectores demasiado
+        profundos pueden afectar el rendimiento y hacer que el CSS sea menos eficiente.
+      </p>
+      <p>
+        Es recomendable utilizar selectores específicos y evitar depender de demasiados niveles de jerarquía. Si
+        necesitas seleccionar elementos en estructuras muy anidadas, considera simplificar el HTML o usar clases más
+        concretas.
+      </p>
+      <pre><code>
+/* Ejemplo NO recomendado por profundidad excesiva */
+.padre > .hijo > .nieto > .bisnieto > li {
+  color: orange;
+}
+  </code></pre>
+      <p>
+        Mejor utiliza selectores más simples y directos:
+      </p>
+      <pre><code>
+/* Ejemplo recomendado */
+.lista > li {
+  color: green;
+}
+  </code></pre>
+    </section>
+    <section>
+      <h2>Pseudo-clases</h2>
+      <p>Se denomina de esta manera a los diferentes estados/comportamiento que pueden tener los elementos HTML, como
+        un
+        enlace, un campo de formulario. etc.</p>
+      <p>Podemos categorizar las pseudoclases en diferentes grupos:</p>
+      <section>
+        <h3>Interacción</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Pseudo-clase</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>:active</td>
+              <td>El elemento está activo (por ejemplo, un enlace mientras se pulsa).</td>
+            </tr>
+            <tr>
+              <td>:hover</td>
+              <td>El elemento está bajo el puntero del ratón.</td>
+            </tr>
+            <tr>
+              <td>:focus</td>
+              <td>El elemento tiene el foco (por ejemplo, un campo de formulario seleccionado).</td>
+            </tr>
+            <tr>
+              <td>:focus-visible</td>
+              <td>El elemento tiene el foco y es visible para el usuario.</td>
+            </tr>
+            <tr>
+              <td>:focus-within</td>
+              <td>El elemento o alguno de sus descendientes tiene el foco.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h3>Ubicación</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Pseudo-clase</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>:link</td>
+              <td>Enlace que aún no ha sido visitado.</td>
+            </tr>
+            <tr>
+              <td>:any-link</td>
+              <td>Enlace, visitado o no.</td>
+            </tr>
+            <tr>
+              <td>:visited</td>
+              <td>Enlace que ya ha sido visitado.</td>
+            </tr>
+            <tr>
+              <td>:target</td>
+              <td>Elemento que coincide con el fragmento de la URL.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h3>Formulario</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Pseudo-clase</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>:enabled</td>
+              <td>El elemento de formulario está habilitado.</td>
+            </tr>
+            <tr>
+              <td>:disabled</td>
+              <td>El elemento de formulario está deshabilitado.</td>
+            </tr>
+            <tr>
+              <td>:read-only</td>
+              <td>El elemento de formulario es de solo lectura.</td>
+            </tr>
+            <tr>
+              <td>:checked</td>
+              <td>El elemento de formulario está marcado (checkbox, radio, etc.).</td>
+            </tr>
+            <tr>
+              <td>:indeterminate</td>
+              <td>El elemento de formulario está en estado indeterminado.</td>
+            </tr>
+            <tr>
+              <td>:required</td>
+              <td>El elemento de formulario es obligatorio.</td>
+            </tr>
+            <tr>
+              <td>:optional</td>
+              <td>El elemento de formulario es opcional.</td>
+            </tr>
+            <tr>
+              <td>:valid</td>
+              <td>El valor del elemento de formulario es válido.</td>
+            </tr>
+            <tr>
+              <td>:invalid</td>
+              <td>El valor del elemento de formulario es inválido.</td>
+            </tr>
+            <tr>
+              <td>:in-range</td>
+              <td>El valor del elemento de formulario está dentro del rango permitido.</td>
+            </tr>
+            <tr>
+              <td>:out-of-range</td>
+              <td>El valor del elemento de formulario está fuera del rango permitido.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h3>Modales y Ventanas</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Pseudo-clase</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>:fullscreen</td>
+              <td>El elemento está en modo pantalla completa.</td>
+            </tr>
+            <tr>
+              <td>:modal</td>
+              <td>El elemento es un cuadro de diálogo modal.</td>
+            </tr>
+            <tr>
+              <td>:open</td>
+              <td>El elemento está abierto (por ejemplo, &lt;details open&gt;).</td>
+            </tr>
+            <tr>
+              <td>:closed</td>
+              <td>El elemento está cerrado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h3>Idioma</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Pseudo-clase</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>:lang(idioma)</td>
+              <td>Selecciona elementos según el idioma especificado en el atributo lang.</td>
+            </tr>
+            <tr>
+              <td>:dir(ltr | rtl)</td>
+              <td>Selecciona elementos según la dirección del texto: izquierda a derecha (ltr) o derecha a izquierda
+                (rtl).</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <p>En dispositivos táctiles la pseudo-clase :hover no funciona por motivos obvios. Normalmente tenemos que tocar
+        la pantalla, se reproduce el estilo y funcionalidad de :hover y después, en caso de que sea un elemento
+        interactivo (imagen, botón de formulario...), hay que volver a tocar la pantalla para ejecutar la acción.</p>
+      <p>No obstante, a futuro es posible que sí pueda funcionar, si se desarrolla la tecnología necesaria. Apple puso
+        la primera piedra con una patente para un sensor de proximidad de pantalla que se utiliza para ciertas
+        acciones
+        y a día de hoy la tecnología se usa de forma puntual en ciertas pantallas (no móviles). En el móvil se utiliza
+        una tecnología similar, pero para detectar si estamos cerca del móvil o no (sin la intención de hacer
+        funcional
+        la pantalla), por lo que no es descabellado pensar que en algún momento se implemente para páginas web.</p>
+    </section>
+    <section>
+      <h3>Entre hijos</h3>
+      <p>Estos selectores son realmente unas pseudoclases de estructura especiales, donde se selecciona un elemento en
+        función de su jerarquía:</p>
+      <pre><code>E = elemento | n = un número</code></pre>
+      <table>
+        <thead>
+          <tr>
+            <th>Selector</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>:root</td>
+            <td>Selecciona el elemento raíz del documento (html).</td>
+          </tr>
+          <tr>
+            <td>E:first-child</td>
+            <td>Selecciona el primer hijo de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:last-child</td>
+            <td>Selecciona el último hijo de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:first-of-type</td>
+            <td>Selecciona el primer elemento de su tipo entre los hijos de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:last-of-type</td>
+            <td>Selecciona el último elemento de su tipo entre los hijos de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:nth-of-type(n)</td>
+            <td>Selecciona el elemento n de su tipo entre los hijos de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:nth-last-of-type(n)</td>
+            <td>Selecciona el elemento n contando desde el final de su tipo entre los hijos de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:nth-child(n)</td>
+            <td>Selecciona el elemento n entre los hijos de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:nth-last-child(n)</td>
+            <td>Selecciona el elemento n contando desde el final entre los hijos de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:nth-child(odd)</td>
+            <td>Selecciona los hijos impares de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:nth-child(even)</td>
+            <td>Selecciona los hijos pares de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:only-child</td>
+            <td>Selecciona el elemento si es el único hijo de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:only-of-type</td>
+            <td>Selecciona el elemento si es el único de su tipo entre los hijos de su padre.</td>
+          </tr>
+          <tr>
+            <td>E:empty</td>
+            <td>Selecciona el elemento si no tiene hijos ni contenido.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Pseudo-elementos</h2>
+      <p>Se denominan de esta manera a ciertos selectores especiales que hacen referencia a elementos HTML que no
+        existen como tal, como la primera línea de un elemento, la primera letra, ciertas funcionalidades de
+        formularios...</p>
+      <p>Para diferenciarlos de los pseudo-clases, se utilizan dos puntos dobles :: aunque también es posible utilizar
+        la mayoría de estos pseudo-elementos utilizando un único caracter de dos puntos :</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Pseudo-elemento</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>::first-line / :first-line</td>
+            <td>Selecciona la primera línea de un elemento de bloque.</td>
+          </tr>
+          <tr>
+            <td>::first-letter / :first-letter</td>
+            <td>Selecciona la primera letra de un elemento de bloque.</td>
+          </tr>
+          <tr>
+            <td>::selection</td>
+            <td>Selecciona el texto que ha sido seleccionado por el usuario.</td>
+          </tr>
+          <tr>
+            <td>::target-text</td>
+            <td>Selecciona el texto objetivo de un enlace fragmento.</td>
+          </tr>
+          <tr>
+            <td>::before</td>
+            <td>Inserta contenido antes del contenido de un elemento.</td>
+          </tr>
+          <tr>
+            <td>::after</td>
+            <td>Inserta contenido después del contenido de un elemento.</td>
+          </tr>
+          <tr>
+            <td>::placeholder</td>
+            <td>Selecciona el texto de marcador de posición en campos de formulario.</td>
+          </tr>
+          <tr>
+            <td>::marker</td>
+            <td>Selecciona el marcador de lista (por ejemplo, viñetas o números).</td>
+          </tr>
+          <tr>
+            <td>::file-selection-button</td>
+            <td>Selecciona el botón de selección de archivos en campos de tipo file.</td>
+          </tr>
+          <tr>
+            <td>::backdrop</td>
+            <td>Selecciona el fondo de los elementos en pantalla completa o modales.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Existen 2 funciones asociadas a ::before ::after que se explicarán más adelante:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Función</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>content()</td>
+            <td>Permite insertar contenido generado en los pseudo-elementos ::before y ::after.</td>
+          </tr>
+          <tr>
+            <td>attr()</td>
+            <td>Permite mostrar el valor de un atributo HTML en los pseudo-elementos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>De atributo</h2>
+      <p>También llamados selectores de tipo, se utilizan para poder diferenciar elementos mediante su atributo/valor
+        HTML, bien porque el valor sea exacto, empiece, finalice o acabe con él:</p>
+      <pre><code>E = elemento | attr = atributo | val = valor</code></pre>
+      <table>
+        <thead>
+          <tr>
+            <th>Selector</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>E[attr]</td>
+            <td>Selecciona elementos que tengan el atributo <code>attr</code>, sin importar su valor.</td>
+          </tr>
+          <tr>
+            <td>E[attr="val"]</td>
+            <td>Selecciona elementos cuyo atributo <code>attr</code> tenga exactamente el valor <code>val</code>.</td>
+          </tr>
+          <tr>
+            <td>E[attr^="val"]</td>
+            <td>Selecciona elementos cuyo atributo <code>attr</code> empieza por <code>val</code>.</td>
+          </tr>
+          <tr>
+            <td>E[attr$="val"]</td>
+            <td>Selecciona elementos cuyo atributo <code>attr</code> termina con <code>val</code>.</td>
+          </tr>
+          <tr>
+            <td>E[attr*="val"]</td>
+            <td>Selecciona elementos cuyo atributo <code>attr</code> contiene <code>val</code> en cualquier posición.
+            </td>
+          </tr>
+          <tr>
+            <td>E[attr~="val"]</td>
+            <td>Selecciona elementos cuyo atributo <code>attr</code> contiene la palabra <code>val</code> (separada
+              por espacios).</td>
+          </tr>
+          <tr>
+            <td>E[attr|="val"]</td>
+            <td>Selecciona elementos cuyo atributo <code>attr</code> es exactamente <code>val</code> o empieza por
+              <code>val-</code> (útil para idiomas).
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>CSS distingue entre mayúsculas y minúsculas a la hora de hacer las comparaciones de los valores. Si no
+        queremos
+        respetarlas, se añade un parámetro adicional al selector:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Selector</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>E[attr="val"]</td>
+            <td>Selecciona elementos cuyo atributo <code>attr</code> tenga exactamente el valor <code>val</code>
+              (distingue mayúsculas/minúsculas).</td>
+          </tr>
+          <tr>
+            <td>E[attr="val" i]</td>
+            <td>Selecciona elementos cuyo atributo <code>attr</code> tenga exactamente el valor <code>val</code> (sin
+              distinguir mayúsculas/minúsculas).</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Lógicos</h2>
+      <p>Estas pseudo-clases especiales permiten seleccionar elementos de manera avanzada, lógica y condicional.</p>
+      <section>
+        <h3>:is()</h3>
+        <p>Selecciona los elementos que coincidan con cualquier selector dentro de los indicados.</p>
+        <p>La especificidad se calcula usando el selector de mayor especificidad dentro de :is()</p>
+        <pre><code>:is(h2, h3) {
+color: red;
+}
+
+/* equivalente a */
+h2,h3{
+color:red;
+}</code></pre>
+      </section>
+      <section>
+        <h3>:where()</h3>
+        <p>Es similar a :is() y selecciona los elementos que coincidan con cualquier selector dentro de los indicados,
+          pero siempre tiene especificidad cero para los selectores dentro de él.</p>
+        <p>HTML</p>
+        <pre><code>&lt;div class="box"&gt;bloque 1&lt;/div&gt;
+&lt;div class="box especial"&gt;bloque 2&lt;/div&gt;</code></pre>
+        <p>CSS:</p>
+        <pre><code>:where(.box, .otro, .otromas) {
+color: blue;
+}
+.especial {
+color: red;
+}</code></pre>
+        <p>La caja "especial" tendrá el texto rojo, puesto que sobrescribe a :where()</p>
+      </section>
+      <section>
+        <h3>:not()</h3>
+        <p>Selecciona elementos que no coincidan con los selectores indicados</p>
+        <pre><code>a:not(.especial){
+border:2px solid black;
+}
+
+/* equivalente a */
+a{border:2px solid black;}
+a.especial{border:0;}</code></pre>
+      </section>
+      <section>
+        <h3>:has()</h3>
+        <p>Selecciona los elementos que contienen al menos un elemento de los indicados.</p>
+        <p>Es muy útil para seleccionar elementos padre en base de si tienen ciertos hijos o no.</p>
+        <pre><code>&lt;div&gt;
+  &lt;p&gt;Párrafo normal&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;p class="especial"&gt;Párrafo especial&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        <pre><code>div:has(.especial) {
+border: 1px solid red;
+}</code></pre>
+        <p>Únicamente el elemento div que contenga el párrafo con la clase "especial" tendrá un borde rojo.</p>
+      </section>
+    </section>
+    <section>
+      <h2>Referencias</h2>
+      <ul>
+        <li><a href="https://www.w3.org/TR/selectors-4/">Especificación Oficial</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector">Restricciones
+            de seguridad en :visited</a></li>
+        <li><a href="https://css-tricks.com/useful-nth-child-recipies/">Fórmulas para selectores entre hijos</a></li>
+        <li><a href="https://www.alt-codes.net/">ALT códigos</a></li>
+        <li><a
+            href="https://www.engadget.com/2010-01-27-apple-granted-patent-for-a-proximity-sensing-touchscreen.html">Patente
+            Proximidad</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Recursos</h2>
+      <ul>
+        <li><a href="https://css-tricks.com/examples/nth-child-tester/">Test selectores entre hijos</a></li>
+        <li><a href="https://flukeout.github.io/">Juego interactivo con selectores</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>

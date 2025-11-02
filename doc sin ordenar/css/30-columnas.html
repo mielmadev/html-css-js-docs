@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30. Columnas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>30. Columnas</h1>
+  </header>
+  <main>
+    <section>
+      <h2>¿Qué son las columnas?</h2>
+      <p>
+        Podemos distribuir un texto en columnas, de tal manera que el texto fluya en función de la cantidad de texto,
+        las
+        dimensiones del bloque, todo de manera automática
+      </p>
+      <p>
+        Esta propiedad no está pensada para maquetar bloques de contenido generales (cabecera / menú, por ejemplo), sino
+        que
+        debe utilizarse para distribuir textos, o imágenes con textos.
+      </p>
+      <p>
+        La sintaxis consta de las siguientes propiedades obligatorias:
+      </p>
+      <ul>
+        <li><strong>column-count:</strong> Nº de columnas</li>
+        <li><strong>column-width:</strong> Anchura de las columnas (valor auto o anchura)</li>
+      </ul>
+      <p>
+      <div
+        style="column-count: 3; column-width: 50px; column-rule: 2px solid #0077cc; background: #e0f7fa; padding: 10px;">
+        Ejemplo de texto en <strong>3 columnas de 50px</strong>.<br>
+        <br style="break-before: column;">
+        Segunda columna de ejemplo.<br>
+        <br style="break-before: column;">
+        Tercera columna de ejemplo.
+      </div>
+      </p>
+      <p>
+        Estas dos propiedades se pueden unificar en la siguiente propiedades:
+      </p>
+      <pre>
+      column: 3;         /* 3 columnas de anchura automática */
+      column: 3 auto;    /* 3 columnas de anchura automática */
+      column: 3 250px;   /* 3 columnas de 250px cada una */
+      </pre>
+      <p>
+
+        Y las siguiente propiedades opcionales:
+      </p>
+      <pre>
+    column-gap: Separación entre columnas
+    column-rule: Línea entre columnas (misma sintaxis que un borde)
+    column-fill: Balanceo entre el contenido de las columnas (valores: auto o balance)
+      </pre>
+      <!-- Ejemplos visuales de propiedades opcionales de columnas -->
+      <h2>Ejemplos de propiedades opcionales</h2>
+
+      <h3>column-gap</h3>
+      <p>Separación entre columnas: <code>column-gap: 40px;</code></p>
+      <div style="column-count: 3; column-gap: 40px; background: #f0f0f0; padding: 10px;">
+        Ejemplo de texto en columnas con <strong>column-gap: 40px;</strong>. Observa el espacio extra entre cada
+        columna.
+        <br>Segunda columna de ejemplo.
+        <br>Tercera columna de ejemplo.
+      </div>
+
+
+      <h3>column-rule</h3>
+      <p>Línea entre columnas: <code>column-rule: 2px dashed #0077cc;</code></p>
+      <div style="column-count: 3; column-rule: 2px dashed #0077cc; background: #f0f0f0; padding: 10px;">
+        Ejemplo de texto en columnas con <strong>column-rule: 2px dashed #0077cc;</strong>. Observa la línea azul entre
+        columnas.
+        <br>Segunda columna de ejemplo.
+        <br>Tercera columna de ejemplo.
+      </div>
+
+      <h3>column-fill</h3>
+      <p>Balanceo entre el contenido de las columnas: <code>column-fill: balance;</code></p>
+      <div style="column-count: 3; column-fill: balance; background: #f0f0f0; padding: 10px; height: 120px;">
+        Ejemplo de texto en columnas con <strong>column-fill: balance;</strong>. El contenido se reparte de forma
+        equilibrada
+        entre las columnas.
+        <br>Segunda columna de ejemplo.
+        <br>Tercera columna de ejemplo.
+      </div>
+
+      <p>
+        También existe la posibilidad de controlar que un contenido se expanda entre todas las columnas e incluso hacer
+        saltos
+        manuales de columnas, aunque el comportamiento puede variar entre navegadores debido a su inconsistente soporte.
+      </p>
+    </section>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../estilo.css" />
+  </head>
+  <body>
+    <h1>33. Grid (parte 1)</h1>
+    <h2>Introducción</h2>
+    Grid es un sistema con un conjunto de propiedades creadas ex profeso para maquetar los contenidos en 2 dimensiones (filas y columnas). En una maquetación lo más habitual suele ser utilizar Flexbox y Grid a la vez, puesto que cada uno tiene sus usos específicos. Las principales diferencias entre Flexbox y Grid son las siguientes: Una dimensión contra dos: Flexbox está pensado para maquetar en una dimensión (eje principal) y Grid para 2 dimensiones (filas y columnas). Basado en contenido o en diseño: Flexbox se basa en el contenido mientras que Grid se basa en el diseño. Esfuerzo de aprendizaje: Flexbox es relativamente sencillo de aprender y aplicar. La especificación de Grid es bastante compleja ya tienen muchas propiedades (tanto para el contenedor padre como para los hijos) y dispone de varios métodos para lograr una misma maquetación.
+    <h2>Propiedades al padre</h2>
+    Para empezar a utilizar las propiedades tenemos que indicarle al elemento padre que va a tener una visualización de tipo grid: HTML:
+    <div class="grid-container">
+      <div class="item"><p>1º</p></div>
+      <div class="item"><p>segundo</p></div>
+      <div class="item"><p>tercero</p></div>
+      ...
+    </div>
+    CSS: .grid-container{ /* Padre */ display: grid; } .item{ /* Hijo */ padding: 10px; } 1º segundo bloque tercero Pero con esta única propiedad no va a ser suficiente, necesitamos más propiedades.
+
+    <h2>Definir columnas</h2>
+    <h3>grid-template-columns</h3>
+    La propiedad grid-template-columns indica explícitamente el número de columnas que va a tener nuestra maquetación, así como la anchura de cada una de ellas. Podemos mezclar diferentes unidades de medida, como px, %, rem, vw, la nueva unidad fr (fracción), la palabra reservada auto y otras funciones para establecer el tamaño. En esta primera parte vamos a ver las unidades de medida más básicas. grid-template-columns: 150px 150px 150px; grid-template-columns: repeat(3, 150px); 1º segundo bloque tercero Por defecto los bloques se alinean en la parte izquierda y además todos se igualan en altura (en función del bloque más alto). Estas alineaciones se podrán modificar más adelante. grid-template-columns: 300px 120px 120px; grid-template-columns: 300px repeat(2, 120px); 1º segundo bloque tercero grid-template-columns: 33% 33% 33%; grid-template-columns: repeat(3, 33%); 1º segundo bloque tercero La unidad de medida fr (fracción) es específica de Grid y representa una parte del espacio libre que queda en una fila y/o columna. Es el equivalente a la propiedad flex-grow que utilizamos en Flexbox: grid-template-columns: 1fr 1fr 1fr; grid-template-columns: repeat(3, 1fr); 1º segundo bloque tercero grid-template-columns: 1fr 2fr 1fr; 1º segundo bloque tercero grid-template-columns: 3fr 1fr; 1º segundo bloque Se pueden mezclar todas las unidades de medida, combinándolas a nuestro antojo. Por ejemplo, vamos a dejar una columna siempre fija (su tamaño no variará), otra relativa al tamaño del padre y otra en base al tamaño libre que quede: grid-template-columns: 150px 30% 1fr; 1º segundo bloque tercero También podemos utilizar la palabra auto, para que el navegador establezca la anchura automática: grid-template-columns: auto auto auto; grid-template-columns: repeat(3, auto); 1º segundo bloque tercero A veces da la sensación que auto hace exactamente lo mismo que fr, pero no es así. El valor fr calcula el espacio libre y auto establece una anchura automática. Si no se combina con otras unidades de medida, reparte todo el espacio entre los elementos (en este caso sí que funciona como fr). Pero si se combina con otras unidades de medida, la anchura de los elementos vendrá dada por la anchura del contenido de cada elemento: grid-template-columns: auto 1fr auto; 1º segundo bloque tercero
+
+    <h2>Filas implícitas (automáticas)</h2>
+    Si hay más elementos que columnas, éstos se van distribuyendo automáticamente en filas, respetando el tamaño que tenga cada columna. Es lo que llamamos filas implícitas. En el caso de la altura, cada fila será independiente y por defecto tomará la altura máxima de los elementos por cada fila (posteriormente se podrá modificar): <code>grid-template-columns: 1fr 2fr 1fr;</code>
+
+    <style>
+      .interactive-grid-container {
+        display: grid;
+        gap: 10px;
+        margin: 30px 0;
+        background: #f4f4f4;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .interactive-grid-item {
+        background: #cce5ff;
+        border: 1px solid #339af0;
+        border-radius: 4px;
+        padding: 16px;
+        text-align: center;
+        font-weight: bold;
+        font-family: "Montserrat", sans-serif;
+      }
+      .controls {
+        margin-bottom: 16px;
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .controls label {
+        font-size: 1rem;
+        margin-right: 4px;
+      }
+      .controls input {
+        width: 60px;
+        padding: 2px 6px;
+        font-size: 1rem;
+      }
+    </style>
+    <div class="controls">
+      <label for="cols">Columnas:</label>
+      <input type="number" id="cols" min="1" max="8" value="3" />
+      <label for="frs">Fracciones (separadas por espacio):</label>
+      <input type="text" id="frs" value="1fr 2fr 1fr" />
+      <label for="items">Elementos:</label>
+      <input type="number" id="items" min="1" max="20" value="7" />
+      <button id="updateGrid">Actualizar</button>
+    </div>
+    <div id="interactiveGrid" class="interactive-grid-container"></div>
+    <script>
+      function renderGrid() {
+        const cols = parseInt(document.getElementById("cols").value, 10);
+        const frs = document.getElementById("frs").value.trim();
+        const items = parseInt(document.getElementById("items").value, 10);
+        const grid = document.getElementById("interactiveGrid");
+        grid.style.gridTemplateColumns = frs || `repeat(${cols}, 1fr)`;
+        grid.innerHTML = "";
+        for (let i = 1; i <= items; i++) {
+          const div = document.createElement("div");
+          div.className = "interactive-grid-item";
+          div.textContent = `${i}º`;
+          grid.appendChild(div);
+        }
+      }
+      document.getElementById("updateGrid").onclick = renderGrid;
+      document.getElementById("cols").oninput = function () {
+        if (!document.getElementById("frs").value.trim()) document.getElementById("frs").value = `1fr `.repeat(this.value).trim();
+      };
+      window.onload = renderGrid;
+    </script>
+
+    <h2>Definir filas explícitas</h2>
+    <h3>grid-template-rows</h3>
+    La propiedad grid-template-rows indica el número de filas que va a tener nuestra maquetación, así como la altura de cada una de ellas. También podemos mezclar diferentes unidades de medida, hacer filas fijas y otras que ocupen automáticamente el espacio sobrante, etc. Si queremos maquetar varios elementos en multi-línea, todas las líneas iguales, pero no sabemos cuántas filas puede haber (porque dependerá del nº de elementos que haya), no necesitamos establecer el número de líneas de antemano. Simplemente se establecen las columnas (como hemos visto en el último ejemplo del apartado de Columnas) y las filas se van añadiendo según sea necesario. Si tenemos que hacer una maquetación con un número de filas y columnas concretas, entonces sí que combinaremos esta propiedad con grid-template-columns, salvo que queramos hacer una maquetación específica en la que sólo haya una única columna. Al no especificar explícitamente la columna, existirá de manera implícita: grid-template-rows: 150px 150px 150px; grid-template-rows: repeat(3, 150px); 1º segundo bloque tercero Muchas de las veces no queremos establecer una altura concreta a la fila, queremos que el contenido fluya y que ocupe la altura que necesite. Entonces utilizaremos la palabra auto: grid-template-rows: auto auto auto; grid-template-rows: repeat(3, auto); 1º segundo bloque tercero Y podemos combinar múltiples valores: grid-template-rows:80px auto auto; grid-template-rows:80px repeat(2, auto); 1º segundo bloque tercero Si establecemos un número determinado de filas pero hay más elementos, se crean nuevas filas implícitamente: grid-template-rows:80px auto 80px; 1º segundo bloque tercero
+
+    <h2>Combinación de filas y columnas</h2>
+    Para establecer tanto filas como columnas de manera explicita, basta con combinar las dos propiedades anteriores: grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 100px auto; 1º segundo bloque tercero 4º 5º sexto Si hay más bloques de los establecidos inicialmente, se crea una nueva fila implícitamente con altura automática y respetando las anchuras de las columnas: grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 100px auto; 1º segundo bloque tercero 4º 5º sexto 7º octavo 9%
+
+    <h2>Separación entre filas y columnas</h2>
+    Podemos indicar una misma separación entre filas y entre columnas: grid-template-columns: repeat(3, 1fr); gap: 50px; 1º segundo bloque tercero 4º 5º sexto Establecer valores diferentes para la filas y para las columnas: grid-template-columns: repeat(3, 1fr); gap: 20px 50px; [fila] [columna] 1º segundo bloque tercero 4º 5º sexto O establecer los valores en propiedades individuales: grid-template-columns: repeat(3, 1fr); row-gap: 20px; column-gap:50px; 1º segundo bloque tercero 4º 5º sexto Si las columnas y/o filas tienen el tamaño expresado en una unidad de medida diferente a fr o auto, al añadir la separación entre filas/columnas, este tamaño de separación se suma al tamaño de los elementos, por lo que el contenido se desborda: grid-template-columns: repeat(3, 33%); gap: 50px; 1º segundo bloque tercero 4º 5º sexto
+
+    <h2>Propiedades al hijo</h2>
+    <h3>Líneas de ubicación</h3>
+    <p>Se puede usar para maquetar toda la página directamente, colocando el header, footer, main, publicidad..... donde se quiera.</p>
+    <pre>
+      <code>grid-template-columns: 1fr; </code> única columna
+      <code>grid-template-rows: auto auto 1fr auto;</code> Filas automáticas y una que ocupe el espacio sobrante
+    </pre>
+    <p>el grid son tablas con lineas, empezando desde la linea uno al principio de la tabla, la 2 entre la uno y dos, la dos, entre las dos y la tres y la cuatro después de la tres</p>
+    <img src="https://www.antxoa-dev.com/curso/mod-css/img/grid-lineas.png" alt="grid-lineas" />
+    <p>para que una celda ocupe toda la linea o las celdas que nosotros queramos, se modifican los hijos.</p>
+    <pre>
+      <code>
+        .item:nth-child(2){}
+        .item:nth-child(3){}
+        .item:nth-child(4){}
+        .item:nth-child(5){}
+
+        .item:nth-child(6){
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 1;
+          grid-column-end: 4;
+        }
+      </code>
+      El sexto hijo (.item:nth-child(6)) se coloca en la tercera fila (de la línea 3 a la 4)
+      y ocupa todas las columnas (de la columna 1 a la 4), es decir, se expande a lo largo de toda la fila 3.
+    </pre>
+    <code> .celda-padre { display: grid; grid-template-columns: 1fr 2fr 1fr; grid-template-rows: auto; } </code>
+    <pre>
+      Colocar el hijo en la celda correspondiente:
+      <code>
+        .celda-hijo {
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 1;
+          grid-row-end: 2;
+        }
+      </code>
+    </pre>
+    <code> .item:nth-child(1) { grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 2; } </code>
+    <p>se pueden elegir solo bien horizontales o verticales, no se puede hacer una ele para elegir las filas, siempre tiene que ser cuadrado o rectangular</p>
+    <p>se puede abreviar: grid-column: 1 / 2;</p>
+
+    <h3>Líneas a la inversa</h3>
+    <p>para poner un elemento al final de todo sin saber las columnas qeu hay, se puede poner la linea a la inversa, es decir, en vez de contar de izquierda a derecha, se cuenta de derecha a izquierda, poniendo números negativos.</p>
+    <p>no se usa start y end como en las lineas normales, sino que se pone desde donde se empieza / donde se acaba</p>
+    <pre>
+      <code>
+        .item:nth-child(1){
+          grid-row: 3 / 1;
+          grid-column: 2 / 1;
+        }
+      </code>
+      El primer hijo (.item:nth-child(1)) se coloca en la tercera fila (de la línea 3 a la 1)
+    </pre>
+
+    <h3>Líneas implícitas</h3>
+    <p>las lineas implícitas son aquellas que se crean automáticamente cuando se añaden elementos al grid sin especificar su posición.</p>
+    <p>el grid se ajusta automáticamente para acomodar estos elementos, creando nuevas filas o columnas según sea necesario.</p>
+    <pre>
+      El primer hijo (.item:nth-child(1)) se coloca en la segunda fila (de la línea 2 a la 3) y en la primera columna (de la línea 1 a la 2).
+      <code>
+        .item:nth-child(1){
+          grid-row: 2;
+          grid-column: 1;
+        }
+      </code>
+    </pre>
+
+    <h3>Expansión de elementos</h3>
+    <p>para que un elemento ocupe varias filas o columnas, se usa la palabra span</p>
+    <pre>
+      El primer hijo (.item:nth-child(1)) se expande para ocupar dos filas (de la línea 1 a la línea 3) y se coloca en la primera columna (de la línea 1 a la línea 2).
+      <code>
+        .item:nth-child(1){
+          grid-row: 1 / span 2;
+          grid-column: 1;
+        }
+      </code>
+    </pre>
+    <h3>Líneas negativas</h3>
+    <p>las lineas negativas son las mismas que las normales, pero se cuentan de derecha a izquierda</p>
+    <pre>
+      El primer hijo (.item:nth-child(1)) se coloca en la tercera fila (de la línea -2 a la -4) y en la segunda columna (de la línea -3 a la -4).
+      <code>
+        .item:nth-child(1){
+          grid-row: -2 / -4;
+          grid-column: -3 / -4;
+        }
+      </code>
+    </pre>
+    <img src="https://www.antxoa-dev.com/curso/mod-css/img/grid-lineas-negativas.png" alt="lineas-negativas" />
+
+    <h3>Nombres de líneas</h3>
+    <p>se pueden poner nombres a las lineas, para luego llamarlas desde los hijos</p>
+    <pre>
+      El primer hijo (.item:nth-child(1)) se coloca en la fila que empieza en "inicio-filas" y termina en "inicio-fila2", y en la columna que empieza en "inicio-columnas" y termina en "inicio-columna3".
+      <code>
+        .item:nth-child(1){
+          grid-row: inicio-filas / inicio-fila2;
+          grid-column: inicio-columnas / inicio-columna3;
+        }
+      </code>
+    </pre>
+    <pre>
+      Padre
+      <code>
+        .grid-container{
+          display: grid;
+          grid-template-columns:
+            [inicio-columnas] 1fr
+            [inicio-columna2] 1fr
+            [inicio-columna3] 1fr
+            [fin-columnas];
+          grid-template-rows:
+            [inicio-filas] auto
+            [inicio-fila2] auto
+            [inicio-fila3] auto
+            [fin-filas];
+        }
+      </code>
+      Hijos
+      <code>
+        .item:nth-child(1){
+          grid-row: inicio-filas / inicio-fila2;
+          grid-column: inicio-columnas / inicio-columna3;
+        }
+      </code>
+    </pre>
+    <section class="notas-mielmadev">
+      <h2>Notas MielmaDev</h2>
+      <p>Cuando es necesario, envolver en div con la clase oportuna, si hay varios elementos que comparten estilos similares, aprovechare la className.</p>
+      <p><code>max-width</code> es aconsejable usar para que no haya problema en adaptar el diseño a diferentes tamaños de pantalla.</p>
+      <p>Si se usan porcentajes, el padre tiene que tener un ancho definido.</p>
+      <p>Si se usan unidades relativas (%, fr, auto), el diseño será más fluido y adaptable a diferentes tamaños de pantalla.</p>
+      <p>Puedes usar <code>grid</code> dentro de <code>flex</code> y a la inversa.</p>
+      <p><code>flex</code> si necesitas solamente en un eje, en el horizontal sería la mejor opción</p>
+      <p><code>grid</code> si necesitas en los dos ejes, horizontal y vertical.</p>
+      <p>Si tienes que hacer un diseño complejo, con muchos elementos, es mejor usar <code>grid</code>, si es un diseño sencillo, con pocos elementos, es mejor usar <code>flex</code>.</p>
+      <p><code>display: grid;</code> llama a <code>grid-template-columns</code> y <code>grid-template-rows</code> para definir el contenedor grid, tanto sus columnas como las líneas.</p>
+      <p>Si no defines las filas, se crean automáticamente según el contenido.</p>
+      <p>Si no defines las columnas, se crea una única columna que ocupa todo el ancho del contenedor.</p>
+      <p>Si no defines ni filas ni columnas, se crea una única celda que ocupa todo el contenedor.</p>
+      <p>Si no defines ni filas ni columnas, pero tienes varios elementos hijos, se crean automáticamente filas para acomodar los elementos, todos en una única columna.</p>
+      <p>Con <code>grid-template-columns</code> y <code>grid-template-rows</code> defines explícitamente el número y tamaño de las columnas y filas. usa fr para un diseño más flexible. o repeat() para crear columnas o filas de igual tamaño. ejemplo: <code>grid-template-columns: repeat(3, 1fr);</code> repetir tres columnas de un <code>fr</code>.</p>
+      <p><code>grid-row</code> y <code>grid-column</code> se utilizan para colocar los elementos hijos en el grid. ejemplo de <code>grid-row: 1 / 2;</code> y <code>grid-column: 1 / 3;</code>, marca desde la línea 1 hasta la línea 2 en el eje de las filas y desde la línea 1 hasta la línea 3 en el eje de las columnas.</p>
+      <p>Si no sabes cuántas filas o columnas habrá, puedes usar <code>grid-auto-rows</code> y <code>grid-auto-columns</code> para definir el tamaño de las filas y columnas que se creen automáticamente.</p>
+      <p>No se usa <code>div</code> extra, ya qeu se llama al padre, pero si hubiera muchos elementos seria buena práctica envolverlos en un <code>div</code> solamente lo que quieras qeu se envuelva, no tiene porque ser la <code>section</code> completa.</p>
+      <p><code>responsive</code> puedes decirle que depende del tamaño de la pantalla sean mas columnas o menos.</p>
+      <p><code>gap</code> se utiliza para definir el espacio entre las columnas y filas del grid.</p>
+      <p>Si usas <code>grid-template-rows</code> y <code>grid-template-columns</code> para definir el tamaño de las filas y columnas, el tamaño de las filas y columnas será fijo, si usas <code>grid-auto-rows</code> y <code>grid-auto-columns</code>, el tamaño de las filas y columnas será automático, dependiendo del contenido.</p>
+      <p><code>inline</code> se utiliza para definir un elemento como un contenedor en línea, permitiendo que otros elementos fluyan a su alrededor.</p>
+      <p><code>inline-block</code> se utiliza para definir un elemento como un contenedor en línea, pero permite establecer un ancho y alto específicos.</p>
+      <p>diferencia <code>inline</code> e <code>inline-block</code> es que <code>inline</code> no permite establecer un ancho y alto, mientras que <code>inline-block</code> sí.</p>
+      <p>Se llama con <code>display: inline;</code> y <code>display: inline-block;</code> respectivamente.</p>
+      <p>Al usar <code>grid</code> o <code>flex</code> es muy importante usar fracciones <code>fr</code> para no tener problemas con el <code>gap</code> o con el <code>margen</code>,o con el <code>padding</code>, si usas <code>%</code> puede que no funcione como esperas, ya que si cambias cualquier valor, se cambia todo el diseño.</p>
+      <h3>Ordenar elementos con Flex y Grid</h3>
+      <p>En <strong>Flexbox</strong>, el orden de los elementos se controla principalmente con <code>flex-direction</code> (por ejemplo, <code>row</code> o <code>column</code>) y con la propiedad <code>order</code> en los hijos. Ejemplo:</p>
+      <pre>
+        <code>
+    .flex-container {
+      display: flex;
+      flex-direction: row; /* o column */
+    }
+    .flex-item {
+      order: 2; /* Cambia el orden de aparición */
+    }
+        </code>
+      </pre>
+      <p>En <strong>Grid</strong>, el orden visual se controla con <code>grid-row</code> y <code>grid-column</code> para ubicar los elementos en la celda deseada, independientemente del orden en el HTML. Ejemplo:</p>
+      <pre>
+        <code>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid-item:nth-child(2) {
+      grid-column: 3;
+      grid-row: 1;
+    }
+        </code>
+      </pre>
+      <p>Así, con <strong>Flexbox</strong> se usa <code>order</code> para cambiar la posición de los hijos, y con <strong>Grid</strong> se usan <code>grid-row</code> y <code>grid-column</code> para colocarlos en la celda que quieras.</p>
+      <p>En resumen, Flexbox es ideal para diseños lineales y Grid para diseños bidimensionales. Ambos permiten controlar el orden visual de los elementos, pero lo hacen de maneras diferentes.</p>
+      
+
+    </section>
+
+    <footer>
+      <h2>Ejercicios</h2>
+      <li><a href="https://www.antxoa-dev.com/curso/mod-css/descargas/css-7-8-9-grid.zip">Pack ejercicios maquetación Grid</a></li>
+      <h2>Pruebas</h2>
+      <ul>
+        <li><a href="https://codepen.io/antxoa/pen/LYvgavG">Pruebas simples</a></li>
+        <li><a href="https://www.antxoa-dev.com/curso/mod-css/descargas/css-10-pruebas-grid.zip">Pruebas complejas</a></li>
+      </ul>
+      <h2>Referencias</h2>
+      <ul>
+        <li><a href="https://mozilladevelopers.github.io/playground/css-grid/">Guía de inicio</a></li>
+        <li><a href="https://www.joshwcomeau.com/css/interactive-guide-to-grid/">Guía interactiva</a></li>
+        <li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">Guía general 1</a></li>
+        <li><a href="https://jst.hashnode.dev/css-grid-tutorial">Guía 2</a></li>
+        <li><a href="https://learncssgrid.com/">Guía 3</a></li>
+      </ul>
+      <h2>Recursos</h2>
+      <ul>
+        <li><a href="https://gridbyexample.com/">Recopilación de ejemplos y recursos</a></li>
+        <li><a href="https://www.quackit.com/html/templates/css_grid_templates.cfm">Plantillas 1</a></li>
+        <li><a href="https://css-tricks.com/snippets/css/css-grid-starter-layouts/">Plantillas 2</a></li>
+        <li><a href="https://www.antxoa-dev.com/curso/mod-css/33-grid.php">Generador/Calculadora para filas desiguales</a></li>
+        <li><a href="https://grid.layoutit.com/">Generador 1</a></li>
+        <li><a href="https://griddy.io/">Generador 2</a></li>
+        <li><a href="https://cssgrid-generator.netlify.app/">Generador 3</a></li>
+        <li><a href="https://layout.bradwoods.io/customize">Generador 4</a></li>
+        <li><a href="https://cssgridgarden.com/#es">Juegos Grid Garden</a></li>
+        <li><a href="https://codingfantasy.com/games/css-grid-attack">Grid Attack</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

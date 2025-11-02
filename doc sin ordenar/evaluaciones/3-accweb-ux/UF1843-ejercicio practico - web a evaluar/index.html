@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Libros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #d3d3d3;
+            background-color: white;
+        }
+        nav a {
+            margin-right: 10px;
+            color: blue;
+        }
+        .hidden {
+            display: none;
+        }
+        .description {
+            width: 300px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenidos a la Tienda de Libros</h1>
+
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="#home">Inicio</a>
+        <a href="#categories">Categorías</a>
+        <a href="/404">Ofertas</a>
+        <a href="#more">Más</a>
+    </nav>
+
+    <!-- Imagen destacada -->
+    <img src="https://picsum.photos/id/24/200/200">
+
+    <!-- Descripción del libro -->
+    <div class="description">
+        <p>Este es un libro increíble que trata sobre aventuras épicas en un mundo fantástico lleno de dragones, caballeros, magos, criaturas mágicas, batallas épicas, y un héroe que salva el mundo con su valentía y astucia en un viaje inolvidable que cambiará su vida para siempre en un relato lleno de emociones fuertes y momentos inolvidables que no puedes perderte.</p>
+    </div>
+
+    <!-- Formulario de búsqueda -->
+    <form>
+        <input type="text" id="search" placeholder="Buscar libros">
+        <button type="submit" class="hidden">Enviar</button>
+    </form>
+
+    <!-- Botón de acción -->
+    <button>Comprar ahora</button>
+
+</body>
+</html>

@@ -1,0 +1,654 @@
+/* ============================= */
+/* 1. VARIABLES GLOBALES        */
+/* ============================= */
+:root {
+  --fuente-titulos: "Playfair Display SC", serif;
+  --fuente-texto: "Roboto", sans-serif;
+  --blanco: #fff;
+  --gris-sutil: #f7f7f7;
+  --gris-claro: #ccc;
+  --gris-medio: #888;
+  --gris-oscuro: #444;
+  --gris-muy-oscuro: #222;
+  --azul-accesible: #0056b3;
+  --amarillo-focus: #ffcc00;
+}
+
+/* ============================= */
+/* 2. REGLAS GENERALES          */
+/* ============================= */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  background-color: var(--blanco);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+nav {
+  font-family: var(--fuente-titulos), serif;
+  white-space: nowrap;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 15px;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.87rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+h1::after,
+h2::after {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 2px;
+  background: var(--gris-medio);
+  margin: 16px auto 0 auto;
+}
+
+p,
+nav {
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.3s linear;
+  word-wrap: break-word;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+abbr {
+  cursor: help;
+}
+
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+button {
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, outline 0.2s;
+}
+
+/* ============================= */
+/* 3. SECCIONES PRINCIPALES      */
+/* ============================= */
+
+/* HEADER */
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+/* MENÚ */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--gris-sutil);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.menu ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  font-size: 1.7rem;
+  color: var(--gris-oscuro);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+  list-style: none;
+  position: relative;
+}
+
+.menu li a {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu li a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gris-medio);
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+/* PRESENTACION */
+.presentacion {
+  background: url(../img/intro-bg.jpg) center center no-repeat;
+  background-size: cover;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 10% 40px 10%;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.presentacion h1 {
+  font-size: 4rem;
+  color: var(--gris-muy-oscuro);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.presentacion h4 {
+  font-size: 1.7rem;
+  color: var(--gris-oscuro);
+  font-weight: 400;
+  margin-top: 0;
+}
+
+/* ABOUT */
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 50px 0;
+  padding: 35px 25%;
+  gap: 20px;
+}
+
+.about h2 {
+  order: 1;
+}
+
+.about-descripcion {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  gap: 15px;
+  order: 3;
+}
+
+.about-img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  order: 2;
+}
+
+.about button {
+  order: 4;
+  padding: 10px 26px;
+  font-size: 1.4rem;
+  border: 2px solid var(--gris-medio);
+  border-radius: 12px 0;
+  background: var(--blanco);
+  color: var(--gris-oscuro);
+  font-family: var(--fuente-titulos), serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px #0001;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.about button:hover,
+.about button:focus {
+  background: var(--gris-medio);
+  color: var(--blanco);
+  border-color: var(--gris-oscuro);
+  box-shadow: 0 4px 16px #0002;
+}
+
+/* PORTFOLIO */
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 175px;
+  background: var(--gris-sutil);
+}
+
+.portfolio h2 {
+  text-align: center;
+  padding: 15px;
+}
+
+.portfolio-galeria {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.portfolio-galeria li {
+  background: var(--gris-claro);
+  padding: 20px;
+  border-radius: 0 10% 0 10%;
+}
+
+/* Imágenes del portfolio: bordes decorativos en % */
+.portfolio-galeria img {
+  border-radius: 10% 0 10% 0;
+  background: var(--blanco);
+}
+
+/* CONTACTO */
+.contacto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 25%;
+  background: var(--blanco);
+}
+
+.contacto h2 {
+  margin-bottom: 40px;
+}
+
+#formcont {
+  width: 100%;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+
+#formcont label {
+  color: var(--gris-oscuro); /* Mejor contraste */
+  font-family: var(--fuente-texto), sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 3px;
+  font-weight: 400;
+}
+
+/* Agrupación de columnas y filas */
+#formcont label[for="nombre"],
+#formcont input#nombre {
+  grid-column: 1;
+}
+
+#formcont label[for="email"],
+#formcont input#email {
+  grid-column: 2;
+}
+
+#formcont label[for="nombre"],
+#formcont label[for="email"] {
+  grid-row: 1;
+}
+
+#formcont input#nombre,
+#formcont input#email {
+  grid-row: 2;
+}
+
+/* Elementos que ocupan ambas columnas */
+#formcont label[for="mensaje"],
+#formcont textarea,
+#formcont button {
+  grid-column: 1 / span 2;
+}
+
+/* Inputs y textarea: bordes en px */
+#formcont input,
+#formcont textarea {
+  border: 1px solid var(--gris-medio);
+  border-radius: 12px 0;
+  /* Bordes redondeados en px para inputs */
+  background: var(--blanco);
+  color: var(--gris-oscuro); /* Mejor contraste */
+  box-sizing: border-box;
+  padding: 8px 10px;
+  font-family: var(--fuente-texto), sans-serif;
+  font-size: 1.6rem;
+}
+
+/* Botón */
+#formcont button {
+  margin: 18px auto 0 auto;
+  padding: 8px 24px;
+  background: var(--blanco);
+  border: 1px solid var(--gris-medio);
+  color: var(--gris-oscuro); /* Mejor contraste */
+  border-radius: 12px 0;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* ICONOS SOCIALES */
+.logo-social {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+  background-size: cover;
+  transition: all 0.3s linear;
+}
+
+.contacto ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logo-social img {
+  filter: grayscale(100%) brightness(0.6);
+  opacity: 0.8;
+  transition: filter 0.2s, opacity 0.2s;
+  transform: none;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 18px 0 10px 0;
+  background: var(--gris-sutil);
+}
+
+footer p {
+  color: var(--gris-oscuro); /* Mejor contraste */
+  font-size: 1.2rem;
+  font-family: var(--fuente-texto), sans-serif;
+  padding: 10px;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ============================= */
+/* 4. EFECTOS HOVER Y FOCUS      */
+/* ============================= */
+
+/* Enlaces: focus */
+a:focus {
+  outline: 3px solid var(--amarillo-focus);
+  outline-offset: 2px;
+  color: var(--azul-accesible);
+  border-radius: 12px 0;
+  background: var(--gris-sutil);
+}
+
+/* Menú navegación: hover y focus */
+.menu li a:hover::after,
+.menu li a:focus::after {
+  transform: scaleX(1);
+}
+
+/* Botones e inputs: outline solo en focus */
+button:focus,
+input[type="submit"]:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus {
+  outline: 3px solid var(--amarillo-focus);
+  outline-offset: 2px;
+  border-radius: 12px 0;
+  background: var(--gris-sutil);
+}
+
+/* Efecto hover para inputs, textarea y botones del formulario */
+#formcont input:hover,
+#formcont textarea:hover,
+#formcont button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px 0 var(--gris-medio), 0 2px 6px 0 var(--gris-oscuro);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+/* Inputs y textarea: focus */
+#formcont input:focus,
+#formcont textarea:focus {
+  outline: 2px solid var(--amarillo-focus);
+  outline-offset: 2px;
+}
+
+/* Imágenes del portfolio: hover y focus */
+.portfolio-galeria img:hover,
+.portfolio-galeria img:focus,
+.portfolio-galeria a:focus img {
+  box-shadow: 0 8px 32px 0 var(--gris-medio), 0 3px 8px 0 var(--gris-oscuro);
+  transform: translateY(-4px) scale(1.03);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.portfolio-galeria a:focus img {
+  outline: 3px solid var(--amarillo-focus);
+  outline-offset: 2px;
+  border-radius: 12px 0;
+}
+
+.portfolio-galeria a:focus {
+  outline: none;
+}
+
+/* Iconos sociales: hover y focus */
+.logo-social img:hover,
+.logo-social img:focus,
+.logo-social a:hover img,
+.logo-social a:focus img {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+  transform: scale(1.15) rotate(-6deg);
+  transition:
+    filter 0.2s,
+    opacity 0.2s,
+    transform 0.25s cubic-bezier(.4, 2, .6, 1),
+    box-shadow 0.25s;
+}
+
+/* ============================= */
+/* 5. MENSAJE DE ÉXITO FORMULARIO*/
+/* ============================= */
+#mensaje-enviado {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #e0ffe0 0%, #f7f7f7 100%);
+  color: #227a2b;
+  border: 1.5px solid #b6e2b6;
+  border-radius: 12px 0;
+  font-size: 1.5rem;
+  font-family: var(--fuente-texto, sans-serif);
+  font-weight: 500;
+  margin-top: 18px;
+  padding: 12px 18px;
+  box-shadow: 0 2px 8px rgba(34, 122, 43, 0.08);
+  position: relative;
+  animation: fadeInScale 0.5s;
+}
+
+#mensaje-enviado::before {
+  content: "✔";
+  font-size: 1.7rem;
+  color: #227a2b;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ============================= */
+/* 6. RESPONSIVE DESIGN          */
+/* ============================= */
+.about-img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  order: 2;
+}
+
+@media (max-width: 900px) {
+  .portfolio-galeria {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 18px;
+    padding: 0 10px;
+  }
+
+  .about,
+  .contacto {
+    padding: 35px 5%;
+  }
+
+  .menu ul {
+    gap: 20px;
+  }
+
+  .presentacion {
+    padding: 40px 5% 30px 5%;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-galeria {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about,
+  .contacto {
+    padding: 20px 2%;
+  }
+
+  .menu ul {
+    flex-direction: row;
+    gap: 10px;
+    height: 60px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+
+  main {
+    margin-top: 60px;
+  }
+
+  .presentacion h1 {
+    font-size: 2.2rem;
+  }
+
+  .presentacion h4 {
+    font-size: 1.1rem;
+  }
+
+  #formcont {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #formcont label,
+  #formcont input,
+  #formcont textarea,
+  #formcont button {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .presentacion {
+    margin-top: 60px;
+    padding: 30px 4% 20px 4%;
+    min-height: unset;
+    gap: 10px;
+  }
+}
+
+/* Presentación y menú responsive extra */
+@media (max-width: 900px),
+(max-width: 600px) {
+  .presentacion {
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    white-space: normal;
+    padding: 30px 4% 20px 4%;
+    min-height: unset;
+    gap: 10px;
+  }
+
+  .presentacion h1,
+  .presentacion h4 {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+}

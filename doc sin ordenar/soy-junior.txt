@@ -1,0 +1,3 @@
+"Soy junior, solo quiero código súper simple, 
+sin optimizaciones ni complicaciones. 
+Efectividad > complejidad"

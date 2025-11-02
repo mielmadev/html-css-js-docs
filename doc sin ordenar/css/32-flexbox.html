@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>31. Posicionamiento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+  <h1>32. Flexbox</h1>
+</header>
+<main>
+  <section class="intro-flexbox">
+    <h2>¿Qué es Flexbox?</h2>
+    <p>
+      Flexbox consiste en un conjunto de propiedades creadas ex proceso para
+      maquetar los contenidos. Nos va a permitir maquetar contenidos en
+      diferentes columnas, hacer alineaciones verticales perfectas para bloques,
+      distribuir contenido uniformemente, igualas en altura todo un conjunto de
+      elementos etc.
+    </p>
+    <p>
+      a diferencia de las propiedades CSS que hemos visto hasta ahora, el uso
+      de<strong>Flexbox</strong> consta de dos fases
+    </p>
+    <ol>
+      <li>
+        Primero se aplican las propiedades generales al elemento contenedor(al
+        padre) de los elementos que queremos maquetar. Muchas veces con esto es
+        suficiente es suficiente
+      </li>
+      <li>
+        Después, podemos poner ciertas propiedades a los elementos hijo, que
+        modificarán ciertas órdenes del padre
+      </li>
+    </ol>
+  </section>
+  <section class="prop-padre">
+    <section class="intro-prop-padre">
+      <h2>Propiedades para el Elemento Contenedor (padre)</h2>
+      <p>
+        Para empezar a utilizar las propiedades tenemos que indicarle al
+        elemento padre que va a tener una visualización de tipo
+        <code>flexbox</code>
+      </p>
+      <pre><code>display: flex;</code></pre>
+    </section>
+    <section class="dirección">
+      <h3>Dirección</h3>
+      <p>
+        Indicamos la dirección del eje principal con
+        <code>flex-direction:</code>
+      </p>
+      <section class="tabla-flex-direction">
+        <h4>Tabla de flex-direction</h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>flex-direction: row;</code></td>
+              <td>
+                Los elementos hijos se colocan en una fila, de izquierda a
+                derecha.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex-direction: row-reverse;</code></td>
+              <td>
+                Los elementos hijos se colocan en una fila, de derecha a
+                izquierda.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex-direction: column;</code></td>
+              <td>
+                Los elementos hijos se colocan en una columna, de arriba hacia
+                abajo.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex-direction: column-reverse;</code></td>
+              <td>
+                Los elementos hijos se colocan en una columna, de abajo hacia
+                arriba.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-flex-direction">
+        <h4>Ejemplo interactivo de dirección (<code>flex-direction</code>)</h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona la dirección:</legend>
+          <label>
+            <input
+              type="radio"
+              name="direction-flex"
+              value="row"
+              checked=""
+              onchange="cambiarDirectionRadio"
+            />
+            row
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="direction-flex"
+              value="row-reverse"
+              onchange="cambiarDirectionRadio"
+            />
+            row-reverse
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="direction-flex"
+              value="column"
+              onchange="cambiarDirectionRadio"
+            />
+            column
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="direction-flex"
+              value="column-reverse"
+              onchange="cambiarDirectionRadio"
+            />
+            column-reverse
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-flex"
+          style="
+            display: flex;
+            gap: 10px;
+            margin-top: 1em;
+            background: #eef;
+            padding: 10px;
+          "
+        >
+          <div style="background: #fc0; padding: 20px">1</div>
+          <div style="background: #6cf; padding: 20px">2</div>
+          <div style="background: #c6f; padding: 20px">3</div>
+        </div>
+        <script>
+          function cambiarDirectionRadio() {
+            const radios = document.getElementsByName("direction-flex");
+            let valor = "row";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            document.getElementById("contenedor-flex").style.flexDirection =
+              valor;
+          }
+        </script>
+        <p>
+          Prueba cambiando la dirección para ver cómo se distribuyen los
+          elementos hijos en el contenedor flex.
+        </p>
+      </section>
+    </section>
+    <section class="multiline">
+      <section class="intro-multiline">
+        <h3>Multilínea</h3>
+        <p>
+          Por defecto, los elementos hijos se colocan en una única línea y se
+          van reduciendo de tamaño para que quepan todos. Si queremos que los
+          elementos puedan ocupar varias líneas, tenemos que indicarlo con la
+          propiedad <code>flex-wrap</code>.
+        </p>
+        <p>
+          Indicamos si el contenido se visualiza en una línea o si permite que
+          haya multilínea.
+        </p>
+        <p>
+          Podemos juntar las dos propiedades anteriores en una única propiedad.
+        </p>
+      </section>
+      <section class="tabla-flex-flow">
+        <h4>Tabla de flex-flow</h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>flex-flow: row nowrap;</code></td>
+              <td>
+                Los elementos hijos se colocan en una fila, de izquierda a
+                derecha, sin permitir multilínea.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex-flow: row wrap;</code></td>
+              <td>
+                Los elementos hijos se colocan en una fila, de izquierda a
+                derecha, permitiendo multilínea.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex-flow: column nowrap;</code></td>
+              <td>
+                Los elementos hijos se colocan en una columna, de arriba hacia
+                abajo, sin permitir multilínea.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex-flow: column wrap;</code></td>
+              <td>
+                Los elementos hijos se colocan en una columna, de arriba hacia
+                abajo, permitiendo multilínea.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-flex-wrap">
+        <h4>Ejemplo interactivo de multilínea (<code>flex-wrap</code>)</h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona el modo de multilínea:</legend>
+          <label>
+            <input
+              type="radio"
+              name="multiline-flex"
+              value="nowrap"
+              checked=""
+              onchange="cambiarMultilineRadio"
+            />
+            nowrap
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="multiline-flex"
+              value="wrap"
+              onchange="cambiarMultilineRadio"
+            />
+            wrap
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="multiline-flex"
+              value="wrap-reverse"
+              onchange="cambiarMultilineRadio"
+            />
+            wrap-reverse
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-multiline"
+          style="
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 10px;
+            margin-top: 1em;
+            background: #efe;
+            padding: 10px;
+            width: 350px;
+          "
+        >
+          <div style="background: #f99; padding: 20px; min-width: 100px">A</div>
+          <div style="background: #9f9; padding: 20px; min-width: 100px">B</div>
+          <div style="background: #99f; padding: 20px; min-width: 100px">C</div>
+          <div style="background: #ff9; padding: 20px; min-width: 100px">D</div>
+          <div style="background: #9ff; padding: 20px; min-width: 100px">E</div>
+        </div>
+        <script>
+          function cambiarMultilineRadio() {
+            const radios = document.getElementsByName("multiline-flex");
+            let valor = "nowrap";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            document.getElementById("contenedor-multiline").style.flexWrap =
+              valor;
+          }
+        </script>
+        <p>
+          Prueba cambiando el modo de multiline para ver cómo los elementos
+          hijos se distribuyen en el contenedor flex.
+        </p>
+      </section>
+    </section>
+    <section class="alinear-eje-principal">
+      <h3>Alinear en el eje principal</h3>
+      <p>
+        indicamos la alineación de los bloques en el eje principal
+        <code>justify-content</code>
+      </p>
+      <section class="tabla-alinear-eje-principal">
+        <h4>Tabla de alineación en el eje principal</h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>justify-content: flex-start;</code></td>
+              <td>Los elementos se alinean al inicio del eje principal.</td>
+            </tr>
+            <tr>
+              <td><code>justify-content: flex-end;</code></td>
+              <td>Los elementos se alinean al final del eje principal.</td>
+            </tr>
+            <tr>
+              <td><code>justify-content: center;</code></td>
+              <td>Los elementos se centran en el eje principal.</td>
+            </tr>
+            <tr>
+              <td><code>justify-content: space-between;</code></td>
+              <td>
+                Los elementos se distribuyen uniformemente, el primer elemento
+                al inicio y el último al final.
+              </td>
+            </tr>
+            <tr>
+              <td><code>justify-content: space-around;</code></td>
+              <td>
+                Los elementos se distribuyen con espacio igual alrededor de cada
+                uno.
+              </td>
+            </tr>
+            <tr>
+              <td><code>justify-content: space-evenly;</code></td>
+              <td>
+                Los elementos se distribuyen con espacios iguales entre todos
+                los elementos.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-justify-content">
+        <h4>
+          Ejemplo interactivo de alineación en el eje principal
+          (<code>justify-content</code>)
+        </h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona la alineación:</legend>
+          <label>
+            <input
+              type="radio"
+              name="justify-content-flex"
+              value="flex-start"
+              checked=""
+              onchange="cambiarJustifyContentRadio"
+            />
+            flex-start
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="justify-content-flex"
+              value="flex-end"
+              onchange="cambiarJustifyContentRadio"
+            />
+            flex-end
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="justify-content-flex"
+              value="center"
+              onchange="cambiarJustifyContentRadio"
+            />
+            center
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="justify-content-flex"
+              value="space-between"
+              onchange="cambiarJustifyContentRadio"
+            />
+            space-between
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="justify-content-flex"
+              value="space-around"
+              onchange="cambiarJustifyContentRadio"
+            />
+            space-around
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="justify-content-flex"
+              value="space-evenly"
+              onchange="cambiarJustifyContentRadio"
+            />
+            space-evenly
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-justify"
+          style="
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-top: 1em;
+            background: #ffe;
+            padding: 10px;
+            width: 350px;
+          "
+        >
+          <div style="background: #f90; padding: 20px">X</div>
+          <div style="background: #09f; padding: 20px">Y</div>
+          <div style="background: #9f0; padding: 20px">Z</div>
+        </div>
+        <script>
+          function cambiarJustifyContentRadio() {
+            const radios = document.getElementsByName("justify-content-flex");
+            let valor = "flex-start";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            document.getElementById("contenedor-justify").style.justifyContent =
+              valor;
+          }
+        </script>
+        <p>
+          Prueba cambiando la alineación para ver cómo se distribuyen los
+          elementos hijos en el eje principal del contenedor flex.
+        </p>
+      </section>
+    </section>
+    <section class="alinear-eje-transversal">
+      <h2>Alineación en el eje transversal</h2>
+      <p>Indicamos la alineación de los bloques en el eje transversal:</p>
+      <section class="tabla-align-items">
+        <h4>
+          Tabla de alineación en el eje transversal (<code>align-items</code>)
+        </h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>align-items: stretch;</code></td>
+              <td>
+                Los elementos se estiran para ocupar todo el espacio disponible
+                en el eje transversal.
+              </td>
+            </tr>
+            <tr>
+              <td><code>align-items: flex-start;</code></td>
+              <td>Los elementos se alinean al inicio del eje transversal.</td>
+            </tr>
+            <tr>
+              <td><code>align-items: flex-end;</code></td>
+              <td>Los elementos se alinean al final del eje transversal.</td>
+            </tr>
+            <tr>
+              <td><code>align-items: center;</code></td>
+              <td>Los elementos se centran en el eje transversal.</td>
+            </tr>
+            <tr>
+              <td><code>align-items: baseline;</code></td>
+              <td>
+                Los elementos se alinean según la línea base de su contenido.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-align-items">
+        <h4>
+          Ejemplo interactivo de alineación en el eje transversal
+          (<code>align-items</code>)
+        </h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona la alineación:</legend>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex2"
+              value="stretch"
+              checked=""
+              onchange="cambiarAlignItemsRadio2()"
+            />
+            stretch
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex2"
+              value="flex-start"
+              onchange="cambiarAlignItemsRadio2()"
+            />
+            flex-start
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex2"
+              value="flex-end"
+              onchange="cambiarAlignItemsRadio2()"
+            />
+            flex-end
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex2"
+              value="center"
+              onchange="cambiarAlignItemsRadio2()"
+            />
+            center
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex2"
+              value="baseline"
+              onchange="cambiarAlignItemsRadio2()"
+            />
+            baseline
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-align-items2"
+          style="
+            display: flex;
+            align-items: stretch;
+            gap: 10px;
+            margin-top: 1em;
+            background: #eef;
+            padding: 10px;
+            height: 120px;
+          "
+        >
+          <div style="background: #fc0; padding: 10px; font-size: 1.2em">A</div>
+          <div style="background: #6cf; padding: 30px 10px; font-size: 2em">
+            B
+          </div>
+          <div style="background: #c6f; padding: 10px; font-size: 1em">C</div>
+        </div>
+        <script>
+          function cambiarAlignItemsRadio2() {
+            const radios = document.getElementsByName("align-items-flex2");
+            let valor = "stretch";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            document.getElementById(
+              "contenedor-align-items2"
+            ).style.alignItems = valor;
+          }
+        </script>
+        <p>
+          Prueba cambiando la alineación para ver cómo se distribuyen los
+          elementos hijos en el eje transversal del contenedor flex.
+        </p>
+      </section>
+    </section>
+    <section class="align-content">
+      <h2>Alineación de bloques en multilínea</h2>
+      <p>Indicamos la alineación entre sí de los bloques multilínea:</p>
+      <section class="tabla-align-content">
+        <h4>
+          Tabla de alineación de bloques en multilínea
+          (<code>align-content</code>)
+        </h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>align-content: stretch;</code></td>
+              <td>
+                Las líneas se estiran para ocupar todo el espacio disponible.
+              </td>
+            </tr>
+            <tr>
+              <td><code>align-content: flex-start;</code></td>
+              <td>Las líneas se alinean al inicio del eje transversal.</td>
+            </tr>
+            <tr>
+              <td><code>align-content: flex-end;</code></td>
+              <td>Las líneas se alinean al final del eje transversal.</td>
+            </tr>
+            <tr>
+              <td><code>align-content: center;</code></td>
+              <td>Las líneas se centran en el eje transversal.</td>
+            </tr>
+            <tr>
+              <td><code>align-content: space-between;</code></td>
+              <td>
+                Las líneas se distribuyen uniformemente, la primera al inicio y
+                la última al final.
+              </td>
+            </tr>
+            <tr>
+              <td><code>align-content: space-around;</code></td>
+              <td>
+                Las líneas se distribuyen con espacio igual alrededor de cada
+                una.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-align-items">
+        <h4>
+          Ejemplo interactivo de alineación en el eje transversal
+          (<code>align-items</code>)
+        </h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona la alineación:</legend>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex"
+              value="stretch"
+              checked=""
+              onchange="cambiarAlignItemsRadio()"
+            />
+            stretch
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex"
+              value="flex-start"
+              onchange="cambiarAlignItemsRadio()"
+            />
+            flex-start
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex"
+              value="flex-end"
+              onchange="cambiarAlignItemsRadio()"
+            />
+            flex-end
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex"
+              value="center"
+              onchange="cambiarAlignItemsRadio()"
+            />
+            center
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-items-flex"
+              value="baseline"
+              onchange="cambiarAlignItemsRadio()"
+            />
+            baseline
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-align-items"
+          style="
+            display: flex;
+            align-items: stretch;
+            gap: 10px;
+            margin-top: 1em;
+            background: #eef;
+            padding: 10px;
+            height: 120px;
+          "
+        >
+          <div style="background: #fc0; padding: 10px; font-size: 1.2em">A</div>
+          <div style="background: #6cf; padding: 30px 10px; font-size: 2em">
+            B
+          </div>
+          <div style="background: #c6f; padding: 10px; font-size: 1em">C</div>
+        </div>
+        <script>
+          function cambiarAlignItemsRadio() {
+            const radios = document.getElementsByName("align-items-flex");
+            let valor = "stretch";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            document.getElementById("contenedor-align-items").style.alignItems =
+              valor;
+          }
+        </script>
+        <p>
+          Prueba cambiando la alineación para ver cómo se distribuyen los
+          elementos hijos en el eje transversal del contenedor flex.
+        </p>
+      </section>
+    </section>
+    <section class="gap">
+      <section class="descripcion-gap">
+        <h3>Separación entre bloques</h3>
+        <p>Indicamos la separación que va a existir entre bloques</p>
+        <pre>Separación Total: <code>gap: 0px</code>
+  Separación Columnas: <code>col-gap: 0px</code>
+  Separación Filas: <code>row-gap: 0px</code></pre>
+      </section>
+      <section class="tabla-gap">
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Propiedad</th>
+              <th>Ejemplo</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>gap</code></td>
+              <td><code>gap: 20px;</code></td>
+              <td>Establece la separación entre filas y columnas.</td>
+            </tr>
+            <tr>
+              <td><code>row-gap</code></td>
+              <td><code>row-gap: 20px;</code></td>
+              <td>Establece la separación entre filas.</td>
+            </tr>
+            <tr>
+              <td><code>column-gap</code></td>
+              <td><code>column-gap: 60px;</code></td>
+              <td>Establece la separación entre columnas.</td>
+            </tr>
+            <tr>
+              <td><code>gap</code></td>
+              <td><code>gap: 20px 60px;</code></td>
+              <td>
+                Establece la separación entre filas y columnas (primero filas,
+                luego columnas).
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-gap">
+        <h4>Ejemplo interactivo de separación (<code>gap</code>)</h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona el tipo de separación:</legend>
+          <label>
+            <input
+              type="radio"
+              name="gap-flex"
+              value="gap"
+              checked=""
+              onchange="cambiarGapRadio()"
+            />
+            gap
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="gap-flex"
+              value="row-gap"
+              onchange="cambiarGapRadio()"
+            />
+            row-gap
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="gap-flex"
+              value="column-gap"
+              onchange="cambiarGapRadio()"
+            />
+            column-gap
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="gap-flex"
+              value="gap-doble"
+              onchange="cambiarGapRadio()"
+            />
+            gap filas/columnas
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-gap"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 1em;
+            background: #eef;
+            padding: 10px;
+            width: 350px;
+          "
+        >
+          <div style="background: #fc0; padding: 20px; min-width: 100px">1</div>
+          <div style="background: #6cf; padding: 20px; min-width: 100px">2</div>
+          <div style="background: #c6f; padding: 20px; min-width: 100px">3</div>
+          <div style="background: #ff9; padding: 20px; min-width: 100px">4</div>
+        </div>
+        <script>
+          function cambiarGapRadio() {
+            const radios = document.getElementsByName("gap-flex");
+            const contenedor = document.getElementById("contenedor-gap");
+            contenedor.style.gap = "";
+            contenedor.style.rowGap = "";
+            contenedor.style.columnGap = "";
+            let valor = "gap";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            if (valor === "gap") {
+              contenedor.style.gap = "20px";
+            } else if (valor === "row-gap") {
+              contenedor.style.rowGap = "30px";
+              contenedor.style.columnGap = "0px";
+            } else if (valor === "column-gap") {
+              contenedor.style.columnGap = "40px";
+              contenedor.style.rowGap = "0px";
+            } else if (valor === "gap-doble") {
+              contenedor.style.gap = "30px 40px";
+            }
+          }
+        </script>
+
+        <p>
+          Prueba cambiando el tipo de separación para ver cómo se distribuyen
+          los espacios entre los elementos hijos.
+        </p>
+      </section>
+    </section>
+  </section>
+  <section class="prop-hijos">
+    <h2>Propiedades para los hijos</h2>
+    <section class="descripcion-prop-hijos">
+      <p>
+        Una vez establecidas las propiedades generales, podemos hacer algunos
+        ajustes extra a los elementos hijo:
+      </p>
+    </section>
+    <section class="align-self">
+      <h3>Alineación específica para un elemento</h3>
+      <p>
+        Podemos modificar la alineación en el eje transversal de un elemento
+        concreto, modificando la propiedad que viene establecida desde el padre:
+      </p>
+      <section class="tabla-align-self">
+        <h4>
+          Tabla de alineación específica para un elemento
+          (<code>align-self</code>)
+        </h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>align-self: auto</code></td>
+              <td>
+                Hereda el valor de <code>align-items</code> del contenedor
+                padre.
+              </td>
+            </tr>
+            <tr>
+              <td><code>align-self: flex-start</code></td>
+              <td>El elemento se alinea al inicio del eje transversal.</td>
+            </tr>
+            <tr>
+              <td><code>align-self: flex-end</code></td>
+              <td>El elemento se alinea al final del eje transversal.</td>
+            </tr>
+            <tr>
+              <td><code>align-self: center</code></td>
+              <td>El elemento se centra en el eje transversal.</td>
+            </tr>
+            <tr>
+              <td><code>align-self: baseline</code></td>
+              <td>
+                El elemento se alinea según la línea base de su contenido.
+              </td>
+            </tr>
+            <tr>
+              <td><code>align-self: stretch</code></td>
+              <td>
+                El elemento se estira para ocupar todo el espacio disponible en
+                el eje transversal.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-align-self">
+        <h4>
+          Ejemplo interactivo de alineación específica (<code>align-self</code>)
+        </h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona la alineación para el segundo elemento:</legend>
+          <label>
+            <input
+              type="radio"
+              name="align-self-flex"
+              value="auto"
+              checked=""
+              onchange="cambiarAlignSelfRadio()"
+            />
+            auto
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-self-flex"
+              value="flex-start"
+              onchange="cambiarAlignSelfRadio()"
+            />
+            flex-start
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-self-flex"
+              value="flex-end"
+              onchange="cambiarAlignSelfRadio()"
+            />
+            flex-end
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-self-flex"
+              value="center"
+              onchange="cambiarAlignSelfRadio()"
+            />
+            center
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-self-flex"
+              value="baseline"
+              onchange="cambiarAlignSelfRadio()"
+            />
+            baseline
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="align-self-flex"
+              value="stretch"
+              onchange="cambiarAlignSelfRadio()"
+            />
+            stretch
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-align-self"
+          style="
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            margin-top: 1em;
+            background: #eef;
+            padding: 10px;
+            height: 120px;
+          "
+        >
+          <div style="background: #fc0; padding: 10px; font-size: 1.2em">1</div>
+          <div
+            id="item-align-self"
+            style="background: #6cf; padding: 30px 10px; font-size: 2em"
+          >
+            2
+          </div>
+          <div style="background: #c6f; padding: 10px; font-size: 1em">3</div>
+        </div>
+        <script>
+          function cambiarAlignSelfRadio() {
+            const radios = document.getElementsByName("align-self-flex");
+            let valor = "auto";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            document.getElementById("item-align-self").style.alignSelf = valor;
+          }
+        </script>
+        <p>
+          Prueba cambiando la alineación para ver cómo el segundo elemento se
+          alinea de forma diferente al resto.
+        </p>
+      </section>
+    </section>
+    <section class="order">
+      <h3>Orden de elementos</h3>
+      <p>Podemos modificar el orden natural de los elementos:</p>
+      <section class="tabla-order">
+        <h4>Tabla de orden (<code>order</code>)</h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>order: 0;</code></td>
+              <td>Valor por defecto, sigue el orden natural del HTML.</td>
+            </tr>
+            <tr>
+              <td><code>order: 1;</code></td>
+              <td>
+                El elemento se muestra después de los elementos con menor valor.
+              </td>
+            </tr>
+            <tr>
+              <td><code>order: -1;</code></td>
+              <td>
+                El elemento se muestra antes de los elementos con mayor valor.
+              </td>
+            </tr>
+            <tr>
+              <td><code>order: n;</code></td>
+              <td>
+                El elemento se posiciona según el valor asignado (menor
+                primero).
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-order">
+        <h4>Ejemplo interactivo de orden personalizado (<code>order</code>)</h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Orden de los elementos:</legend>
+          <label>
+            <input
+              type="number"
+              id="order-item1"
+              value="0"
+              min="-5"
+              max="5"
+              style="width: 40px"
+              onchange="cambiarOrdenPersonalizado()"
+            />
+            Elemento 1
+          </label>
+          <label>
+            <input
+              type="number"
+              id="order-item2"
+              value="0"
+              min="-5"
+              max="5"
+              style="width: 40px"
+              onchange="cambiarOrdenPersonalizado()"
+            />
+            Elemento 2
+          </label>
+          <label>
+            <input
+              type="number"
+              id="order-item3"
+              value="0"
+              min="-5"
+              max="5"
+              style="width: 40px"
+              onchange="cambiarOrdenPersonalizado()"
+            />
+            Elemento 3
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-order"
+          style="
+            display: flex;
+            gap: 10px;
+            margin-top: 1em;
+            background: #eef;
+            padding: 10px;
+            height: 80px;
+          "
+        >
+          <div id="item-order-1" style="background: #fc0; padding: 20px">1</div>
+          <div id="item-order-2" style="background: #6cf; padding: 20px">2</div>
+          <div id="item-order-3" style="background: #c6f; padding: 20px">3</div>
+        </div>
+        <script>
+          function cambiarOrdenPersonalizado() {
+            document.getElementById("item-order-1").style.order =
+              document.getElementById("order-item1").value;
+            document.getElementById("item-order-2").style.order =
+              document.getElementById("order-item2").value;
+            document.getElementById("item-order-3").style.order =
+              document.getElementById("order-item3").value;
+          }
+        </script>
+      </section>
+      <p>
+        Cambia el valor de <code>order</code> para cada elemento y observa cómo
+        cambia su posición en el contenedor flex.
+      </p>
+    </section>
+    <section class="flex-grow">
+      <section class="descripcion-flex-grow">
+        <h3>Crecimiento</h3>
+        <p>
+          La propiedad flex-grow permite aplicarle al elemento la habilidad de
+          crecer en el espacio libre.
+        </p>
+        <p>
+          Se establece un valor sin unidad de medida que en realidad representa
+          la proporción en la que debe crecer el elemento. Por defecto, todos
+          los elementos tienen un valor de 0, que indica que no tienen esta la
+          habilidad de crecer. Si insertamos cualquier otro valor en esta
+          propiedad, el elemento crecerá (hasta ocupar todo el espacio libre).
+        </p>
+        <p>
+          Si hay más de un elemento con la propiedad flex-grow, los elementos
+          que tengan el mismo valor en la propiedad se repartirán el espacio
+          libre entre ellos, para que crezcan al mismo tamaño. Para los
+          elementos que tengan valores diferentes, los valores representarán
+          partes del espacio sobrante.
+        </p>
+        <p>
+          Al aplicar esta propiedad, la anchura y/o altura que se hayan
+          establecido a los elementos se ignoran, para aplicar el crecimiento
+          establecido en la propiedad.
+        </p>
+      </section>
+      <section class="tabla-flex-grow">
+        <h4>Tabla de flex-grow</h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>flex-grow: 0;</code></td>
+              <td>No crece, ocupa solo el espacio necesario.</td>
+            </tr>
+            <tr>
+              <td><code>flex-grow: 1;</code></td>
+              <td>Crece para ocupar el espacio libre disponible.</td>
+            </tr>
+            <tr>
+              <td><code>flex-grow: n;</code></td>
+              <td>
+                Crece en proporción al valor asignado respecto a otros
+                elementos.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-crecimiento">
+        <h4>Ejemplo interactivo de crecimiento (<code>flex-grow</code>)</h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona el crecimiento de cada elemento:</legend>
+          <label>
+            <input
+              type="radio"
+              name="grow-flex"
+              value="1-1-1"
+              checked=""
+              onchange="cambiarFlexGrowRadio()"
+            />
+            Todos crecen igual (1-1-1)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="grow-flex"
+              value="2-1-1"
+              onchange="cambiarFlexGrowRadio()"
+            />
+            Primero crece el doble (2-1-1)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="grow-flex"
+              value="1-2-1"
+              onchange="cambiarFlexGrowRadio()"
+            />
+            Segundo crece el doble (1-2-1)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="grow-flex"
+              value="1-1-2"
+              onchange="cambiarFlexGrowRadio()"
+            />
+            Tercero crece el doble (1-1-2)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="grow-flex"
+              value="0-1-2"
+              onchange="cambiarFlexGrowRadio()"
+            />
+            Solo el tercero crece (0-1-2)
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-flex-grow"
+          style="
+            display: flex;
+            gap: 10px;
+            margin-top: 1em;
+            background: #eef;
+            padding: 10px;
+            width: 350px;
+          "
+        >
+          <div
+            id="item-grow-1"
+            style="background: #fc0; padding: 20px; flex-grow: 1"
+          >
+            A
+          </div>
+          <div
+            id="item-grow-2"
+            style="background: #6cf; padding: 20px; flex-grow: 1"
+          >
+            B
+          </div>
+          <div
+            id="item-grow-3"
+            style="background: #c6f; padding: 20px; flex-grow: 1"
+          >
+            C
+          </div>
+        </div>
+        <script>
+          function cambiarFlexGrowRadio() {
+            const radios = document.getElementsByName("grow-flex");
+            let valor = "1-1-1";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            const valores = valor.split("-").map(Number);
+            document.getElementById("item-grow-1").style.flexGrow = valores[0];
+            document.getElementById("item-grow-2").style.flexGrow = valores[1];
+            document.getElementById("item-grow-3").style.flexGrow = valores[2];
+          }
+        </script>
+        <p>
+          Prueba cambiando el valor de <code>flex-grow</code> para ver cómo los
+          elementos hijos crecen en el espacio disponible.
+        </p>
+      </section>
+    </section>
+    <section class="flex-shrink">
+      <h3>Decrecimiento</h3>
+      <section class="teoria-flex-shrink">
+        <p>
+          La propiedad flex-shrink es la inversa de la propiedad anterior y
+          estable cuánto se debe comprimir (decrecer) un elemento cuanto no
+          queda espacio libre.
+        </p>
+        <p>
+          Por defecto, todos los elementos tienen un valor de 1. Si insertamos
+          cualquier otro valor en esta propiedad, el elemento se comprimirá en
+          proporción más que los otros.
+        </p>
+      </section>
+      <section class="tabla-flex-shrink">
+        <h4>Tabla de flex-shrink</h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>flex-shrink: 1;</code></td>
+              <td>
+                Valor por defecto, el elemento puede reducirse si es necesario.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex-shrink: 0;</code></td>
+              <td>El elemento no se reduce, mantiene su tamaño.</td>
+            </tr>
+            <tr>
+              <td><code>flex-shrink: n;</code></td>
+              <td>
+                El elemento se reduce en proporción al valor asignado respecto a
+                otros elementos.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-flex-shrink">
+        <h4>Ejemplo interactivo de decrecimiento (<code>flex-shrink</code>)</h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona el decrecimiento de cada elemento:</legend>
+          <label>
+            <input
+              type="radio"
+              name="shrink-flex"
+              value="1-1-1"
+              checked=""
+              onchange="cambiarFlexShrinkRadio()"
+            />
+            Todos se reducen igual (1-1-1)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="shrink-flex"
+              value="2-1-1"
+              onchange="cambiarFlexShrinkRadio()"
+            />
+            Primero se reduce el doble (2-1-1)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="shrink-flex"
+              value="1-2-1"
+              onchange="cambiarFlexShrinkRadio()"
+            />
+            Segundo se reduce el doble (1-2-1)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="shrink-flex"
+              value="1-1-2"
+              onchange="cambiarFlexShrinkRadio()"
+            />
+            Tercero se reduce el doble (1-1-2)
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="shrink-flex"
+              value="0-1-2"
+              onchange="cambiarFlexShrinkRadio()"
+            />
+            Solo el tercero se reduce (0-1-2)
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-flex-shrink"
+          style="
+            display: flex;
+            gap: 10px;
+            margin-top: 1em;
+            background: #eef;
+            padding: 10px;
+            width: 350px;
+          "
+        >
+          <div
+            id="item-shrink-1"
+            style="
+              background: #fc0;
+              padding: 20px;
+              flex-shrink: 1;
+              min-width: 150px;
+            "
+          >
+            A
+          </div>
+          <div
+            id="item-shrink-2"
+            style="
+              background: #6cf;
+              padding: 20px;
+              flex-shrink: 1;
+              min-width: 150px;
+            "
+          >
+            B
+          </div>
+          <div
+            id="item-shrink-3"
+            style="
+              background: #c6f;
+              padding: 20px;
+              flex-shrink: 1;
+              min-width: 150px;
+            "
+          >
+            C
+          </div>
+        </div>
+        <script>
+          function cambiarFlexShrinkRadio() {
+            const radios = document.getElementsByName("shrink-flex");
+            let valor = "1-1-1";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            const valores = valor.split("-").map(Number);
+            document.getElementById("item-shrink-1").style.flexShrink =
+              valores[0];
+            document.getElementById("item-shrink-2").style.flexShrink =
+              valores[1];
+            document.getElementById("item-shrink-3").style.flexShrink =
+              valores[2];
+          }
+        </script>
+        <p>
+          Prueba cambiando el valor de <code>flex-shrink</code> y reduce el
+          ancho de la ventana para ver cómo los elementos hijos se comprimen en
+          el espacio disponible.
+        </p>
+      </section>
+    </section>
+    <section class="flex-basis">
+      <h3>Tamaño Base</h3>
+      <section class="teoria-flex-basis">
+        <p>
+          La propiedad flex-basis establece un ancho base inicial para un
+          elemento. El valor por defecto es auto y en este caso respeta el ancho
+          establecido en el elemento (si lo hay). Con cualquier otro valor (px,
+          %, ...) no respeta el ancho establecido y aplicará el valor indicado
+          en flex-basis:
+        </p>
+      </section>
+      <section class="tabla-flex-basis">
+        <h4>Tabla de ejemplos de flex-basis</h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Selector</th>
+              <th>Propiedad</th>
+              <th>¿Respeta el width?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.item:nth-child(1)</code></td>
+              <td><code>flex-basis: 175px;</code></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><code>.item:nth-child(2)</code></td>
+              <td><code>flex-basis: auto;</code></td>
+              <td>Sí</td>
+            </tr>
+            <tr>
+              <td><code>.item:nth-child(3)</code></td>
+              <td><code>flex-basis: 125px;</code></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><code>.item:nth-child(4)</code></td>
+              <td><code>flex-basis: auto;</code></td>
+              <td>Sí</td>
+            </tr>
+            <tr>
+              <td><code>.item:nth-child(5)</code></td>
+              <td><code>flex-basis: 150px;</code></td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><code>auto</code></td>
+              <td><code>flex-basis: auto;</code></td>
+              <td>Sí</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </section>
+    <section class="ejemplo-interactivo-flex-basis">
+      <h4>Ejemplo interactivo de tamaño base (<code>flex-basis</code>)</h4>
+      <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+        <legend>Selecciona el tamaño base de cada elemento:</legend>
+        <label>
+          <input
+            type="radio"
+            name="basis-flex"
+            value="100-100-100"
+            checked=""
+            onchange="cambiarFlexBasisRadio()"
+          />
+          Todos igual (100px)
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="basis-flex"
+            value="150-100-50"
+            onchange="cambiarFlexBasisRadio()"
+          />
+          150px - 100px - 50px
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="basis-flex"
+            value="auto-100-200"
+            onchange="cambiarFlexBasisRadio()"
+          />
+          auto - 100px - 200px
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="basis-flex"
+            value="50-200-auto"
+            onchange="cambiarFlexBasisRadio()"
+          />
+          50px - 200px - auto
+        </label>
+      </fieldset>
+      <div
+        id="contenedor-flex-basis"
+        style="
+          display: flex;
+          gap: 10px;
+          margin-top: 1em;
+          background: #eef;
+          padding: 10px;
+          width: 350px;
+        "
+      >
+        <div
+          id="item-basis-1"
+          style="background: #fc0; padding: 20px; flex-basis: 100px"
+        >
+          A
+        </div>
+        <div
+          id="item-basis-2"
+          style="background: #6cf; padding: 20px; flex-basis: 100px"
+        >
+          B
+        </div>
+        <div
+          id="item-basis-3"
+          style="background: #c6f; padding: 20px; flex-basis: 100px"
+        >
+          C
+        </div>
+      </div>
+      <script>
+        function cambiarFlexBasisRadio() {
+          const radios = document.getElementsByName("basis-flex");
+          let valor = "100-100-100";
+          for (const radio of radios) {
+            if (radio.checked) {
+              valor = radio.value;
+              break;
+            }
+          }
+          const valores = valor.split("-");
+          document.getElementById("item-basis-1").style.flexBasis =
+            valores[0] === "auto" ? "auto" : valores[0] + "px";
+          document.getElementById("item-basis-2").style.flexBasis =
+            valores[1] === "auto" ? "auto" : valores[1] + "px";
+          document.getElementById("item-basis-3").style.flexBasis =
+            valores[2] === "auto" ? "auto" : valores[2] + "px";
+        }
+      </script>
+      <p>
+        Prueba cambiando el valor de <code>flex-basis</code> para ver cómo los
+        elementos hijos toman diferentes tamaños base.
+      </p>
+    </section>
+    <section class="combinacion-propiedades">
+      <section class="descripcion-combinacion-propiedades">
+        <h3>Combinación de propiedades</h3>
+        <p>
+          Podemos combinar los valores de las propiedades flex-grow, flex-shrink
+          y flex-basis en una única propiedad flex:
+        </p>
+        <p>Podemos combinar los 3 valores para lograr algunos ajustes:</p>
+        <ul>
+          <li>
+            <code>flex: auto;</code> Equivale a <code>flex: 1 1 auto</code>. Los
+            items pueden crecer o reducirse según el caso y flex-basis se
+            calcula según el contenido.
+          </li>
+          <li>
+            <code>flex: none</code> Equivale a <code>flex: 0 0 auto</code>. Los
+            items no crecen ni se reducen y flex-basis se calcula según el
+            contenido.
+          </li>
+        </ul>
+      </section>
+      <section class="tabla-flex-combinada">
+        <h4>Tabla de combinación de propiedades (<code>flex</code>)</h4>
+        <table style="border-collapse: collapse; margin-top: 1em">
+          <thead>
+            <tr>
+              <th>Propiedad</th>
+              <th>Ejemplo</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>flex: auto;</code></td>
+              <td><code>flex: 1 1 auto;</code></td>
+              <td>
+                El elemento puede crecer y reducirse, tamaño base según el
+                contenido.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex: none;</code></td>
+              <td><code>flex: 0 0 auto;</code></td>
+              <td>
+                El elemento no crece ni se reduce, tamaño base según el
+                contenido.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex: 2 1 100px;</code></td>
+              <td>
+                <code
+                  >flex-grow: 2;<br />flex-shrink: 1;<br />flex-basis:
+                  100px;</code
+                >
+              </td>
+              <td>
+                Crece el doble que otros, se reduce si es necesario, tamaño base
+                100px.
+              </td>
+            </tr>
+            <tr>
+              <td><code>flex: 0 1 150px;</code></td>
+              <td>
+                <code
+                  >flex-grow: 0;<br />flex-shrink: 1;<br />flex-basis:
+                  150px;</code
+                >
+              </td>
+              <td>No crece, se reduce si es necesario, tamaño base 150px.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="ejemplo-interactivo-flex-combinada">
+        <h4>
+          Ejercicio interactivo de combinación de propiedades
+          (<code>flex</code>)
+        </h4>
+        <fieldset style="border: none; padding: 0; margin-bottom: 1em">
+          <legend>Selecciona la combinación para cada elemento:</legend>
+          <label>
+            <input
+              type="radio"
+              name="flex-combinada"
+              value="auto-auto-auto"
+              checked=""
+              onchange="cambiarFlexCombinadaRadio()"
+            />
+            Todos <code>auto</code>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="flex-combinada"
+              value="none-auto-auto"
+              onchange="cambiarFlexCombinadaRadio()"
+            />
+            1º <code>none</code>, resto <code>auto</code>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="flex-combinada"
+              value="2-1-100px-1-1-auto-1-2-150px"
+              onchange="cambiarFlexCombinadaRadio()"
+            />
+            1º <code>2 1 100px</code>, 2º <code>1 1 auto</code>, 3º
+            <code>1 2 150px</code>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="flex-combinada"
+              value="0-1-150px-1-1-auto-1-1-100px"
+              onchange="cambiarFlexCombinadaRadio()"
+            />
+            1º <code>0 1 150px</code>, 2º <code>1 1 auto</code>, 3º
+            <code>1 1 100px</code>
+          </label>
+        </fieldset>
+        <div
+          id="contenedor-flex-combinada"
+          style="
+            display: flex;
+            gap: 10px;
+            margin-top: 1em;
+            background: #eef;
+            padding: 10px;
+            width: 350px;
+          "
+        >
+          <div
+            id="item-combinada-1"
+            style="background: #fc0; padding: 20px; flex: auto"
+          >
+            A
+          </div>
+          <div
+            id="item-combinada-2"
+            style="background: #6cf; padding: 20px; flex: auto"
+          >
+            B
+          </div>
+          <div
+            id="item-combinada-3"
+            style="background: #c6f; padding: 20px; flex: auto"
+          >
+            C
+          </div>
+        </div>
+        <script>
+          function cambiarFlexCombinadaRadio() {
+            const radios = document.getElementsByName("flex-combinada");
+            let valor = "auto-auto-auto";
+            for (const radio of radios) {
+              if (radio.checked) {
+                valor = radio.value;
+                break;
+              }
+            }
+            if (valor === "auto-auto-auto") {
+              document.getElementById("item-combinada-1").style.flex = "auto";
+              document.getElementById("item-combinada-2").style.flex = "auto";
+              document.getElementById("item-combinada-3").style.flex = "auto";
+            } else if (valor === "none-auto-auto") {
+              document.getElementById("item-combinada-1").style.flex = "none";
+              document.getElementById("item-combinada-2").style.flex = "auto";
+              document.getElementById("item-combinada-3").style.flex = "auto";
+            } else if (valor === "2-1-100px-1-1-auto-1-2-150px") {
+              document.getElementById("item-combinada-1").style.flex =
+                "2 1 100px";
+              document.getElementById("item-combinada-2").style.flex =
+                "1 1 auto";
+              document.getElementById("item-combinada-3").style.flex =
+                "1 2 150px";
+            } else if (valor === "0-1-150px-1-1-auto-1-1-100px") {
+              document.getElementById("item-combinada-1").style.flex =
+                "0 1 150px";
+              document.getElementById("item-combinada-2").style.flex =
+                "1 1 auto";
+              document.getElementById("item-combinada-3").style.flex =
+                "1 1 100px";
+            }
+          }
+        </script>
+        <p>
+          Prueba cambiando la combinación de propiedades <code>flex</code> para
+          ver cómo los elementos hijos se comportan en el espacio disponible.
+        </p>
+      </section>
+    </section>
+  </section>
+</main>
+<footer>
+  <section class="ejercicios">
+    <h2>ejercicios</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.antxoa-dev.com/curso/mod-css/descargas/css-4-5-6-flex.zip"
+          >Pack Ejercicios Maquetación flex</a
+        >
+      </li>
+    </ul>
+  </section>
+  <section class="ejemplos">
+    <h2>Ejemplos</h2>
+    <ul>
+      <li><a href="https://codepen.io/antxoa/pen/gOydpPO">flex-grow</a></li>
+      <li><a href="https://codepen.io/antxoa/pen/Pogdqvp">flex-shrink</a></li>
+      <li><a href="https://codepen.io/antxoa/pen/PogdZRg">flex-basis</a></li>
+      <li>
+        <a href="https://codepen.io/antxoa/pen/YzMOJXB">Centrado perfecto</a>
+      </li>
+      <li>
+        <a href="https://codepen.io/antxoa/pen/VwNGELq">flex + position</a>
+      </li>
+      <li>
+        <a href="https://codepen.io/antxoa/pen/NWmLOdr"
+          >Contenido con y sin límites</a
+        >
+      </li>
+    </ul>
+  </section>
+  <section class="referencias">
+    <h2>Referencias</h2>
+    <ul>
+      <li>
+        <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+          >Guía Flexbox</a
+        >
+      </li>
+      <li>
+        <a href="https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/"
+          >Guía interactiva Flexbox</a
+        >
+      </li>
+      <li>
+        <a href="https://jst.hashnode.dev/complete-css-flex-tutorial"
+          >Guía-tutorial Flexbox</a
+        >
+      </li>
+      <li>
+        <a href="https://www.smashingmagazine.com/2018/10/flexbox-use-cases/"
+          >Casos de Uso para Flexbox</a
+        >
+      </li>
+    </ul>
+  </section>
+</footer>
+</body>
+</html> 

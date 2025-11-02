@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12. Alineación de texto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>12. Alineación de texto</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Introducción</h2>
+      <p><strong>Nota:</strong> estas alineaciones hacen referencia a la alineación de textos dentro de su elemento
+        contenedor. Si queremos
+        alinear bloques de contenido se utilizan otras propiedades (en este caso, de maquetación).</p>
+    </section>
+
+    <section>
+      <h3>Alineación horizontal</h3>
+      <p>Por defecto, el navegador alinea los textos desde el lazo izquierdo, salvo dos excepciones: los elementos
+        <code>th</code> y
+        <code>caption</code> de las tablas.
+      </p>
+
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>center</td>
+              <td>
+                <p style="text-align: center;">text-align: center;</p>
+              </td>
+            </tr>
+            <tr>
+              <td>right</td>
+              <td>
+                <p style="text-align: right;">text-align: right;</p>
+              </td>
+            </tr>
+            <tr>
+              <td>justify</td>
+              <td>
+                <p style="text-align: justify;">text-align: justify; Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit.
+                  Dolor exercitationem recusandae corrupti voluptas eaque fuga illo praesentium doloribus quo fugiat
+                  autem
+                  aliquid, magnam porro ex laudantium suscipit velit cupiditate mollitia!</p>
+              </td>
+            </tr>
+            <tr>
+              <td>left</td>
+              <td>
+                <p style="text-align: left;">text-align: left;</p>
+              </td>
+            </tr>
+            <tr>
+              <td>start</td>
+              <td>
+                <p style="text-align: start;">text-align: start;</p>
+              </td>
+            </tr>
+            <tr>
+              <td>end</td>
+              <td>
+                <p style="text-align: end;">text-align: end;</p>
+              </td>
+            </tr>
+            <tr>
+              <td>match-parent</td>
+              <td>
+                <p style="text-align: match-parent;">text-align: match-parent; Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Animi assumenda explicabo ab aut ipsa tenetur aspernatur debitis quo dicta,
+                  laboriosam
+                  voluptates nisi consequatur fuga reprehenderit iusto rem fugiat? Ipsam, eum!</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <figcaption>Ejemplos de alineación horizontal con CSS</figcaption>
+      </figure>
+
+      <p>Por motivos de legibilidad y accesibilidad, no se debería de utilizar la alineación justificada en la web,
+        mientras los
+        navegadores no puedan implementar técnicamente esta alineación de manera adecuada.</p>
+      <figure>
+        <img src="https://www.antxoa-dev.com/curso/mod-css/img/justify-2.png" alt="Ejemplo de alineación justificada">
+        <img src="https://www.antxoa-dev.com/curso/mod-css/img/justify-3.gif" alt="Ejemplo de alineación justificada">
+        <img src="https://www.antxoa-dev.com/curso/mod-css/img/justify-0.png" alt="Ejemplo de alineación justificada">
+        <figcaption>Comparativa de alineación justificada</figcaption>
+      </figure>
+      <p>La interdisciplinariedad impulsa la innovación tecnológica mediante la colaboración activa entre expertos de
+        disciplinas
+        diversas, integrando conocimientos especializados para abordar problemas complejos de manera eficiente. Este
+        enfoque
+        promueve soluciones creativas, fomenta el pensamiento crítico, estimula el intercambio de ideas, y fortalece la
+        capacidad de las organizaciones para adaptarse a entornos dinámicos, logrando resultados sostenibles y
+        transformadores.
+      </p>
+
+      <p>Está en proceso de desarrollo una nueva propiedad <code>text-justify</code> que permitirá ajustar mejor la
+        alineación justificada
+        (aunque no será perfecto y seguirá dando problemas de accesibilidad), pero todavía falta mucho para poder
+        probarla.</p>
+    </section>
+
+    <section>
+      <h3>Alineación vertical</h3>
+      <p>La alineación vertical se puede establecer entre textos, imágenes y contenidos de celdas de tabla.</p>
+
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="vertical-align: top; height: 60px;">top</td>
+              <td>El contenido se alinea en la parte superior de la celda o línea.</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: middle; height: 60px;">middle</td>
+              <td>El contenido se alinea en el centro vertical de la celda o línea.</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: bottom; height: 60px;">bottom</td>
+              <td>El contenido se alinea en la parte inferior de la celda o línea.</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: baseline; height: 60px;">baseline</td>
+              <td>El contenido se alinea con la línea base del texto padre.</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: sub; height: 60px;">sub</td>
+              <td>El contenido se muestra como subíndice respecto a la línea base.</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: super; height: 60px;">super</td>
+              <td>El contenido se muestra como superíndice respecto a la línea base.</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: text-top; height: 60px;">text-top</td>
+              <td>El contenido se alinea con la parte superior del texto padre.</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: text-bottom; height: 60px;">text-bottom</td>
+              <td>El contenido se alinea con la parte inferior del texto padre.</td>
+            </tr>
+            <tr>
+              <td style="vertical-align: 20px; height: 60px;">20px</td>
+              <td>El contenido se desplaza verticalmente una distancia específica (ejemplo: 20px).</td>
+            </tr>
+          </tbody>
+        </table>
+        <figcaption>Ejemplos de alineación vertical con CSS</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h3>Ajuste de texto</h3>
+      <p>Podemos controlar las palabras únicas (conocidas como viudas y huérfanas) que se encuentran solas en la última
+        línea de
+        un elemento.</p>
+
+      <p>Las viudas son palabras solas en la parte superior del elemento y las huérfanas están solas al final del
+        elemento.</p>
+
+      <p>A algunas personas les dificulta la lectura del contenido por lo que se suele recomendar evitarlos. Hasta hace
+        muy poco
+        era imposible técnicamente, pero ahora disponemos de la propiedad <code>text-wrap</code> para ello.</p>
+
+      <p><strong>text-wrap:</strong> auto wrap nowrap balance pretty stable</p>
+      <p><em>El fantasma de la ópera</em></p>
+
+      <ul>
+        <li><strong>auto</strong> o <strong>wrap</strong>:<br>El texto se ajusta a la siguiente línea según el ancho del
+          padre.</li>
+        <li><strong>nowrap:</strong><br>El texto permanece en una sola línea, desbordando el padre si es necesario.</li>
+        <li><strong>balance:</strong><br>Equilibra las líneas para longitudes similares (si el navegador lo soporta).
+        </li>
+        <li><strong>pretty:</strong><br>Evita palabras huérfanas en la última línea (si el navegador lo soporta).</li>
+        <li><strong>stable:</strong><br>Mantiene la estabilidad del ajuste al editar texto (si el navegador lo soporta).
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+<!-- Agrega este CSS en tu archivo de estilos para los bordes de las tablas -->
+<style>
+  table {
+    border-collapse: collapse;
+    border: 1px solid #000;
+  }
+
+  th,
+  td {
+    border: 1px solid #000;
+    padding: 4px;
+  }
+</style>
+
+</html>

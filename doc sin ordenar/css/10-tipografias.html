@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10. Tipografía</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+
+</head>
+
+<body>
+  <header>
+    <h1>10. Tipografías</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Usar tipografía</h2>
+      <p>Para aplicar una tipografía en un elemento, utilizaremos la propiedad <strong>font-family</strong> y como
+        valor, el nombre de la tipografía elegida.</p>
+      <pre><code>font-family: Arial;</code></pre>
+      <p>Tenemos que tener en cuenta una serie de particularidades a la hora de declarar la tipografía:</p>
+    </section>
+
+    <section>
+      <h3>Tipografía segura</h3>
+      <p>Si utilizamos una tipografía que sabemos/suponemos que está instalada en todos los sistemas operativos, no
+        tendremos que hacer nada más. Para tipografías personalizadas, veremos más adelante cómo se pueden utilizar.
+      </p>
+    </section>
+
+    <section>
+      <h3>Tipografía de sustitución</h3>
+      <p>Si un usuario no dispone de la tipografía que hemos indicado, el navegador la sustituirá por otra (que él
+        decida). En la declaración de la tipografía podemos indicar una o varias tipografías específicas de sustitución
+        (para que el navegador no ponga la que quiera):</p>
+      <pre><code>font-family: Arial, Verdana, Helvetica;</code></pre>
+    </section>
+
+    <section>
+      <h3>Serif y Sans Serif</h3>
+      <p>Las tipografías se clasifican en diferentes tipos, siendo las categorías más comunes la <strong>Serif</strong>
+        (con serifa) y la <strong>Sans Serif</strong> (sin serifa).</p>
+      <p>Las tipografías Serif cuentan con una serie de detalles en los extremos de las letras y unas florituras,
+        denominadas serifas. Esto hace que se puedan diferenciar mejor ciertas letras y por esto mismo es la categoría
+        de fuentes usada por excelencia en medios impresos. Sin embargo, en pantalla, estas tipografías no se visualizan
+        tan legibles, entre otros aspectos porque es complicado renderizar tanto detalle en un tamaño pequeño.</p>
+      <p>Es por ello que en pantalla es más legible utilizar tipografías Sans Serif, que son minimalistas, sin detalles.
+        Por este motivo, lo normal es que después de la lista de tipografías de sustitución añadamos la clasificación de
+        esas tipografías, para asegurarnos que el navegador no nos va a poner una tipografía Serif si nuestro diseño usa
+        Sans Serif (y viceversa):</p>
+      <pre><code>font-family: Arial, Verdana, Helvetica, sans-serif;
+font-family: 'Times New Roman', 'Times MS', serif;
+</code></pre>
+      <p>Existen otras categorías de tipografía, como las <strong>Monospace</strong> (monoespaciadas), donde todas las
+        letras tienen la misma anchura fija y mismo espaciado.</p>
+      <figure>
+        <img src="https://www.antxoa-dev.com/curso/mod-css/img/family.jpg" alt="familias tipográficas">
+        <figcaption>Familias tipográficas</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Tipografías Personalizadas</h2>
+      <p>Podemos utilizar cualquier tipografía en nuestras páginas (aunque el usuario no la tenga instalada en su
+        dispositivo).</p>
+      <p>Para ello, primero tendremos que declarar la tipografía que vamos a utilizar, indicar dónde se encuentra (ruta)
+        y el formato de dicha fuente.</p>
+      <p>Cada navegador tiene soporte para diferentes formatos, por lo que primero haremos una declaración de
+        tipografía, donde indicaremos la ruta a los archivos de la misma, en diferentes formatos:</p>
+
+      <p>Ejemplo con:</p>
+      <ul>
+        <li>tipografía de nombre [Terminator]</li>
+        <li>archivos de tipografía llamados [webfont.extension]</li>
+        <li>ubicados en una carpeta llamada [fonts]</li>
+      </ul>
+      <pre><code>
+@font-face {
+  font-family: 'Terminator';
+  src: url('fonts/webfont.eot'); /* IE9 Compat Modes */
+  src:
+    url('fonts/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/webfont.woff') format('woff'), /* Modern Browsers */
+    url('fonts/webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('fonts/webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+</code></pre>
+      <p>Como podemos prescindir de las líneas de los IE antiguos, el código actual sería:</p>
+      <pre><code>
+@font-face {
+  font-family: 'Terminator';
+  src:
+    url('fonts/webfont.woff') format('woff'), /* Modern Browsers */
+    url('fonts/webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('fonts/webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+</code></pre>
+      <p>Y después, ya podremos utilizarla en cualquier elemento (al igual que hemos hecho con las tipografías comunes):
+      </p>
+      <pre><code>
+h1 {
+  font-family: 'Terminator', Helvetica, Sans-Serif;
+}
+</code></pre>
+      <img src="https://www.antxoa-dev.com/curso/mod-css/img/terminator.jpg" alt="">
+      <p>Si disponemos de la tipografía en un único formato y la queremos transformar en el resto de formatos, podemos
+        usar un generador automático, siempre y cuando la licencia de dicha tipografía nos permita transformarla y,
+        sobre todo, distribuirla.</p>
+    </section>
+
+    <section>
+      <h2>Repositorio de Fuentes</h2>
+      <ul>
+        <li><strong>Google Fonts:</strong> gratuito</li>
+        <li><strong>Adobe Fonts:</strong> (antes Adobe Typekit) gratuito si se dispone de una cuenta de Adobe</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Cómo usar Google Fonts</h3>
+      <p>Para utilizar una fuente de Google Fonts, sigue estos pasos:</p>
+      <ol>
+        <li>Entra en <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> y selecciona la fuente que
+          deseas.</li>
+        <li>Copia el enlace que te proporciona Google Fonts y pégalo dentro de la etiqueta <code>&lt;head&gt;</code> de
+          tu documento HTML.</li>
+        <li>En tu archivo CSS, utiliza la propiedad <code>font-family</code> con el nombre de la fuente seleccionada.
+        </li>
+      </ol>
+      <p>Ejemplo para la fuente <strong>Roboto</strong>:</p>
+      <pre><code>&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"&gt;</code></pre>
+      <pre><code>body {
+          font-family: 'Roboto', sans-serif;
+        }</code></pre>
+    </section>
+    <section>
+      <h2>Iconografía creada con Tipografía</h2>
+      <p>Podemos crear nuestra propia tipografía personalizada pero, en vez de letras y números, contendrá iconos que
+        podremos utilizar a modo de imagen, con la ventaja que podremos cambiar el tamaño, color y otros estilos de
+        forma directa (al fin y al cabo es un texto).</p>
+      <p>Estas tipografías las podemos crear manualmente o utilizar un generador automático (gratuito) como
+        <strong><mark>IcoMoon</mark></strong>.
+      </p>
+    </section>
+    <section>
+      <h2>Referencias</h2>
+      <ul>
+        <li><a href="https://blog.hubspot.com/website/web-safe-html-css-fonts">Familias tipográficas y ejemplos</a></li>
+        <li><a href="https://perishablepress.com/visual-walkthrough-font-face-css/">Tipografías personalizadas,
+            sintaxis</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Ejemplos</h2>
+      <ul>
+        <li><a href="https://code.garron.us/css/BTTF_logo/">Logo con tipografía personalizada</a></li>
+        <li><a href="https://www.smashingmagazine.com/2013/08/beautiful-typography-web-design/">Inspiración Webs - 1</a>
+        </li>
+        <li><a href="https://www.webfx.com/blog/web-design/20-websites-with-beautiful-typography/">Inspiración Webs -
+            2</a></li>
+        <li><a href="https://www.intechnic.com/blog/top-50-best-examples-of-websites-using-typography/">Inspiración Webs
+            - 3</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>

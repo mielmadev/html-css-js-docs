@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18. Tablas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <main>
+    <h1>18. Tablas</h1>
+    <section>
+      <p>
+        El diseño de las tablas suele ser muy simple. A las opciones que ya hemos visto de bordes, márgenes,
+        alineaciones y colores, podemos añadir un par de atributos específicos para este elemento.
+      </p>
+      <h2>Bordes colapsados</h2>
+      <p>
+        Si añadimos bordes a una tabla, veremos que aparece una separación entre cada borde. No se trata de ningún
+        margen, sino que es el comportamiento natural de los bordes en una tabla:
+      </p>
+      <table style="border: 2px solid #333; border-collapse: separate;">
+        <caption>Películas con más premios Oscar</caption>
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Nº</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Para eliminar este espacio entre bordes se utiliza la propiedad <strong>border-collapse</strong> que se encarga
+        de gestionarlo:
+      </p>
+    </section>
+
+    <section>
+      <h2>border-collapse: collapse vs border-collapse: separate</h2>
+      <table style="border: 2px solid #333; border-collapse: collapse; margin-bottom: 1em;">
+        <caption>Películas con más premios Oscar (border-collapse: collapse)</caption>
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Nº</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table style="border: 2px solid #333; border-collapse: separate; border-spacing: 8px;">
+        <caption>Películas con más premios Oscar (border-collapse: separate)</caption>
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Nº</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Espacio entre bordes</p>
+      <p>
+        Si queremos aumentar la separación entre bordes, utilizamos la propiedad border-spacing:
+      </p>
+    </section>
+
+    <section>
+      <h2>Aumentar/Disminuir separación entre celdas</h2>
+      <table style="border: 2px solid #333; border-collapse: separate; border-spacing: 5px;">
+        <caption>Películas con más premios Oscar (border-spacing: 5px)</caption>
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Nº</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Celdas vacías</h2>
+      <p>
+        Cuando tenemos celdas vacías y los bordes están separados, podemos ocultar los bordes de esas celdas vacías o
+        bien mantenerlos, mediante la propiedad empty-cells:
+      </p>
+      <table style="border: 2px solid #333; border-collapse: separate; border-spacing: 8px; empty-cells: hide;">
+        <caption>Películas con más premios Oscar (empty-cells: hide)</caption>
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Nº</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Desconocido</td>
+            <td></td>
+            <td>Próximamente</td>
+          </tr>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table style="border: 2px solid #333; border-collapse: separate; border-spacing: 8px; empty-cells: show;">
+        <caption>Películas con más premios Oscar (empty-cells: show)</caption>
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Nº</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Desconocido</td>
+            <td></td>
+            <td>Próximamente</td>
+          </tr>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Ancho de columnas</h2>
+      <p>
+        Los navegadores calculan automáticamente la anchura de cada columna en base al contenido de las celdas y el
+        ancho disponible. Intentan acomodan el contenido más largo primero, haciendo que las columnas sean desiguales.
+      </p>
+      <p>
+        Es posible definir una anchura fija para una, varias o todas las columnas, pero lo más habitual es dejar que el
+        navegador lo controle, mediante la propiedad table-layout:
+      </p>
+      <table style="border: 2px solid #333; table-layout: auto; width: 100%; margin-bottom: 1em;">
+        <caption>Películas con más premios Oscar (table-layout: auto)</caption>
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Nº</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table style="border: 2px solid #333; table-layout: fixed; width: 100%;">
+        <caption>Películas con más premios Oscar (table-layout: fixed)</caption>
+        <thead>
+          <tr>
+            <th style="width: 60%;">Película</th>
+            <th style="width: 20%;">Nº</th>
+            <th style="width: 20%;">Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Formatear tablas</h2>
+      <p>
+        Para aplicar estilos a filas/columnas no es necesario utilizar un selector de clase o de id a las celdas
+        afectadas. Podemos utilizar selectores de número de hijo, par/impar, etc...
+      </p>
+      <h3>Tablas cebreadas</h3>
+      <style>
+        .tablas-cebradas tbody tr:nth-child(odd) {
+          background: #D0D0D0;
+        }
+
+        .tablas-cebradas tbody tr:nth-child(even) {
+          background: #f3f3f3;
+        }
+      </style>
+      <table class="tablas-cebradas"
+        style="border: 2px solid #333; border-collapse: collapse; width: 100%; margin-bottom: 1em;">
+        <caption>Películas con más premios Oscar (Tablas cebreadas)</caption>
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Nº</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre><code>tbody tr:nth-child(odd) {background: #D0D0D0;}</code> fila impar</pre>
+      <pre><code>tbody tr:nth-child(even){background: #f3f3f3;}</code> fila par</pre>
+      <p>
+        Si añadimos un estilo para el pseudo-estado :hover, podemos resaltar la fila al posicionarnos sobre ella:
+      </p>
+      <table style="border: 2px solid #333; border-collapse: collapse; width: 100%; margin-bottom: 1em;">
+        <caption>Películas con más premios Oscar (Resaltar columnas)</caption>
+        <thead>
+          <tr>
+            <th>Película</th>
+            <th>Nº</th>
+            <th>Año</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ben-Hur</td>
+            <td>11</td>
+            <td>1959</td>
+          </tr>
+          <tr>
+            <td>Titanic</td>
+            <td>11</td>
+            <td>1997</td>
+          </tr>
+          <tr>
+            <td>El Señor de los Anillos: el retorno del Rey</td>
+            <td>11</td>
+            <td>2003</td>
+          </tr>
+          <tr>
+            <td>Lo que el viento se llevó</td>
+            <td>10</td>
+            <td>1939</td>
+          </tr>
+          <tr>
+            <td>West Side Story</td>
+            <td>10</td>
+            <td>1961</td>
+          </tr>
+        </tbody>
+      </table>
+      <pre><code>tbody tr:hover{background: #f4cbc1;}</code></pre>
+      <h3>Resaltar columnas</h3>
+      <p>
+        Puedes resaltar columnas usando selectores <code>nth-child</code> en las celdas:
+      </p>
+      <pre><code>tbody tr td:nth-child(1){background: #D0D0D0;}
+tbody tr td:nth-child(2){background: #f4cbc1;}
+tbody tr td:nth-child(3){background: #f3f3f3;}</code></pre>
+    </section>
+  </main>
+</body>
+
+</html>

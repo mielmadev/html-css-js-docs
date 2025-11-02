@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16. Márgenes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>16. Márgenes</h1>
+    <p>Existen dos tipos de márgenes: los internos y los externos:</p>
+  </header>
+  <main>
+      <section>
+        <h2>Margen interno (padding)</h2>
+        <p>Un elemento tiene márgenes internos por cada lado. Este espacio se denomina padding y se encuentra entre el
+          contenido
+          del elemento y su borde.</p>
+        <p>Podemos establecer el mismo padding para los 4 lados, o bien los 4 valores individualmente e incluso escribir
+          los 4 en
+          una misma propiedad unificada. En este caso, los valores se separarán por espacios y orden tiene que ser en
+          sentido de
+          las agujas del reloj (empezando a las 12 - arriba):</p>
+        <figure>
+          <pre><code>padding: 0px; | no poner nada</code> sin padding</pre>
+          <div style=" background: aliceblue; color: #000; display: inline-block; width: auto;">MielmaDev</div>
+        </figure>
+        <figure>
+          <pre><code>padding: 25px;</code> todos los lados con el mismo padding</pre>
+          <div style="padding: 25px; background: aliceblue; color: #000; display: inline-block; width: auto;">MielmaDev
+          </div>
+        </figure>
+        <figure>
+          <pre><code>padding-top: 25px;</code> padding superior</pre>
+          <div style="padding-top: 25px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+            MielmaDev
+          </div>
+        </figure>
+        <figure>
+          <pre><code>padding-right: 15px;</code> padding derecho</pre>
+          <div style="padding-right: 15px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+            MielmaDev</div>
+        </figure>
+        <figure>
+          <pre><code>padding-bottom: 30px;</code> padding inferior</pre>
+          <div style="padding-bottom: 30px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+            MielmaDev</div>
+        </figure>
+        <figure>
+          <pre><code>padding-left: 8px;</code> padding izquierdo</pre>
+          <div style="padding-left: 8px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+            MielmaDev
+          </div>
+        </figure>
+        <figure>
+          <pre><code>padding: 25px 15px 30px 8px;</code> los 4 padding unificados</pre>
+          <div
+            style="padding: 25px 15px 30px 8px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+            MielmaDev</div>
+        </figure>
+        <figure>
+          <pre><code>padding: 25px 0 0 8px;</code> 25px superior, 8px izquierdo</pre>
+          <div style="padding: 25px 0 0 8px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+            MielmaDev</div>
+        </figure>
+        <h4>padding simétrico:</h4>
+        <figure>
+          <pre><code>padding: 25px 10px;</code> 25px superior e inferior, 10px derecho e izquierdo</pre>
+          <div style="padding: 25px 10px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+            MielmaDev
+          </div>
+        </figure>
+        <figure>
+          <pre>padding simétrico sólo arriba y abajo:<code>padding: 25px 10px 8px;</code> 25px superior e inferior, 10px derecho y 8px izquierdo</pre>
+          <div style="padding: 25px 10px 8px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+            MielmaDev</div>
+        </figure>
+        <figure>
+          <pre><code>padding: 25px;</code> todos los lados con el mismo padding</pre>
+          <div style="padding: 25px; background: aliceblue; color: #000; display: inline-block; width: auto;">MielmaDev
+          </div>
+        </figure>
+      </section>
+      <section>
+        <h2>Margen externo (margin)</h2>
+        <p>Un elemento también tiene márgenes externos por cada lado. Este espacio se denomina margin y se encuentra
+          entre
+          el borde
+          de un elemento y otro elemento adyacente por cualquiera de los lados.</p>
+        <p>Podemos establecer el margin de diferentes maneras (al igual que ocurre con padding):</p>
+        <figure>
+          <pre><code>margin: 25px;</code> todos los lados con el mismo </pre>
+          <div style="background-color: red; display: inline-block;">
+            <div style="margin: 25px; background: aliceblue; color: #000; display: inline-block; width: auto;">MielmaDev
+            </div>
+          </div>
+        </figure>
+        <figure>
+          <pre><code>margin-top: 25px;</code> margen superior</pre>
+          <div style="background-color: red; display: inline-block;">
+            <div style="margin-top: 25px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+              MielmaDev
+            </div>
+          </div>
+        </figure>
+        <figure>
+          <pre><code>margin-right: 15px;</code> margen derecho</pre>
+          <div style="background-color: red; display: inline-block;">
+            <div style="margin-right: 15px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+              MielmaDev</div>
+          </div>
+        </figure>
+        <figure>
+          <pre><code>margin-bottom: 30px;</code> margen inferior</pre>
+          <div style="background-color: red; display: inline-block;">
+            <div style="margin-bottom: 30px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+              MielmaDev</div>
+          </div>
+        </figure>
+        <figure>
+          <pre><code>margin-left: 8px;</code> margen izquierdo</pre>
+          <div style="background-color: red; display: inline-block;">
+            <div style="margin-left: 8px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+              MielmaDev
+            </div>
+          </div>
+        </figure>
+        <figure>
+          <pre><code>margin: 25px 15px 30px 8px;</code> los 4 margen unificados</pre>
+          <div style="background-color: red; display: inline-block;">
+            <div
+              style="margin: 25px 15px 30px 8px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+              MielmaDev</div>
+          </div>
+        </figure>
+        <figure>
+          <pre>margen simétrico:<code>margin: 25px 10px;</code> 25px superior e inferior, 10px derecho e izquierdo</pre>
+          <div style="background-color: red; display: inline-block;">
+            <div style="margin: 25px 10px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+              MielmaDev</div>
+          </div>
+        </figure>
+        <figure>
+          <pre>margen simétrico sólo arriba y abajo:<code>margin: 25px 10px 8px;</code> 25px superior e inferior, 10px derecho y 8px izquierdo</pre>
+          <div style="background-color: red; display: inline-block;">
+            <div style="margin: 25px 10px 8px; background: aliceblue; color: #000; display: inline-block; width: auto;">
+              MielmaDev</div>
+          </div>
+        </figure>
+        <p>Podemos utilizar valores negativos para los márgenes.</p>
+      </section>
+      <section>
+        <h2>Márgenes colapsados:</h2>
+        <p>Cuando dos elementos tienen márgenes externos superior y/o inferior, la mayoría de veces estos márgenes se
+          fusionan
+          entre sí y el margen mayor engulle al pequeño (en vez de sumar ambos márgenes). Es lo que se conoce como
+          márgenes
+          colapsados.</p>
+        <p>En los márgenes externos laterales esto no ocurre.</p>
+        <p>Para que los márgenes superiores e inferiores se colapsen, se tienen que dar los siguientes supuestos:</p>
+        <section>
+          <h2>Caso 1: elementos adyacentes</h2>
+          <figure>
+            <img src="https://www.antxoa-dev.com/curso/mod-css/img/margenes-colapsados-1.jpg"
+              alt="Márgenes colapsados, caso 1">
+            <figcaption>Ejemplo de márgenes colapsados, caso 1</figcaption>
+          </figure>
+          <p>En este caso, como el margen del elemento 1 es mayor que el margen del elemento 2, el margen ganador será
+            el del
+            elemento 1.</p>
+        </section>
+        <section>
+          <h2>Caso 2: elementos hermanos no adyacentes</h2>
+          <p>Si los dos elementos no están adyacentes, es decir, entre medias hay otro elemento, pero este elemento está
+            vacío
+            (no tiene contenido), el navegador ignora a este elemento vacío y colapsa los márgenes, como si fueran
+            adyacentes.</p>
+          <p>Si el elemento entre medias tiene contenido, entonces no colapsa los márgenes.</p>
+          <p>En el caso excepcional del elemento br, que es un elemento vacío por naturaleza, si es el que se encuentra
+            entre
+            medias, el navegador lo interpreta como un elemento con contenido y no colapsa los márgenes.</p>
+        </section>
+        <section>
+          <h2>Caso 3: elementos hermanos y sobrino</h2>
+          <p>Si tenemos varios elementos hermanos y uno de ellos lo englobamos dentro de otro tipo de elementos (pasa a
+            ser
+            sobrino de los que eran sus hermanos), el navegador ignora al padre de este elemento, los considera a todos
+            hermanos y por lo tanto, colapsa los márgenes.</p>
+          <p>Si el elemento padre tiene un altura establecida, o padding o un borde, entonces ya no ocurre esto.</p>
+        </section>
+        <section>
+          <h2>Caso 4: padre e hijo con márgenes en la misma dirección</h2>
+          <p>Si el padre tiene un margen superior y el hijo también tiene un margen superior, ambos se colapsan. Si
+            tienen los
+            dos un margen inferior, también.</p>
+        </section>
+        <section>
+          <h2>Caso 5: hermanos con el mismo tipo de hijos</h2>
+          <p>Si tenemos dos elementos hermanos y ambos tienen el mismo tipo de hijo, los márgenes también se colapsan
+            (se
+            ignora a los padres).</p>
+        </section>
+        <section>
+          <h2>Caso 6: múltiples márgenes colapsados</h2>
+          <p>Se puede dar el caso de tener varios elementos consecutivos y englobados y que aún así se colapsen todos
+            sus
+            márgenes.</p>
+        </section>
+        <section>
+          <h2>Caso 7: márgenes negativos y positivos</h2>
+          <p>En el caso de que haya márgenes negativos, sólos o en combinación con márgenes positivos, se realiza la
+            suma/resta
+            de los valores para determinar el valor final del margen.</p>
+        </section>
+      </section>
+      <section>
+        <h2>Referencias</h2>
+        <ul>
+          <li><a href="https://medium.com/theleanprogrammer/mastering-margin-collapsing-css-16ee592cd920">Márgenes
+              colapsados al detalle</a></li>
+        </ul>
+        <h2>Ejemplos</h2>
+        <ul>
+          <li><a href="https://codepen.io/antxoa/pen/KKYqKzb/">Ejemplos márgenes colapsados</a></li>
+        </ul>
+      </section>
+  </main>
+</body>
+
+</html>

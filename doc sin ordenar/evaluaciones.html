@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaluaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+Evaluaciones
+A lo largo del curso vamos a tener unas evaluaciones individuales por cada módulo y una evaluación final de curso.
+
+Tanto en las evaluaciones individuales como en la evaluación final se realizará un examen tipo test de 10 preguntas y una prueba técnica.
+
+La prueba técnica varía entre módulos y evaluación final:
+
+Evaluación de cada módulo
+La prueba técnica de cada módulo consistirá en revisar una web ya hecha, detectar los fallos de código que pueda haber y corregirlos. Para ello seguiremos el siguiente proceso:
+
+Detectar fallos de cada módulo correspondiente (HTML, CSS, JS, Usabilidad y Accesibilidad), utilizando los validadores de HTML/CSS, inspector del navegador, herramientas propias de Accesibilidad y técnicas heurísticas de Usabilidad.
+Documentar detalladamente estos fallos en un documento.
+En el caso de Accesibilidad, indicar además el criterio WCAG que se incumple.
+Indicar en el documento la corrección que se va a realizar.
+Finalmente, modificar el código fuente para obtener una web libre de errores.
+Envío de correcciones
+Una vez completadas todas las correcciones y el informe, es necesario enviar el documento a través del campus virtual. En las evaluaciones de módulo sólo hay que enviar el informe, no el código fuente.
+
+Ejemplos de correcciones
+HTML - Error
+Tipo de error encontrado:
+Uso de elemento no estándar en el apartado de Noticias:
+<patata>...</patata>
+Corrección a realizar:
+Reemplazar el elemento no estándar por el elemento estándar que corresponda, por ejemplo:
+<p>...</p>
+CSS - Error
+Tipo de error encontrado:
+En el tamaño de letra del elemento body no se ha indicado la unidad de medida, simplemente el número:
+body{font-size: 24;}
+Corrección a realizar:
+Añadir unidad de medida (en este caso serán pixels):
+body{font-size: 24px;}
+JS - Error
+Tipo de error encontrado:
+En el botón de envío del formulario se añade un evento que no existe (está mal escrito):
+boton.addEventListener('clic',...
+Corrección a realizar:
+Modificar el evento por el correcto::
+boton.addEventListener('click',...
+Accesibilidad - Error
+Tipo de error encontrado:
+El texto NNNN usa un color de texto AAAA sobre fondo BBBB lo cual hace que haya un contraste insuficiente.
+Criterio WCAG:
+1.4.3 Contraste mínimo (Nivel AA).
+Corrección a realizar:
+Cambiar el color del texto a uno con mayor contraste (indicando los nuevos colores).
+UX - Error
+Tipo de error encontrado:
+Existe un enlace roto.
+Corrección a realizar:
+Modificar el enlace por uno correcto
+Evaluación final de curso
+La prueba técnica consiste en crear una página web de ejemplo de CV del alumno en base al diseño gráfico propuesto.
+
+Se adjuntará una carpeta con los archivos HTML/CSS base. Estos archivos se modificarán añadiendo el código necesario, así como añadiendo otros archivos para javascript, tipografías, videos y cualquier otro recursos que se quiera utilizar.
+
+También se adjuntan las imágenes que aparecen en el diseño pero se pueden reemplazar por cualquier otra (que deberán tener una licencia de uso gratuita).
+
+El alumno es libre de utilizar la combinación de colores y tipografías que quiera (no tienen que ser los del diseño), siempre y cuando cumpla con los criterios de accesiibilidad.
+
+La Web deberá cumplir los requisitos que se indican a continuación:
+
+UF1841: HTML y CSS
+El código fuente tiene que estar libre de errores HTML/CSS.
+La estructura HTML tendrá que ser la adecuada, utilizando las etiquetas necesarias para cada elemento.
+Los textos pueden ser Lorem Ipsum, inventados o reales.
+Será necesario utilizar al menos una tipografía personalizada (bien de Google Fonts -recomendable-, otro repositorio o tipografía propia).
+Se implementarán transiciones en los enlaces y botones.
+Los enlaces del menú deberán llevar a los diferentes apartados de la página.
+La cabecera debe permanecer fija en la parte superior al hacer scroll.
+El contenido mínimo debe ser el indicado en el diseño gráfico. Si el alumno quiere incluir más contenido/apartados, se evaluará como una mejora adicional.
+UF1842: Javascript
+Deben incluirse 2 funcionalidades Javascript como mínimo en la página. Estas funciones pueden ser personalizadas o bien pueden ser librerías externas incluidas en la web. Por ejemplo:
+
+Ampliación de las imágenes de Portfolio.
+Reemplazar las imágenes de portfolio y su diseño a 4 columnas para sustituirlas por una galería de imágenes que van rotando, etc...
+Modificar de manera aleatoria la imagen de fondo de cabecera, o los colores de las secciones, o cualquier otro elemento.
+Crear una validación personalizada con JS en el formulario de contacto.
+Añadir un reloj con la fecha actual.
+Añadir una cuenta atrás para un acontecimiento determinado.
+...
+:
+UF1843: Accesibilidad y Usabilidad
+La web tiene que cumplir con los criterios de accesibilidad AA. Para ello será necesario revisar todos los puntos y hacer especial hincapié en textos alternativos, combinación de colores, estructura, funcionalidad...
+
+Módulo UF1841
+(HTML y CSS)
+Modelo Informehttps://www.antxoa-dev.com/curso/mod-ipartek-exam/descargas/UF1841-informe.docx
+Web a evaluarhttps://www.antxoa-dev.com/curso/mod-ipartek-exam/descargas/UF1841-web.zip
+
+Módulo UF1842
+(JS)
+Modelo Informehttps://www.antxoa-dev.com/curso/mod-ipartek-exam/descargas/UF1842-informe.docx
+Web a evaluarhttps://www.antxoa-dev.com/curso/mod-ipartek-exam/descargas/UF1842-web.zip
+
+Módulo UF1843
+(Accweb y UX)
+Modelo Informehttps://www.antxoa-dev.com/curso/mod-ipartek-exam/descargas/UF1843-informe.docx
+Web a evaluarhttps://www.antxoa-dev.com/curso/mod-ipartek-exam/descargas/UF1843-web.zip
+
+Evaluación Final
+Proyecto a realizarhttps://www.antxoa-dev.com/curso/mod-ipartek-exam/descargas/MF0491_3-proyecto.docx
+Web basehttps://www.antxoa-dev.com/curso/mod-ipartek-exam/descargas/MF0491_3-proyecto.zip
+
+  
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fondos</title>
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>7. Fondos</h1>
+    </header>
+
+    <article>
+      <section>
+        <h2>Propiedades de fondo en CSS</h2>
+        <p>Disponemos de múltiples opciones de configuración de los fondos en CSS. Los fondos permiten mejorar la
+          estética
+          y la legibilidad de los elementos, y pueden combinarse para crear efectos visuales avanzados en cualquier
+          parte
+          de la página web.</p>
+      </section>
+      <section>
+        <h2>Color de fondo</h2>
+        <p>Para aplicar un color de fondo utilizamos la propiedad <code>background-color</code>. Se puede usar cualquier
+          formato de color admitido por CSS: nombre estándar, hexadecimal, RGB, RGBA, HSL, HSLA, etc. Es importante
+          elegir
+          colores que garanticen buen contraste y accesibilidad para los usuarios.</p>
+        <pre><code>
+    background-color: #000000;
+    background-color: rgb(255,255,255);
+    background-color: hsl(0, 0%, 100%);
+</code></pre>
+      </section>
+      <section>
+        <h2>Imagen de fondo</h2>
+        <p>En un fondo también podemos poner una imagen, además de un color, con diferentes parámetros. Las imágenes de
+          fondo pueden ser archivos locales o enlaces externos, y se recomienda optimizarlas para mejorar el rendimiento
+          de la web. Es posible combinar color e imagen para lograr efectos de superposición.</p>
+        <ul>
+          <li><strong>Imagen:</strong> Indicamos la ruta donde se encuentra la imagen. La ruta tiene que ser relativa al
+            archivo CSS o absoluta si es externa.<br>
+            <code>background-image: url(ruta/imagen1.png);</code><br>
+            <code>background-image: url('https://ejemplo.com/fondo.jpg');</code>
+          </li>
+          <li><strong>Repetición:</strong> Indicamos si vamos a repetir la imagen en modo mosaico, en el eje X, en el Y,
+            o
+            no se repetirá. Usar <code>no-repeat</code> es útil para logos o imágenes decorativas, mientras que
+            <code>repeat</code> es ideal para patrones.<br>
+            <code>background-repeat: repeat;</code> (mosaico)<br>
+            <code>background-repeat: no-repeat;</code> (no se repite)<br>
+            <code>background-repeat: repeat-x;</code> (eje X)<br>
+            <code>background-repeat: repeat-y;</code> (eje Y)<br>
+            <code>background-repeat: space;</code> (rellena con espacio)<br>
+            <code>background-repeat: round;</code> (escala para ajustarse)
+          </li>
+          <li><strong>Posición:</strong> Indicamos la posición de la imagen, bien con palabras clave o mediante
+            coordenadas. Se pueden usar porcentajes, píxeles o palabras clave para adaptar la imagen al diseño.<br>
+            <code>background-position: left top;</code><br>
+            <code>background-position: center bottom;</code><br>
+            <code>background-position: right center;</code><br>
+            <code>background-position: 50% 20%;</code><br>
+            <code>background-position: 25px 100px;</code>
+          </li>
+          <li><strong>Comportamiento:</strong> Permite indicar el comportamiento de la imagen de fondo cuando se hace
+            scroll. <code>fixed</code> mantiene la imagen fija en la ventana, creando el efecto "parallax".<br>
+            <code>background-attachment: scroll;</code> (no fija)<br>
+            <code>background-attachment: fixed;</code> (fija)
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Forma abreviada</h2>
+        <p>Todas estas propiedades se pueden escribir de forma abreviada en una sola línea, lo que facilita la gestión y
+          el mantenimiento del código. El orden de los valores es importante: color, imagen, repetición, comportamiento
+          y
+          posición.</p>
+        <pre><code>
+    background: #000 url(images/imagen1.png) no-repeat fixed left bottom;
+  </code></pre>
+        <p>Si solo usamos el color de fondo:</p>
+        <pre><code>
+    background-color: #000; /* Forma larga */
+    background: #000; /* Forma corta */</code></pre>
+        <p>Si no queremos color de fondo, usamos <code>transparent</code>:</p>
+        <pre><code>
+    background: transparent url(images/imagen1.png) no-repeat fixed left bottom;
+  </code></pre>
+      </section>
+      <section>
+        <h2>Orden de las propiedades en background abreviado</h2>
+        <p>En la forma abreviada de <code>background</code>, el orden de los valores es importante para que el navegador
+          los interprete correctamente. El orden estándar recomendado es:</p>
+        <ol>
+          <li><strong>Color de fondo</strong></li>
+          <li><strong>Imagen de fondo (url)</strong></li>
+          <li><strong>Repetición</strong> (<code>repeat</code>, <code>no-repeat</code>, <code>repeat-x</code>,
+            <code>repeat-y</code>, <code>space</code>, <code>round</code>)
+          </li>
+          <li><strong>Comportamiento</strong> (<code>scroll</code>, <code>fixed</code>)</li>
+          <li><strong>Posición</strong> (<code>left top</code>, <code>center</code>, <code>right bottom</code>, etc.)
+          </li>
+          <li><strong>Tamaño</strong> (usando <code>/</code>, por ejemplo: <code>center/cover</code>)</li>
+        </ol>
+        <p>No es obligatorio escribir todos los valores, pero este orden facilita la interpretación y el mantenimiento
+          del
+          código. Ejemplo completo:</p>
+        <pre><code>
+    background: #ffcc00 url('fondo.png') no-repeat fixed center/cover;
+  </code></pre>
+        <p>Si omites algún valor, el navegador usará el valor por defecto para esa propiedad.</p>
+      </section>
+      <section>
+        <h2>Otras propiedades</h2>
+        <ul>
+          <li>
+            <strong>background-size:</strong> Ajusta el tamaño de la imagen. <code>cover</code> hace que la imagen cubra
+            todo el elemento, aunque se recorte; <code>contain</code> ajusta la imagen para que se vea completa.<br>
+            <code>background-size: 100%;</code> (100% anchura, altura automática)<br>
+            <code>background-size: 100% 50%;</code> (100% anchura, 50% altura)<br>
+            <code>background-size: cover;</code> (cubre el bloque)<br>
+            <code>background-size: contain;</code> (se ve toda la imagen)
+          </li>
+          <li><strong>background-clip:</strong> Especifica si el fondo se extiende por debajo del borde, margen interno
+            o
+            contenido. <code>text</code> permite aplicar fondos a texto, creando efectos visuales avanzados.<br>
+            <code>background-clip: border-box;</code><br>
+            <code>background-clip: padding-box;</code><br>
+            <code>background-clip: content-box;</code><br>
+            <code>background-clip: text;</code> <br> <code>color: transparent;</code> (necesario para texto)
+          </li>
+          <li><strong>background-origin:</strong> Especifica el área de origen del fondo para calcular la posición de
+            inicio. Permite controlar si la imagen se posiciona desde el borde, el padding o el contenido.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Múltiples imágenes de fondo</h2>
+        <p>Para utilizar varias imágenes de fondo en el mismo elemento, se separan por comas. Es posible crear
+          composiciones visuales complejas, como marcos decorativos o efectos de superposición. Recuerda que solo se
+          puede
+          poner un color de fondo, por lo que si se quiere añadirlo, se usa <code>background-color</code> aparte.</p>
+        <pre><code>
+    blockquote {
+      background:
+        url(quote_open.gif) no-repeat top left,
+        url(quote_close.gif) no-repeat bottom right;
+      background-color: #CCC;
+    }
+  </code></pre>
+        <p>Las imágenes de fondo no afectan el contenido ni la estructura del documento, pero pueden influir en la
+          legibilidad y la experiencia visual. Es recomendable probar los fondos en diferentes dispositivos y
+          resoluciones
+          para asegurar una buena presentación.</p>
+      </section>
+      <section>
+        <h2>Prioridad entre color e imagen de fondo</h2>
+        <p>Cuando se utiliza la forma abreviada <code>background: color url()</code>, el color de fondo se aplica
+          primero
+          y la imagen se dibuja encima. Por lo tanto, la imagen tiene prioridad visual sobre el color. El color solo
+          será
+          visible en las siguientes situaciones:</p>
+        <ul>
+          <li>Si la imagen tiene zonas transparentes (por ejemplo, formato PNG con transparencia), el color se verá en
+            esas áreas.</li>
+          <li>Si la imagen es más pequeña que el área del elemento y no se repite, el color será visible en las partes
+            no
+            cubiertas por la imagen.</li>
+          <li>Si se usan varias imágenes de fondo con transparencias, el color puede aparecer debajo de todas ellas.
+          </li>
+        </ul>
+        <p>En la práctica, el color de fondo actúa como "base" y la imagen como "capa superior". Esto es útil para
+          asegurar que el fondo nunca quede vacío si la imagen tarda en cargar, falla o no cubre todo el espacio.</p>
+        <p><strong>Ejemplo visual:</strong></p>
+        <pre><code>background: #ffcc00 url('logo.png') no-repeat center;
+                </code></pre>
+        <p>Si <code>logo.png</code> tiene transparencia, el color amarillo <code>#ffcc00</code> será visible en el
+          fondo.
+          Si la imagen cubre todo el área y es opaca, el color no se verá.</p>
+      </section>
+    </article>
+    <aside>
+      <section>
+        <h2>Referencias</h2>
+        <nav>
+          <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip">background-clip</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin">background-origin</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Ejemplos</h2>
+        <nav>
+          <ul>
+            <li><a href="https://codepen.io/antxoa/pen/bGXywKq/">background-clip</a></li>
+          </ul>
+        </nav>
+      </section>
+    </aside>
+  </main>
+  <footer>
+    <hr>
+    <p><small>Última actualización: 16 de septiembre de 2025</small></p>
+  </footer>
+</body>
+
+</html>

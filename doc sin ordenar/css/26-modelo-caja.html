@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>26. Modelo de caja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <main>
+    <h1>26. Modelo de Caja</h1>
+    <section>
+      <h2>Modelo de Caja Estándar</h2>
+      <p>En CSS cada elemento tiene un área de contenido y rodeándolo, opcionalmente, áreas de márgenes (margin y
+        padding) y
+        bordes.</p>
+      <p>El ancho total del elemento viene dado por la suma de los márgenes y bordes (izquierdos y derechos), y el ancho
+        del
+        contenido. La altura está dada por la suma de los márgenes y bordes (superiores e inferiores), y la altura del
+        contenido:</p>
+      <img src="https://www.antxoa-dev.com/curso/mod-css/img/box-model.png" alt="Modelo de Caja">
+      <p>Por lo tanto si tenemos un elemento con las siguientes propiedades:</p>
+      <pre>
+div {
+width: 100px;
+padding: 10px;
+border: 5px solid black;
+margin: 20px;
+}
+      </pre>
+      <p>Aunque creamos que nuestro bloque tiene una anchura de 100px, en realidad, sumándole el margin, padding y
+        border de cada
+        lado, tiene una anchura de 170px:</p>
+      <pre>
+170px = 100px + 10px + 20px + 10px + 20px + 5px + 5px
+      </pre>
+      <p>Este es el comportamiento estándar del modelo de caja definido en la especificación CSS.</p>
+    </section>
+    <section>
+      <h2>Modelo de Caja Alterado</h2>
+      <h3>Un poco de historia</h3>
+      <p>En el pasado, algunos navegadores (p.e. IE 5.5) no respetaban el comportamiento del Modelo de Caja y utilizaban
+        un
+        Modelo de Caja erróneo. En vez de sumar los valores de los márgenes y el borde a la anchura de un elemento, lo
+        restaban.</p>
+      <p>Eso provocaba que teníamos que utilizar diferentes hacks u otras técnicas de maquetación para que el modelo de
+        caja se
+        aplicase correctamente en todos los navegadores.</p>
+      <p>Si analizamos el modelo de caja estándar desde un punto de vista práctico, a la hora de realizar la maquetación
+        es
+        complicado de aplicar, ya que tenemos que estar continuamente calculando el tamaño final del elemento. Y ese
+        modelo
+        alterado que se utilizaba en el pasado resultaría mucho más práctico y sencillo.</p>
+      <h3>Ahora</h3>
+      <p>En la actualidad contamos con la propiedad box-sizing que permite cambiar el modelo de caja estándar por un
+        modelo
+        alterado, similar al erróneo, pero con alguna variación:</p>
+      <ul>
+        <li>La anchura del elemento será una anchura en bruto.</li>
+        <li>Si se añaden padding y/o border, ocuparán espacio dentro del elemento: nos restan espacio para el contenido
+          pero la
+          anchura en bruto se mantiene.</li>
+        <li>Si se añade margin, se sumará a la anchura del elemento.</li>
+      </ul>
+      <p>Una vez que los navegadores actuales dieron soporte a esta propiedad, hubo un antes y un después en cuanto a
+        maquetación
+        se refiere, puesto que este cambio de modelo ha permitido maquetar páginas de forma más sencilla y sin necesidad
+        de
+        hacer cálculos extra, ahorrándonos muchas horas de depuración y quebraderos de cabeza.</p>
+      <p>Para poder empezar a maquetar sin problemas, tenemos que insertar el siguiente código en nuestra hoja de
+        estilos para
+        que se cambie el modelo de caja en todos los elementos:</p>
+      <pre>
+html {
+box-sizing: border-box;
+}
+*, *:before, *:after {
+box-sizing: inherit;
+}
+/* Nota importante: 
+   Este bloque debería estar en el HTML inicial de todos los proyectos.
+   Así aseguras un modelo de caja consistente y evitas problemas de maquetación.
+*/
+      </pre>
+      <table border="1" style="border-collapse: collapse; margin: 2em 0;">
+        <caption>Comparación de valores de <code>box-sizing</code></caption>
+        <thead>
+          <tr>
+            <th>Valor</th>
+            <th>Descripción</th>
+            <th>¿Incluye padding y border en el ancho?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>content-box</code></td>
+            <td>Modelo estándar. El ancho y alto solo afectan al contenido.</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>border-box</code></td>
+            <td>Modelo alterado. El ancho y alto incluyen el padding y el borde.</td>
+            <td>Sí</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Y de esta manera, todos los elementos HTML heredarán esta propiedad y podremos olvidarnos de hacer cálculos.
+      </p>
+      <p>Si después quisiéramos que algún elemento concreto volviera a utilizar el Modelo de Caja tradicional, entonces
+        utilizaríamos el siguiente valor:</p>
+      <pre>
+elemento {
+box-sizing: content-box;
+}
+      </pre>
+    </section>
+    <section>
+      <h2>Referencias</h2>
+      <ul>
+        <li>
+          <a href="https://www.w3.org/TR/CSS21/box.html" target="_blank" rel="noopener">Especificación Modelo de
+            Caja</a>
+        </li>
+        <li>
+          <a href="https://css-tricks.com/box-sizing/" target="_blank" rel="noopener">Modelo de caja alterado</a>
+        </li>
+        <li>
+          <a href="https://web.archive.org/web/20181026012714/http://css-discuss.incutio.com/wiki/Box_Model_Hack"
+            target="_blank" rel="noopener">Hacks antiguos</a>
+        </li>
+      </ul>
+      <h3>Ejemplos</h3>
+      <ul>
+        <li>
+          <a href="https://codepen.io/antxoa/pen/rNbdaoR" target="_blank" rel="noopener">Varios ejemplos</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>

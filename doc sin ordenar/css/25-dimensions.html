@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>26. Modelo de caja</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../estilo.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>25. Dimensiones</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Anchura</h2>
+        <p>Si queremos establecer una anchura fija a un elemento, utilizaremos la propiedad <code>width</code> y la medida expresada en la unidad que queramos (pixels, %, rem, vw...):</p>
+        <pre><code>width: 250px;</code></pre>
+        <p><strong>Buenas prácticas:</strong> Por regla general, evita usar <code>px</code> en elementos de bloque, ya que no se adaptan bien al diseño responsive. Es mejor usar <code>%</code> para que el elemento ajuste su tamaño según el contenedor padre. Los elementos de bloque ocupan el 100% del ancho de su contenedor por defecto y saltan de línea automáticamente.</p>
+        <p>Para limitar el tamaño de los elementos y mejorar la adaptabilidad, utiliza <code>min-width</code> y <code>max-width</code>:</p>
+        <pre><code>
+width: 80%;
+max-width: 900px;
+min-width: 300px;
+      </code></pre>
+        <p>Así el elemento será flexible, pero nunca será menor de <code>300px</code> ni mayor de <code>900px</code>, facilitando el diseño responsive y evitando problemas de visualización en pantallas muy grandes o pequeñas.</p>
+        <p>Sólo estableceremos una anchura concreta en aquellos elementos que lo necesiten, por motivos de maquetación.</p>
+        <p>También es posible utilizar una anchura mínima y una anchura máxima, que nos será muy útil en RWD:</p>
+        <pre><code>
+min-width: 200px; /* anchura mínima de 200px */
+max-width: 700px; /* anchura máxima de 700px */
+      </code></pre>
+      </section>
+
+      <section>
+        <h2>Centrado horizontal del bloque</h2>
+        <p>Cuando un elemento tiene una anchura menor que el 100% podemos centrarlo en el eje-X con varias técnicas. La más sencilla es utilizar márgenes laterales simétricos y automáticos.</p>
+        <pre><code>
+p {
+  width: 50%;
+  margin: 0 auto;
+}
+      </code></pre>
+        <p style="width: 50%; margin: 0 auto">width:50%;margin:0 auto;</p>
+        <p>Para centrar el texto dentro del bloque, añade <code>text-align: center;</code>:</p>
+        <pre><code>
+p {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+      </code></pre>
+        <p>Así el bloque y su contenido estarán centrados.</p>
+      </section>
+
+      <section>
+        <h2>Altura</h2>
+        <p>Si queremos establecer una altura fija a un elemento, utilizaremos la propiedad <code>height</code> y la medida expresada en la unidad que queramos:</p>
+        <pre><code>height: 150px;</code></pre>
+        <p>Generalmente solo se aplica una altura fija a elementos cuyo contenido no sea fluido, para evitar que el contenido se trunque y no se visualice.</p>
+        <p>Al igual que ocurre con <code>width</code>, podemos establecer una altura mínima y máxima:</p>
+        <pre><code>
+min-height: 50px; /* altura mínima de 50px */
+max-height: 200px; /* altura máxima de 200px */
+      </code></pre>
+      </section>
+
+      <section>
+        <h2>Desbordamiento</h2>
+        <p>Cuando establecemos una anchura y/o altura fija a un elemento y su contenido ocupa más espacio, se produce un desbordamiento de contenido y sobresale del elemento.</p>
+        <p>En ese momento se decide si esto es fallo nuestro de maquetación y el elemento no necesita unas dimensiones fijas, o bien lo hemos hecho a propósito porque sí queremos que el contenido se desborde. En este caso, tenemos una propiedad <code>overflow</code> para controlar la visibilidad o no del contenido que se desborda:</p>
+        <ul>
+          <li><strong>visible</strong>: Muestra el contenido que sobresale (comportamiento por defecto)</li>
+          <li><strong>hidden</strong>: Oculta el contenido que sobresale</li>
+          <li><strong>scroll</strong>: Aparecen barras de scroll</li>
+          <li><strong>auto</strong>: Aparecen barras de scroll en caso de que haya desbordamiento</li>
+        </ul>
+        <pre><code>overflow: hidden;</code></pre>
+        <p>También tenemos unas propiedades específicas para indicar el desbordamiento en cada eje (X,Y) de forma concreta. Los valores de estas propiedades son los mismos que para <code>overflow</code>:</p>
+        <pre><code>
+overflow-x: valor;
+overflow-y: valor;
+      </code></pre>
+
+        <table>
+          <caption>
+            Valores de la propiedad
+            <code>overflow</code>
+          </caption>
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+              <th>Comportamiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>visible</code></td>
+              <td>Contenido desbordado se muestra</td>
+              <td>Por defecto, el contenido sobresale del contenedor</td>
+            </tr>
+            <tr>
+              <td><code>hidden</code></td>
+              <td>Oculta el contenido desbordado</td>
+              <td>El contenido fuera del contenedor no se muestra</td>
+            </tr>
+            <tr>
+              <td><code>scroll</code></td>
+              <td>Añade barras de desplazamiento</td>
+              <td>Siempre aparecen barras de scroll, aunque no haya desbordamiento</td>
+            </tr>
+            <tr>
+              <td><code>auto</code></td>
+              <td>Barras de desplazamiento automáticas</td>
+              <td>Las barras de scroll aparecen solo si hay desbordamiento</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>URL o Palabras muy largas</h2>
+        <p>En ocasiones tenemos palabras o URLs muy largas que no entran dentro de un elemento. Podemos hacer que la palabra se divida en varias partes para evitar el desbordamiento con la propiedad <code>word-wrap</code> (ahora recomendada como <code>overflow-wrap</code>).</p>
+        <pre><code>overflow-wrap: break-word;</code></pre>
+        <article>
+          <p style="overflow-wrap: break-word">Supercalifragilisticoespialidoso</p>
+          <p style="overflow-wrap: break-word">https://support.mozilla.org/es/kb/impedir-que-los-sitios-web-guarden-sus-preferencia</p>
+        </article>
+        <p>Con esta propiedad, las palabras largas se dividen automáticamente para ajustarse al ancho del contenedor.</p>
+        <h3>Valores de <code>word-wrap</code> / <code>overflow-wrap</code></h3>
+        <table>
+          <caption>
+            Valores posibles y ejemplo práctico
+          </caption>
+          <thead>
+            <tr>
+              <th>Valor</th>
+              <th>Descripción</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>overflow-wrap: normal;</code></td>
+              <td>No se rompe la palabra larga, puede desbordar el contenedor.</td>
+              <td>
+                <div style="width: 120px; color: white; border: 1px solid #ccc; overflow-wrap: normal">superfragilisticoespiadiloso</div>
+              </td>
+            </tr>
+            <tr>
+              <td><code>overflow-wrap: break-word;</code></td>
+              <td>Rompe la palabra larga para ajustarla al ancho del contenedor.</td>
+              <td>
+                <div style="width: 120px; color: white; border: 1px solid #ccc; overflow-wrap: break-word">superfragilisticoespiadiloso</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Función <code>calc()</code></h2>
+        <p>La función <code>calc()</code> permite realizar cálculos matemáticos automáticamente, con la posibilidad de mezclar diferentes unidades de medida.</p>
+        <p>No es una propiedad, pero se utiliza en la declaración de valores de una propiedad:</p>
+        <pre><code>
+.bloque {
+  width: calc(50% - 90px);
+}
+      </code></pre>
+        <table>
+          <caption>
+            Ejemplos prácticos de
+            <code>calc()</code>
+          </caption>
+          <thead>
+            <tr>
+              <th>Código CSS</th>
+              <th>Visualización</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <pre><code>width: calc(100% - 40px);</code></pre>
+              </td>
+              <td>
+                <div style="width: calc(100% - 40px); background: #e0e0e0; box-sizing: border-box">
+                  <strong>Bloque 1</strong><br />
+                  width: calc(100% - 40px)
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <pre><code>calc(50% + 60px);</code></pre>
+              </td>
+              <td>
+                <div style="width: calc(50% + 60px); background: #c8e6c9; box-sizing: border-box">
+                  <strong>Bloque 2</strong><br />
+                  width: calc(50% + 60px)
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <pre><code>height: calc(100px + 1em);</code></pre>
+              </td>
+              <td>
+                <div style="height: calc(100px + 1em); background: #bbdefb; box-sizing: border-box">
+                  <strong>Bloque 3</strong><br />
+                  height: calc(100px + 1em)
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Resumen de propiedades de dimensiones CSS</h2>
+        <table>
+          <caption>
+            Propiedades principales y su uso
+          </caption>
+          <thead>
+            <tr>
+              <th>Propiedad</th>
+              <th>Uso</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>width</code></td>
+              <td>Define la anchura del elemento</td>
+              <td><code>width: 80%;</code></td>
+            </tr>
+            <tr>
+              <td><code>min-width</code></td>
+              <td>Limita la anchura mínima</td>
+              <td><code>min-width: 300px;</code></td>
+            </tr>
+            <tr>
+              <td><code>max-width</code></td>
+              <td>Limita la anchura máxima</td>
+              <td><code>max-width: 900px;</code></td>
+            </tr>
+            <tr>
+              <td><code>height</code></td>
+              <td>Define la altura del elemento</td>
+              <td><code>height: 150px;</code></td>
+            </tr>
+            <tr>
+              <td><code>min-height</code></td>
+              <td>Limita la altura mínima</td>
+              <td><code>min-height: 50px;</code></td>
+            </tr>
+            <tr>
+              <td><code>max-height</code></td>
+              <td>Limita la altura máxima</td>
+              <td><code>max-height: 200px;</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow</code></td>
+              <td>Controla el contenido desbordado</td>
+              <td><code>overflow: auto;</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-x</code></td>
+              <td>Desbordamiento horizontal</td>
+              <td><code>overflow-x: scroll;</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-y</code></td>
+              <td>Desbordamiento vertical</td>
+              <td><code>overflow-y: hidden;</code></td>
+            </tr>
+            <tr>
+              <td><code>overflow-wrap</code></td>
+              <td>Rompe palabras largas</td>
+              <td><code>overflow-wrap: break-word;</code></td>
+            </tr>
+            <tr>
+              <td><code>calc()</code></td>
+              <td>Realiza cálculos en valores</td>
+              <td><code>width: calc(50% - 90px);</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <footer>
+        <h3>Recursos</h3>
+        <ul>
+          <li><a href="https://css-tricks.com/a-complete-guide-to-calc-in-css/" target="_blank" rel="noopener">Uso de calc()</a></li>
+          <li><a href="https://codepen.io/antxoa/pen/poBaXVR" target="_blank" rel="noopener">Ejemplos de todas las opciones</a></li>
+        </ul>
+      </footer>
+    </main>
+  </body>
+</html>

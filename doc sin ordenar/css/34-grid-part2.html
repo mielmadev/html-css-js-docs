@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>titulo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../estilo.css" />
+  </head>
+
+  <body>
+    <header><h1>34. Grid (parte 2)</h1></header>
+    <section>
+      <h2>Areas</h2>
+      <p>Grid nos permite ubicar los elementos con un sistema alternativo al de las líneas: definiendo áreas.</p>
+      <p>Primero vamos a establecer las filas y columnas que va a tener nuestro elemento contenedor, como hemos hecho hasta ahora:</p>
+      <pre>HTML:<code>
+&lt;div class="grid-container"&gt;
+&lt;div class="item item-cabecera"&gt;&lt;p&gt;cabecera&lt;/p&gt;&lt;/div&gt;
+&lt;div class="item item-contenido"&gt;&lt;p&gt;contenido&lt;br&gt;principal&lt;/p&gt;&lt;/div&gt;
+&lt;div class="item item-publi"&gt;&lt;p&gt;publicidad&lt;/p&gt;&lt;/div&gt;
+&lt;div class="item item-pie"&gt;&lt;p&gt;pie&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+CSS:
+Padre
+<code>.grid-container{		
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+}</code>
+hijos
+<code>.item{	
+  padding: 20px;
+}</code></pre>
+      <p>Después vamos a poner el nombre de un área a cada elemento hijo mediante la propiedad grid-area. El nombre puede ser cualquier cadena de texto, sin espacios ni caracteres especiales. No hay que poner tampoco comillas a los nombres. Lo recomendable es que pongamos un nombre que nos recuerde fácilmente al elemento que estamos nombrando:</p>
+      <pre>Hijos
+<code>.item-cabecera{
+  grid-area: cabecera;
+}
+.item-contenido{
+  grid-area: contenido;
+}
+.item-publi{
+  grid-area: publi;
+}
+.item-pie{
+  grid-area: pie;
+}</code></pre>
+      <p>/* Hijos */ .item-cabecera{ grid-area: cabecera;} .item-contenido{ grid-area: contenido;} .item-publi{ grid-area: publi;} .item-pie{ grid-area: pie;}</p>
+      <pre>Padre<code>
+.grid-container{
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, auto);
+	grid-template-areas:
+		"cabecera cabecera cabecera"
+		"contenido contenido publi"
+		"pie pie pie";
+}</code></pre>
+      <p>Con este método, nos olvidamos de número de líneas y basta con cambiar el dibujo para obtener todas las variaciones que queramos.</p>
+      <p>CSS sólo puede implementar los dibujos de áreas que se podrían realizar con el sistema de líneas. Si hacemos un dibujo imposible, no se implementará.</p>
+      <p>Imaginemos que nos gustaría hacer la disposición de elementos que aparece en la siguiente imagen:</p>
+      <img src="https://www.antxoa-dev.com/curso/mod-css/img/grid-areas-imposibles.png" alt="Disposición de elementos imposible" />
+      <p>El elemento del contenido principal hace una especie de L tumbada. Esta disposición no se puede realizar con el sistema de líneas así que, aunque intentemos hacerlo con el dibujo de las áreas, tampoco se va a implementar:</p>
+      <pre>Padre
+        <code>.grid-container{	
+	grid-template-areas:
+    "cabecera cabecera publi"
+    "contenido contenido contenido"
+    "contenido pie pie";
+  }</code></pre>
+    </section>
+    <section class="alineaciones/padre">
+      <h2>alineaciones en el padre</h2>
+      <p>Desde el padre podemos utilizar las siguientes alineaciones:</p>
+      <pre>
+Alinea las columnas con respecto al contenedor padre.
+<code>justify-content</code>
+Alinea las filas con respecto al contenedor padre.
+<code>align-content</code>
+Alinea los elementos horizontalmente con respecto a la columna.
+<code>justify-items</code>
+Alinea los elementos verticalmente con respecto a la fila.
+<code>align-items</code>
+[justify-content] [align-content]
+<code>place-content:</code>
+</pre
+      >
+      <p>En una propiedad podemos indicar los valores de las dos propiedades anteriores</p>
+      <p>Para apreciar mejor todas las propiedades, es recomendable utilizar el inspector y poner visibles las líneas grid:</p>
+      <section class="interactivo-alineacion-padre">
+        <div style="display: flex; gap: 30px">
+          <div>
+            <h4>justify-content</h4>
+            <form id="justify-content-form">
+              <label><input type="radio" name="justify-content" value="start" checked /> start</label>
+              <label><input type="radio" name="justify-content" value="end" /> end</label>
+              <label><input type="radio" name="justify-content" value="center" /> center</label>
+              <label><input type="radio" name="justify-content" value="space-between" /> space-between</label>
+              <label><input type="radio" name="justify-content" value="space-around" /> space-around</label>
+              <label><input type="radio" name="justify-content" value="space-evenly" /> space-evenly</label>
+            </form>
+          </div>
+          <div>
+            <h4>align-content</h4>
+            <form id="align-content-form">
+              <label><input type="radio" name="align-content" value="start" checked /> start</label>
+              <label><input type="radio" name="align-content" value="end" /> end</label>
+              <label><input type="radio" name="align-content" value="center" /> center</label>
+              <label><input type="radio" name="align-content" value="space-between" /> space-between</label>
+              <label><input type="radio" name="align-content" value="space-around" /> space-around</label>
+              <label><input type="radio" name="align-content" value="space-evenly" /> space-evenly</label>
+            </form>
+          </div>
+          <div>
+            <h4>justify-items</h4>
+            <form id="justify-items-form">
+              <label><input type="radio" name="justify-items" value="start" checked /> start</label>
+              <label><input type="radio" name="justify-items" value="end" /> end</label>
+              <label><input type="radio" name="justify-items" value="center" /> center</label>
+              <label><input type="radio" name="justify-items" value="stretch" /> stretch</label>
+            </form>
+          </div>
+          <div>
+            <h4>align-items</h4>
+            <form id="align-items-form">
+              <label><input type="radio" name="align-items" value="start" checked /> start</label>
+              <label><input type="radio" name="align-items" value="end" /> end</label>
+              <label><input type="radio" name="align-items" value="center" /> center</label>
+              <label><input type="radio" name="align-items" value="stretch" /> stretch</label>
+              <label><input type="radio" name="align-items" value="baseline" /> baseline</label>
+              <label><input type="radio" name="align-items" value="first baseline" /> first baseline</label>
+              <label><input type="radio" name="align-items" value="last baseline" /> last baseline</label>
+            </form>
+          </div>
+        </div>
+        <style>
+          label {
+            color: aliceblue;
+          }
+        </style>
+        <div id="grid-demo" style="margin-top: 20px; background: #eee; padding: 10px; width: 400px; height: 200px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 10px">
+          <div style="background: #cce; padding: 10px; color: inherit">1</div>
+          <div style="background: #cec; padding: 10px; color: inherit">2</div>
+          <div style="background: #ecc; padding: 10px; color: inherit">3</div>
+          <div style="background: #ccf; padding: 10px; color: inherit">4</div>
+          <div style="background: #fcf; padding: 10px; color: inherit">5</div>
+          <div style="background: #ffc; padding: 10px; color: inherit">6</div>
+        </div>
+        <script>
+          function updateGrid() {
+            const grid = document.getElementById("grid-demo");
+            grid.style.justifyContent = document.querySelector('input[name="justify-content"]:checked').value;
+            grid.style.alignContent = document.querySelector('input[name="align-content"]:checked').value;
+            grid.style.justifyItems = document.querySelector('input[name="justify-items"]:checked').value;
+            grid.style.alignItems = document.querySelector('input[name="align-items"]:checked').value;
+          }
+          document.querySelectorAll("form").forEach((form) => {
+            form.addEventListener("change", updateGrid);
+          });
+          updateGrid();
+        </script>
+      </section>
+    </section>
+    <section>
+      <h2>notas de area</h2>
+      <p>A los hijos le ponemos lo apodos, y asi sabemos donde irá cada uno. en el padre ponemos <code>grid-template-ares:</code> y luego el esquema que queremos, dibujando con los apodos.</p>
+      <p>Las areas que queremos que queden vacías se pone <code>.</code> los que necesitemos</p>
+      <pre>Declaración en los hijos:
+<code>header { grid-area: h}
+main { grid-area: m}
+aside { grid-area: a}
+      </code></pre>
+      <pre>declaración en el padre:
+<code>grid-template-areas:
+"h h h"
+"m a ."
+</code>
+      </pre>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 80px); grid-template-areas: 'h h h' 'm a .'; gap: 8px; width: 350px; margin: 20px 0">
+        <div style="grid-area: h; background: #4a90e2; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold">header (h)</div>
+        <div style="grid-area: m; background: #50e3c2; color: #222; display: flex; align-items: center; justify-content: center; font-weight: bold">main (m)</div>
+        <div style="grid-area: a; background: #f5a623; color: #222; display: flex; align-items: center; justify-content: center; font-weight: bold">aside (a)</div>
+      </div>
+    </section>
+  </body>
+</html>

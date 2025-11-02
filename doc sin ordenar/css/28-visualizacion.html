@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28. Visualización</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>28. Visualización</h1>
+    <p>Los elementos pueden visualizarse de diferentes maneras. Para ello tenemos la propiedad display con varios
+      valores que
+      modificarán su visualización (y su comportamiento asociado).</p>
+  </header>
+  <main>
+    <section>
+      <h2>Visible</h2>
+      <p>El siguiente valor indica que el elemento es visible:</p>
+      <code>display: visible;</code>
+    </section>
+
+    <section>
+      <h2>Oculto</h2>
+      <p>Si queremos que un elemento no se visualice en pantalla, o no se imprima en papel con la impresora o que
+        tampoco sea
+        leído por parte de un lector de pantalla utilizaremos el siguiente valor:</p>
+      <code>display: none;</code>
+      <p>Con este valor el elemento no se muestra en pantalla y el navegador no reserva el espacio que ocuparía ese
+        elemento. Por lo tanto, los elementos que estén a su lado o debajo, ocuparán ese espacio.</p>
+      <p>En el ejemplo de la imagen, si ocultamos el icono de cine, el texto se moverá a la izquierda para ocupar el
+        espacio.</p>
+      <div style="display: flex; align-items: center; gap: 1em;">
+        <img id="iconoCine" src="imagenes/MielmaDev/logo-vertical.jpg" alt="Logo de MielmaDev." style="height: 150px;">
+        <button id="toggleBtn">Ocultar icono</button>
+      </div>
+      <script>
+        const btn = document.getElementById('toggleBtn');
+        const icono = document.getElementById('iconoCine');
+        btn.addEventListener('click', () => {
+          if (icono.style.display !== 'none') {
+            icono.style.display = 'none';
+            btn.textContent = 'Mostrar icono';
+          } else {
+            icono.style.display = '';
+            btn.textContent = 'Ocultar icono';
+          }
+        });
+      </script>
+    </section>
+
+    <section>
+      <h2>Visibilidad</h2>
+      <p>Existe una propiedad similar que también oculta el elemento, pero en este caso, el navegador reservará el
+        espacio que
+        ocupa ese elemento aunque por pantalla no se muestre:</p>
+      <pre><code>visibility: hidden;
+visibility: visible;</code></pre>
+      <img id="iconoCine2" src="imagenes/MielmaDev/logo-vertical.jpg" alt="Logo de MielmaDev." style="height: 150px;">
+      <button id="toggleVisibilityBtn">Ocultar con visibility</button>
+      <script>
+        const btnVis = document.getElementById('toggleVisibilityBtn');
+        const icono2 = document.getElementById('iconoCine2');
+        btnVis.addEventListener('click', () => {
+          if (icono2.style.visibility !== 'hidden') {
+            icono2.style.visibility = 'hidden';
+            btnVis.textContent = 'Mostrar con visibility';
+          } else {
+            icono2.style.visibility = 'visible';
+            btnVis.textContent = 'Ocultar con visibility';
+          }
+        });
+      </script>
+    </section>
+
+    <section>
+      <h2>SEO</h2>
+      <p>Algunos desarrolladores, en un intento de que los buscadores muestren una web a toda costa, insertan gran
+        cantidad de
+        información que no tiene nada o poco que ver con la página web en sí, y lo ocultan con display: none. Google
+        suele
+        detectar este uso engañoso y penalizar la página.</p>
+
+      <p>Esto no significa que no podamos ocultar contenido en una página web. Hay muchos elementos e información que
+        están
+        ocultos cuando entramos en una página y se van mostrando a demanda (un menú de navegación, bloques informativos,
+        etc.) y
+        no van a penalizar porque forman parte de nuestra web, no es contenido engañoso.</p>
+
+      <p>Lo que no debemos hacer es insertar gran cantidad de contenido oculto que no tiene nada que ver con la web,
+        sólo para manipular los resultados de búsqueda.</p>
+    </section>
+
+    <section>
+      <h2>Accesibilidad</h2>
+      <p>Si sólo queremos ocultar el contenido en pantalla pero es necesario que un lector de pantalla pueda leerlo para
+        poner en
+        contexto al usuario, un título de sección, información aportada por otros elementos etc..., no podemos utilizar
+        esta
+        propiedad, ya que los lectores de pantalla sólo leen lo que aparece por pantalla. Tendremos que utilizar otras
+        técnicas
+        diferentes de ocultación.</p>
+    </section>
+
+    <section>
+      <h2>Bloque</h2>
+      <p>Es la visualización que tienen por defecto los elemento html de mayor jerarquía, los que parecen hacer un salto
+        de línea
+        automático. Por eso los elementos de lista, párrafos, encabezados, etc... se ponen uno debajo de otro y no en la
+        misma
+        línea.</p>
+
+      <p>A todos estos elementos se les aplica de forma nativa el siguiente valor para la propiedad
+        <strong>display</strong>:
+      </p>
+      <pre><code>display: block;</code></pre>
+      <p>La anchura que tienen estos elementos es automática y viene dada por la anchura del elemento padre. Si el
+        elemento padre
+        es el body, la anchura será la del área visible del navegador (viewport) menos los márgenes y padding que tenga
+        el body.</p>
+
+      <p>En realidad estos elementos tienen una anchura automática del 100% de su elemento padre, y aunque su contenido
+        no llegue
+        a utilizar todo el espacio, sigue estando reservado. De ahí que el siguiente elemento se coloque debajo, porque
+        no queda
+        espacio disponible en la "línea" previa.</p>
+
+      <pre><code>p{ } /* anchura = 100% elemento padre */</code></pre>
+      <p>De todos los cafés locales del mundo, ella aparece en el mío.</p>
+    </section>
+
+    <section>
+      <h2>Anchura modificada</h2>
+      <p>Si modificamos la anchura de estos elementos, ésta cambia sin problemas, pero el siguiente elemento sigue
+        apareciendo
+        debajo y no al lado. Esto es porque el navegador sigue reservando ese espacio del 100% de la anchura del padre,
+        por si
+        acaso el elemento quiere volver a ser del 100%.</p>
+      <pre><code>p{width:250px;}</code></pre>
+      <p>Tócala, Sam. Toca ‘El tiempo pasará'.</p>
+      <p>Siempre nos quedará París.</p>
+      <p>Louis, presiento que este es el comienzo de una hermosa amistad.</p>
+      <p>Para poder liberar esa reserva de espacios y conseguir que los elemento se coloquen juntos, en la misma línea,
+        será
+        necesario cambiar esta propiedad de bloque (a continuación, en este mismo capítulo) o bien utilizar otras
+        propiedades de
+        maquetación (que veremos a futuro).</p>
+    </section>
+
+    <section>
+      <h2>Elementos sin visualización de bloque</h2>
+      <p>Un elemento que no tiene este tipo de visualización nativa (como por ejemplo, un elemento <code>span</code>)
+        puede cambiarse para que
+        sí la tenga, aplicando este valor.</p>
+      <pre><code>p{width: 300px;}
+p span{display: block;}</code></pre>
+      <p>
+      <p class="fecha">
+        <span class="dia">29</span> <span class="mes">agosto</span> <span class="anyo">1997</span>
+      </p>
+      </p>
+      <p>29 agosto 1997</p>
+      <p>8<br>enero<br>2016</p>
+    </section>
+
+    <section>
+      <h2>Línea</h2>
+      <p>Es la visualización que tienen por defecto los elementos html de menor jerarquía y los textos en sí mismos
+        (cada palabra es un elemento con visualización en línea).</p>
+      <p>Estos elementos se caracterizan porque no hacen un salto de línea automático, sino que se van colocando uno
+        seguido de otro (imágenes, enlaces, algunos campos de formulario...). Si un elemento no entra en una línea,
+        pasará a la línea siguiente, como hacen las palabras de un texto.</p>
+      <p>El valor de la propiedad display que tienen de forma nativa es:</p>
+      <pre><code>display: inline;</code></pre>
+      <p>La anchura que tienen estos elementos es automática y viene dada por la extensión del contenido del elemento en
+        sí misma. Para los textos, será el tamaño de cada palabra y para las imágenes, la anchura propia.</p>
+      <p>Si intentamos establecer una anchura a un elemento inline, el navegador no aplicará esta anchura, puesto que
+        tiene que respetar la característica principal de este elemento que es que la anchura será la que marque su
+        contenido.</p>
+      <p>Vamos a cambiar el comportamiento de los bloques de las frases anteriores y vamos a utilizar el valor inline.
+        De esta manera se va a liberar el espacio reservado, pero no se aplica la anchura por el funcionamiento propio
+        de este valor:</p>
+      <pre><code>p{
+width:250px;
+display:inline;
+}</code></pre>
+      <p>Tócala, Sam. Toca ‘El tiempo pasará'. Siempre nos quedará París. Louis, presiento que este es el comienzo de
+        una hermosa amistad.</p>
+    </section>
+
+    <section>
+      <h2>Línea-Bloque</h2>
+      <p>Es una visualización que mezcla la visualización <strong>inline</strong> con características de
+        <strong>block</strong>. Esto es, podremos establecer una anchura y se aplicará:
+      </p>
+      <pre><code>display: inline-block;</code></pre>
+      <p>Por lo tanto, como recomendación general, usaremos esta opción en vez de <strong>inline</strong> al ser una
+        opción más completa y evitamos el problema de la no aplicación de la anchura:</p>
+      <p style="display: inline-block; width: 250px;">Tócala, Sam. Toca ‘El tiempo pasará'.</p>
+      <p style="display: inline-block; width: 250px;">Siempre nos quedará París.</p>
+      <p style="display: inline-block; width: 250px;">Louis, presiento que este es el comienzo de una hermosa amistad.
+      </p>
+        <h3>Ejemplo: Migas de pan con inline-block</h3>
+        <p>Usando <code>display: inline-block;</code> en los <code>li</code> conseguimos que los elementos de la lista se
+          muestren en línea y podamos controlar su anchura, márgenes, paddings, etc.</p>
+        <nav aria-label="Migas de pan">
+          <ul style="padding:0; margin:0; color:aquamarine">
+            <li style="display: inline-block;">Inicio</li>
+            <li style="display: inline-block;"> &gt; </li>
+            <li style="display: inline-block;">Categoría</li>
+            <li style="display: inline-block;"> &gt; </li>
+            <li style="display: inline-block;">Producto</li>
+          </ul>
+        </nav>
+    </section>
+
+    <section>
+      <h2>Otros valores</h2>
+      <p>Existen otros valores para la propiedad <code>display</code>:</p>
+      <dl>
+        <dt><strong>flex</strong></dt>
+        <dd>Debido a su complejidad, se explicará en un capítulo propio.</dd>
+        <dt><strong>grid</strong></dt>
+        <dd>Debido a su complejidad, se explicará en un capítulo propio.</dd>
+        <dt><strong>table</strong></dt>
+        <dd>
+          Trata a los elementos como si fueran elementos de tabla HTML para maquetar de esa manera y tiene varias sub-propiedades (todas empezando por <code>table-...</code>).<br>
+          En el pasado se podía llegar a utilizar pero en la actualidad no tiene mucho sentido puesto que tenemos opciones de maquetación infinitamente mejores, como flex y grid.<br>
+          En particular, grid funciona en parte igual que table con muchísimas más opciones y mejoras.
+        </dd>
+      </dl>
+    </section>
+
+
+    <section>
+      <h2>Referencias</h2>
+      <ul>
+        <li>
+          <a href="https://webaim.org/techniques/css/invisiblecontent/" target="_blank" rel="noopener">Ocultación
+            accesible</a>
+        </li>
+        <li>
+          <a href="https://olgacarreras.blogspot.com/2020/07/ocultar-contenido-de-una-pagina-web.html" target="_blank"
+            rel="noopener">más información</a>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Ejemplos</h2>
+      <ul>
+        <li>
+          <a href="https://codepen.io/antxoa/pen/gOyeLNB" target="_blank" rel="noopener">Ejemplos con bloques</a>
+        </li>
+        <li>
+          <a href="https://codepen.io/antxoa/pen/poBLwqe" target="_blank" rel="noopener">Ejemplos con listas</a>
+        </li>
+      </ul>
+    </section>
+    >
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="CV de MielmaDev: desarrollo web, edición de vídeo, generación y edición de imágenes, y portfolio profesional." >
+    <title>Web CV</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" >
+
+    <link rel="stylesheet" href="estilos/normalize.css" >
+    <link rel="stylesheet" href="estilos/reset.css" >
+    <link rel="stylesheet" href="estilos/estilos.css" >
+    <link rel="stylesheet" href="estilos/aparicion.css" >
+    <link rel="stylesheet" href="estilos/animacion-letras.css" >
+    <link rel="stylesheet" href="estilos/imagen-ampliar.css" >
+  </head>
+
+  <body>
+    <header>
+      <section class="presentacion">
+        <h1 data-scramble="MielmaDev">MielmaDev</h1>
+        <h4>Desarrollo web, edición de vídeo, generación y edición de imágenes...</h4>
+      </section>
+      <nav class="menu" aria-label="Menú principal">
+        <ul>
+          <li><a href="#about">Sobre mí</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contacto">Contacta Conmigo</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <article class="about reveal" id="about">
+        <h2>Sobre mí</h2>
+        <div class="about-descripcion">
+          <p>Soy desarrolladora web con experiencia en la creación de sitios modernos, edición de vídeo y generación de imágenes. Me apasiona aprender nuevas tecnologías, afrontar retos creativos y aportar soluciones innovadoras. Disfruto trabajar en equipo, compartir ideas y crecer profesionalmente en cada proyecto.</p>
+          <p>He trabajado con HTML, CSS, JavaScript y herramientas modernas para desarrollar aplicaciones funcionales y visualmente atractivas. Soy responsable, proactiva y siempre busco perfeccionar mis habilidades, aportando valor y creatividad en cada oportunidad profesional.</p>
+        </div>
+        <button>Descargar CV</button>
+        <img src="img/Logo_Vertical_Transparente.png" alt="Logo de MielmaDev" class="about-img" >
+      </article>
+      <article class="portfolio reveal" id="portfolio">
+        <h2>Portfolio</h2>
+        <ul class="portfolio-galeria">
+          <li>
+            <a href="#"><img src="img/portfolio/01-small.jpg" alt="Imagen uno portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/02-small.jpg" alt="Imagen dos portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/03-small.jpg" alt="Imagen tres portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/04-small.jpg" alt="Imagen cuatro portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/05-small.jpg" alt="Imagen cinco portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/06-small.jpg" alt="Imagen seis portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/07-small.jpg" alt="Imagen siete portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/08-small.jpg" alt="Imagen ocho portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/09-small.jpg" alt="Imagen nueve portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/10-small.jpg" alt="Imagen diez portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/11-small.jpg" alt="Imagen una portfolio" ></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/portfolio/12-small.jpg" alt="Imagen doce portfolio" ></a>
+          </li>
+        </ul>
+      </article>
+      <article class="contacto reveal" id="contacto">
+        <h2>Contacta conmigo</h2>
+        <form name="formcont" id="formcont" method="post">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required >
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required >
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+          <button type="submit">Enviar Mensaje</button>
+          <p id="mensaje-enviado">¡Mensaje enviado correctamente!</p>
+        </form>
+      </article>
+    </main>
+    <footer>
+      <ul class="footer-social">
+        <li class="logo-social">
+          <a href="#" aria-label="Facebook"><img src="img/svg/facebook-f-brands-solid-full.svg" alt="Logo Facebook" ></a>
+        </li>
+        <li class="logo-social">
+          <a href="#" aria-label="Twitter"><img src="img/svg/twitter-brands-solid-full.svg" alt="Logo Twitter" ></a>
+        </li>
+        <li class="logo-social">
+          <a href="#" aria-label="Behance"><img src="img/svg/behance-brands-solid-full.svg" alt="Logo Behance" ></a>
+        </li>
+      </ul>
+      <p class="año-copyright">MielmaDev. Todos los derechos reservados.</p>
+    </footer>
+    <script src="js/año-copyright.js"></script>
+    <!-- Efectos modernos para CV -->
+    <script src="js/aparicion.js"></script>
+    <script src="js/animacion-letras.js"></script>
+    <!-- Efectos avanzados: lightbox, partículas, scramble -->
+    <script src="js/imagen-ampliar.js"></script>
+    <!-- Formulario demo y mensaje exito -->
+    <script src="js/formulario.js"></script>
+  </body>
+</html>

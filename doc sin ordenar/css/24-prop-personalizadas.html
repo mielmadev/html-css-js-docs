@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24 Propiedades Personalizadas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>24. Propiedades personalizadas</h1>
+  </header>
+  <main>
+    <section>
+      <p>
+        Las propiedades personalizadas permiten definir una variable con un nombre establecido por nosotros que
+        contendrá un
+        valor (un color, un tamaño, una tipografía...) y después podremos utilizar esa propiedad personalizada en
+        nuestro código
+        CSS, en vez de repetir una y otra vez el valor como tal.
+      </p>
+    </section>
+
+    <section>
+      <h2>Uso general</h2>
+      <p>
+        Para declarar una propiedad personalizada usamos un nombre que tiene que empezar por dos guiones, seguido del
+        nombre
+        como tal. En el nombre no podemos incluir espacios, ni símbolos, salvo el guión medio o bajo. Y debemos tener
+        cuidado
+        con las mayúsculas y minúsculas porque se hace diferenciación:
+      </p>
+      <pre><code>
+--color-principal: red;
+--Color-principal: green;
+--color_secundario: blue;
+      </code></pre>
+      <p>
+        Si queremos tener la posibilidad de utilizar esta propiedad personalizada en cualquier elemento, tendremos que
+        declararla dentro de la pseudo-clase <code>:root</code> de la siguiente manera:
+      </p>
+      <pre><code>
+:root {
+  --color-principal: red;
+  --color_secundario: blue;
+}
+      </code></pre>
+      <p>
+        Para llamar a la propiedad personalizada desde un elemento, usaremos su nombre dentro de la función
+        <code>var()</code>:
+      </p>
+      <pre><code>
+h1 {
+  color: var(--color-principal);
+  border: 2px solid var(--color-principal);
+}
+
+h2 {
+  background: var(--color-principal) url(imagen.ext) no-repeat center top;
+  box-shadow: 5px 5px 20px var(--color_secundario);
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Ámbito de las propiedades</h2>
+      <p>
+        También es posible declararla dentro de un elemento concreto, pero entonces sólo se podrá utilizar en el ámbito
+        de ese
+        elemento (por ejemplo, si lo definimos en una lista desordenada, sólo lo podremos utilizar dentro de ese
+        elemento):
+      </p>
+      <pre><code>
+ul {
+  --color-lista: red;
+}
+
+ul {
+  color: var(--color-lista);
+}
+
+ul li {
+  color: var(--color-lista);
+}
+
+ul a {
+  color: var(--color-lista);
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Uso con valor por defecto</h2>
+      <p>
+        Cuando usamos una propiedad agrupada, si sólo queremos modificar uno de los valores, no es necesario que
+        volvamos a
+        escribir toda la propiedad, con ese valor modificado pero todos los demás valores iguales. Podemos establecer
+        una
+        propiedad personalizada para el valor que puede cambiar, y establecer un valor por defecto. Si no queremos
+        cambiarlo, no
+        hacemos nada, pero si lo queremos cambiar, CSS aplicará el nuevo valor:
+      </p>
+      <pre><code>
+&lt;div class="bloque"&gt;&lt;/div&gt;
+&lt;div class="bloque animacion-lenta"&gt;&lt;/div&gt;
+&lt;div class="bloque animacion-rapida"&gt;&lt;/div&gt;
+
+.bloque {
+  animation: salta var(--duracion, 3s) linear alternate infinite;
+}
+
+.animacion-lenta {
+  --duracion: 5s;
+}
+
+.animacion-rapida {
+  --duracion: 1s;
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Redefinición de valores</h2>
+      <p>
+        Aunque hayamos establecido una propiedad predeterminada como ámbito global o en un elemento, los hijos, nietos,
+        etc...
+        de ese elemento pueden redefinir el valor de esa propiedad:
+      </p>
+      <pre><code>
+&lt;body&gt;
+  &lt;header&gt;header&lt;/header&gt;
+  &lt;main&gt;
+    main
+    &lt;section&gt;section&lt;/section&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;
+    footer
+    &lt;section&gt;section&lt;/section&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+
+:root {
+  --fondo: red;
+}
+
+main {
+  --fondo: green;
+}
+
+section {
+  --fondo: blue;
+}
+
+footer section {
+  --fondo: gray;
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>Evitar uso con valor incorrecto</h2>
+      <p>
+        Imaginemos que vamos a establecer el color de un elemento a través de una propiedad personalizada y esa
+        propiedad
+        personalizada no tiene un valor de color, sino que es una tipografía. CSS no podrá aplicar el color al elemento
+        ya que
+        el valor es incorrecto:
+      </p>
+      <pre><code>
+:root {
+  --colorPrincipal: red;
+  --tipografiaPrincipal: Arial, sans-serif;
+}
+
+h1 {
+  color: var(--tipografiaPrincipal);
+}
+      </code></pre>
+      <p>
+        Para evitar que esto ocurra podemos declarar una variable personalizada indicando el tipo de propiedad, valor
+        inicial y
+        si es una propiedad heredada o no.
+      </p>
+      <pre><code>
+@property colorPrincipal {
+  syntax: '&lt;color&gt;';
+  initial-value: red;
+  inherits: false;
+}
+
+h1 {
+  --colorPrincipal: red;
+  color: var(--colorPrincipal);
+}
+      </code></pre>
+      <p>
+        Los valores permitidos en la propiedad <code>syntax</code> son los siguientes (deben ir entrecomillados y con
+        los símbolos de &lt;&gt;):
+      </p>
+      <ul>
+        <li>length</li>
+        <li>number</li>
+        <li>percentage</li>
+        <li>length-percentage</li>
+        <li>color</li>
+        <li>image</li>
+        <li>url</li>
+        <li>integer</li>
+        <li>angle</li>
+        <li>time</li>
+        <li>resolution</li>
+        <li>transform-list</li>
+        <li>transform-function</li>
+        <li>custom-ident (identificador personalizado)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Declaración en <code>:root</code></h2>
+      <p>
+        Las variables CSS (propiedades personalizadas) suelen declararse en la pseudo-clase <code>:root</code> para que
+        estén disponibles en todo el documento. Esto les da el máximo alcance y prioridad global, permitiendo que
+        cualquier elemento las utilice, salvo que se redefinan en un selector más específico.
+      </p>
+      <pre><code>
+:root {
+  --fuenteprincipal: 'Metal Mania', cursive;
+}
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>¿Por qué dos guiones?</h2>
+      <p>
+        Las propiedades personalizadas en CSS siempre deben comenzar con dos guiones (<code>--</code>). Esto indica que
+        no se trata de una propiedad estándar de CSS, sino de una variable definida por el usuario. Por ejemplo:
+      </p>
+      <pre><code>
+:root {
+  --color-fucsia: #fd00c6;
+  --fuente-principal: 'Metal Mania', cursive;
+}
+      </code></pre>
+      <p>
+        Si no se usan los dos guiones, el navegador no reconocerá la propiedad como personalizada y no funcionará como
+        variable.
+      </p>
+      <p>
+        Para utilizar el color fucsia definido como propiedad personalizada, simplemente lo llamamos con la función
+        <code>var()</code> en cualquier propiedad CSS que acepte un color. Por ejemplo:
+      </p>
+      <pre><code>
+      h1 {
+        color: var(--color-fucsia);
+      }
+      </code></pre>
+      <p>
+        Así, el texto del encabezado <code>&lt;h1&gt;</code> se mostraría en color fucsia (<span
+          style="color: #fd00c6;">#fd00c6</span>).
+      </p>
+    </section>
+
+    <section>
+      <h2>¿Cómo se declaran y usan las propiedades personalizadas en CSS?</h2>
+      <p>
+        Las <strong>propiedades personalizadas</strong> permiten definir una <mark>variable CSS</mark> con un nombre que
+        comienza por dos guiones (<code>--</code>). Así puedes reutilizar valores como colores, tamaños o tipografías en
+        tu código.
+      </p>
+      <pre><code>
+/* Ejemplo de declaración de variables */
+--color-principal: red;         /* variable para color principal */
+--Color-principal: green;       /* variable similar, pero diferente por la mayúscula */
+--color_secundario: blue;       /* variable para color secundario */
+      </code></pre>
+      <p>
+        <strong>¡Importante!</strong> El nombre distingue entre mayúsculas y minúsculas, y solo admite guiones o guiones
+        bajos.
+      </p>
+      <pre><code>
+/* Declaración global en :root */
+:root {
+  --color-principal: red;       /* disponible en todo el documento */
+  --color_secundario: blue;
+}
+      </code></pre>
+      <p>
+        Para <strong>usar una variable</strong> en una propiedad CSS, emplea la función <code>var()</code>:
+      </p>
+      <pre><code>
+h1 {
+  color: var(--color-principal);                /* el texto será rojo */
+  border: 2px solid var(--color-principal);     /* el borde será rojo */
+}
+
+/* Ejemplo visual: */
+h2 {
+  background: var(--color-principal) url(imagen.ext) no-repeat center top; /* fondo rojo + imagen */
+  box-shadow: 5px 5px 20px var(--color_secundario);                       /* sombra black */
+}
+      </code></pre>
+      <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+        <h3 style="font-family: 'Metal Mania', cursive; color: red;">Ejemplo visual:</h3>
+        <h1 style="color: red; border:2px solid red;">Título principal</h1>
+        <h2 style="background: red; box-shadow: 5px 5px 20px black;">Subtítulo con fondo y sombra</h2>
+      </div>
+    </section>
+
+    <section>
+      <h2>Referencias</h2>
+      <ul>
+        <li><a href="https://css-tricks.com/a-complete-guide-to-custom-properties/" target="_blank">Guía general</a>
+        </li>
+        <li><a href="https://caniuse.com/css-variables" target="_blank">Soporte var(--)</a></li>
+        <li><a href="https://caniuse.com/mdn-css_at-rules_property" target="_blank">Soporte @property</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Ejemplos</h2>
+      <ul>
+        <li><a href="https://codepen.io/antxoa/pen/ByBavGM" target="_blank">Varios ejemplos y usos</a></li>
+        <li><a href="https://codepen.io/antxoa/pen/GgKRzeg" target="_blank">Ejemplo redefinición</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+
+</html>

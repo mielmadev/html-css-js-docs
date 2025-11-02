@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formularios</title>
+  <!-- Vincular el CSS compilado de estilo.scss -->
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <h1>Formularios</h1>
+  <h2>¿Qué es un formulario?</h2>
+  <p>Utilizamos los formularios para recoger información que los usuarios introducen en las páginas web. Posteriormente,
+    esa información puede procesarse para guardarla en una base de datos, mostrar resultados de búsqueda, finalizar un
+    proceso, etc.</p>
+  <h2>Estructura básica de un formulario</h2>
+  <p>Para implementar un formulario se utiliza el elemento <code>&lt;form&gt;</code>, dentro del cual se ubican los
+    campos de formulario.</p>
+  <div class="codigo-ejemplo">
+    &lt;form&gt;
+    &lt;!-- campos del formulario --&gt;
+    &lt;/form&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <form>
+      campos del formulario
+    </form>
+  </div>
+
+  <h2>Configuración del formulario</h2>
+  <p>En el formulario, mediante atributos específicos y obligatorios, se indican opciones de configuración: qué tipo de
+    datos se enviarán (codificación), cómo se enviarán (método) y a dónde se enviarán (acción).</p>
+  <h3>Codificación de datos (<code>enctype</code>)</h3>
+  <ul>
+    <li><strong>text/plain</strong>: Los datos se envían como texto plano.</li>
+    <li><strong>multipart/form-data</strong>: Adecuado para enviar archivos adjuntos. Si no se usa, solo se envía el
+      nombre del archivo, no el archivo en sí.</li>
+  </ul>
+  <h3>Método de transmisión (<code>method</code>)</h3>
+  <ul>
+    <li><strong>get</strong>: Los datos se envían a través de la URL y son visibles en la barra de direcciones.</li>
+    <li><strong>post</strong>: Los datos se envían de forma transparente para el usuario. Es la opción recomendada por
+      seguridad.</li>
+  </ul>
+  <h3>Acción (<code>action</code>)</h3>
+  <ul>
+    <li><strong>A una página</strong>: Puede enviarse sobre sí mismo o a otra página.</li>
+    <li><strong>A un e-mail</strong>: Si el usuario tiene un gestor de correo instalado, se abrirá un nuevo mensaje con
+      los datos. <strong>No recomendado</strong> actualmente.</li>
+  </ul>
+  <p>Si no se indica un valor en <code>action</code>, el formulario se enviará sobre sí mismo, lo que puede provocar
+    vulnerabilidades. Es recomendable establecer siempre un valor.</p>
+  <div class="codigo-ejemplo">
+    &lt;form action="mailto:info@empresa.com" method="post" enctype="text/plain"&gt;
+    &lt;!-- campos del formulario --&gt;
+    &lt;/form&gt;
+    &lt;form action="index.html" method="get" enctype="text/plain"&gt;
+    &lt;!-- campos del formulario --&gt;
+    &lt;/form&gt;
+    &lt;form action="envio.html" method="post" enctype="multipart/form-data"&gt;
+    &lt;!-- campos del formulario con envío de archivo --&gt;
+    &lt;/form&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <form action="mailto:info@empresa.com" method="post" enctype="text/plain">
+      <!-- campos del formulario -->
+    </form>
+    <form action="index.html" method="get" enctype="text/plain">
+      <!-- campos del formulario -->
+    </form>
+    <form action="envio.html" method="post" enctype="multipart/form-data">
+      <!-- campos del formulario con envío de archivo -->
+    </form>
+  </div>
+
+  <h2>Otros atributos recomendados</h2>
+  <ul>
+    <li><strong>name</strong>: Identificador necesario para el navegador y lenguajes de programación. Útil si hay varios
+      formularios en la página.</li>
+    <li><strong>id</strong>: Identificador único para el formulario. Permite seleccionarlo con JavaScript o CSS.</li>
+  </ul>
+  <p>Generalmente se utiliza el mismo valor para ambos atributos.</p>
+  <div class="codigo-ejemplo">
+    &lt;form name="formcont" id="formcont" action="index.html" method="get" enctype="text/plain"&gt;
+    &lt;!-- campos del formulario --&gt;
+    &lt;/form&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <form name="formcont" id="formcont" action="index.html" method="get" enctype="text/plain">
+      <!-- campos del formulario -->
+    </form>
+  </div>
+
+  <h2>Inserción de campos en el formulario</h2>
+  <p>La mayoría de los campos se implementan con el elemento <code>&lt;input&gt;</code>. El atributo <code>type</code>
+    define el tipo de campo (texto, contraseña, botón de envío, etc.).</p>
+  <p>Cada campo debe tener atributos obligatorios y opcionales, y asociarse explícitamente con un texto que indique qué
+    dato introducir. Ejemplo básico:</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="text"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="text">
+  </div>
+
+  <h3>Atributo <code>name</code></h3>
+  <p>Identificador a través del cual se recoge el valor introducido por el usuario</p>
+  <h3>Etiqueta o rótulo</h3>
+  <p>Texto que acompaña al campo para indicar el dato a rellenar.</p>
+  <div class="codigo-ejemplo">
+    Nombre: &lt;input type="text" name="campoNombre"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    Nombre: <input type="text" name="campoNombre">
+  </div>
+
+  <h3>Asociación explícita de etiqueta y campo</h3>
+  <p>Para una mejor accesibilidad, se debe asociar la etiqueta (<code>&lt;label&gt;</code>) con el campo correspondiente
+    usando el atributo <code>for</code> y el <code>id</code> del campo:</p>
+  <h4>Opción 1: Asociación por posicionamiento</h4>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" name="campoNombre" id="campoNombre"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoNombre">Nombre:</label>
+    <input type="text" name="campoNombre" id="campoNombre">
+  </div>
+
+  <h4>Opción 2: Asociación por englobamiento</h4>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre"&gt;
+    Nombre:
+    &lt;input type="text" name="campoNombre" id="campoNombre"&gt;
+    &lt;/label&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoNombre">
+      Nombre:
+      <input type="text" name="campoNombre" id="campoNombre">
+    </label>
+  </div>
+  <p>Ambas opciones son válidas.</p>
+  <h3>Estructura recomendada</h3>
+  <p>Se recomienda estructurar cada elemento del formulario dentro de un párrafo u otro contenedor semántico:</p>
+  <h4>Ejemplo 1: Asociación por posicionamiento</h4>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" name="campoNombre" id="campoNombre"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoNombre">Nombre:</label>
+    <input type="text" name="campoNombre" id="campoNombre">
+  </div>
+  <h4>Ejemplo 2: Asociación por englobamiento</h4>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre"&gt;
+    Nombre:
+    &lt;input type="text" name="campoNombre" id="campoNombre"&gt;
+    &lt;/label&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoNombre">
+      Nombre:
+      <input type="text" name="campoNombre" id="campoNombre">
+    </label>
+  </div>
+  <h2>Campos de Texto</h2>
+
+  <h3>Campo de texto básico</h3>
+  <p>Es el campo más sencillo que podemos utilizar:</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="text"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="text">
+  </div>
+
+  <h3>Campo de texto con etiqueta</h3>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" name="campoNombre" id="campoNombre"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoNombre">Nombre:</label>
+    <input type="text" name="campoNombre" id="campoNombre">
+  </div>
+
+  <h3>Campo de contraseña</h3>
+  <p>Es un campo de texto, igual que el básico, solo que cuando el usuario escribe en él, en vez de aparecer letras,
+    aparecen asteriscos, puntos...</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="password"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="password">
+  </div>
+
+  <div class="codigo-ejemplo">
+    &lt;label for="campoClave"&gt;Contraseña:&lt;/label&gt;
+    &lt;input type="password" name="campoClave" id="campoClave"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoClave">Contraseña:</label>
+    <input type="password" name="campoClave" id="campoClave">
+  </div>
+
+  <h3>Campo de email</h3>
+  <p>Es un campo de texto, pero destinado a escribir direcciones de e-mail.</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="email"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="email">
+  </div>
+
+  <div class="codigo-ejemplo">
+    &lt;label for="campoEmail"&gt;E-mail:&lt;/label&gt;
+    &lt;input type="email" name="campoEmail" id="campoEmail"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoEmail">E-mail:</label>
+    <input type="email" name="campoEmail" id="campoEmail">
+  </div>
+
+  <h3>Campo de URL</h3>
+  <p>Es un campo de texto, pero destinado a escribir direcciones web.</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="url"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="url">
+  </div>
+
+  <div class="codigo-ejemplo">
+    &lt;label for="campoURL"&gt;Sitio Web:&lt;/label&gt;
+    &lt;input type="url" name="campoURL" id="campoURL"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoURL">Sitio Web:</label>
+    <input type="url" name="campoURL" id="campoURL">
+  </div>
+
+  <h3>Campo de teléfono</h3>
+  <p>Es un campo de texto, pero destinado a escribir teléfonos.</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="tel"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="tel">
+  </div>
+
+  <div class="codigo-ejemplo">
+    &lt;label for="campoTfno"&gt;Teléfono:&lt;/label&gt;
+    &lt;input type="tel" name="campoTfno" id="campoTfno"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoTfno">Teléfono:</label>
+    <input type="tel" name="campoTfno" id="campoTfno">
+  </div>
+
+  <h3>Área de texto</h3>
+  <p>Es un campo de texto multilínea, pensado para que se escriba en él gran cantidad de texto, que tiene una etiqueta
+    propia (no es un input):</p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoComentarios"&gt;Escriba sus comentarios:&lt;/label&gt;&lt;br&gt;
+    &lt;textarea name="campoComentarios" id="campoComentarios" cols="60" rows="6"&gt;
+    &lt;/textarea&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoComentarios">Escriba sus comentarios:</label><br>
+    <textarea name="campoComentarios" id="campoComentarios" cols="60" rows="6"></textarea>
+  </div>
+
+  <h3>Campo de búsqueda</h3>
+  <p>Es un campo de texto, pero destinado al campo del término de búsqueda.</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="search"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="search">
+  </div>
+
+  <div class="codigo-ejemplo">
+    &lt;label for="campoBuscar"&gt;Texto a Buscar:&lt;/label&gt;
+    &lt;input type="search" name="campoBuscar" id="campoBuscar"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoBuscar">Texto a Buscar:</label>
+    <input type="search" name="campoBuscar" id="campoBuscar">
+  </div>
+
+  <h2>Selección</h2>
+  <p>Estos campos permiten seleccionar entre uno o varios valores ya definidos.</p>
+
+  <h3>Checkbox</h3>
+  <p>Los checkbox se representan como un cuadrado que el usuario puede activar o desactivar. El usuario puede
+    seleccionar una, varias, todas o ninguna de las opciones.</p>
+  <div class="codigo-ejemplo">
+    &lt;p&gt;
+    ¿desea recibir publicidad?
+    &lt;input type="checkbox" name="campoPubli" id="campoPubli" value="si"&gt;
+    &lt;label for="campoPubli"&gt;Sí&lt;/label&gt;
+    &lt;/p&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <p>
+      ¿desea recibir publicidad?
+      <input type="checkbox" name="campoPubli" id="campoPubli" value="si">
+      <label for="campoPubli">Sí</label>
+    </p>
+  </div>
+
+  <h3>Radio</h3>
+  <p>Los radiobuttons permiten elegir solo una opción entre varias posibles. Se representan como botones redondos.</p>
+  <div class="codigo-ejemplo">
+    &lt;p&gt;
+    ¿Cómo te gusta la tortilla?:&lt;br&gt;
+    &lt;input type="radio" name="tortilla" id="tortillaCon" value="con cebolla"&gt;
+    &lt;label for="tortillaCon"&gt;Con Cebolla&lt;/label&gt;&lt;br&gt;
+    &lt;input type="radio" name="tortilla" id="tortillaSin" value="sin cebolla"&gt;
+    &lt;label for="tortillaSin"&gt;Sin Cebolla&lt;/label&gt;
+    &lt;/p&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <p>
+      ¿Cómo te gusta la tortilla?:<br>
+      <input type="radio" name="tortilla" id="tortillaCon" value="con cebolla">
+      <label for="tortillaCon">Con Cebolla</label><br>
+      <input type="radio" name="tortilla" id="tortillaSin" value="sin cebolla">
+      <label for="tortillaSin">Sin Cebolla</label>
+    </p>
+  </div>
+
+  <h3>Select (Lista desplegable)</h3>
+  <p>Las listas de selección permiten elegir una opción de una lista desplegable.</p>
+
+  <h4>Selección básica</h4>
+  <div class="codigo-ejemplo">
+    &lt;p&gt;
+    &lt;label for="campoColor"&gt;Elige un color favorito:&lt;/label&gt;
+    &lt;select name="campoColor" id="campoColor"&gt;
+    &lt;option&gt;negro&lt;/option&gt;
+    &lt;option&gt;rojo&lt;/option&gt;
+    &lt;option&gt;blanco&lt;/option&gt;
+    &lt;option&gt;verde&lt;/option&gt;
+    &lt;option&gt;azul&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;/p&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <p>
+      <label for="campoColor">Elige un color favorito:</label>
+      <select name="campoColor" id="campoColor">
+        <option>negro</option>
+        <option>rojo</option>
+        <option>blanco</option>
+        <option>verde</option>
+        <option>azul</option>
+      </select>
+    </p>
+  </div>
+
+  <h4>Selección con valor alternativo</h4>
+  <div class="codigo-ejemplo">
+    &lt;p&gt;
+    &lt;label for="campoProvincia"&gt;Elige tu provincia:&lt;/label&gt;
+    &lt;select name="campoProvincia" id="campoProvincia"&gt;
+    &lt;option value="01"&gt;Araba/Álava&lt;/option&gt;
+    &lt;option value="48"&gt;Bizkaia&lt;/option&gt;
+    &lt;option value="20"&gt;Gipuzkoa&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;/p&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <p>
+      <label for="campoProvincia">Elige tu provincia:</label>
+      <select name="campoProvincia" id="campoProvincia">
+        <option value="01">Araba/Álava</option>
+        <option value="48">Bizkaia</option>
+        <option value="20">Gipuzkoa</option>
+      </select>
+    </p>
+  </div>
+
+  <h4>Selección categorizada</h4>
+  <div class="codigo-ejemplo">
+    &lt;p&gt;
+    &lt;label for="campoProducto"&gt;Seleccione un producto:&lt;/label&gt;
+    &lt;select name="campoProducto" id="campoProducto"&gt;
+    &lt;optgroup label="software"&gt;
+    &lt;option value="1"&gt;Ubuntu&lt;/option&gt;
+    &lt;option value="2"&gt;Gimp&lt;/option&gt;
+    &lt;option value="3"&gt;Open Office&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="hardware"&gt;
+    &lt;option value="4"&gt;Regrabador DVD&lt;/option&gt;
+    &lt;option value="5"&gt;Tarjeta Gráfica&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;optgroup label="material"&gt;
+    &lt;option value="7"&gt;Tarrina 10 CDs&lt;/option&gt;
+    &lt;option value="8"&gt;Alfombrilla&lt;/option&gt;
+    &lt;option value="9"&gt;WebCam&lt;/option&gt;
+    &lt;/optgroup&gt;
+    &lt;/select&gt;
+    &lt;/p&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <p>
+      <label for="campoProducto">Seleccione un producto:</label>
+      <select name="campoProducto" id="campoProducto">
+        <optgroup label="software">
+          <option value="1">Ubuntu</option>
+          <option value="2">Gimp</option>
+          <option value="3">Open Office</option>
+        </optgroup>
+        <optgroup label="hardware">
+          <option value="4">Regrabador DVD</option>
+          <option value="5">Tarjeta Gráfica</option>
+        </optgroup>
+        <optgroup label="material">
+          <option value="7">Tarrina 10 CDs</option>
+          <option value="8">Alfombrilla</option>
+          <option value="9">WebCam</option>
+        </optgroup>
+      </select>
+    </p>
+  </div>
+
+  <h4>Valor vacío inicialmente</h4>
+  <div class="codigo-ejemplo">
+    &lt;p&gt;
+    &lt;label for="campoProvincia"&gt;Elige tu provincia:&lt;/label&gt;
+    &lt;select name="campoProvincia" id="campoProvincia"&gt;
+    &lt;option value="" disabled hidden selected&gt;&lt;/option&gt;
+    &lt;option value="01"&gt;Araba/Álava&lt;/option&gt;
+    &lt;option value="48"&gt;Bizkaia&lt;/option&gt;
+    &lt;option value="20"&gt;Gipuzkoa&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;/p&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <p>
+      <label for="campoProvincia">Elige tu provincia:</label>
+      <select name="campoProvincia" id="campoProvincia">
+        <option value="" disabled hidden selected></option>
+        <option value="01">Araba/Álava</option>
+        <option value="48">Bizkaia</option>
+        <option value="20">Gipuzkoa</option>
+      </select>
+    </p>
+  </div>
+
+  <h2>Archivo</h2>
+  <p>Si necesitamos adjuntar un archivo en el formulario utilizamos el siguiente elemento <code>input</code>:</p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoCV"&gt;Adjunta tu Curriculum:&lt;/label&gt;
+    &lt;input type="file" name="campoCV" id="campoCV"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoCV">Adjunta tu Curriculum:</label>
+    <input type="file" name="campoCV" id="campoCV">
+  </div>
+  <div class="resultado-ejemplo">
+    Adjunta tu Curriculum: Ningún archivo seleccionado
+  </div>
+  <p>
+    De manera nativa no podemos modificar el texto ni la apariencia del botón para adjuntar el archivo. Cualquier
+    modificación en este sentido se realiza con CSS y Javascript.
+  </p>
+
+  <h3>Restringir tamaño máximo</h3>
+  <p>Podemos restringir el tamaño máximo permitido del archivo, en bytes, usando el atributo <code>maxlength</code>:</p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoCV"&gt;Adjunta tu Curriculum:&lt;/label&gt;
+    &lt;input type="file" name="campoCV" id="campoCV" maxlength="100000"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoCV">Adjunta tu Curriculum:</label>
+    <input type="file" name="campoCV" id="campoCV" maxlength="100000">
+  </div>
+
+  <h3>Restringir tipo de archivo</h3>
+  <p>También podemos controlar el tipo de archivos permitidos, mediante el atributo <code>accept</code> y diferentes
+    valores de tipo MIME:</p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoCV"&gt;Adjunta tu Curriculum:&lt;/label&gt;
+    &lt;input type="file" name="campoCV" id="campoCV" accept="image/gif"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoCV">Adjunta tu Curriculum:</label>
+    <input type="file" name="campoCV" id="campoCV" accept="image/gif">
+  </div>
+
+  <h3>Selección múltiple de archivos</h3>
+  <p>Incluso podemos habilitar la opción de selección múltiple de archivos:</p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoCV"&gt;Adjunta tu Curriculum:&lt;/label&gt;
+    &lt;input type="file" name="campoCV" id="campoCV" multiple="multiple"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <label for="campoCV">Adjunta tu Curriculum:</label>
+    <input type="file" name="campoCV" id="campoCV" multiple="multiple">
+  </div>
+
+  <p>
+    Lo más importante a la hora de utilizar este campo es acordarse de utilizar el atributo con el valor correcto
+    <code>enctype="multipart/form-data"</code> en el elemento <code>form</code>, para que se envíe el archivo y no
+    simplemente su nombre.
+  </p>
+
+  <h2>Número y rango</h2>
+  <p>Estos campos permiten introducir o seleccionar valores numéricos de forma sencilla y controlada.</p>
+
+  <h3>Número</h3>
+  <p>Es un campo que solo permite la inserción de números. Se puede indicar un número máximo y mínimo, así como el
+    incremento/decremento entre pasos:</p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoEdad"&gt;Edad:&lt;/label&gt;
+    &lt;input type="number" name="campoEdad" id="campoEdad" min="18" max="75" step="1"&gt;
+  </div>
+  <p>
+    <label for="campoEdad">Edad:</label>
+    <input type="number" name="campoEdad" id="campoEdad" min="18" max="75" step="1">
+  </p>
+
+  <h3>Rango</h3>
+  <p>Es un campo numérico, pero el usuario no inserta el número, sino que lo elige orientativamente entre un rango:</p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoValoracion"&gt;¿Puntuación de la película?:&lt;/label&gt;
+    &lt;input type="range" name="campoValoracion" id="campoValoracion" min="0" max="100" step="10"&gt;
+  </div>
+  <p>
+    <label for="campoValoracion">¿Puntuación de la película?:</label>
+    <input type="range" name="campoValoracion" id="campoValoracion" min="0" max="100" step="10">
+  </p>
+  <p>
+    Si queremos que en este elemento también se vea el valor que se está eligiendo, tenemos que implementar la
+    funcionalidad mediante Javascript.
+  </p>
+
+  <h2>Fecha y hora</h2>
+  <p>
+    Podemos insertar un calendario de forma nativa en nuestro formulario, para poder elegir una fecha, hora, semana o
+    mes concreto:
+  </p>
+
+  <h3>Fecha</h3>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoFecha"&gt;Fecha:&lt;/label&gt;
+    &lt;input type="date" name="campoFecha" id="campoFecha"&gt;
+  </div>
+  <p>
+    <label for="campoFecha">Fecha:</label>
+    <input type="date" name="campoFecha" id="campoFecha">
+  </p>
+
+  <h3>Hora</h3>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoHora"&gt;Hora:&lt;/label&gt;
+    &lt;input type="time" name="campoHora" id="campoHora"&gt;
+  </div>
+  <p>
+    <label for="campoHora">Hora:</label>
+    <input type="time" name="campoHora" id="campoHora">
+  </p>
+
+  <h3>Mes</h3>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoMes"&gt;Mes:&lt;/label&gt;
+    &lt;input type="month" name="campoMes" id="campoMes"&gt;
+  </div>
+  <p>
+    <label for="campoMes">Mes:</label>
+    <input type="month" name="campoMes" id="campoMes">
+  </p>
+
+  <h3>Semana</h3>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoSemana"&gt;Semana:&lt;/label&gt;
+    &lt;input type="week" name="campoSemana" id="campoSemana"&gt;
+  </div>
+  <p>
+    <label for="campoSemana">Semana:</label>
+    <input type="week" name="campoSemana" id="campoSemana">
+  </p>
+
+  <h2>Botones</h2>
+  <p>Para poder enviar o restablecer (borrar) los datos del formulario, necesitamos botones.</p>
+  <p>Los botones no llevan una etiqueta a la que asociarse porque ellos mismos ya tienen la etiqueta dentro del botón.
+  </p>
+  <p>Tenemos los siguientes tipos de botones:</p>
+
+  <h3>Ejecución del formulario</h3>
+  <p>Ejecuta el action del formulario.</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="submit" value="Enviar Formulario"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="submit" value="Enviar Formulario">
+  </div>
+
+  <h3>Restablecimiento (reseteo) del formulario</h3>
+  <p>Deja los campos de formulario tal y como estaban al entrar en la página (si hemos rellenado datos, los borraría).
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;input type="reset" value="Restablecer Formulario"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="reset" value="Restablecer Formulario">
+  </div>
+
+  <h3>Sin función</h3>
+  <p>Este botón no hace nada, servirá para programar funciones personalizadas mediante Javascript.</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="button" value="No hago nada"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="button" value="No hago nada">
+  </div>
+
+  <h3>Botón de imagen</h3>
+  <p>Convertimos una imagen en botón.</p>
+  <div class="codigo-ejemplo">
+    &lt;input type="image" src="imagenes/MielmaDev/favicon-16x16.png" alt="Ver detalles"&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <input type="image" src="imagenes/MielmaDev/favicon-16x16.png" alt="Ver detalles">
+  </div>
+
+  <h3>Botón complejo</h3>
+  <p>Permite insertar en el botón tanto texto como imagen.</p>
+  <div class="codigo-ejemplo">
+    &lt;button&gt;
+    Llámame
+    &lt;img src="imagenes/MielmaDev/favicon-16x16.png" alt="MielmaDev"&gt;
+    y reserva ya
+    &lt;/button&gt;
+  </div>
+  <div class="resultado-ejemplo">
+    <button>
+      Llámame
+      <img src="imagenes/MielmaDev/favicon-16x16.png" alt="MielmaDev">
+      y reserva ya
+    </button>
+  </div>
+
+  <h2>Validación</h2>
+  <p>
+    Además de las validaciones que proporcionan por sí mismos algunos de los campos y atributos vistos hasta ahora,
+    existen
+    atributos extra para la validación de un formulario.
+  </p>
+
+  <h3>Desactivar validación nativa</h3>
+  <p>
+    Si en algún momento queremos desactivar la validación nativa bien de todos los campos del formulario o de uno o
+    varios
+    específicos, basta con utilizar el atributo <strong>novalidate</strong>.
+  </p>
+  <p>
+    Si se utiliza en el elemento form, se desactiva la validación de todos los campos.<br>
+    Si se utiliza en un elemento, se desactiva únicamente en ese elemento (o se puede aplicar a varios).
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;form ... novalidate&gt;
+    ...
+    &lt;/form&gt;
+  </div>
+  <form ... novalidate>
+    ...
+  </form>
+  <div class="codigo-ejemplo">
+    &lt;form ... novalidate="novalidate"&gt;
+    ...
+    &lt;/form&gt;
+  </div>
+  <form ... novalidate="novalidate">
+    ...
+  </form>
+  <p>
+    Si necesitamos personalizar las validaciones con funciones propias deberemos utilizar Javascript, a través de la API
+    de
+    Validación de formularios (que veremos más adelante).
+  </p>
+
+  <h3>Campo obligatorio</h3>
+  <p>
+    Mediante el atributo <strong>required</strong> podemos establecer la obligatoriedad de un campo, de tal manera que
+    el formulario no se
+    podrá enviar hasta que se haya rellenado ese dato:
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" name="campoNombre" id="campoNombre" required&gt;
+  </div>
+  <p>
+    <label for="campoNombre">Nombre:</label>
+    <input type="text" name="campoNombre" id="campoNombre" required>
+  </p>
+  <p>Otra opción:</p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" name="campoNombre" id="campoNombre" required="required"&gt;
+  </div>
+  <p>
+    <label for="campoNombre">Nombre:</label>
+    <input type="text" name="campoNombre" id="campoNombre" required="required">
+  </p>
+
+  <h3>Patrón de validación</h3>
+  <p>
+    Para validaciones sencillas podemos crear un patrón de entrada de datos, basado en expresiones regulares, con el fin
+    de que sea el propio navegador quien realice la validación de ese campo, en base al patrón definido, sin necesidad
+    de
+    utilizar una validación Javascript. Es altamente recomendable indicar al usuario cómo tiene que rellenar el campo
+    mediante el atributo <strong>title</strong>.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="codigoIdioma"&gt;Idioma:&lt;/label&gt;
+    &lt;input type="text" name="codigoIdioma" id="codigoIdioma" pattern="[A-z]{2}" title="Código de idioma con 2
+    letras"&gt;
+  </div>
+  <p>
+    <label for="codigoIdioma">Idioma:</label>
+    <input type="text" name="codigoIdioma" id="codigoIdioma" pattern="[A-z]{2}" title="Código de idioma con 2 letras">
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="nombreUsuario"&gt;Nombre de usuario:&lt;/label&gt;
+    &lt;input type="text" name="nombreUsuario" id="nombreUsuario" pattern="[A-Za-z0-9]{6,10}" title="Entre 6 y 10
+    caracteres, letras (mayúsculas y minúsculas) y números"&gt;
+  </div>
+  <p>
+    <label for="nombreUsuario">Nombre de usuario:</label>
+    <input type="text" name="nombreUsuario" id="nombreUsuario" pattern="[A-Za-z0-9]{6,10}"
+      title="Entre 6 y 10 caracteres, letras (mayúsculas y minúsculas) y números">
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="telef"&gt;Teléfono:&lt;/label&gt;
+    &lt;input type="tel" name="telef" pattern="([0-9]{1}(-[0-9]{3})(-[0-9]{3})(-[0-9]{4}))" title="Patron:
+    1-234-567-8910"&gt;
+  </div>
+  <p>
+    <label for="telef">Teléfono:</label>
+    <input type="tel" name="telef" pattern="([0-9]{1}(-[0-9]{3})(-[0-9]{3})(-[0-9]{4}))" title="Patron: 1-234-567-8910">
+  </p>
+
+  <h3>Expresiones regulares</h3>
+  <p>
+    Las expresiones regulares, también llamadas RegExp o RegEx, son unas cadenas de texto que representan posibles
+    patrones
+    de coincidencias.
+  </p>
+  <p>
+    Estos patrones son sencillos de utilizar y permiten realizar la búsqueda o reemplazo de texto de forma simple, algo
+    que
+    sin patrones se tendría que hacer con otro sistema mucho más complejo.
+  </p>
+  <p>
+    Otra de las ventajas que tienen las expresiones regulares es que se utilizan en infinidad de lenguajes de
+    programación
+    (Java, PHP, C++, .Net, Python, Javascript...) y hasta en HTML.
+  </p>
+
+  <h3>Patrones</h3>
+  <table border="1" cellpadding="4" cellspacing="0">
+    <tr>
+      <th>Expresión regular</th>
+      <th>Carácter especial</th>
+      <th>¿Qué significa?</th>
+      <th>Descripción</th>
+    </tr>
+    <tr>
+      <td>.</td>
+      <td>Punto</td>
+      <td>Comodín</td>
+      <td>Cualquier carácter (o texto de tamaño 1)</td>
+    </tr>
+    <tr>
+      <td>A|B</td>
+      <td>Barra vertical</td>
+      <td>Opciones lógicas</td>
+      <td>Opciones alternativas (o A o B)</td>
+    </tr>
+    <tr>
+      <td>A(B|C)</td>
+      <td>Paréntesis</td>
+      <td>Agrupaciones</td>
+      <td>Agrupaciones alternativas (o AB o AC)</td>
+    </tr>
+    <tr>
+      <td>[0-9]</td>
+      <td>Corchetes</td>
+      <td>Rangos de caracteres</td>
+      <td>Un dígito (del 0 al 9)</td>
+    </tr>
+    <tr>
+      <td>[A-Z]</td>
+      <td>Corchetes</td>
+      <td>Rangos de caracteres</td>
+      <td>Una letra mayúscula de la A a la Z</td>
+    </tr>
+    <tr>
+      <td>[^A-Z]</td>
+      <td>^ en corchetes</td>
+      <td>Rango de exclusión</td>
+      <td>Una letra que no sea mayúscula de la A a la Z</td>
+    </tr>
+    <tr>
+      <td>[0-9]*</td>
+      <td>Asterisco</td>
+      <td>Cierre o clausura</td>
+      <td>Un dígito repetido 0 ó más veces (vacío incluido)</td>
+    </tr>
+    <tr>
+      <td>[0-9]+</td>
+      <td>Signo más</td>
+      <td>Cierre positivo</td>
+      <td>Un dígito repetido 1 ó más veces</td>
+    </tr>
+    <tr>
+      <td>[0-9]{3}</td>
+      <td>Llaves</td>
+      <td>Coincidencia exacta</td>
+      <td>Cifra de 3 dígitos (dígito repetido 3 veces)</td>
+    </tr>
+    <tr>
+      <td>[0-9]{2,4}</td>
+      <td>Llaves</td>
+      <td>Coincidencia (rango)</td>
+      <td>Cifra de 2 a 4 dígitos (rep. de 2 a 4 veces)</td>
+    </tr>
+    <tr>
+      <td>b?</td>
+      <td>Interrogación</td>
+      <td>Carácter opcional</td>
+      <td>El carácter b puede aparecer o puede que no</td>
+    </tr>
+    <tr>
+      <td>\.</td>
+      <td>Barra invertida</td>
+      <td>Escape</td>
+      <td>El carácter . literalmente (no como comodín)</td>
+    </tr>
+  </table>
+  <p>
+    Existen muchos más patrones y combinaciones, pero estos son los más básicos y los que se utilizan con mayor
+    frecuencia.
+  </p>
+
+  <h2>Elementos extra</h2>
+
+  <h3>Campo de color</h3>
+  <p>
+    Si necesitamos un campo para poder elegir o insertar directamente el código hexadecimal de un color, utilizaremos el
+    siguiente código:
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="colorPpal"&gt;Color principal&lt;/label&gt;
+    &lt;input type="color" name="colorPpal" id="colorPpal"&gt;
+  </div>
+  <p>
+    <label for="colorPpal">Color principal</label>
+    <input type="color" name="colorPpal" id="colorPpal">
+  </p>
+
+  <h3>Datalist</h3>
+  <p>
+    El campo datalist es un híbrido entre un campo select y otro de texto, color, fecha... De inicio se visualiza un
+    campo de texto donde podemos escribir un dato, y mientras escribimos nos muestra un listado de sugerencias, de tal
+    manera que podemos optar por elegir una opción de entre las sugeridas o bien escribir el dato:
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoMusicos"&gt;Músico favorito:&lt;/label&gt;
+    &lt;input type="text" name="campoMusicos" id="campoMusicos" list="listaMusicos"&gt;
+    &lt;datalist id="listaMusicos"&gt;
+    &lt;option value="Carlos Santana"&gt;&lt;/option&gt;
+    &lt;option value="Django Reinhardt"&gt;&lt;/option&gt;
+    &lt;option value="Eddie Van Halen"&gt;&lt;/option&gt;
+    &lt;option value="Gary Moore"&gt;&lt;/option&gt;
+    &lt;option value="Jimmy Hendrix"&gt;&lt;/option&gt;
+    &lt;option value="Jimmy Page"&gt;&lt;/option&gt;
+    &lt;option value="Paco de Lucía"&gt;&lt;/option&gt;
+    &lt;option value="Steve Vai"&gt;&lt;/option&gt;
+    &lt;option value="Yngwie Malmsteen"&gt;&lt;/option&gt;
+    &lt;/datalist&gt;
+  </div>
+  <p>
+    <label for="campoMusicos">Músico favorito:</label>
+    <input type="text" name="campoMusicos" id="campoMusicos" list="listaMusicos">
+    <datalist id="listaMusicos">
+      <option value="Carlos Santana"></option>
+      <option value="Django Reinhardt"></option>
+      <option value="Eddie Van Halen"></option>
+      <option value="Gary Moore"></option>
+      <option value="Jimmy Hendrix"></option>
+      <option value="Jimmy Page"></option>
+      <option value="Paco de Lucía"></option>
+      <option value="Steve Vai"></option>
+      <option value="Yngwie Malmsteen"></option>
+    </datalist>
+  </p>
+
+  <div class="codigo-ejemplo">
+    &lt;label for="campoHora"&gt;Reserva hora:&lt;/label&gt;
+    &lt;input type="time" name="campoHora" id="campoHora" list="listaHoras"&gt;
+    &lt;datalist id="listaHoras"&gt;
+    &lt;option value="10:00"&gt;&lt;/option&gt;
+    &lt;option value="15:00"&gt;&lt;/option&gt;
+    &lt;option value="18:00"&gt;&lt;/option&gt;
+    &lt;/datalist&gt;
+  </div>
+  <p>
+    <label for="campoHora">Reserva hora:</label>
+    <input type="time" name="campoHora" id="campoHora" list="listaHoras">
+    <datalist id="listaHoras">
+      <option value="10:00"></option>
+      <option value="15:00"></option>
+      <option value="18:00"></option>
+    </datalist>
+  </p>
+
+  <p>
+    También es posible visualizar una etiqueta asociada a cada valor:
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoTto"&gt;Tratamiento:&lt;/label&gt;
+    &lt;input type="text" name="campoTto" id="campoTto" list="listaTratamiento"&gt;
+    &lt;datalist id="listaTratamiento"&gt;
+    &lt;option label="Sr" value="Señor"&gt;
+    &lt;option label="Sra" value="Señora"&gt;
+    &lt;option label="Srta" value="Señorita"&gt;
+    &lt;option label="Srto" value="Señorito"&gt;
+    &lt;/datalist&gt;
+  </div>
+  <p>
+    <label for="campoTto">Tratamiento:</label>
+    <input type="text" name="campoTto" id="campoTto" list="listaTratamiento">
+    <datalist id="listaTratamiento">
+      <option label="Sr" value="Señor">
+      <option label="Sra" value="Señora">
+      <option label="Srta" value="Señorita">
+      <option label="Srto" value="Señorito">
+    </datalist>
+  </p>
+
+  <h3>Campo oculto</h3>
+  <p>
+    En ocasiones necesitamos campos de formulario que no están visibles públicamente, pero que sí que están a nivel
+    operativo en el formulario, para añadir por programación cierta información. Estos campos ocultos no llevan un
+    elemento label asociado puesto que el usuario no lo va a ver ni escuchar, ni tampoco modificar su valor.
+    <br>
+    <strong>Nota:</strong> Los campos ocultos suelen usarse para enviar identificadores, tokens de seguridad, o datos
+    generados por el servidor que no deben ser modificados por el usuario.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;input type="hidden" name="codigo" id="codigo" value="a445832"&gt;
+  </div>
+  <input type="hidden" name="codigo" id="codigo" value="a445832">
+
+  <h3>Campo output</h3>
+  <p>
+    El campo output se utiliza para representar el resultado de una operación (por ejemplo, una multiplicación de 2
+    campos, cálculo de edad, etc... mediante javascript). Este campo no lleva ningún label asociado puesto que el
+    usuario no interactúa con él.
+    <br>
+    <strong>Nota:</strong> El elemento <code>&lt;output&gt;</code> es útil para mostrar resultados dinámicos en el
+    formulario, pero requiere JavaScript para actualizar su contenido.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;output&gt;&lt;/output&gt;
+  </div>
+  <output></output>
+
+  <h3>Readonly vs Disabled</h3>
+  <p>
+    La diferencia entre <code>disabled</code> y <code>readonly</code> es que los campos deshabilitados
+    (<code>disabled</code>) no se envían junto con el formulario, mientras que los campos de sólo lectura
+    (<code>readonly</code>) sí que se envían.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;input type="text" value="Solo lectura" readonly&gt;
+    &lt;input type="text" value="Deshabilitado" disabled&gt;
+  </div>
+  <input type="text" value="Solo lectura" readonly>
+  <input type="text" value="Deshabilitado" disabled>
+
+  <h2>Campos HTML5 adicionales</h2>
+  <h3>Campo datetime-local</h3>
+  <p>
+    Permite seleccionar fecha y hora local en un solo campo.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoFechaHora"&gt;Fecha y hora:&lt;/label&gt;
+    &lt;input type="datetime-local" name="campoFechaHora" id="campoFechaHora"&gt;
+  </div>
+  <p>
+    <label for="campoFechaHora">Fecha y hora:</label>
+    <input type="datetime-local" name="campoFechaHora" id="campoFechaHora">
+  </p>
+
+  <h3>Campo color</h3>
+  <p>
+    Permite seleccionar un color mediante un selector visual.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoColorHtml5"&gt;Color favorito:&lt;/label&gt;
+    &lt;input type="color" name="campoColorHtml5" id="campoColorHtml5"&gt;
+  </div>
+  <p>
+    <label for="campoColorHtml5">Color favorito:</label>
+    <input type="color" name="campoColorHtml5" id="campoColorHtml5">
+  </p>
+
+  <h3>Campo number</h3>
+  <p>
+    Permite introducir solo números, con opciones de mínimo, máximo y paso.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNumero"&gt;Número:&lt;/label&gt;
+    &lt;input type="number" name="campoNumero" id="campoNumero" min="1" max="10" step="1"&gt;
+  </div>
+  <p>
+    <label for="campoNumero">Número:</label>
+    <input type="number" name="campoNumero" id="campoNumero" min="1" max="10" step="1">
+  </p>
+
+  <h2>Atributos Extra</h2>
+
+  <h3>Placeholder</h3>
+  <p>
+    Permite incluir un texto a modo de ayuda para rellenar un campo de formulario.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" name="campoNombre" id="campoNombre" placeholder="tu nombre..."&gt;
+  </div>
+  <p>
+    <label for="campoNombre">Nombre:</label>
+    <input type="text" name="campoNombre" id="campoNombre" placeholder="tu nombre...">
+  </p>
+  <p>
+    El atributo <strong>placeholder</strong> no debe usarse como alternativa al elemento label, cada uno tiene una
+    misión diferente. Si no se quiere visualizar por pantalla el elemento label, simplemente habrá que ocultarlo por
+    CSS, pero no se debe eliminar del código.
+  </p>
+
+  <h3>Size</h3>
+  <p>
+    Permite indicar el ancho del campo en función del número de caracteres y su tamaño base (al igual que ocurría con el
+    atributo cols en el elemento textarea).
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre2"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" name="campoNombre2" id="campoNombre2" size="5"&gt;
+  </div>
+  <p>
+    <label for="campoNombre2">Nombre:</label>
+    <input type="text" name="campoNombre2" id="campoNombre2" size="5">
+  </p>
+  <p>
+    Generalmente este atributo no se utiliza demasiado, ya que la tendencia suele ser igualar en anchura todos los
+    campos de formulario, y eso se logra mediante CSS.
+  </p>
+
+  <h3>Maxlength</h3>
+  <p>
+    Permite restringir el número máximo de caracteres que se pueden escribir en un campo.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoNombre3"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" name="campoNombre3" id="campoNombre3" maxlength="10"&gt;
+  </div>
+  <p>
+    <label for="campoNombre3">Nombre:</label>
+    <input type="text" name="campoNombre3" id="campoNombre3" maxlength="10">
+  </p>
+
+  <h3>Disabled</h3>
+  <p>
+    Permite deshabilitar un campo de formulario o botón.
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoEmail"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" name="campoEmail" id="campoEmail" disabled&gt;
+  </div>
+  <p>
+    <label for="campoEmail">Email:</label>
+    <input type="email" name="campoEmail" id="campoEmail" disabled>
+  </p>
+  <p>
+    Podemos usar también <code>disabled="disabled"</code>.
+  </p>
+
+  <h3>Readonly</h3>
+  <p>
+    Permite establecer un campo de formulario como sólo lectura (se puede copiar el contenido pero no editarlo).
+  </p>
+  <div class="codigo-ejemplo">
+    &lt;label for="campoEmail2"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" name="campoEmail2" id="campoEmail2" value="jane@doe.es" readonly&gt;
+  </div>
+  <p>
+    <label for="campoEmail2">Email:</label>
+    <input type="email" name="campoEmail2" id="campoEmail2" value="jane@doe.es" readonly>
+  </p>
+  <p>
+    Podemos usar también <code>readonly="readonly"</code>.
+  </p>
+  <p>
+    La diferencia entre <code>disabled</code> y <code>readonly</code> es que los campos deshabilitados no se envían
+    junto con el formulario, mientras que los campos de sólo lectura sí que se envían.
+  </p>
+
+
+
+</body>
+
+</html>

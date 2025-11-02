@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Investigación y Análisis</title>
+    <link rel="icon" type="image/x-icon" href="/imagenes/MielmaDev/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../estilos/estilo.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>2. Investigación y análisis</h1>
+    </header>
+    <main>
+      <article class="investigacion-analisis" id="investigacion-analisis">
+        <p>La investigación de usuarios es fundamental para tomar decisiones basadas en datos y comprender qué necesitan y esperan los usuarios.</p>
+        <p>En esta fase se formaliza el brief y se generan perspectivas que guiarán la Arquitectura de la Información y el Diseño de Interacción.</p>
+
+        <h2 id="metodos-investigacion">Métodos de investigación</h2>
+
+        <p>Tenemos diferentes métodos que nos van a permitir recopilar información sobre el usuario y la interacción con nuestro producto, aplicación, web, etc.</p>
+        <p>Los vamos a utilizar en varios momentos del proceso de UX, con propósitos distintos.</p>
+
+        <p>En esta fase de investigación, el objetivo será entender al usuario: sus necesidades, comportamientos y frustraciones, y para recopilar datos que informen las decisiones de diseño.</p>
+
+        <p>En fase posteriores, utilizaremos los mismos métodos pero con objetivos diferentes.</p>
+
+        <h3 id="entrevistas">Entrevistas</h3>
+        <p>Son conversaciones directas con usuarios para entender en profundidad sus necesidades, experiencias, motivaciones y frustraciones.</p>
+        <p>El objetivo es obtener información cualitativa rica y contextual.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> para una aplicación de banca online.</p>
+          <p class="ejem-ok">Entrevistar a usuarios para entender qué dificultades encuentran al realizar transferencias internacionales.</p>
+        </div>
+
+        <h3 id="encuestas">Encuestas</h3>
+        <p>Son cuestionarios estandarizados para recopilar datos cuantitativos sobre preferencias, comportamientos o actitudes de un grupo amplio de usuarios.</p>
+        <p>Son muy útiles para identificar patrones y tendencias.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> para una tienda online.</p>
+          <p class="ejem-ok">Enviar un formulario online a los clientes preguntando qué tan fácil les resulta encontrar productos en la web (en una escala del 1 a 10).</p>
+        </div>
+
+        <h3 id="observacion">Observación</h3>
+        <p>También llamado "Shadowing". Consiste en observar a los usuarios en su entorno natural mientras interactúan con un producto o realizan una tarea, sin intervenir, para identificar problemas de usabilidad o patrones de comportamiento.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> en el ambulatorio.</p>
+          <p class="ejem-ok">Observar al personal de atención al cliente usando el software de gestión de citas para detectar puntos donde se confunden o ralentizan.</p>
+        </div>
+
+        <h3 id="analisis-competencia">Análisis de competencia</h3>
+
+        <p>Evaluar productos o servicios similares en el mercado para identificar fortalezas, debilidades, buenas prácticas y oportunidades de mejora que puedan inspirar el diseño.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> en una empresa de streaming.</p>
+          <p class="ejem-ok">Analizar las aplicaciones de otras plataformas para comparar la facilidad de navegación.</p>
+        </div>
+
+        <h3 id="datos-analiticos">Datos analíticos</h3>
+        <p>Recopilar y analizar métricas cuantitativas (como tasas de conversión, tiempo en página o clics) para entender cómo los usuarios interactúan con un producto y detectar áreas de mejora.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> en una web.</p>
+          <p class="ejem-ok">Revisar en Google Analytics el embudo de conversión de un sitio web para ver en qué paso los usuarios abandonan el proceso de registro.</p>
+        </div>
+
+        <h3 id="focus-groups">Focus Groups</h3>
+        <p>Reuniones moderadas con un grupo pequeño de usuarios (6-10 personas) para discutir sus percepciones, necesidades y experiencias sobre un producto o servicio.</p>
+        <p>Permiten explorar ideas y obtener perspectivas diversas en una sola sesión.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> para una aplicación de fitness.</p>
+          <p class="ejem-ok">Reunir a usuarios para discutir qué funciones consideran esenciales en una app de entrenamiento, como seguimiento de calorías o planes personalizados.</p>
+        </div>
+
+        <h3 id="diarios-usuario">Diarios de usuario</h3>
+        <p>Los usuarios registran sus actividades, pensamientos o experiencias en un diario durante un período (días o semanas) para capturar comportamientos y contextos en su entorno natural.</p>
+        <p>Es útil para entender cómo interactúan con un producto a lo largo del tiempo.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> para una app de productividad.</p>
+          <p class="ejem-ok">Pedir a usuarios que anoten durante una semana cómo usan la app para gestionar tareas y qué problemas encuentran al organizar su día.</p>
+        </div>
+
+        <h3 id="test-ab">Test A/B</h3>
+        <p>Comparar dos versiones de un diseño (como una página web o un botón) para determinar cuál funciona mejor según métricas específicas, como clics o conversiones.</p>
+        <p>Es ideal para optimizar elementos específicos basándose en datos reales.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> en un sitio de e-commerce.</p>
+          <p class="ejem-ok">Probar dos versiones de un botón de "Añadir al carrito" (uno rojo y otro verde) para ver cuál genera más clics.</p>
+        </div>
+
+        <h3 id="card-sorting">Card Sorting</h3>
+        <p>Los usuarios organizan temas o categorías en grupos para ayudar a diseñar estructuras de información, como menús o navegaciones, que reflejen su modelo mental.</p>
+        <p>Es clave para crear arquitecturas de información intuitivas.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> para un portal de noticias.</p>
+          <p class="ejem-ok">Pedir a usuarios que agrupen temas como "Deportes", "Política" o "Tecnología" para diseñar una navegación clara y lógica.</p>
+        </div>
+
+        <h2 id="herramientas-analisis">Herramientas de análisis y síntesis</h2>
+
+        <p>Disponemos de varios métodos concretos para llevar a cabo la investigación. Algunos de los más utilizado son:</p>
+
+        <h3 id="personas-escenarios">Personas y escenarios</h3>
+        <p>Las personas son representaciones ficticias de los usuarios basadas en datos reales:</p>
+
+        <ul class="lista-facts">
+          <li>Datos demográficos: edad, profesión, localización.</li>
+          <li>Objetivos y motivaciones.</li>
+          <li>Frustraciones y problemas comunes.</li>
+          <li>Comportamientos y hábitos digitales.</li>
+        </ul>
+
+        <p>Esta técnica permite humanizar el diseño y centrar las decisiones en necesidades concretas.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> en una web.</p>
+          <p class="ejem-ok">Ana, 32 años, trabaja a tiempo completo, busca reservar clases de Pilates online de forma rápida y segura. Suele usar móvil para consultar horarios y necesita información clara sobre precios.</p>
+        </div>
+
+        <h3 id="viaje-usuario" data-title="Viaje de usuario">Viaje de Usuario (Customer Journey) / Mapa de experiencia</h3>
+        <p>El Customer Journey es una representación visual del recorrido que realiza un usuario al interactuar con un producto o servicio, destacando puntos de contacto y emociones.</p>
+        <dl>
+          <dt>Fases del recorrido:</dt>
+          <dd>descubrimiento, consideración, uso, soporte.</dd>
+
+          <dt>Puntos de contacto:</dt>
+          <dd>web, app, correo, atención al cliente.</dd>
+
+          <dt>Emociones y frustraciones:</dt>
+          <dd>por cada fase.</dd>
+        </dl>
+
+        <svg class="diagram" viewBox="0 0 800 64" xmlns="http://www.w3.org/2000/svg">
+          <rect x="50" y="10" width="120" height="50" fill="#f28c38" rx="5" ry="5" />
+          <text x="110" y="40" fill="#fff" font-size="14" font-family="Arial" text-anchor="middle">Descubrimiento</text>
+          <rect x="220" y="10" width="120" height="50" fill="#f28c38" rx="5" ry="5" />
+          <text x="280" y="40" fill="#fff" font-size="14" font-family="Arial" text-anchor="middle">Consideración</text>
+          <rect x="390" y="10" width="120" height="50" fill="#f28c38" rx="5" ry="5" />
+          <text x="450" y="40" fill="#fff" font-size="14" font-family="Arial" text-anchor="middle">Uso</text>
+          <rect x="560" y="10" width="120" height="50" fill="#f28c38" rx="5" ry="5" />
+          <text x="620" y="40" fill="#fff" font-size="14" font-family="Arial" text-anchor="middle">Soporte</text>
+          <line x1="170" y1="35" x2="200" y2="35" stroke="#2a5d9f" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="340" y1="35" x2="370" y2="35" stroke="#2a5d9f" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="510" y1="35" x2="540" y2="35" stroke="#2a5d9f" stroke-width="2" marker-end="url(#arrow)" />
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L0,6 L9,3 z" fill="#2a5d9f" />
+            </marker>
+          </defs>
+        </svg>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> en una aplicación de reservas.</p>
+          <p class="ejem-ok">Al analizar el viaje de usuarios, se identifica que muchos abandonan la fase de pago por falta de claridad en métodos de pago. Esto permite priorizar mejoras.</p>
+        </div>
+
+        <h3 id="matriz-priorizacion">Matriz de Priorización</h3>
+        <p>Es una herramienta para clasificar problemas, necesidades o ideas según criterios como impacto en el usuario y esfuerzo de implementación.</p>
+        <p>Permite tomar decisiones informadas sobre qué abordar primero.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> para un rediseño de web.</p>
+          <p class="ejem-ok">Clasificar mejoras como "simplificar checkout" como alta prioridad por su gran impacto y bajo esfuerzo técnico.</p>
+        </div>
+
+        <h3 id="storyboards">Storyboards</h3>
+        <p>Representaciones visuales (como cómics) que ilustran cómo un usuario interactúa con un producto en un escenario específico.</p>
+        <p>Son útiles para comunicar ideas de diseño y validar conceptos con todas las partes interesadas.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> para una app de citas.</p>
+          <p class="ejem-ok">Dibujar un storyboard que muestre a un usuario navegando por perfiles, enviando un mensaje y recibiendo una respuesta para ilustrar la experiencia.</p>
+        </div>
+
+        <h3 id="diagramas-flujo">Diagramas de flujo de usuario</h3>
+        <p>Diagramas que muestran los caminos que un usuario puede tomar en una interfaz para completar una tarea, destacando decisiones y pantallas clave.</p>
+        <p>Ideales para planificar flujos de navegación claros y eficientes.</p>
+
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> para una app de reservas.</p>
+          <p class="ejem-ok">Diseñar un diagrama que muestre los pasos desde seleccionar una fecha hasta confirmar un pago, identificando puntos donde los usuarios podrían atascarse.</p>
+        </div>
+
+        <h3 id="mas-herramientas">Más herramientas</h3>
+        <p>Hay muchas más herramientas como: Mapas de empatía, Mapas de servicio, Mapeo de afinidad...).</p>
+
+        <h2 id="pasos-clave">Pasos Clave</h2>
+        <p>Definir un brief claro y priorizar necesidades permite transformar los hallazgos de la investigación UX en un plan de acción enfocado y viable.</p>
+
+        <p>Este proceso alinea a los equipos, asegura que el diseño responda a las necesidades reales de los usuarios y orienta las decisiones según el impacto, la viabilidad y los objetivos del proyecto.</p>
+
+        <dl>
+          <dt>Documentar hallazgos:</dt>
+          <dd>Recopilar y organizar los patrones y necesidades clave identificados en entrevistas, encuestas y cualquier otro método de investigación que hayamos utilizado, para tener una base sólida.</dd>
+
+          <dt>Definir objetivos:</dt>
+          <dd>Establecer metas claras y medibles basadas en las motivaciones y frustraciones de los usuarios, para orientar las decisiones de diseño.</dd>
+
+          <dt>Priorizar funcionalidades:</dt>
+          <dd>Usar herramientas como matrices de priorización para clasificar funcionalidades y contenidos según su impacto, esfuerzo técnico y alineación con los objetivos.</dd>
+
+          <dt>Preparar la siguiente fase:</dt>
+          <dd>Establecer una base clara para la arquitectura de la información y el diseño de interacción, garantizando una experiencia coherente y efectiva.</dd>
+        </dl>
+        <div class="ejem">
+          <p><strong>Ejemplo:</strong> en una web de cursos online.</p>
+          <p class="ejem-ok">Tras realizar entrevistas y crear mapas de viaje para una web de cursos online, se identifica que los usuarios valoran la rapidez y claridad al reservar.</p>
+          <p>El brief define un objetivo principal: "permitir a usuarios encontrar y reservar cursos en menos de 2 minutos desde el móvil".</p>
+          <p>La priorización destaca simplificar el flujo de reserva frente a otras funcionalidades, como filtros avanzados, por su mayor impacto en la experiencia.</p>
+        </div>
+      </article>
+      <article class="notas-mielmadev">
+        <section>
+          <h2>introducción</h2>
+          <p>La investigación y análisis son etapas fundamentales en el proceso de diseño UX/UI. Permiten comprender a fondo el contexto, los usuarios y sus necesidades, así como el entorno competitivo.</p>
+          <p>aquí es donde se formaliza el brief</p>
+        </section>
+        <section>
+          <h2>Métodos de investigación</h2>
+          <p>Los métodos de investigación UX son técnicas que nos ayudan a conocer mejor a los usuarios y sus necesidades. Elegir el método adecuado depende del objetivo, el tiempo y los recursos disponibles. Aquí tienes un resumen de los principales métodos:</p>
+          <section>
+            <h3>Entrevistas</h3>
+            <p>Las entrevistas permiten obtener información cualitativa profunda sobre las necesidades, motivaciones y comportamientos de los usuarios. Se hacen en persona o por videollamada, y suelen ser individuales. Es importante preparar preguntas abiertas y escuchar activamente.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Permiten descubrir detalles y matices que no aparecen en encuestas.</li>
+              <li><strong>Consejo:</strong> Toma notas o graba la entrevista (con permiso) para no perder información.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Encuestas</h3>
+            <p>Las encuestas recopilan datos cuantitativos de un grupo amplio de usuarios, ayudando a identificar patrones y tendencias. Se pueden hacer online con herramientas como Google Forms.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Llegas a muchas personas en poco tiempo.</li>
+              <li><strong>Consejo:</strong> Usa preguntas claras y opciones de respuesta cerradas para facilitar el análisis.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Observación - Shadowing</h3>
+            <p>La observación permite entender el comportamiento de los usuarios en su entorno natural, identificando necesidades no expresadas. Es ver cómo interactúan con el producto en su contexto diario, sin intervenir.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Detectas problemas reales de uso que los usuarios no siempre cuentan.</li>
+              <li><strong>Consejo:</strong> Observa con atención y toma notas objetivas.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Análisis de competencia</h3>
+            <p>El análisis de competencia ayuda a identificar fortalezas y debilidades en productos similares, proporcionando ideas para mejorar el diseño. Consiste en revisar webs, apps o servicios de la competencia.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Aprendes de los aciertos y errores de otros.</li>
+              <li><strong>Consejo:</strong> Haz capturas de pantalla y compara funcionalidades clave.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Datos analíticos</h3>
+            <p>Los datos analíticos permiten comprender el comportamiento de los usuarios en un producto existente, identificando áreas de mejora. Se obtienen con herramientas como Google Analytics.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Ofrecen datos objetivos sobre lo que hacen los usuarios.</li>
+              <li><strong>Consejo:</strong> Fíjate en métricas como páginas más vistas, tiempo en página o tasa de abandono.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Focus Groups</h3>
+            <p>Los focus groups reúnen a un grupo de usuarios para discutir sus experiencias y opiniones sobre un producto, proporcionando información valiosa sobre sus necesidades y expectativas.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Permiten comparar opiniones y generar ideas nuevas.</li>
+              <li><strong>Consejo:</strong> Modera la sesión para que todos participen y nadie domine la conversación.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Diarios de usuario</h3>
+            <p>Los diarios de usuario son registros que los usuarios mantienen sobre su interacción con un producto a lo largo del tiempo, proporcionando información detallada sobre su experiencia y contexto de uso.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Muestran cómo cambia la experiencia con el tiempo.</li>
+              <li><strong>Consejo:</strong> Da instrucciones claras sobre qué anotar y durante cuánto tiempo.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Test A/B</h3>
+            <p>Los test A/B permiten comparar dos versiones de un producto para determinar cuál ofrece una mejor experiencia al usuario, basándose en datos cuantitativos.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Ayudan a tomar decisiones basadas en resultados reales.</li>
+              <li><strong>Consejo:</strong> Cambia solo un elemento por test para saber qué causa la diferencia.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Card Sorting</h3>
+            <p>El Card Sorting es una técnica que ayuda a diseñar la arquitectura de la información, permitiendo a los usuarios organizar contenido en categorías que tengan sentido para ellos.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Facilita crear menús y estructuras intuitivas.</li>
+              <li><strong>Consejo:</strong> Puedes hacerlo con tarjetas físicas o herramientas online.</li>
+            </ul>
+          </section>
+          <p><strong>Tip:</strong> Como junior, empieza probando varios métodos en proyectos pequeños para ganar experiencia y confianza.</p>
+        </section>
+        <section>
+          <h2>herramientas</h2>
+          <p>Existen varias herramientas de análisis y síntesis que nos ayudan a organizar y comprender la información recopilada durante la investigación UX. Aquí tienes algunas de las más comunes:</p>
+          <section>
+            <h3>personas y escenarios</h3>
+            <p>Las personas y escenarios son herramientas que ayudan a entender a los usuarios y sus necesidades. Las personas son arquetipos de usuarios, mientras que los escenarios describen cómo interactúan con el producto. Lo humanizas.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Facilitan la empatía y comprensión del usuario.</li>
+              <li><strong>Consejo:</strong> Involucra a los stakeholders en su creación para obtener diferentes perspectivas.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>viajes de usuario (customer journey maps) / mapa de experiencia</h3>
+            <p>Los viajes de usuario y mapas de experiencia son representaciones visuales del recorrido que realiza un usuario al interactuar con un producto o servicio, mostrando los puntos de contacto y las emociones en cada etapa. Son herramientas gráficas que ayudan a identificar oportunidades de mejora.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Ayudan a identificar oportunidades de mejora en la experiencia del usuario.</li>
+              <li><strong>Consejo:</strong> Involucra a los usuarios en su creación para obtener información valiosa sobre su experiencia.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>matrices de priorización</h3>
+            <p>Las matrices de priorización son herramientas que ayudan a clasificar y priorizar problemas, necesidades o ideas según criterios como impacto y esfuerzo. Facilitan la toma de decisiones informadas sobre qué abordar primero.</p>
+            <p>hay quien hace aposta la arquitectura hostil</p>
+
+            <ul>
+              <li><strong>Ventajas:</strong> Ayudan a enfocar los esfuerzos en lo que realmente importa.</li>
+              <li><strong>Consejo:</strong> Involucra a diferentes miembros del equipo para obtener una visión más completa.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>storyboards</h3>
+            <p>Los storyboards son representaciones visuales que ilustran cómo un usuario interactúa con un producto en un escenario específico. Ayudan a comunicar ideas de diseño y validar conceptos con todas las partes interesadas.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Facilitan la comprensión del flujo de interacción del usuario.</li>
+              <li><strong>Consejo:</strong> Utiliza un formato simple y claro para que todos los involucrados puedan entenderlo fácilmente.</li>
+            </ul>
+          </section>
+          <section>
+            <h3>diagramas de flujo de usuarios</h3>
+            <p>Los diagramas de flujo de usuario son representaciones visuales que muestran los caminos que un usuario puede tomar en una interfaz para completar una tarea, destacando decisiones y pantallas clave. Son ideales para planificar flujos de navegación claros y eficientes.</p>
+            <ul>
+              <li><strong>Ventajas:</strong> Ayudan a visualizar y optimizar la navegación del usuario.</li>
+              <li><strong>Consejo:</strong> Mantén los diagramas simples y enfocados en las decisiones clave del usuario.</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h2>pasos clave</h2>
+          <p>Definir un brief claro y priorizar necesidades permite transformar los hallazgos de la investigación UX en un plan de acción enfocado y viable.</p>
+          <p>Este proceso alinea a los equipos, asegura que el diseño responda a las necesidades reales de los usuarios y orienta las decisiones según el impacto, la viabilidad y los objetivos del proyecto.</p>
+          <p>añadir conclusion</p>
+          <ul>
+            <li><strong>Documentar hallazgos:</strong> Recopila y organiza los patrones, necesidades y problemas clave identificados en entrevistas, encuestas y otros métodos de investigación. Esto crea una base sólida para el diseño y facilita la comunicación con el equipo.</li>
+            <li><strong>Definir objetivos:</strong> Establece metas claras y medibles basadas en las motivaciones y frustraciones de los usuarios. Los objetivos deben orientar las decisiones de diseño y alinearse con los objetivos del negocio.</li>
+            <li><strong>Priorizar funcionalidades:</strong> Utiliza herramientas como matrices de priorización para clasificar funcionalidades y contenidos según su impacto en la experiencia del usuario, el esfuerzo técnico y la alineación con los objetivos del proyecto.</li>
+            <li><strong>Preparar la siguiente fase:</strong> Establece una base clara para la arquitectura de la información y el diseño de interacción, garantizando una experiencia coherente y efectiva. Esto incluye definir los entregables y planificar los próximos pasos del proceso de diseño.</li>
+          </ul>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

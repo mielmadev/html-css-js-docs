@@ -1,0 +1,448 @@
+/*
+ÍNDICE:
+1. Normalización
+2. Reset
+3. Estilos propios
+4. Elementos comunes
+5. Cabecera
+6. Pie
+7. Estructura general (main)
+8. Slogan
+9. Nosotros
+10. Servicios
+11. Newsletter
+12. Especialidades
+*/
+
+/* 1. Normalización ........................................................................... */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+button,hr,input{overflow:visible}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}details,main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+
+
+/* 2. Reset ........................................................................... */
+/* Reset.css v2.0 | 20110126 | License: none (public domain) | http://meyerweb.com/eric/tools/css/reset/ */
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+/* 3. Estilos propios ................................................................. */
+
+html{box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+a{text-decoration:none; transition:all 0.3s linear; word-wrap:break-word;}
+
+img{max-width:100%; height:auto;}
+
+abbr{cursor:help;}
+
+input[type="submit"],input[type="button"],input[type="reset"],button{cursor:pointer;}
+
+.rwd-container { position: relative; padding-bottom: 56.25%;  /* 16:9 */ height: 0; overflow: hidden; margin:0 0 25px 0;}
+	.rwd-container video, .rwd-container iframe, .rwd-container object, .rwd-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+html {scroll-behavior: smooth;}
+@media screen and (prefers-reduced-motion: reduce) {
+    html {scroll-behavior: auto;}
+}
+
+
+
+/* 4. Elementos comunes ................................................................. */
+
+/* Tipografía Icomoon para iconos*/
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?tfcyy');
+  src:  url('fonts/icomoon.eot?tfcyy#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?tfcyy') format('truetype'),
+    url('fonts/icomoon.woff?tfcyy') format('woff'),
+    url('fonts/icomoon.svg?tfcyy#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-calendar:before {
+  content: "\e953";
+}
+.icon-trophy:before {
+  content: "\e99e";
+}
+.icon-mug:before {
+  content: "\e9a2";
+}
+.icon-truck:before {
+  content: "\e9b0";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-linkedin2:before {
+  content: "\eaca";
+}
+
+
+/* Estilos generales */
+
+body{
+	background: #fffbf2;
+	color: #555555;
+	font-family: 'Open Sans', sans-serif;
+}
+
+p{
+	font-size: 150%;
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+
+strong{
+	font-weight: 700;
+	color: #50211c;
+}
+
+
+
+
+/* 5. Cabecera de página ................................................................. */
+
+.cabecera{
+	background: #2c1f1d;
+}
+
+.logo{
+	color: #FFF;
+	font-size: 500%;
+}
+
+.menu-principal a{
+	font-family: 'Poppins', sans-serif;
+	color: #FFF;
+	font-size: 160%;
+}
+
+.menu-principal a:hover, .menu-principal a:focus{
+	color: #da9f5b;
+}
+
+
+
+
+
+/* 6. Pie de página ................................................................. */
+
+#sec-contacto{
+	padding:100px 20px;
+	background: transparent url(media/bg.jpg) no-repeat center center;
+	position: relative;
+	color: #FFF;
+}
+
+#sec-contacto:before{
+	display: block;
+	content: "";
+	width: 100%;
+	height: 15px;
+	position: absolute;
+	background: transparent url(media/overlay-top.png) repeat-x center top;
+	top: -1px;
+	left: 0;
+}
+
+.pie h2{
+	font-family: 'Poppins', sans-serif;
+	font-size: 220%;
+	font-weight: 400;
+}
+
+
+.lista-direccion{
+	font-size: 180%;
+}
+
+.lista-horario dt{
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 180%;
+}
+
+.lista-horario dd{
+	font-size: 180%;
+}
+
+.lista-rrss a{
+	border: 1px solid #FFF;
+	color: #FFF;
+	font-size: 180%;
+	padding: 10px 7px;
+	display: inline-block;
+}
+
+.lista-rrss a:hover, .lista-rrss a:focus{
+	border: 1px solid #da9f5b;
+	color: #da9f5b;
+}
+
+
+
+/* 7. Estructura general (main) ........................................................... */
+
+.sec-pagina{
+	padding: 40px 20px 10px 20px;
+	/*border:1px solid #F00;*/
+}
+
+
+.titulo-seccion{
+	font-family: 'Poppins', sans-serif;
+	font-size: 180%;
+	color: #da9f5b;
+	font-weight: 400;
+	text-transform: uppercase;
+	text-align: center;
+	position: relative;
+	padding: 55px 0 0 0;
+	margin: 0 0 5px 0;
+}
+
+.titulo-seccion:before{
+	content: "";
+	display: block;
+	width: 1px;
+	height: 50px;
+	position: absolute;
+	top:0;
+	left: 50%;
+	background: #da9f5b;
+}
+
+
+.destacado{
+	font-family: 'Poppins', sans-serif;
+	font-size: 350%;
+	color: #50211c;
+	font-weight: 700;
+	text-align: center;
+}
+
+.mas-info{
+	font-size: 120%;
+	background: #50211c;
+	color: #FFF;
+	padding:3px 10px;
+}
+
+.mas-info:hover, .mas-info:focus{
+	background: #da9f5b;
+	color: #50211c;
+}
+
+
+
+
+/* 8. Slogan ..................................................................... */
+
+#sec-slogan{
+	position: relative;
+	padding: 100px 30px;
+	background: #2c1f1d url(media/carousel-1.jpg) no-repeat center center;
+}
+
+#sec-slogan:after{
+	display: block;
+	content: "";
+	width: 100%;
+	height: 15px;
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	background: transparent url(media/overlay-bottom.png) repeat-x center bottom;
+}
+
+.slogan-completo{
+	text-align: center;
+	color: #FFF;
+}
+
+.slogan-completo span{
+	display: block;
+}
+
+.slogan-1{
+	font-family: 'Poppins', sans-serif;
+	font-size: 250%;
+	color: #da9f5b;
+}
+
+.slogan-2{
+	font-size: 650%;
+}
+
+.slogan-3{
+	font-size: 300%;
+}
+
+.slogan-3:before, .slogan-3:after{
+	content:" * ";
+}
+
+
+
+
+/* 9. Nosotros ..................................................................... */
+
+#sec-nosotros h3{
+	font-size: 280%;
+	color: #50211c;
+	margin-bottom: 15px;
+}
+
+.nosotros-item{width: 33%;}
+
+
+
+/* 10. Servicios ..................................................................... */
+
+.servicio-item{
+	width: 50%;
+	margin-bottom: 60px;
+}
+
+.titulo-servicio-item{
+	font-family: 'Poppins', sans-serif;
+	font-size: 220%;
+	color: #50211c;
+	font-weight: 700;
+	margin-bottom: 15px;
+}
+
+
+.titulo-servicio-item[class*=" icon-"]:before{
+	background: #da9f5b;
+	border-radius: 50%;
+	font-size: 150%;
+	padding: 8px 10px;
+	margin-right: 10px;
+}
+
+
+
+/* 11. Newsletter ..................................................................... */
+
+#sec-newsletter{
+	padding:100px 20px;
+	background: transparent url(media/bg.jpg) no-repeat center center;
+	position: relative;
+	text-align: center;
+}
+
+#sec-newsletter:before, #sec-newsletter:after{
+	display: block;
+	content: "";
+	width: 100%;
+	height: 15px;
+	position: absolute;
+}
+
+#sec-newsletter:before{
+	background: transparent url(media/overlay-top.png) repeat-x center top;
+	top: -1px;
+	left: 0;
+}
+
+#sec-newsletter:after{
+	background: transparent url(media/overlay-bottom.png) repeat-x center bottom;
+	bottom: -1px;
+	left: 0;
+}
+
+
+.titulo-newsletter{
+	font-size: 400%;
+	color: #da9f5b;
+	font-weight: 700;
+}
+
+.destacado-newsletter{
+	font-size: 280%;
+	font-weight: 700;
+	color: #FFF;
+}
+
+.desc-newsletter{
+	font-size: 180%;
+	color: #FFF;
+}
+
+.titulo-newsletter, .destacado-newsletter, .desc-newsletter{
+	text-shadow: 0 0 10px #000;
+}
+
+.campo-form{
+	background: #FFF;
+	color: #50211c;
+	padding: 15px 25px;
+}
+
+
+.boton-enviar{
+	background: #da9f5b;
+	color: #50211c;
+	font-family: 'Poppins', sans-serif;
+	padding: 15px 25px;
+	font-weight: 700;
+}
+
+.boton-enviar:hover, .boton-enviar:focus{
+	background: #FFF;
+	color: #50211c;
+}
+
+
+
+
+
+/* 12. Especialidades ..................................................................... */
+
+.item-espec{
+	width: 50%;
+	margin-bottom: 50px;
+}
+
+.titulo-item-espec{
+	font-family: 'Poppins', sans-serif;
+	font-size: 220%;
+	color: #50211c;
+	font-weight: 700;
+}
+
+.item-espec-precio{
+	background: #da9f5b;
+	color: #50211c;
+	padding:15px 17px;
+	border-radius:50%;
+	width: 50px;
+	font-weight: 700;
+}

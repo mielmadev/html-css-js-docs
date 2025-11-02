@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11. Estilos de texto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+
+<body>
+  <header>
+    <h1>11. Estilos de texto</h1>
+  </header>
+  <main>
+    <p><strong>Nota:</strong> en estos ejemplos se utilizan generalmente unidades en pixels. Salvo que en alguna
+      propiedad se indique
+      expresamente lo contrario, se podrá utilizar cualquier unidad de medida, además del pixel (como %, em, rem, etc).
+    </p>
+
+    <section>
+      <h2>Estilo</h2>
+      <p>Permite visualizar un texto de manera inclinada o recta:</p>
+      <pre><code><span style="font-style: normal;"><kbd>font-style: normal;</kbd></span>
+<span style="font-style: italic;"><kbd>font-style: italic;</kbd></span></code></pre>
+    </section>
+
+    <section>
+      <h2>Versalita</h2>
+      <p>Permite aplicar una variación de cualquier tipo de letra, específicamente a una tipografía de letras mayúsculas
+        cuyo tamaño es similar al de las minúsculas, con proporciones ligeramente distintas:</p>
+      <pre><code><span style="font-variant: normal;"><kbd>font-variant: normal;</kbd></span>
+<span style="font-variant: small-caps;"><kbd>font-variant: small-caps;</kbd></span></pre></code>
+    </section>
+
+    <section>
+      <h2>Grosor</h2>
+      <p>El grosor no es una unidad de medida (px, %. etc...) sino una escala de grosor (que se incrementa de 100 en
+        100) que vendrá definida en la tipografía:</p>
+      <p>El valor <strong>normal</strong> equivale a un grosor 400 y se pueden utilizar ambos valores indistintamente.
+      </p>
+      <p>El valor <strong>bold</strong> equivale a un grosor 700 pero en este caso el navegador no utiliza esa variación
+        de la propia
+        tipografía, sino que se inventa el grosor por sí mismo, dando lugar a problemas normalmente. Por lo tanto, es
+        mucho más recomendable utilizar su valor equivalente.</p>
+
+      <pre><code><span style="font-weight: normal;"><kbd>font-weight: normal;</kbd></span>
+<span style="font-weight: bold;"><kbd>font-weight: bold;</kbd></span>
+<span style="font-weight: 100;"><kbd>font-weight: 100;</kbd></span>
+<span style="font-weight: 200;"><kbd>font-weight: 200;</kbd></span>
+<span style="font-weight: 300;"><kbd>font-weight: 300;</kbd></span>
+<span style="font-weight: 400;"><kbd>font-weight: 400;</kbd></span>
+<span style="font-weight: 500;"><kbd>font-weight: 500;</kbd></span>
+<span style="font-weight: 600;"><kbd>font-weight: 600;</kbd></span>
+<span style="font-weight: 700;"><kbd>font-weight: 700;</kbd></span>
+<span style="font-weight: 800;"><kbd>font-weight: 800;</kbd></span>
+<span style="font-weight: 900;"><kbd>font-weight: 900;</kbd></span></code></pre>
+    </section>
+
+    <section>
+      <h2>Condensación</h2>
+      <p>La propiedad <strong>font-stretch</strong> permite condensar o expandir una tipografía, siempre y cuando la
+        tipografía incluya esta variación. Si no, la propiedad no tendrá ningún efecto.</p>
+      <p>Recientemente ha sido renombrada como <strong>font-width</strong>. Los navegadores no reconocen aún el nuevo
+        nombre y la especificación permite utilizar el inicial sin problemas.</p>
+      <p>Como valor de la propiedad podemos utilizar las siguientes palabras reservadas o bien su equivalencia en
+        porcentaje:</p>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Palabra reservada</th>
+            <th>Porcentaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span style="font-stretch: ultra-condensed;"><kbd>font-stretch: ultra-condensed;</kbd></span></td>
+            <td><samp>50%</samp></td>
+          </tr>
+          <tr>
+            <td><span style="font-stretch: extra-condensed;"><kbd>font-stretch: extra-condensed;</kbd></span></td>
+            <td><samp>62.5%</samp></td>
+          </tr>
+          <tr>
+            <td><span style="font-stretch: condensed;"><kbd>font-stretch: condensed;</kbd></span></td>
+            <td><samp>75%</samp></td>
+          </tr>
+          <tr>
+            <td><span style="font-stretch: semi-condensed;"><kbd>font-stretch: semi-condensed;</kbd></span></td>
+            <td><samp>87.5%</samp></td>
+          </tr>
+          <tr>
+            <td><span style="font-stretch: normal;"><kbd>font-stretch: normal;</kbd></span></td>
+            <td><samp>100%</samp></td>
+          </tr>
+          <tr>
+            <td><span style="font-stretch: semi-expanded;"><kbd>font-stretch: semi-expanded;</kbd></span></td>
+            <td><samp>112.5%</samp></td>
+          </tr>
+          <tr>
+            <td><span style="font-stretch: expanded;"><kbd>font-stretch: expanded;</kbd></span></td>
+            <td><samp>125%</samp></td>
+          </tr>
+          <tr>
+            <td><span style="font-stretch: extra-expanded;"><kbd>font-stretch: extra-expanded;</kbd></span></td>
+            <td><samp>150%</samp></td>
+          </tr>
+          <tr>
+            <td><span style="font-stretch: ultra-expanded;"><kbd>font-stretch: ultra-expanded;</kbd></span></td>
+            <td><samp>200%</samp></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+    </section>
+
+    <section>
+      <h2>Altura de línea</h2>
+      <p>Podemos regular la altura de línea para conseguir un texto con un interlineado doble, por ejemplo.</p>
+      <p>Podemos establecer la altura de línea como escala proporcional al tamaño de texto o bien con una unidad
+        concreta (p.e pixels):</p>
+      <pre><code><span style="line-height: 1;"><kbd>line-height: 1;<br>segunda linea</kbd></span></code></pre>
+      <pre><code><span style="line-height: 2.5;"><kbd>line-height: 2.5;<br>segunda linea</kbd></span></code></pre>
+      <p>Lo más recomendable es utilizar la altura de línea en base a escala y no mediante unidades fijas, puesto que si
+        después cambiamos el tamaño de la tipografía, tendremos que modificar la altura de línea.</p>
+      <p>Si hemos utilizado la escala proporcional, la altura de línea aumentará o decrementará manteniendo siempre la
+        proporción del tamaño de texto.</p>
+      <p><mark>Mínimo 1.5, mejor practica 1.7</mark></p>
+    </section>
+
+    <section>
+      <h2>Unificación de font</h2>
+      <p>La especificación CSS nos permite agrupar en una propiedad llamada <strong>font</strong> todos los valores de
+        las propiedades font-style, font-variant, font-weight, font-stretch, font-size, line-height y font-family lo que
+        hace que el código sea más compacto y tengamos todas las propiedades juntas, orden obligatorio.</p>
+      <pre><code><kbd>font: 
+  f-style 
+  f-variant 
+  f-weight 
+  f-stretch 
+  f-size/line-height 
+  f-family</kbd></code></pre>
+      <p>Los valores de <strong>font-size</strong> y <strong>font-family</strong> son obligatorias. Si se omite alguna
+        de ellas, se produciría un error de
+        sintaxis y el navegador ignoraría la línea de código al completo.</p>
+      <p>Para los demás valores, si no se establecen, el navegador toma por defecto el valor normal.</p>
+      <pre><code><span style="font: 150%/1.7 Arial, sans-serif;"><kbd>font: 150%/1.7 Arial, sans-serif;</kbd></span>
+<span style="font: small-caps 700 150%/1.7 Arial, sans-serif;"><kbd>font: small-caps 700 150%/1.7 Arial, sans-serif;</kbd></span>
+<span style="font: 100 250%/1.5 'Times MS', serif;"><kbd>font: 100 250%/1.5 'Times MS', serif;</kbd></span></code></pre>
+    </section>
+
+    <section>
+      <h2>Decoración</h2>
+      <p>Esta propiedad nos permite dibujar una línea encima, debajo o sobre el texto:</p>
+      <p>La forma clásica es la siguiente:</p>
+      <pre><code><span style="text-decoration:none"><kbd>text-decoration: none</kbd></span>
+<span style="text-decoration:underline"><kbd>text-decoration: underline</kbd></span>
+<span style="text-decoration:overline"><kbd>text-decoration: overline</kbd></span>
+<span style="text-decoration:line-through"><kbd>text-decoration: line-through</kbd></span>
+<span style="text-decoration:underline overline"><kbd>text-decoration: underline overline</kbd></span>
+    </code></pre>
+      <p>En la actualidad podemos también cambiar el color <code>text-decoration-color</code>, grosor
+        <code>text-decoration-thickness</code> y estilo a la línea <code>text-decoration-style</code>.
+      </p>
+      <p>La especificación CSS nos permite agrupar en una propiedad llamada <strong>text-decoration</strong> todos los
+        valores de las propiedades text-decoration-line, text-decoration-style, text-decoration-color y
+        text-decoration-thickness lo que hace que el código sea más compacto y tengamos todas las propiedades juntas,
+        orden libre.</p>
+
+      <h3>Estilo</h3>
+      <p>Utilizamos la propiedad <strong>text-decoration-style</strong> para cambiar el estilo de la línea. Podemos
+        utilizar los siguientes valores:</p>
+      <pre><code>
+<span style="text-decoration-style: dashed;"><kbd>text-decoration-style: dashed;</kbd></span>
+<span style="text-decoration-style: dotted;"><kbd>text-decoration-style: dotted;</kbd></span>
+<span style="text-decoration-style: double;"><kbd>text-decoration-style: double;</kbd></span>
+<span style="text-decoration-style: solid;"><kbd>text-decoration-style: solid;</kbd></span>
+<span style="text-decoration-style: wavy;"><kbd>text-decoration-style: wavy;</kbd></span>
+      </code></pre>
+
+      <h3>Color</h3>
+      <p>Utilizamos la propiedad <strong>text-decoration-color</strong> para cambiar el color de la línea:</p>
+      <pre><code>
+<span style="text-decoration-color:black;"><kbd>text-decoration-color:black;</kbd></span>
+<span style="text-decoration-color:currentColor;"><kbd>text-decoration-color:currentColor;</kbd></span>
+<span style="text-decoration-color: #000;"><kbd>text-decoration-color:#000;</kbd></span>
+<span style="text-decoration-color:rgb(0,0,0);"><kbd>text-decoration-color:rgb(255,0,0);</kbd></span>
+<span style="text-decoration-color:transparent;"><kbd>text-decoration-color:transparent;</kbd></span>
+      </code></pre>
+
+      <h3>Grosor</h3>
+      <p>Utilizamos la propiedad <strong>text-decoration-thickness</strong> para cambiar el grosor de la línea.</p>
+      <p>Si indicamos el grosor en porcentajes, el navegador calcula el % sobre 1em.</p>
+      <pre><code><span style="text-decoration-thickness: 5px;"><kbd>text-decoration: 5px;</kbd></span>
+<span style="text-decoration-thickness: 0.1em;"><kbd>text-decoration: 0.1em;</kbd></span>
+<span style="text-decoration-thickness: 20%;"><kbd>text-decoration: 20%;</kbd></span>
+<span style="text-decoration-thickness: from-font;"><kbd>text-decoration: from-font;</kbd></span></code></pre>
+      <p><cite>The Phantom of the Opera is there, inside your mind.</cite></p>
+
+      <h3>Todas las propiedades unificadas</h3>
+      <p>Usando simplemente <strong>text-decoration</strong> podemos añadir todos los valores en una sóla propiedad:</p>
+      <pre><code><kbd>text-decoration: underline wavy blue 10px;
+text-decoration: underline wavy;
+text-decoration: underline blue;
+text-decoration: underline 10px;
+text-decoration: underline wavy 10px;
+text-decoration: underline wavy blue;</kbd></code></pre>
+      <p>y así todas las combinaciones que sean posibles. El orden en que pongamos los valores es libre.</p>
+      <p>En realidad la posición de la línea tendremos que ponerla siempre y tiene su propia propiedad,
+        text-decoration-line, pero como esa propiedad no existía desde el inicio, podemos obviarla y utilizar
+        simplemente text-decoration.</p>
+    </section>
+
+    <section>
+      <h2>Énfasis</h2>
+      <p>Permite utilizar un caracter o un estilo predeterminado para dar énfasis a un texto. El tamaño de la marca de
+        énfasis será aproximadamente de un 50% del tamaño que tenga el texto.</p>
+      <pre><code><kbd>text-emphasis-style</kbd></code></pre>
+      <p>Podemos utilizar cualquier caracter como marca de énfasis o bien utilizar las palabras reservadas que nos
+        ofrece la especificación:</p>
+      <pre><code><span style="text-emphasis-style: none;"><kbd>text-emphasis-style: none;</kbd></span> Eliminamos la marca de énfasis
+
+<span style="text-emphasis-style: '^';"><kbd>text-emphasis-style: "^";</kbd></span>
+<span style="text-emphasis-style: '*';"><kbd>text-emphasis-style: "*";</kbd></span>
+<span style="text-emphasis-style: 'x';"><kbd>text-emphasis-style: "x";</kbd></span>
+
+<span style="text-emphasis-style: filled;"><kbd>text-emphasis-style: filled;</kbd></span>
+<span style="text-emphasis-style: open;"><kbd>text-emphasis-style: open;</kbd></span>
+
+<span style="text-emphasis-style: dot;"><kbd>text-emphasis-style: dot;</kbd></span>
+<span style="text-emphasis-style: circle;"><kbd>text-emphasis-style: circle;</kbd></span>
+<span style="text-emphasis-style: double-circle;"><kbd>text-emphasis-style: double-circle;</kbd></span>
+<span style="text-emphasis-style: triangle;"><kbd>text-emphasis-style: triangle;</kbd></span>
+<span style="text-emphasis-style: sesame;"><kbd>text-emphasis-style: sesame;</kbd></span></code></pre>
+      <p>Los valores filled y open los podemos combinar con los demás valores:</p>
+      <pre><code><span style="text-emphasis-style: open triangle;"><kbd>text-emphasis-style: open triangle;</kbd></span>
+<span style="text-emphasis-style: open sesame;"><kbd>text-emphasis-style: open sesame;</kbd></span></code></pre>
+
+      <h3>text-emphasis-color</h3>
+      <p>Podemos utilizar cualquier nomenclatura de color:</p>
+      <pre><code><span style="text-emphasis-style: dot; text-emphasis-color: currentcolor;"><kbd>text-emphasis-style: dot; text-emphasis-color: currentcolor;</kbd></span>
+<span style="text-emphasis-style: dot; text-emphasis-color: white;"><kbd>text-emphasis-style: dot; text-emphasis-color: white;</kbd></span>
+<span style="text-emphasis-style: dot; text-emphasis-color: #AABBCC;"><kbd>text-emphasis-style: dot; text-emphasis-color: #AABBCC;</kbd></span>
+<span style="text-emphasis-style: dot; text-emphasis-color: rgb(255, 255, 255);"><kbd>text-emphasis-style: dot; text-emphasis-color: rgb(255, 255, 255);</kbd></span>
+<span style="text-emphasis-style: dot; text-emphasis-color: transparent;"><kbd>text-emphasis-style: dot; text-emphasis-color: transparent;</kbd></span></code></pre>
+      <p>Contiene de manera agrupada los valores de las propiedades text-emphasis-style y text-emphasis-color.</p>
+      <pre><code><span style="text-emphasis: filled triangle white;"><kbd>text-emphasis: filled triangle white;</kbd></span></code></pre>
+    </section>
+
+    <section>
+      <h2>text-emphasis-position</h2>
+      <p>Permite modificar la posición de las marcas de énfasis. En función de si nuestra escritura es horizontal o
+        vertical, se tendrán en cuenta unos u otros valores:</p>
+      <pre><code><span style="text-emphasis-position: over;"><kbd>text-emphasis-position: over;</kbd></span>
+<span style="text-emphasis-position: under;"><kbd>text-emphasis-position: under;</kbd></span>
+
+<span style="text-emphasis-position: over right;"><kbd>text-emphasis-position: over right;</kbd></span>
+<span style="text-emphasis-position: over left;"><kbd>text-emphasis-position: over left;</kbd></span>
+<span style="text-emphasis-position: under right;"><kbd>text-emphasis-position: under right;</kbd></span>
+<span style="text-emphasis-position: under left;"><kbd>text-emphasis-position: under left;</kbd></span>
+
+<span style="text-emphasis-position: left over;"><kbd>text-emphasis-position: left over;</kbd></span>
+<span style="text-emphasis-position: right over;"><kbd>text-emphasis-position: right over;</kbd></span>
+<span style="text-emphasis-position: right under;"><kbd>text-emphasis-position: right under;</kbd></span>
+<span style="text-emphasis-position: left under;"><kbd>text-emphasis-position: left under;</kbd></span></code></pre>
+    </section>
+
+    <section>
+      <h2>Transformación</h2>
+      <p>Permite modificar un texto transformándolo a mayúsculas, minúsculas o mayúsculas de primera letra:</p>
+      <pre><code><span style="text-transform: none;"><kbd>text-transform: none;</kbd></span>
+<span style="text-transform: uppercase;"><kbd>text-transform: uppercase;</kbd></span>
+<span style="text-transform: lowercase;"><kbd>text-transform: lowercase;</kbd></span> 
+<span style="text-transform: capitalize;"><kbd>text-transform: capitalize;</kbd></span></code></pre>
+      <p><cite>The Phantom of the Opera is there, inside your mind.</cite></p>
+    </section>
+
+    <section>
+      <h2>Separación entre letras</h2>
+      <p>Podemos aumentar o disminuir la separación entre letras, siempre que el texto no pierda legibilidad</p>
+      <pre><code><kbd>letter-spacing: 1px;</kbd></code></pre>
+      <p><cite>The Phantom of the Opera</cite></p>
+    </section>
+
+    <section>
+      <h2>Separación entre palabras</h2>
+      <p>Podemos aumentar o disminuir la separación entre palabras, siempre que el texto no pierda legibilidad</p>
+      <pre><code><kbd>word-spacing: 1px;</kbd></code></pre>
+      <p><cite>The Phantom of the Opera</cite></p>
+    </section>
+
+    <section>
+      <h2>Sangría de primera línea</h2>
+      <p>Podemos implementar una sangría de primera línea para los contenidos:</p>
+      <pre><code><kbd>text-indent: 0px;</kbd></code></pre>
+      <p><cite>El fantasma de la ópera (Le Fantôme de l'Opéra) es una novela gótica de Gastón Leroux, publicada en marzo
+          de 1910 (tras aparecer serializada en Le Gaulois de septiembre de 1909 hasta enero de 1910).</cite></p>
+    </section>
+    <section>
+      <h2>Referencias</h2>
+      <ul>
+        <li><a href="https://es.wikipedia.org/wiki/Versalita">Letra Versalita</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-stretch">Condensación</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-position">Posición de Énfasis</a>
+        </li>
+      </ul>
+      <h2>Ejemplos</h2>
+      <ul>
+        <li>Decoración <a href="https://codepen.io/antxoa/pen/jOgoRwy"></a>https://codepen.io/antxoa/pen/jOgoRwy</a>
+        </li>
+        <li>Énfasis <a href="https://codepen.io/antxoa/pen/NWQVJmP">https://codepen.io/antxoa/pen/NWQVJmP</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>

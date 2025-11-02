@@ -1,0 +1,5 @@
+/* animacion-letras.css */
+[data-scramble] {
+  letter-spacing: 0.02em;
+  display: inline-block;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="icon" type="image/x-icon" href="imagenes/MielmaDev/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../estilos/estilo.css" />
+  </head>
+
+  <body>
+    <main class="pag-main">
+      <article class="articulo">
+        <h1>1. Normas generales</h1>
+
+        <h2 id="esq-archivo">Archivos</h2>
+
+        <p>Para crear nuestra primera página web, lo primero que tenemos que hacer es crear un archivo con el formato adecuado:</p>
+
+        <ul class="lista-pasos">
+          <li>En nuestro espacio destinado a almacenar el contenido de los ejercicios, mediante el explorador de archivos creamos un archivo nuevo con el nombre <code>index.html</code></li>
+          <li>Abrimos este nuevo archivo en nuestro editor de código</li>
+          <li>¡Ya estamos listos!</li>
+        </ul>
+
+        <p>Para ver el resultado de nuestro código tendremos que abrir el archivo también en el navegador, pero eso será más adelante</p>
+
+        <h3>Nombres y extensiones de archivos</h3>
+
+        <p>Los nombres de archivos deberán seguir una normativa estándar:</p>
+
+        <ul class="lista-facts">
+          <li>El archivo principal se llamará siempre <strong>index.html</strong></li>
+          <li>Extensión html mejor que htm</li>
+          <li>Todo en minúsculas</li>
+          <li>Sin tildes ni similares (á à ä å ñ š ĉ ç ...)</li>
+          <li>Sin caracteres de símbolos (¿? ¡! () {} [] ; : % & ...)</li>
+          <li>Sin espacios (reemplazamos espacios por guión medio -mejor que guión bajo)</li>
+        </ul>
+
+        <h2 id="esq-etiq">Elementos - Etiquetas</h2>
+
+        <p>El código fuente de una página web se compone de diferentes elementos que se representan mediante etiquetas con un nombre específico.</p>
+
+        <p>Los elementos, a su vez, pueden contener otros elementos, creándose una estructura jerárquica (como si fuera un árbol genealógico).</p>
+
+        <p>Salvo excepciones, todos los elementos tienen su correspondiente etiqueta de apertura y etiqueta de cierre. La etiqueta de cierre es igual que la de apertura, añadiéndole una barra <code>/</code>.</p>
+
+        <p>Por convención universal y buenas pŕacticas, los nombres de las etiquetas las escribiremos en minúsculas y sin espacios entre los símbolos <code>&lt;</code>, <code>&lt;/</code> y <code>&gt;</code>.</p>
+
+        <pre class="no-copy"><code>
+&lt;mietiqueta&gt;
+
+&lt;/mietiqueta&gt;
+</code></pre>
+
+        <p>Para las excepciones de etiquetas que no tengan etiqueta de cierre, llamadas etiquetas autoconclusivas, o con autocierre, podremos implementar el código de 2 maneras (ambas válidas, a gusto de cada uno).</p>
+
+        <p>La primera opción, la más sencilla, se escribe simplemente la etiqueta de apertura, que a sí misma será también etiqueta de cierre:</p>
+
+        <pre class="no-copy"><code>
+&lt;mietiquetaexcepcion&gt;
+</code></pre>
+
+        <p>La segunda opción, añadiendo un espacio y una barra <code> /</code> antes del símbolo <code>&gt;</code> de la etiqueta:</p>
+
+        <pre class="no-copy"><code>
+&lt;mietiquetaexcepcion /&gt;
+</code></pre>
+
+        <p>Hay desarrolladores que utilizan esta segunda opción por motivos de paz mental o bien porque durante unos años era obligatorio hacerlo de esta manera. A día de hoy es una elección personal de cada persona, si bien lo que es más importante es mantener una homogeneidad en nuestro código. Si nos decidimos una opción, que siempre sea así y no mezclemos ambas opciones.</p>
+
+        <p>Lo que no podremos hacer bajo ningún concepto es inventarnos una etiqueta de cierre al uso, si esa etiqueta es autoconclusiva:</p>
+
+        <pre class="no-copy"><code>
+&lt;!-- esto es incorrecto --&gt;
+&lt;mietiquetaexcepcion&gt;
+&lt;/mietiquetaexcepcion&gt;
+</code></pre>
+
+        <h2 id="esq-comment">Comentarios</h2>
+
+        <p>Si queremos escribir un comentario en el código fuente, o bien ocultar una parte del código para que no se visualice en el navegador, usaremos las siguientes etiquetas de apertura y cierre (son ligeramente diferentes al resto de etiquetas y diferentes entre sí):</p>
+
+        <pre><code>
+&lt;!--
+Empieza el comentario
+
+Acaba el comentario
+--&gt;
+
+
+&lt;!--
+Comentamos nuestra etiqueta inventada
+
+&lt;mietiqueta&gt;
+
+&lt;/mietiqueta&gt;
+
+Acaba el comentario de nuestra etiqueta inventada
+--&gt;
+</code></pre>
+
+        <h2 id="esq-atrib">Atributos</h2>
+
+        <p>La mayor parte de las etiquetas van a tener unos atributos que complementan o especifican ciertas características del elemento.</p>
+        <p>A medida que vayamos aprendiendo nuevas etiquetas, veremos los atributos que se pueden utilizar en cada una de ellas, cuáles son obligatorios, sus particularidades, valores, etc.</p>
+
+        <p>Los atributos se añaden siempre dentro de la etiqueta de apertura y constan de una palabra concreta y un valor. El valor va entrecomillado:</p>
+
+        <pre class="no-copy"><code>
+&lt;mietiqueta miatributo="mivalor"&gt;
+
+&lt;/mietiqueta&gt;
+</code></pre>
+
+        <p>Una etiqueta puede llevar varios atributos. Para separarlos se utiliza un espacio en blanco:</p>
+
+        <pre class="no-copy"><code>
+&lt;mietiqueta miatributo="mivalor" otroatributo="otrovalor"&gt;
+
+&lt;/mietiqueta&gt;
+</code></pre>
+
+        <p>No se puede utilizar el mismo atributo repetido en una misma etiqueta:</p>
+
+        <pre class="no-copy"><code>
+&lt;!-- esto es incorrecto --&gt;
+&lt;mietiqueta miatributo="mivalor" miatributo="otrovalor"&gt;
+
+&lt;/mietiqueta&gt;
+</code></pre>
+      </article>
+
+    </main>
+
+    <footer class="pag-pie">
+      <p class="titulo-indice articulo-titulo-indice">Índice</p>
+      <ol class="descargas-lista articulo-indice">
+        <li><a href="#esq-archivo">Archivos</a></li>
+        <li><a href="#esq-etiq">Elementos - Etiquetas</a></li>
+        <li><a href="#esq-comment">Comentarios</a></li>
+        <li><a href="#esq-atrib">Atributos</a></li>
+      </ol>
+
+      <p class="titulo-indice articulo-titulo-indice">Referencias</p>
+      <ul class="descargas-lista articulo-indice">
+        <li><a href="https://html.spec.whatwg.org/multipage/obsolete.html#non-conforming-features" rel="external">Elementos/atributos obsoletos y no válidos</a></li>
+      </ul>
+
+      <p class="titulo-indice articulo-titulo-indice">Ejemplos</p>
+      <ul class="descargas-lista articulo-indice">
+        <li><a href="https://www.microsiervos.com/archivo/humor/pagina-nunca-cerraba-tags-tipografia.html" rel="external">Cuando olvidas cerrar las etiquetas</a></li>
+        <li><a href="https://www.microsiervos.com/archivo/internet/oferta-trabajo-semioculta-nueva-web-casa-blanca.html" rel="external">Ofertas de trabajo ocultas</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
