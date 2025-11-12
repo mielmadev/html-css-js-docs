@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7. Encabezados | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>7. Encabezados</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Mediante los títulos (también llamados encabezados), estructuraremos
+          la información de la página en base a los contenidos y sus jerarquías.
+        </p>
+        <h2>Niveles</h2>
+        <p>
+          Disponemos de 6 elementos de título (<code
+            >h1, h2, h3, h4, h5, h6</code
+          >) donde <code>h1</code> es el título más importante. Por ejemplo:
+        </p>
+        <pre>
+h1  Título principal de la página
+│
+├─ h2  Sección 1
+│   │
+│   ├─ h3  Subsección 1.1
+│   │   │
+│   │   └─ h4  Detalle 1.1.1
+│   │
+│   └─ h3  Subsección 1.2
+│
+├─ h2  Sección 2
+│   │
+│   ├─ h3  Subsección 2.1
+│   └─ h3  Subsección 2.2
+│       │
+│       └─ h4  Detalle 2.2.1
+│
+└─ h2  Sección 3
+    │
+    ├─ h3  Subsección 3.1
+    └─ h3  Subsección 3.2
+</pre
+        >
+        <h2>Normas</h2>
+        <p>
+          Como norma básica recomendada, en la página vamos a tener un único
+          elemento <code>h1</code> y a partir de ahí iremos construyendo el
+          esquema de títulos/encabezados de los contenidos de la página.
+        </p>
+        <p>
+          Cada elemento título tendrá su correspondiente etiqueta de apertura y
+          de cierre.
+        </p>
+        <p>
+          No debemos utilizar un <code>h</code> sin haber utilizado previamente
+          su <code>h</code> padre. Por ejemplo, no deberíamos utilizar
+          <code>h2</code> en una página si previamente no hemos utilizado
+          <code>h1</code>.
+        </p>
+        <h3>Ejemplo correcto</h3>
+        <pre>
+	h1 Servicios
+	├─ h2 Catering
+	├─ h2 Preparación oposiciones
+	│  ├─ h3 Ayudante de Chef
+	│  └─ h3 Ayudante de cocina
+	└─ h2 Formación privada
+</pre
+        >
+        <pre><code>
+&lt;h1&gt;Servicios&lt;/h1&gt;
+&lt;p&gt;Empresa ACME le proporciona los siguientes servicios:&lt;/p&gt;
+
+&lt;h2&gt;Catering&lt;/h2&gt;
+&lt;p&gt;Por un m&oacute;dico precio, puede disfrutar de la mejor y m&aacute;s variada
+comida del mundo&mldr;&lt;/p&gt;
+
+&lt;h2&gt;Preparaci&oacute;n oposiciones&lt;/h2&gt;
+&lt;p&gt;Nuestro personal estar&aacute; encantado en ayudarle a preparar las
+siguientes oposiciones:&lt;/p&gt;
+
+&lt;h3&gt;Ayudante de Chef&lt;/h3&gt;
+&lt;p&gt;bla, bla, bla&lt;/p&gt;
+
+&lt;h3&gt;Ayudante de cocina&lt;/h3&gt;
+&lt;p&gt;bla, bla, bla&lt;/p&gt;
+
+&lt;h2&gt;Formaci&oacute;n privada&lt;/h2&gt;
+&lt;p&gt;Si lo desea, podemos ense&ntilde;arle a preparar usted mismo los exquisitos
+platos...&lt;/p&gt;
+</code></pre>
+        <h3>Ejemplo incorrecto</h3>
+        <pre>
+	│
+	└─ h2  Servicios
+│
+└─ h1  Catering
+	│
+	└─ h2  Preparación oposiciones
+		│
+		├─ h3  Ayudante de Chef
+		│
+		└─ h3  Ayudante de cocina
+			│
+			└─ h4  Formación privada
+</pre
+        >
+        <pre class="no-copy"><code>
+&lt;h2&gt;Servicios&lt;/h2&gt;
+&lt;p&gt;Empresa ACME le proporciona los siguientes servicios:&lt;/p&gt;
+
+&lt;h1&gt;Catering&lt;/h1&gt;
+&lt;p&gt;Por un m&oacute;dico precio, puede disfrutar de la mejor y m&aacute;s variada
+comida del mundo&mldr;&lt;/p&gt;
+
+&lt;h2&gt;Preparaci&oacute;n oposiciones&lt;/h2&gt;
+&lt;p&gt;Nuestro personal estar&aacute; encantado en ayudarle a preparar las
+siguientes oposiciones:&lt;/p&gt;
+
+&lt;h3&gt;Ayudante de Chef&lt;/h3&gt;
+&lt;p&gt;bla, bla, bla&lt;/p&gt;
+
+&lt;h3&gt;Ayudante de cocina&lt;/h3&gt;
+&lt;p&gt;bla, bla, bla&lt;/p&gt;
+
+&lt;h4&gt;Formaci&oacute;n privada&lt;/h4&gt;
+&lt;p&gt;Si lo desea, podemos ense&ntilde;arle a preparar usted mismo los exquisitos
+platos...&lt;/p&gt;
+</code></pre>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Referencias</h2>
+      <ol class="descargas-lista">
+        <li>
+          <a
+            href="https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements"
+            rel="external"
+            >Especificación oficial</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://html.spec.whatwg.org/multipage/sections.html#headings-and-outlines-2"
+            rel="external"
+            >Ejemplos especificación</a
+          >
+        </li>
+      </ol>
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ol class="descargas-lista">
+        <li>
+          <a href="https://codepen.io/antxoa/pen/JjVKMNG" rel="external"
+            >Encabezados correctos</a
+          >
+        </li>
+      </ol>
+    </footer>
+  </body>
+</html>

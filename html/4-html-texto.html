@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Texto | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>4. Texto</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h2>Párrafos</h2>
+        <p>
+          Mediante los párrafos, estructuraremos la mayor parte de los
+          contenidos web:
+        </p>
+        <pre><code class="language-html">&lt;p&gt;este es un p&aacute;rrafo&lt;/p&gt;
+
+&lt;p&gt;este es otro p&aacute;rrafo&lt;/p&gt;
+</code></pre>
+        <h2>Saltos de línea</h2>
+        <p>
+          Se puede dar el caso en el que necesitemos saltar de línea dentro de
+          un párrafo, por ejemplo para estructurar las estrofas de una canción,
+          poema...
+        </p>
+        <p>
+          Para ello utilizaremos el elemento <code>br</code> cuya etiqueta es
+          autoconclusiva:
+        </p>
+        <pre><code class="language-html">&lt;p&gt;
+&#x9;Imagine there&rsquo;s no heaven&lt;br&gt;
+&#x9;It&rsquo;s easy if you try
+&lt;/p&gt;
+</code></pre>
+        <p>
+          No debemos utilizar dos elementos <code>br</code> seguidos sólo para
+          simular un párrafo. Lo tendremos que realizar con propiedades CSS para
+          aumentar o disminuir la separación entre párrafos.
+        </p>
+        <h2>Énfasis</h2>
+        <p>
+          Cuando queremos destacar un texto, solemos mostrarlo en negrita y, al
+          leerlo, lo hacemos con otro tono de voz.
+        </p>
+        <p>
+          Antiguamente utilizábamos los elementos <code>b</code> e
+          <code>i</code> (bold e italic) para tal efecto,pero eran simplemente
+          etiquetas de diseño. Cuando un navegador parlante leía ese texto, no
+          cambiaba la entonación, porque para él, no tenía ningún significado
+          especial. No eran elementos semánticos sino visuales. En la actualidad
+          esos dos elementos tienen otros propósitos que veremos más adelante.
+        </p>
+        <p>
+          Por tanto, para indicar si un texto es importante o muy importante,
+          disponemos de 2 elementos semánticos: <code>em</code> y
+          <code>strong</code>:
+        </p>
+        <pre><code class="language-html">&lt;p&gt;
+	&lt;strong&gt;Aviso:&lt;/strong&gt; No olvide utilizar un &lt;em&gt;DNI v&aacute;lido&lt;/em&gt;.
+&lt;/p&gt;
+</code></pre>
+        <p>
+          El estilo por defecto de estos elementos (cómo se muestra en los
+          navegadores) es la negrita para <code>strong</code> y la itálica
+          (cursiva) para <code>em</code> pero este formato de visualización lo
+          podremos cambiar más adelante mediante CSS.
+        </p>
+        <h2>Citas</h2>
+        <p>
+          Para hacer referencia a un texto a modo de cita, disponemos de 2
+          elementos para ello:
+        </p>
+        <h3>Bloque de cita</h3>
+        <p>
+          Cuando queremos mostrar un bloque de texto citado textualmente,
+          debemos utilizar este elemento:
+        </p>
+        <pre><code class="language-html">&lt;blockquote&gt;
+	&lt;p&gt;En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que viv&iacute;a un hidalgo de los de lanza en astillero, adarga antigua, roc&iacute;n flaco y galgo corredor.&lt;/p&gt;
+	&lt;p&gt;Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados, lentejas los viernes, algún palomino de añadidura los domingos, consumían las tres partes de su hacienda.&lt;/p&gt;
+&lt;/blockquote&gt;
+</code></pre>
+        <p>
+          No se debe utilizar este elemento simplemente para utilizar la sangría
+          que proporcionan por defecto, si no estamos citando un texto.
+        </p>
+        <h3>Citas en línea</h3>
+        <p>
+          Para citas en línea y cortas, utilizaremos el elemento
+          <code>q</code> para el texto y <code>cite</code> para el autor. Los
+          navegadores suelen mostrar <code>cite</code> en cursiva pero este
+          formato se puede modificar con CSS.
+        </p>
+        <pre><code class="language-html">&lt;p&gt;Como dijo &lt;cite&gt;Hamlet&lt;/cite&gt;: &lt;q&gt;ser o no ser, esa es la cuesti&oacute;n&lt;/q&gt;.&lt;/p&gt;
+</code></pre>
+        <h2>Abreviaturas</h2>
+        <p>
+          Para marcar cualquier tipo de abreviatura, sigla o acrónimo, se
+          utiliza el elemento <code>abbr</code>.
+        </p>
+        <p>
+          Si queremos expandir su significado, utilizaremos el atributo
+          <code>title</code>, con el significado correspondiente.
+        </p>
+        <pre><code class="language-html">&lt;abbr title=&quot;Uni&oacute;n Europea&quot;&gt;UE&lt;/abbr&gt;
+</code></pre>
+        <p>
+          El atributo <code>title</code> se puede utilizar en la práctica
+          totalidad de los elementos HTML (enlaces, campos de formulario...)
+          para complementar la información del elemento al que acompaña. El
+          valor será el texto que nosotros determinemos, totalmente libre.
+        </p>
+        <p>
+          Importante no confundir el atributo <code>title</code> del
+          elemento/etiqueta <code>&lt;title&gt;&lt;/title&gt;</code> del
+          <code>head</code>. El nombre es el mismo pero son dos elementos
+          totalmente diferentes.
+        </p>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a
+            href="https://www.hobbyconsolas.com/noticias/anora-alza-triunfadora-oscar-2025-declive-emilia-perez-listado-todos-ganadores-1443942"
+            rel="external"
+            >Negrita mal usada</a
+          >
+          y
+          <a
+            href="https://cnnespanol.cnn.com/2025/02/23/entretenimiento/sag-awards-2025-lista-ganadores-trax"
+            rel="external"
+            >alternativa de uso correcto</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://aporeloscar.com/27th-annual-ofta-film-awards-ganadores/"
+            rel="external"
+            >Otro mal uso de la negrita (y del color)</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.marca.com/futbol/futbol-internacional/2021/03/20/6055d3dc22601db5488b4667.html"
+            rel="external"
+            >Bloque de cita</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.marca.com/futbol/primera-division/clasificacion.html"
+            rel="external"
+            >Abreviaturas</a
+          >
+        </li>
+      </ol>
+      <h2 class="titulo-indice articulo-titulo-indice">Recursos</h2>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a href="https://es.lipsum.com" rel="external"
+            >Generador texto aleatorio</a
+          >
+        </li>
+        <li>
+          <a href="https://idsgn.dropmark.com/107" rel="external"
+            >Choose your Ipsum</a
+          >
+        </li>
+      </ol>
+    </footer>
+  </body>
+</html>

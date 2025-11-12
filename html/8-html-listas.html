@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Listas | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>8. Listas</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Una lista es un conjunto/agrupación de elementos que pueden tener o no
+          una relación entre sí.
+        </p>
+        <p>
+          Vamos a usar listas para implementar los menús de navegación de la
+          página web, el camino de migas, la paginación de unos resultados de
+          búsqueda, etc... Bastará con que utilicemos CSS para cambiar el
+          aspecto visual.
+        </p>
+        <p>
+          En HTML existen 3 tipos de listas: desordenadas, ordenadas y de
+          definición.
+        </p>
+        <h2>Listas desordenadas</h2>
+        <p>
+          Los elementos de esta lista no tienen un orden determinado y a nivel
+          visual, cada elemento de la lista aparece con una viñeta.
+        </p>
+        <p>
+          Para crear una lista desordenada, primero usamos el elemento
+          <code>ul</code> (unorderer list) con su correspondiente etiqueta de
+          apertura y cierre y dentro añadiremos los elementos de la lista, cada
+          uno de ellos con la etiqueta <code>li</code> (list item).
+        </p>
+        <p
+          class="codepen"
+          data-height="500"
+          data-theme-id="dark"
+          data-default-tab="result"
+          data-slug-hash="YzMWYEQ"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/YzMWYEQ">
+              HTML - Lista desordenada</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <script
+          async
+          src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <pre><code>
+&lt;h1&gt;PAN DE LEMBAS&lt;/h1&gt;
+
+&lt;h2&gt;Ingredientes&lt;/h2&gt;
+&lt;ul&gt;
+	&lt;li&gt;50g de harina regular&lt;/li&gt;
+	&lt;li&gt;50g de harina integral&lt;/li&gt;
+	&lt;li&gt;4 cucharadas de miel&lt;/li&gt;
+	&lt;li&gt;1 pizca de levadura qu&iacute;mica o de panadero&lt;/li&gt;
+	&lt;li&gt;1 pizca de sal&lt;/li&gt;
+	&lt;li&gt;Un pu&ntilde;adito de nueces&lt;/li&gt;
+	&lt;li&gt;3 cucharadas de aceite&lt;/li&gt;
+	&lt;li&gt;70g de almendra molida&lt;/li&gt;
+	&lt;li&gt;1 huevo&lt;/li&gt;
+	&lt;li&gt;La rayadura de un lim&oacute;n&lt;/li&gt;
+	&lt;li&gt;El pu&ntilde;etazo de un ser supremo&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+        <p>
+          Fuente:
+          <a href="https://www.youtube.com/watch?v=2ex4xh_lqI0" rel="external"
+            >℗ Pan de lembas o pan élfico (Lord Of The Rings) | Superpilopi</a
+          >
+        </p>
+        <h2>Listas ordenadas</h2>
+        <p>
+          Los elementos de la lista guardan un orden específico y numeran sus
+          elementos.
+        </p>
+        <p>
+          La forma de crear esta lista es igual que la lista desordenada, sólo
+          cambia su etiqueta principal, que será <code>ol</code> (ordered list):
+        </p>
+        <p
+          class="codepen"
+          data-height="480"
+          data-theme-id="dark"
+          data-default-tab="result"
+          data-slug-hash="OJGXzdo"
+          data-user="antxoa"
+          data-token="cea01e8827a03129ffe472340cb83a03"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a
+              href="https://codepen.io/antxoa/pen/OJGXzdo/cea01e8827a03129ffe472340cb83a03">
+              HTML - Lista ordenada</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <pre><code>
+&lt;h1&gt;PAN DE LEMBAS&lt;/h1&gt;
+
+&lt;h2&gt;Preparaci&oacute;n&lt;/h2&gt;
+
+&lt;ol&gt;
+	&lt;li&gt;A&ntilde;adir en un bol todos los ingredientes, excepto las nueces.&lt;/li&gt;
+	&lt;li&gt;A&ntilde;adir nueces troceadas y arrojarlas con furia a la mezcla.&lt;/li&gt;
+	&lt;li&gt;Remover todo con cuchara (o garra mortal) hasta obtener una bola pegajosa y marr&oacute;n.&lt;/li&gt;
+	&lt;li&gt;Pasar la masa a superficie enharinada, amasar y formar una bola. Dejar reposar 10 min.&lt;/li&gt;
+	&lt;li&gt;Estirar con rodillo hasta 1-2 cm de grosor.&lt;/li&gt;
+	&lt;li&gt;Recortar con plantilla cuadrada y guardar recortes para otro pan.&lt;/li&gt;
+	&lt;li&gt;Marcar l&iacute;nea diagonal de pico a pico con palillo u objeto fino.&lt;/li&gt;
+	&lt;li&gt;Hornear sobre papel a 200 &deg;C (arriba y abajo) 20 min o hasta dorar.&lt;/li&gt;
+	&lt;li&gt;Dejar enfriar y disfrutar.&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+        <p>
+          Mediante CSS podremos modificar la apariencia de las listas: cambiar
+          las viñetas, el tipo de numeración (números romanos, letras...) y la
+          orientación de las listas (vertical u horizontal).
+        </p>
+        <h2>Listas anidadas</h2>
+        <p>
+          Podemos anidar una lista dentro de otra y así generar diferentes
+          niveles de listas.
+        </p>
+        <p>
+          La sublista siempre será hija de un elemento <code>li</code>, ya que
+          <code>ul y ol</code> sólo pueden contener elementos <code>li</code>.
+        </p>
+        <p
+          class="codepen"
+          data-height="350"
+          data-theme-id="dark"
+          data-default-tab="result"
+          data-slug-hash="ExJyoMg"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/ExJyoMg">
+              HTML - Listas anidadas</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <pre><code>
+Correcto:
+
+&lt;ul&gt;
+	&lt;li&gt;
+		Trilog&iacute;a de El se&ntilde;or de los anillos
+		&lt;ol&gt;
+			&lt;li&gt;La comunidad del anillo&lt;/li&gt;
+			&lt;li&gt;Las dos torres&lt;/li&gt;
+			&lt;li&gt;El retorno del rey&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/li&gt;
+	&lt;li&gt;El Silmarilli&oacute;n&lt;/li&gt;
+	&lt;li&gt;El Hobbit&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+        <pre class="no-copy"><code>
+Incorrecto:
+
+&lt;ul&gt;
+	&lt;li&gt;Trilog&iacute;a de El se&ntilde;or de los anillos&lt;/li&gt;
+	&lt;ol&gt;
+		&lt;li&gt;La comunidad del anillo&lt;/li&gt;
+		&lt;li&gt;Las dos torres&lt;/li&gt;
+		&lt;li&gt;El retorno del rey&lt;/li&gt;
+	&lt;/ol&gt;
+	&lt;li&gt;El Silmarilli&oacute;n&lt;/li&gt;
+	&lt;li&gt;El Hobbit&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+        <h2>Listas de definición</h2>
+        <p>
+          A diferencia de las listas anteriores, las listas de definición,
+          representadas por el elemento <code>dl</code>, tienen un par de
+          elementos por cada item: un término, <code>dt</code>, y su definición,
+          <code>dd</code>.
+        </p>
+        <p>Es posible que un término pueda tener varias definiciones:</p>
+        <p
+          class="codepen"
+          data-height="380"
+          data-theme-id="dark"
+          data-default-tab="result"
+          data-slug-hash="jORrYjg"
+          data-user="antxoa"
+          data-token="57d1bfbbaf3d9da67ae8fc3b4d0b7220"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a
+              href="https://codepen.io/antxoa/pen/jORrYjg/57d1bfbbaf3d9da67ae8fc3b4d0b7220">
+              HTML - Lista de definición</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <pre><code>
+&lt;h1&gt;El se&ntilde;or de los anillos: La comunidad del anillo&lt;/h1&gt;
+
+&lt;dl&gt;
+	&lt;dt&gt;A&ntilde;o:&lt;/dt&gt;
+	&lt;dd&gt;2001&lt;/dd&gt;
+
+	&lt;dt&gt;Director:&lt;/dt&gt;
+	&lt;dd&gt;Peter Jackson&lt;/dd&gt;
+
+	&lt;dt&gt;M&uacute;sica:&lt;/dt&gt;
+	&lt;dd&gt;Howard Shore&lt;/dd&gt;
+
+	&lt;dt&gt;Elenco Principal:&lt;/dt&gt;
+	&lt;dd&gt;Elijah Wood como Frodo Bols&oacute;n&lt;/dd&gt;
+	&lt;dd&gt;Ian McKellen como Gandalf&lt;/dd&gt;
+	&lt;dd&gt;Viggo Mortensen como Aragorn&lt;/dd&gt;
+	&lt;dd&gt;Sean Astin como Sam&lt;/dd&gt;
+	&lt;dd&gt;Orlando Bloom como Legolas&lt;/dd&gt;
+	&lt;dd&gt;John Rhys-Davies como Gimli&lt;/dd&gt;
+	&lt;dd&gt;Liv Tyler como Arwen&lt;/dd&gt;
+	&lt;dd&gt;Cate Blanchett como Galadriel&lt;/dd&gt;
+	&lt;dd&gt;Hugo Weaving como Elrond&lt;/dd&gt;
+	&lt;dd&gt;Sean Bean como Boromir&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+      </article>
+    </main>
+    <footer class="pag-pie"></footer>
+  </body>
+</html>

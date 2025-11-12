@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      23. Otros elementos estructurales | Documentación de HTML, CSS y JS
+    </title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>23. Otros elementos estructurales</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h2>progress / meter</h2>
+        <p>
+          Estos dos elementos son realmente campos de formulario, pero el
+          usuario no puede introducir información en ellos ya que los valores
+          los controlamos desde el desarrollo (principalmente con Javascript).
+        </p>
+        <h3>progress</h3>
+        <p>
+          El elemento <code>progress</code> se utiliza para indicar el progreso
+          o avance de una operación o tarea, de tal manera que el usuario pueda
+          saber cuánto falta para terminar la tarea, en qué estado está...
+        </p>
+        <p>
+          Visualmente se representa con una barra visual que va mostrando este
+          progreso.
+        </p>
+        <p>
+          Se puede utilizar en diferentes casos: estado de la carga de un
+          video/animación, avance en la finalización de un temario, encuesta,
+          proceso de compra...
+        </p>
+        <p
+          class="codepen"
+          data-height="450"
+          data-theme-id="light"
+          data-default-tab="html,result"
+          data-slug-hash="xxegerm"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/xxegerm"> HTML - Progress</a>
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <h3>meter</h3>
+        <p>
+          El elemento <code>meter</code> indica el nivel o escala de un cierto
+          valor, por ejemplo, cuánto de segura es tu contraseña, nivel de
+          batería, espacio libre en Gmail, cuántos conocimientos tenemos sobre
+          un tema, cuántas personas han acudido a votar, cuántas entradas se han
+          vendido...
+        </p>
+        <p>
+          No se debe utilizar para medir cosas de las que no conocemos el valor
+          máximo. Por ejemplo, si vamos a indicar que un árbol mide 5 metros,
+          esa información no sería un elemento <code>meter</code>, ya que no
+          podemos saber cuál es la altura máxima de un árbol, para establecer la
+          relación entre la altura de un árbol concreto con respecto al más alto
+          que exista.
+        </p>
+        <p
+          class="codepen"
+          data-height="450"
+          data-theme-id="light"
+          data-default-tab="html,result"
+          data-slug-hash="GRLrLzj"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/GRLrLzj"> HTML - Meter</a> by
+            Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <h2>time</h2>
+        <p>
+          El elemento <code>time</code> se utiliza para marcar contenido que
+          representa una fecha, hora, duración, o un punto específico en el
+          tiempo de manera semántica.
+        </p>
+        <p>
+          Permite asociar un valor legible por humanos-usuarios con un valor
+          legible por máquinas, a través del atributo <code>datetime</code> en
+          un formato estandarizado (ISO 8601).
+        </p>
+        <pre><code>
+&lt;time datetime="2024-01-25"&gt;25/01/2024&lt;/time&gt;
+&lt;time datetime="2024-01-25"&gt;25 de Enero de 2024&lt;/time&gt;
+&lt;time datetime="2024-01-25"&gt;25 - Enero - 2024&lt;/time&gt;
+&lt;time datetime="2024-01-25"&gt;Veinticinco de Enero de dos mil veinticuatro&lt;/time&gt;
+El plazo de inscripción terminó &lt;time datetime="2024-03-19"&gt;ayer&lt;/time&gt;
+</code></pre>
+        <p>No debemos usar <code>time</code> en los siguientes casos:</p>
+        <dl>
+          <dt>Texto no temporal:</dt>
+          <dd>
+            Si el texto no representa una fecha, hora o duración específica
+            (p.e. "el próximo verano" sin una fecha exacta)
+          </dd>
+          <dt>Contenido decorativo:</dt>
+          <dd>
+            Si la fecha/hora es solo parte del diseño y no tiene valor semántico
+          </dd>
+          <dt>Fecha imprecisa:</dt>
+          <dd>
+            Si no se puede indicar el valor exacto en <code>datetime</code> (p.
+            e. "siglo XX")
+          </dd>
+        </dl>
+        <h2>details / summary</h2>
+        <p>
+          El elemento <code>details</code> nos permite implementar bloques de
+          contenido para que se muestren y oculten a petición del usuario. Estos
+          bloques se llaman comúnmente bloques <em>acordeón</em> o bloques
+          desplegables.
+        </p>
+        <p>
+          Inicialmente estos bloques estarán ocultos, mostrándose únicamente su
+          título y un icono representativo (símbolo +, flecha...). Al pulsar en
+          el título, el bloque se desplegará y si volvemos a pulsar, se
+          contraerá y ocultará.
+        </p>
+        <p
+          class="codepen"
+          data-height="700"
+          data-theme-id="light"
+          data-default-tab="html,result"
+          data-slug-hash="raOoEQv"
+          data-pen-title="HTML - Details (ejemplo 0)"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/raOoEQv">
+              HTML - Details (ejemplo 0)</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <script
+          async
+          src="https://public.codepenassets.com/embed/index.js"></script>
+        <p>
+          Si queremos que un bloque <code>details</code> aparezca abierto por
+          defecto, basta con añadirle el atributo <code>open</code>:
+        </p>
+        <p
+          class="codepen"
+          data-height="700"
+          data-theme-id="light"
+          data-default-tab="html,result"
+          data-slug-hash="WNWRBRy"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/WNWRBRy"> HTML - Details</a>
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <p>
+          Si lo que queremos es que sólo haya un bloque
+          <code>details</code> abierto (al abrir uno se cierra el que esté
+          abierto anteriormente), entonces tenemos que añadir el atributo
+          <code>name</code> con el mismo valor a todos los bloques (similar a lo
+          que hacemos con los campos radiobutton):
+        </p>
+        <p
+          class="codepen"
+          data-height="550"
+          data-theme-id="light"
+          data-default-tab="html,result"
+          data-slug-hash="jORyoZX"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/jORyoZX">
+              HTML - Details (ejemplo 2)</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <p>
+          Esta funcionalidad se ha implementado históricamente mediante
+          Javascript, pero en la actualidad ya no es necesario puesto que
+          disponemos de este elemento <code>details</code> que la implementa de
+          forma nativa.
+        </p>
+        <h2>Atributos personalizados</h2>
+        <p>
+          La especificación HTML permite crear atributos personalizados (para
+          luego utilizarlos con Javascript, CSS...) siempre y cuando los nombres
+          de estos atributos empiecen por el prefijo <code>data-</code>.
+        </p>
+        <p>
+          Si no empiezan con este prefijo, al validar el código, nos dará error.
+        </p>
+        <pre><code>
+ &lt;p id="dir1" data-provincia="Bizkaia" data-cp="48001" data-color="#FF0000">Bilbao&lt;/p>
+ &lt;p id="dir2" data-provincia="Gipuzkoa" data-cp="20010" data-color="#0000FF">Donosti&lt;/p>
+</code></pre>
+        <h2>dialog</h2>
+        <p>
+          El elemento <code>dialog</code> se utiliza para crear ventanas de
+          diálogo o modales que muestran contenido destacado, como alertas,
+          mensajes, confirmaciones o información adicional que requiere la
+          atención del usuario.
+        </p>
+        <p>Puede operar de dos formas:</p>
+        <dl>
+          <dt>Modal:</dt>
+          <dd>
+            Bloquea la interacción con el resto de la página hasta que se
+            cierra, con un fondo oscurecido (backdrop).
+          </dd>
+          <dt>No modal:</dt>
+          <dd>
+            Permite interactuar con el contenido de fondo mientras el diálogo
+            está visible.
+          </dd>
+        </dl>
+        <p>
+          El elemento está oculto por defecto. Para que se muestre es necesario
+          aplicarle el atributo <code>open</code> (con Javascript).
+        </p>
+        <div class="ejemplo-dialogpop">
+          <button id="openButton">Abrir diálogo</button>
+          <dialog id="myDialog">
+            <h3>Aviso</h3>
+            <p>¡Este es un mensaje importante!</p>
+            <button id="closeButton">Cerrar</button>
+          </dialog>
+        </div>
+        <script>
+          // Selecciona los elementos
+          const dialog = document.getElementById("myDialog");
+          const openButton = document.getElementById("openButton");
+          const closeButton = document.getElementById("closeButton");
+          // Añade eventos con addEventListener
+          openButton.addEventListener("click", () => {
+            dialog.showModal();
+          });
+          closeButton.addEventListener("click", () => {
+            dialog.close();
+          });
+        </script>
+        <pre class="no-copy"><code>
+&lt;button id="openButton"&gt;Abrir diálogo&lt;/button&gt;
+&lt;dialog id="myDialog"&gt;
+	&lt;h3&gt;Aviso&lt;/h3&gt;
+	&lt;p&gt;¡Este es un mensaje importante!&lt;/p&gt;
+	&lt;button id="closeButton"&gt;Cerrar&lt;/button&gt;
+&lt;/dialog&gt;
++
+Javascript
+</code></pre>
+        <p>
+          Hasta la llegada de este elemento nativo, su comportamiento se
+          realizaba íntegro con Javascript. Ahora sólo hace falta utilizar un
+          código mínimo.
+        </p>
+        <p>
+          La apariencia gráfica de este elemento se puede modificar mediante
+          CSS.
+        </p>
+        <h2>popovers</h2>
+        <p>
+          El atributo <code>popover</code> es un atributo global que convierte
+          cualquier elemento en una ventana emergente (popover).
+        </p>
+        <p>
+          Estas ventanas aparecen superpuestas al contenido principal de la
+          página y se utilizan para mostrar información temporal, como tooltips,
+          menús contextuales, notificaciones o paneles informativos. No
+          requieren bloquear la interacción con el resto de la página.
+        </p>
+        <p>
+          Es una solución nativa para crear elementos emergentes sin depender de
+          JavaScript o bibliotecas externas.
+        </p>
+        <div class="ejemplo-dialogpop">
+          <button popovertarget="mitooltip">Ver información</button>
+          <div id="mitooltip" popover="auto">
+            <p>Este es un tooltip simple.</p>
+          </div>
+        </div>
+        <p>
+          Primero tenemos que identificar el bloque con el contenido emergente a
+          través de un <code>id</code> y utilizar el atributo
+          <code>popover</code> con 2 posibles valores.
+        </p>
+        <dl class="incolumn">
+          <dt><code>popover="auto"</code></dt>
+          <dd>
+            El contenido emergente se cierra automáticamente al hacer clic fuera
+            del elemento o al presionar la tecla <kbd>Esc</kbd>.
+          </dd>
+          <dt><code>popover="manual"</code></dt>
+          <dd>
+            El contenido emergente permanece abierto hasta que se cierra
+            explícitamente.
+          </dd>
+        </dl>
+        <p>
+          Después, en el botón que abrirá este contenido emergente, añadimos el
+          atributo <code>popovertarget</code> con el valor del
+          <code>id</code> anterior, para poderlos relacionar entre sí.
+        </p>
+        <pre><code>
+&lt;button popovertarget="mitooltip"&gt;Ver información&lt;/button&gt;
+&lt;div id="mitooltip" popover="auto"&gt;
+	&lt;p&gt;Este es un tooltip simple.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+        <p>
+          También existe el atributo <code>popovertargetaction</code> que define
+          la acción a realizar si queremos un control personalizado. Los valores
+          de este atributo son: <code>show | hide | toggle</code>.
+        </p>
+        <div class="ejemplo-dialogpop">
+          <button popovertarget="menu">Abrir menú</button>
+          <div id="menu" popover="manual">
+            <ul>
+              <li><a href="#">Opción 1</a></li>
+              <li><a href="#">Opción 2</a></li>
+              <li>
+                <button popovertarget="menu" popovertargetaction="hide">
+                  Cerrar
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <pre><code>
+&lt;button popovertarget="menu"&gt;Abrir menú&lt;/button&gt;
+&lt;div id="menu" popover="manual"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Opción 1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Opción 2&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;button popovertarget="menu" popovertargetaction="hide"&gt;Cerrar&lt;/button&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+        <p>
+          La apariencia gráfica de este elemento se puede modificar mediante
+          CSS.
+        </p>
+        <h2>hr</h2>
+        <p>
+          El elemento <code>hr</code> (horizontal rule) tiene el aspecto de una
+          línea horizontal, pero no es un simple separador visual.
+        </p>
+        <p>
+          Semánticamente representa una ruptura temática entre párrafos de una
+          sección o entre secciones de contenido, es decir, indica un cambio de
+          tema o de contexto dentro de un mismo flujo narrativo.
+        </p>
+        <p>Podremos modificar su aspecto visual mediante CSS más adelante.</p>
+        <pre><code>
+&lt;article&gt;
+  &lt;h1&gt;Detrás del rodaje de "Película Inventada"&lt;/h1&gt;
+  &lt;p&gt;El rodaje de "Película Inventada" estuvo lleno de dificultades técnicas y logísticas.&lt;/p&gt;
+  &lt;p&gt;Las escenas de acción en exteriores requirieron cerrar calles y coordinar a cientos de extras.&lt;/p&gt;
+  &lt;hr&gt;
+  &lt;p&gt;Tras finalizar la producción, la película tuvo una distribución internacional limitada. &lt;/p&gt;
+  &lt;p&gt;Solo se proyectó en algunos cines de Europa y América del Norte, y se lanzó directamente en plataformas de streaming en otros países.&lt;/p&gt;
+  &lt;hr&gt;
+  &lt;p&gt;A pesar de sus esfuerzos, la película recibió varios premios Razzie por peor guion y peor dirección. &lt;/p&gt;
+  &lt;p&gt;Sin embargo, algunos críticos valoraron positivamente los efectos visuales y la banda sonora.&lt;/p&gt;
+&lt;/article&gt;
+</code></pre>
+        <p>
+          El primer <code>hr</code> marca la transición entre dificultades del
+          rodaje y distribución de la película.
+        </p>
+        <p>
+          El segundo <code>hr</code> indica el cambio hacia premios y críticas.
+        </p>
+        <h2>div / span</h2>
+        <p>
+          Los elementos <code>div</code> y <code>span</code> son elementos que
+          carecen de significado semántico. Se utilizan para agrupar código de
+          tal manera que luego podamos aplicar estilos a través de CSS.
+        </p>
+        <p>
+          Cuando estemos realizando la estructura HTML de una página web, no
+          vamos a utilizar ninguno de estos dos elementos. En el momento que
+          pasemos a maquetar con CSS, se verá si necesitamos utilizarlos y será
+          el momento de añadirlos.
+        </p>
+        <pre class="no-copy"><code>
+&lt;div&gt;
+	....
+&lt;/div&gt;
+&lt;span&gt;....&lt;/span&gt;		
+</code></pre>
+        <p>
+          Cuando no existían las etiquetas semánticas de estructura,
+          utilizábamos <code>div</code> continuamente. Para diferenciar un
+          <code>div</code> de otro, usábamos atributos <code>id</code> y
+          <code>class</code>.
+        </p>
+        <p>
+          Ahora reemplazamos muchos de esos <code>div</code> por sus etiquetas
+          semánticas apropiadas. Seguiremos teniendo <code>div</code>, pero sólo
+          para agrupar elementos con el objetido de aplicarles CSS.
+        </p>
+        <div class="wrap-examples-dobles">
+          <div>
+            <p><strong>Antes:</strong></p>
+            <pre>
+BODY
+│
+├─ DIV #header
+│   ├─ DIV #logo
+│   └─ DIV #menu
+│
+├─ DIV #main
+│   ├─ DIV #sidebar
+│   └─ DIV #content
+│       ├─ DIV #article1
+│       │   ├─ H2
+│       │   └─ P
+│       └─ DIV #article2
+│           ├─ H2
+│       │   └─ P
+│
+└─ DIV #footer
+    ├─ DIV #info
+    └─ DIV #enlaces
+</pre
+            >
+          </div>
+          <div>
+            <p><strong>Ahora:</strong></p>
+            <pre>
+BODY
+│
+├─ HEADER
+│   ├─ DIV (logo)
+│   └─ NAV (menú)
+│
+├─ MAIN
+│   ├─ ASIDE
+│   └─ SECTION
+│       ├─ ARTICLE
+│       │   ├─ H2
+│       │   └─ P
+│       └─ ARTICLE
+│           ├─ H2
+│           └─ P
+│
+└─ FOOTER
+    ├─ DIV (info)
+    └─ DIV (enlaces)
+</pre
+            >
+          </div>
+        </div>
+        <p>&nbsp;</p>
+        <h3>Divitis</h3>
+        <p>
+          La Divitis es un término coloquial en desarrollo web que describe el
+          uso excesivo o indebido de la etiqueta <code>div</code> para todo en
+          una página HTML, sin aprovechar los elementos semánticos adecuados.
+        </p>
+        <h4>Efectos negativos</h4>
+        <dl>
+          <dt>Pérdida de semántica:</dt>
+          <dd>
+            Muchas <code>div</code> no dicen nada sobre su contenido; al no usar
+            elementos semánticos como
+            <code>header, nav, article, section</code>, etc., se pierde la
+            estructura lógica del documento.
+          </dd>
+          <dt>Accesibilidad degradada:</dt>
+          <dd>
+            Los lectores de pantalla y tecnologías de asistencia tienen
+            dificultades para interpretar contenido muy anidado sin semántica
+            clara.
+          </dd>
+          <dt>Mantenimiento difícil:</dt>
+          <dd>
+            Muchos <code>div</code> anidados generan un DOM complejo,
+            dificultando localizar, depurar o modificar estilos y
+            comportamientos.
+          </dd>
+          <dt>SEO y rendimiento:</dt>
+          <dd>
+            El marcado con muchos contenedores innecesarios añade peso,
+            complejidad y reduce la claridad para los motores de búsqueda.
+          </dd>
+        </dl>
+        <h4>Cómo evitarlo</h4>
+        <dl>
+          <dt>Usar elementos semánticos:</dt>
+          <dd>
+            Usar
+            <code>header, nav, main, article, section, aside, footer</code>
+            cuando corresponda.
+          </dd>
+          <dt>Evitar <code>div</code> innecesarios:</dt>
+          <dd>
+            No sustituir con <code>div</code> lo que ya representa un elemento
+            semántico, por ejemplo, usar <code>ul + li</code> para listas en vez
+            de <code>div</code> anidados.
+          </dd>
+          <dt>Reducir anidamiento:</dt>
+          <dd>
+            Si un contenedor no aporta estructura semántica, probablemente no
+            sea necesario.
+          </dd>
+          <dt>Mantener marcado limpio:</dt>
+          <dd>Escribir HTML claro, legible y fácil de mantener.</dd>
+          <dt>Usar clases/id sobre elementos semánticos:</dt>
+          <dd>
+            Para estilos y maquetado, no reemplazar estructura con
+            <code>div</code> salvo necesidad específica.
+          </dd>
+        </dl>
+        <p>
+          <img
+            src="/imagenes/divitis.png"
+            alt="HTML: la medicación contra la divitis aguda" />
+        </p>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Referencias</h2>
+      <ul class="descargas-lista">
+        <li>
+          <a
+            href="https://html.spec.whatwg.org/#the-time-element"
+            rel="external"
+            >Especificación oficial <code>time</code></a
+          >
+        </li>
+        <li>
+          <a href="https://es.wikipedia.org/wiki/ISO_8601" rel="external"
+            >ISO 8601</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.tyssendesign.com.au/articles/faqs/what-is-divitis/"
+            rel="external"
+            >Divitis (2006)</a
+          >
+        </li>
+      </ul>
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ul class="descargas-lista">
+        <li>
+          <a
+            href="https://www.sitepoint.com/style-html-details-element/"
+            rel="external"
+            >Diseños para <code>details</code></a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

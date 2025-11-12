@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>19. Elementos extra | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>19. Elementos extra</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h2>Color</h2>
+        <p>
+          Si necesitamos un campo para poder elegir o insertar directamente el
+          código hexadecimal de un color, utilizaremos:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="colorPpal"&gt;Color principal&lt;/label&gt;
+	&lt;input type="color" name="colorPpal" id="colorPpal"&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="colorPpal">Color principal</label>
+            <input type="color" name="colorPpal" id="colorPpal" />
+          </p>
+        </form>
+        <h2>Datalist</h2>
+        <p>
+          El campo <code>datalist</code> es un híbrido entre un campo
+          <code>select</code> y otro de texto, color, fecha... De inicio se
+          visualiza un campo de texto donde podemos escribir un dato, y mientras
+          escribimos nos muestra un listado de sugerencias, de tal manera que
+          podemos optar por elegir una opción de entre las sugeridas o bien
+          escribir el dato:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoMusicos"&gt;Músico favorito:&lt;/label&gt;
+	&lt;input type="text" name="campoMusicos" id="campoMusicos" list="listaMusicos"&gt;
+	&lt;datalist id="listaMusicos"&gt;
+		<option value="Carlos Santana"></option>
+		<option value="Django Reinhardt"></option>
+		<option value="Eddie Van Halen"></option>
+		<option value="Gary Moore"></option>
+		<option value="Jimmy Hendrix"></option>
+		<option value="Jimmy Page"></option>
+		<option value="Paco de Lucía"></option>
+		<option value="Steve Vai"></option>
+		<option value="Yngwie Malmsteen"></option>
+	&lt;/datalist&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+	&lt;label for="campoHora"&gt;Reserva hora:&lt;/label&gt;
+	&lt;input type="time" name="campoHora" id="campoHora" list="listaHoras"&gt;
+	&lt;datalist id="listaHoras"&gt;
+		<option value="10:00"></option>
+		<option value="15:00"></option>
+		<option value="18:00"></option>
+	&lt;/datalist&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoMusicos">Músico favorito:</label>
+            <input
+              type="text"
+              name="campoMusicos"
+              id="campoMusicos"
+              list="listaMusicos" />
+            <datalist id="listaMusicos">
+              <option value="Carlos Santana"></option>
+              <option value="Django Reinhardt"></option>
+              <option value="Eddie Van Halen"></option>
+              <option value="Gary Moore"></option>
+              <option value="Jimmy Hendrix"></option>
+              <option value="Jimmy Page"></option>
+              <option value="Paco de Lucía"></option>
+              <option value="Steve Vai"></option>
+              <option value="Yngwie Malmsteen"></option>
+            </datalist>
+          </p>
+          <p>
+            <label for="campoHora">Reserva hora:</label>
+            <input
+              type="time"
+              name="campoHora"
+              id="campoHora"
+              list="listaHoras" />
+            <datalist id="listaHoras">
+              <option value="10:00"></option>
+              <option value="15:00"></option>
+              <option value="18:00"></option>
+            </datalist>
+          </p>
+        </form>
+        <p>También es posible visualizar una etiqueta asociada a cada valor:</p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoTto"&gt;Tratamiento:&lt;/label&gt;
+	&lt;input type="text" name="campoTto" id="campoTto" list="listaTratamiento"&gt;
+	&lt;datalist id="listaTratamiento"&gt;
+		<option label="Sr" value="Señor">
+		<option label="Sra" value="Señora">
+		<option label="Srta" value="Señorita">
+		<option label="Srto" value="Señorito">
+	&lt;/datalist&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoTto">Tratamiento:</label>
+            <input
+              type="text"
+              name="campoTto"
+              id="campoTto"
+              list="listaTratamiento" />
+            <datalist id="listaTratamiento">
+              <option label="Sr" value="Señor"></option>
+              <option label="Sra" value="Señora"></option>
+              <option label="Srta" value="Señorita"></option>
+              <option label="Srto" value="Señorito"></option>
+            </datalist>
+          </p>
+        </form>
+        <h2>Campo oculto</h2>
+        <p>
+          En ocasiones necesitamos campos de formulario que no están visibles
+          públicamente, pero que sí que están a nivel operativo en el
+          formulario, para añadir por programación cierta información. Estos
+          campos ocultos no llevan un elemento <code>label</code> asociado
+          puesto que el usuario no lo va a ver ni escuchar, ni tampoco modificar
+          su valor:
+        </p>
+        <pre><code>
+&lt;input type="hidden" name="codigo" id="codigo" value="a445832"&gt;
+</code></pre>
+        <h2>Output</h2>
+        <p>
+          El campo <code>output</code> se utiliza para representar el resultado
+          de una operación (por ejemplo, una multiplicación de 2 campos, cálculo
+          de edad, etc... mediante javascript). Este campo no lleva ningún
+          <code>label</code> asociado puesto que el usuario no interactúa con
+          él:
+        </p>
+        <p>
+          En el ejemplo del rango visto anteriormente se utiliza este campo para
+          mostrar el valor del rango en cada momento.
+        </p>
+        <pre><code>
+&lt;output&gt;&lt;/output&gt;
+</code></pre>
+        <h2>fieldset / legend</h2>
+        <p>
+          El elemento <code>fieldset</code> se utiliza para categorizar,
+          diferenciar y agrupar campos de formulario y los propios formularios.
+        </p>
+        <p>
+          Existen tres casos donde podemos utilizar este elemento. A modo de
+          curiosidad, el validador de HTML del W3C usa este elemento para los
+          casos 1 y 3.
+        </p>
+        <h3>Caso 1: diferenciar datos</h3>
+        <p>
+          En un formulario podemos tener datos de diferentes tipos (por ejemplo,
+          datos personales y datos bancarios) y para diferenciarlos de una forma
+          lógica podemos usar el elemento <code>fieldset</code> para agrupar
+          cada tipo.
+        </p>
+        <p>
+          Para indicar el rótulo/título de cada tipo de datos utilizaremos el
+          elemento <code>legend</code>:
+        </p>
+        <p
+          class="codepen"
+          data-height="450"
+          data-theme-id="light"
+          data-default-tab="result"
+          data-slug-hash="mdgRodK"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/mdgRodK">
+              HTML - Fieldset (uso nº1)</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <script
+          async
+          src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <pre><code>
+&lt;form&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Datos personales&lt;/legend&gt;
+		&lt;p&gt;
+			&lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+			&lt;input type="text" name="nombre" id="nombre"&gt;
+		&lt;/p&gt;
+		&lt;p&gt;
+			&lt;label for="e-mail"&gt;E-mail&lt;/label&gt;
+			&lt;input type="text" name="e-mail" id="e-mail"&gt;
+		&lt;/p&gt;
+	&lt;/fieldset&gt;
+
+	&lt;fieldset&gt;
+		&lt;legend&gt;Datos bancarios&lt;/legend&gt;
+		&lt;p&gt;
+			&lt;label for="banco"&gt;Banco:&lt;/label&gt;
+			&lt;input type="text" name="banco" id="banco"&gt;&lt;br&gt;
+		&lt;/p&gt;
+		&lt;p&gt;
+			&lt;label for="numcuenta"&gt;Número de cuenta:&lt;/label&gt;
+			&lt;input type="text" name="numcuenta " id="numcuenta"&gt;
+		&lt;/p&gt;
+	&lt;/fieldset&gt;
+
+	&lt;p&gt;&lt;input type="submit" value="enviar"&gt;&lt;/p&gt;
+&lt;/form&gt;
+</code></pre>
+        <h3>Caso 2: agrupar datos de selección</h3>
+        <p>
+          Podemos utilizar el elemento <code>fieldset</code> para agrupar los
+          campos <code>radio</code> y <code>checkbox</code>:
+        </p>
+        <p
+          class="codepen"
+          data-height="400"
+          data-theme-id="light"
+          data-default-tab="result"
+          data-slug-hash="WNWRmxV"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/WNWRmxV">
+              HTML - Fieldset (uso nº2: agrupar datos de selección)</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <pre><code>
+&lt;fieldset&gt;
+	<legend>¿Cómo te gusta la tortilla?:</legend>
+	<p>
+		<input type="radio" name="tortilla" id="tortillaCon" value="con cebolla">
+		<label for="tortillaCon">Con Cebolla</label>
+	</p>
+	<p>
+		<input type="radio" name="tortilla" id="tortillaSin" value="sin cebolla">
+		<label for="tortillaSin">Sin Cebolla</label>
+	</p>
+&lt;/fieldset&gt;
+
+&lt;fieldset&gt;
+	<legend>¿Qué servicios te interesan?</legend>
+	<p>
+		<label for="fcon_zona1">
+			<input type="checkbox" value="sí" name="fcon_zona1" id="fcon_zona1">
+			Jardín
+		</label>
+		<label for="fcon_zona2">
+			<input type="checkbox" value="sí" name="fcon_zona2" id="fcon_zona2">
+			Piscina
+		</label>
+		<label for="fcon_zona3">
+			<input type="checkbox" value="sí" name="fcon_zona3" id="fcon_zona3">
+			Juegos infantiles
+		</label>
+		<label for="fcon_zona4">
+			<input type="checkbox" value="sí" name="fcon_zona4" id="fcon_zona4">
+			Gimnasio
+		</label>
+	</p>
+&lt;/fieldset&gt;
+</code></pre>
+        <h3>Caso 3: diferenciar formularios</h3>
+        <p>
+          Si en la página tenemos más de un formulario (por ejemplo, formulario
+          de contacto y formulario de búsqueda) podemos utilizar un elemento
+          <code>fieldset</code> por cada formulario:
+        </p>
+        <pre><code>
+&lt;fieldset&gt;
+	<legend>Formulario de búsqueda</legend>
+	<form name="formBusqueda">
+		... campos del formulario ...
+	</form>
+&lt;/fieldset&gt;
+
+&lt;fieldset&gt;
+	<legend>Formulario de contacto</legend>
+	<form name="formContacto">
+		... campos del formulario ...
+	</form>
+&lt;/fieldset&gt;
+</code></pre>
+        <h2>search</h2>
+        <p>
+          El elemento <code>search</code> se utiliza para marcar cualquier
+          sección de una página web dedicada a la búsqueda, ya sea un formulario
+          de entrada, una barra de búsqueda, instrucciones y ejemplos de la
+          búsqueda...
+        </p>
+        <p>
+          Sería similar al elemento <code>fieldset</code> pero únicamente
+          incluyendo un formulario de búsqueda / resultados.
+        </p>
+        <pre><code>
+&lt;search&gt;
+	<form action="/buscar">
+		<label for="query">Buscar artistas:</label>
+		<input type="search" id="query" name="q" placeholder="Ej. Iron Maiden">
+		<button type="submit">Buscar</button>
+	</form>
+&lt;/search&gt;
+</code></pre>
+      </article>
+    </main>
+    <footer class="pag-pie"></footer>
+  </body>
+</html>

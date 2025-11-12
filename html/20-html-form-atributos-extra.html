@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>20. Atributos extra | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>20. Atributos extra</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h2>placeholder</h2>
+        <p>
+          Permite incluir un texto a modo de ayuda para rellenar un campo de
+          formulario:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoNombre"&gt;Nombre:&lt;/label&gt;
+	&lt;input type="text" name="campoNombre" id="campoNombre" placeholder="tu nombre..."&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoNombre">Nombre:</label>
+            <input
+              type="text"
+              name="campoNombre"
+              id="campoNombre"
+              placeholder="tu nombre..." />
+          </p>
+        </form>
+        <p>
+          El atributo placeholder no debe usarse como alternativa al elemento
+          <code>label</code> cada uno tiene una misión diferente. Si no se
+          quiere visualizar por pantalla el elemento <code>label</code>,
+          simplemente habrá que ocultarlo por CSS, pero no se debe eliminar del
+          código.
+        </p>
+        <h2>size</h2>
+        <p>
+          Permite indicar el ancho del campo en función del nº de caracteres y
+          su tamaño base (al icual que ocurría con el atributo
+          <code>cols</code> en el elemento <code>textarea</code>:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoNombre2"&gt;Nombre:&lt;/label&gt;
+	&lt;input type="text" name="campoNombre2" id="campoNombre2" size="5"&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoNombre2">Nombre:</label>
+            <input type="text" name="campoNombre2" id="campoNombre2" size="5" />
+          </p>
+        </form>
+        <p>
+          Generalmente este atributo no se utiliza demasiado puesto que la
+          tendencia suele ser igual en anchura todos los campos de formulario, y
+          eso se logrará mediante CSS.
+        </p>
+        <h2>maxlength</h2>
+        <p>
+          Permite restringir el nº máximo de caracteres que se pueden escribir
+          en un campo:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoNombre3"&gt;Nombre:&lt;/label&gt;
+	&lt;input type="text" name="campoNombre3" id="campoNombre3" maxlength="10"&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoNombre3">Nombre:</label>
+            <input
+              type="text"
+              name="campoNombre3"
+              id="campoNombre3"
+              maxlength="10" />
+          </p>
+        </form>
+        <h2>disabled</h2>
+        <p>Permite deshabilitar un campo de formulario o botón:</p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoEmail"&gt;Email:&lt;/label&gt;
+	&lt;input type="email" name="campoEmail" id="campoEmail" disabled&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoEmail">Email:</label>
+            <input type="email" name="campoEmail" id="campoEmail" disabled />
+          </p>
+        </form>
+        <p>Podemos usar también <code>disabled="disabled"</code></p>
+        <p>
+          Si un campo de formulario tiene este atributo <code>disabled</code>,
+          el valor que tenga no se enviará con el formulario.
+        </p>
+        <h2>readonly</h2>
+        <p>
+          Permite establecer un campo de formulario como sólo lectura (se puede
+          copiar el contenido pero no editarlo):
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoEmail2"&gt;Email:&lt;/label&gt;
+	&lt;input type="email" name="campoEmail2" id="campoEmail2" value="jane@doe.es" readonly&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoEmail2">Email:</label>
+            <input
+              type="email"
+              name="campoEmail2"
+              id="campoEmail2"
+              value="jane@doe.es"
+              readonly />
+          </p>
+        </form>
+        <p>Podemos usar también <code>readonly="readonly"</code></p>
+        <p>
+          Si un campo de formulario tiene este atributo <code>readonly</code>,
+          el valor que tenga sí se enviará con el formulario.
+        </p>
+        <h2>autocomplete</h2>
+        <p>
+          Se utiliza para activar o desactivar el autocompletado de un
+          formulario o de un campo concreto:
+        </p>
+        <pre class="no-copy"><code>
+&lt;form autocomplete="off"&gt;
+&lt;input type="text" name="nombre" autocomplete="off"&gt;
+</code></pre>
+        <p>
+          Para el caso concreto de un formulario de acceso mediante
+          usuario/contraseña, los valores que utilizan los navegadores son:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="usuario"&gt;Usuario:&lt;/label&gt;
+	&lt;input type="text" id="usuario" name="usuario" required autocomplete="username"&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;label for="clave"&gt;Contraseña:&lt;/label&gt;
+	&lt;input type="password" id="clave" name="clave" required autocomplete="new-password"&gt;
+&lt;/p&gt;
+</code></pre>
+        <h2>spellcheck</h2>
+        <p>
+          Activa o desactiva la propiedad de revisión ortográfica en un
+          contenido editable:
+        </p>
+        <pre class="no-copy"><code>
+&lt;input type="text" spellcheck="false"&gt;
+&lt;textarea spellcheck="true"&gt;
+</code></pre>
+        <h2>autofocus</h2>
+        <p>
+          Permite forzar al navegador a que sitúe el foco en un campo de
+          formulario determinado, de manera nativa (sin necesidad de utilizar
+          javascript):
+        </p>
+        <pre class="no-copy"><code>
+&lt;input type="text" autofocus&gt;
+</code></pre>
+      </article>
+    </main>
+    <footer class="pag-pie"></footer>
+  </body>
+</html>

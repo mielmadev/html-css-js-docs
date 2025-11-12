@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Imágenes | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>5. Imágenes</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h2>Sintaxis básica</h2>
+        <p>
+          Las imágenes son elementos que se implementan mediante la etiqueta
+          <code>&lt;img&gt;</code>. Esta etiqueta no va a tener etiqueta de
+          cierre, sólo de apertura.
+        </p>
+        <p>
+          Necesitaremos 2 atributos de caracter obligatorio que son
+          <code>src</code> para la ruta del archivo de imagen y
+          <code>alt</code> para el texto alternativo de la imagen:
+        </p>
+        <pre class="no-copy"><code>
+&lt;img src=&quot;ruta&quot; alt=&quot;texto alternativo&quot;&gt;
+
+incorrecto:
+&lt;img&gt;
+&lt;img src=&quot;ruta&quot;&gt;
+&lt;img alt=&quot;ACME&quot;&gt;
+</code></pre>
+        <p>
+          Si la imagen que vamos a enlazar se encuentra en la misma carpeta que
+          la página en la que estamos, bastará con escribir el nombre de la
+          imagen.
+        </p>
+        <p>
+          Si está alojada en una subcarpeta, entonces utilizamos una barra
+          <code>/</code> para indicar el camino y si se encuentra en una carpeta
+          de un nivel superior, utilizamos dos puntos y una barra
+          <code>../</code> para subir de nivel:
+        </p>
+        <pre class="no-copy"><code>
+&lt;img src=&quot;ruta&quot; alt=&quot;texto alternativo&quot;&gt;
+
+&lt;img src=&quot;logo.jpg&quot; alt=&quot;ACME&quot;&gt;
+
+&lt;img src=&quot;imagenes/logo.jpg&quot; alt=&quot;ACME&quot;&gt;
+
+&lt;img src=&quot;../logo.jpg&quot; alt=&quot;ACME&quot;&gt;
+
+incorrecto:
+&lt;img&gt;
+&lt;img src=&quot;logo.jpg&quot;&gt;
+&lt;img alt=&quot;ACME&quot;&gt;
+</code></pre>
+        <p>Podemos subir o bajar de nivel las veces que sea necesario:</p>
+        <pre class="no-copy"><code>
+&lt;img src=&quot;imagenes/minis/logos/logo.jpg&quot; alt=&quot;ACME&quot;&gt;
+
+&lt;img src=&quot;../../../logos/logo.jpg&quot; alt=&quot;ACME&quot;&gt;
+</code></pre>
+        <h2>Texto alternativo</h2>
+        <p>
+          El atributo <code>alt</code> es obligatorio y es necesario ponerlo en
+          el código. Otra historia será el valor que pongamos en dicho atributo.
+        </p>
+        <p>
+          Este atributo sirve para ofrecer un texto equivalente al
+          contenido/función de la imagen en caso de que ésta no se cargue o bien
+          un usuario navegue sin ver la pantalla, mediante un lector de
+          pantalla, o un buscador indexando la página (Google, por ejemplo). Hay
+          toda una ciencia detrás de cuál tiene que ser el mejor texto a usar
+          como texto alternativo en una imagen y de ello se ocupa el estándar de
+          Accesibilidad Web.
+        </p>
+        <p>
+          Si estamos en un entorno visual y podemos ver la pantalla, el texto
+          alternativo será transparente para nosotros, no lo vamos a ver nunca
+        </p>
+        <p>
+          A modo general, vamos a establecer las siguientes recomendaciones:
+        </p>
+        <ul class="lista-facts">
+          <li>
+            Si la imagen está dentro de un enlace, el texto alternativo se
+            corresponderá con el texto que pondríamos en el enlace si lo
+            hiciéramos sin imagen.
+          </li>
+          <li>
+            Si la imagen ofrece información importante, el texto alternativo
+            tendrá que ofrecer la misma información (p.e. un símbolo de lavado
+            de ropa).
+          </li>
+          <li>
+            Si la imagen es decorativa, esto es, no aporta ningún tipo de
+            información y si no se llegase a cargar no perderíamos ninguna
+            información, el texto alternativo lo dejaremos vacío.
+          </li>
+        </ul>
+        <pre><code>
+&lt;img src=&quot;lavado-mano.jpg&quot; alt=&quot;Lavado a mano&quot;&gt;
+&lt;img src=&quot;personas.jpg&quot; alt=&quot;&quot;&gt;
+
+&lt;a href=&quot;https://www.google.es&quot;&gt;
+	&lt;img src=&quot;logo-google.jpg&quot; alt=&quot;Google&quot;&gt;&lt;/a&gt;
+&lt;/a&gt;
+</code></pre>
+        <h2>alt y title</h2>
+        <p>
+          En algunas comunidades de desarrolladores, está muy extendida la
+          práctica de añadir el atributo <code>title</code> a las imágenes, con
+          el mismo valor que el del atributo <code>alt</code>. Esto viene de un
+          error heredado muchos años atrás. En su día ocurría lo siguiente:
+        </p>
+        <p>
+          Como hemos dicho, el atributo <code>alt</code> tiene un uso
+          específico, para personas o máquinas que no ven la pantalla. El
+          difunto navegador Internet Explorer, como no respetaba los estándares
+          HTML, decidió que iba a tratar este atributo como el atributo
+          <code>title</code>, y al pasar con el ratón por encima de una imagen
+          que tuviera <code>alt</code>, sacaba el texto alternativo igual que
+          nos aparecen los atributos <code>title</code>. El resto de navegadores
+          no lo hacían así, porque seguían correctamente el estándar.
+        </p>
+        <p>
+          Algunos desarrolladores se dieron cuenta de estas diferencias de
+          visualización y empezaron a añadir a las imágenes el atributo
+          <code>title</code> con el mismo valor, para que así,
+          independientemente del navegador con el que visitáramos la web, nos
+          aparecería un texto al pasar por la imagen. Esto se fue generalizando
+          porque "todo el mundo lo hace".
+        </p>
+        <p>
+          Cada atributo tiene su propia función y no los podemos utilizar para
+          otros menesteres, y en este caso, cada atributo tiene una función
+          diferente.
+        </p>
+        <p>
+          En la práctica es muy raro que una imagen necesite un atributo
+          <code>title</code>, sólo si se está muy seguro de su uso y existe una
+          justificación adecuada se debe utilizar.
+        </p>
+        <h2 data-title="Formatos">Formato de imagen a utilizar</h2>
+        <p>
+          Los formatos a utilizar son los generales para imágenes: PNG, JPG
+          (JPEG), GIF, SVG, WEBP, AVIF...
+        </p>
+        <h2>Mapas de Imágenes</h2>
+        <p>
+          Un mapa de imágenes es simplemente una imagen sobre la que se definen
+          unas áreas activas (hotspots) que actuarán como enlaces. Si tomamos
+          una imagen de un mapa del mundo, por ejemplo, cada continente podría
+          ser un área activa.
+        </p>
+        <p>
+          En la actualidad apenas se utilizan y de hacerlo, usaremos un
+          generador y nos aseguraremos de que el resultado se adapte a cualquier
+          dispositivo, tamaño de ventana, etc.
+        </p>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a href="https://codepen.io/antxoa/pen/jORqjEw" rel="external"
+            >mapa de imagen</a
+          >
+        </li>
+      </ol>
+      <h2 class="titulo-indice articulo-titulo-indice">Recursos</h2>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a href="https://picsum.photos/" rel="external">Lorem Picsum</a>
+        </li>
+        <li><a href="http://unsplash.com/" rel="external">Unsplash</a></li>
+        <li><a href="https://www.pexels.com/" rel="external">Pexels</a></li>
+        <li><a href="https://www.iconfinder.com/" rel="external">Iconos</a></li>
+      </ol>
+    </footer>
+  </body>
+</html>

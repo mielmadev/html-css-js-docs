@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16. Campos de fecha | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>16. Campos de fecha</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Podemos insertar un calendario de forma nativa en nuestro formulario,
+          para poder elegir una fecha, hora, semana o mes concreto:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoFecha"&gt;Fecha:&lt;/label&gt;
+	&lt;input type="date" name="campoFecha" id="campoFecha"&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+	&lt;label for="campoHora"&gt;Hora:&lt;/label&gt;
+	&lt;input type="time" name="campoHora" id="campoHora"&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+	&lt;label for="campoMes"&gt;Mes:&lt;/label&gt;
+	&lt;input type="month" name="campoMes" id="campoMes"&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+	&lt;label for="campoSemana"&gt;Semana:&lt;/label&gt;
+	&lt;input type="week" name="campoSemana" id="campoSemana"&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoFecha">Fecha:</label>
+            <input type="date" name="campoFecha" id="campoFecha" />
+          </p>
+          <p>
+            <label for="campoHora">Hora:</label>
+            <input type="time" name="campoHora" id="campoHora" />
+          </p>
+          <p>
+            <label for="campoMes">Mes:</label>
+            <input type="month" name="campoMes" id="campoMes" />
+          </p>
+          <p>
+            <label for="campoSemana">Semana:</label>
+            <input type="week" name="campoSemana" id="campoSemana" />
+          </p>
+        </form>
+      </article>
+    </main>
+    <footer class="pag-pie"></footer>
+  </body>
+</html>

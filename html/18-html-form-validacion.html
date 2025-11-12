@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      18. Validación de formularios | Documentación de HTML, CSS y JS
+    </title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>18. Validación de formularios</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Además de las validaciones que proporcionan por sí mismos algunos de
+          los campos y atributos vistos hasta ahora, existen 3 atributos extra
+          para la validación de un formulario:
+        </p>
+        <h2>Desactivar validación nativa</h2>
+        <p>
+          Si en algún momento queremos desactivar la validación nativa bien de
+          todos los campos del formulario o de uno o varios específicos, basta
+          con utilizar el atributo <code>novalidate</code>.
+        </p>
+        <p>
+          Si se utiliza en el elemento <code>form</code>, se desactiva la
+          validación de todos los campos.
+        </p>
+        <p>
+          Si se utiliza en un elemento, se desactiva únicamente en ese elemento
+          (o se puede aplicar a varios).
+        </p>
+        <pre class="no-copy"><code>
+&lt;form ... novalidate&gt;
+	...
+&lt;/form&gt;
+
+&lt;form ... novalidate="novalidate"&gt;
+	...
+&lt;/form&gt;
+</code></pre>
+        <p>
+          Si necesitamos personalizar las validaciones con funciones propias
+          deberemos utilizar Javascript, a través de la API de Validación de
+          formularios (que veremos más adelante)
+        </p>
+        <h2>Campo obligatorio</h2>
+        <p>
+          Mediante el atributo <code>required</code> podemos establecer la
+          obligatoriedad de un campo, de tal manera que el formulario no se
+          podrá enviar hasta que se haya rellenado ese dato:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoNombre"&gt;Nombre:&lt;/label&gt;
+	&lt;input type="text" name="campoNombre" id="campoNombre" required&gt;
+&lt;p&gt;
+
+Otra opción:
+&lt;p&gt;
+	&lt;label for="campoNombre"&gt;Nombre:&lt;/label&gt;
+	&lt;input type="text" name="campoNombre" id="campoNombre" required="required"&gt;
+&lt;p&gt;
+</code></pre>
+        <form class="ejemplo" action="#formreq">
+          <p>
+            <label for="campoNombre">Nombre:</label>
+            <input type="text" name="campoNombre" id="campoNombre" required />
+            <input type="submit" value="Enviar" />
+          </p>
+        </form>
+        <h2>Patrón de validación</h2>
+        <p>
+          Para validaciones sencillas podemos crear un patrón de entrada de
+          datos, basado en expresiones regulares, con el fin de que sea el
+          propio navegador quien realice la validación de ese campo, en base al
+          patrón definido, sin necesidad de utilizar una validación Javascript.
+          Es altamente recomendable indicar al usuario cómo tiene que rellenar
+          el campo mediante el atributo <code>title</code>.
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="codigoIdioma"&gt;Idioma:&lt;/label&gt;
+	&lt;input type="text" name="codigoIdioma" id="codigoIdioma" pattern="[A-z]{2}" title="Código de idioma con 2 letras"&gt;
+&lt;p&gt;
+
+&lt;p&gt;
+	&lt;label for="nombreUsuario"&gt;Nombre de usuario:&lt;/label&gt;
+	&lt;input type="text" name="nombreUsuario" id="nombreUsuario" pattern="[A-Za-z0-9]{6,10}" title="Entre 6 y 10 caracteres, letras (mayúsculas y minúsculas) y números"&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+	&lt;label for="telef"&gt;Teléfono:&lt;/label&gt;
+	&lt;input type="tel" name="telef" name="telef" pattern="([0-9]{1}(-[0-9]{3})(-[0-9]{3})(-[0-9]{4}))" title="Patron: 1-234-567-8910"&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo" action="#formpatron">
+          <p>
+            <label for="codigoIdioma">Idioma:</label>
+            <input
+              type="text"
+              name="codigoIdioma"
+              id="codigoIdioma"
+              pattern="[A-z]{2}"
+              required
+              title="Código de idioma con 2 letras" />
+          </p>
+          <p>
+            <label for="nombreUsuario">Nombre de usuario:</label>
+            <input
+              type="text"
+              name="nombreUsuario"
+              id="nombreUsuario"
+              pattern="[A-Za-z0-9]{6,10}"
+              required
+              title="Entre 6 y 10 caracteres, letras (mayúsculas y minúsculas) y números" />
+          </p>
+          <p>
+            <label for="telef">Teléfono:</label>
+            <input
+              type="tel"
+              name="telef"
+              id="telef"
+              pattern="([0-9]{1}(-[0-9]{3})(-[0-9]{3})(-[0-9]{4}))"
+              required
+              title="Patron: 1-234-567-8910" />
+          </p>
+          <p>
+            <input type="submit" value="Enviar" />
+          </p>
+        </form>
+        <h2>Expresiones regulares</h2>
+        <p>
+          Las expresiones regulares, también llamadas <em>RegExp</em> o
+          <em>RegEx</em> son unas cadenas de texto que representan posibles
+          patrones de coincidencias.
+        </p>
+        <p>
+          Estos patrones son sencillos de utilizar y permiten realizar la
+          búsqueda o reemplazo de texto de forma simple, algo que sin patrones
+          se tendría que hacer con otro sistema mucho más complejo.
+        </p>
+        <p>
+          Otra de las ventajas que tienen las expresiones regulares es que se
+          utilizan en infinidad de lenguajes de programación (Java, PHP, C++,
+          .Net, Phyton, Javascript...) y hasta en HTML.
+        </p>
+        <table>
+          <caption>
+            Patrones
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Expresión regular</th>
+              <th scope="col">Carácter especial</th>
+              <th scope="col">¿Qué significa?</th>
+              <th scope="col">Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.</code></td>
+              <td>Punto</td>
+              <td>Comodín</td>
+              <td>Cualquier carácter (o texto de tamaño 1)</td>
+            </tr>
+            <tr>
+              <td><code>A|B</code></td>
+              <td>Barra vertical</td>
+              <td>Opciones lógicas</td>
+              <td>
+                Opciones alternativas (o <code>A</code> o <code>B</code> )
+              </td>
+            </tr>
+            <tr>
+              <td><code>A(B|C)</code></td>
+              <td>Paréntesis</td>
+              <td>Agrupaciones</td>
+              <td>
+                Agrupaciones alternativas (o <code>AB</code> o <code>AC</code> )
+              </td>
+            </tr>
+            <tr>
+              <td><code>[0-9]</code></td>
+              <td>Corchetes</td>
+              <td>Rangos de carácteres</td>
+              <td>Un dígito (del <code>0</code> al <code>9</code> )</td>
+            </tr>
+            <tr>
+              <td><code>[A-Z]</code></td>
+              <td></td>
+              <td></td>
+              <td>
+                Una letra mayúscula de la <code>A</code> a la <code>Z</code>
+              </td>
+            </tr>
+            <tr>
+              <td><code>[^A-Z]</code></td>
+              <td><code>^</code> en corchetes</td>
+              <td>Rango de exclusión</td>
+              <td>
+                Una letra que no sea mayúscula de la <code>A</code> a la
+                <code>Z</code>
+              </td>
+            </tr>
+            <tr>
+              <td><code>[0-9]*</code></td>
+              <td>Asterisco</td>
+              <td>Cierre o clausura</td>
+              <td>Un dígito repetido 0 ó más veces (vacío incluido)</td>
+            </tr>
+            <tr>
+              <td><code>[0-9]+</code></td>
+              <td>Signo más</td>
+              <td>Cierre positivo</td>
+              <td>Un dígito repetido 1 ó más veces</td>
+            </tr>
+            <tr>
+              <td><code>[0-9]{3}</code></td>
+              <td>Llaves</td>
+              <td>Coincidencia exacta</td>
+              <td>Cifra de 3 dígitos (dígito repetido <code>3</code> veces)</td>
+            </tr>
+            <tr>
+              <td><code>[0-9]{2,4}</code></td>
+              <td></td>
+              <td>Coincidencia (rango)</td>
+              <td>
+                Cifra de 2 a 4 dígitos (rep. de <code>2</code> a
+                <code>4</code> veces)
+              </td>
+            </tr>
+            <tr>
+              <td><code>b?</code></td>
+              <td>Interrogación</td>
+              <td>Carácter opcional</td>
+              <td>El carácter <code>b</code> puede aparecer o puede que no</td>
+            </tr>
+            <tr>
+              <td><code>\.</code></td>
+              <td>Barra invertida</td>
+              <td>Escape</td>
+              <td>El carácter <code>.</code> literalmente (no como comodín)</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Referencias</h2>
+      <ol class="descargas-lista">
+        <li>
+          <a href="https://support.google.com/a/answer/1346938" rel="external"
+            >Expresiones regulares</a
+          >
+        </li>
+        <li>
+          <a href="https://input-pattern.com/en/tutorial.php" rel="external"
+            >Tutorial de Patrones</a
+          >
+        </li>
+      </ol>
+      <h2 class="titulo-indice articulo-titulo-indice">Recursos</h2>
+      <ol class="descargas-lista">
+        <li>
+          <a href="https://www.regexlib.com/Default.aspx" rel="external"
+            >Librería de Expresiones regulares</a
+          >
+        </li>
+      </ol>
+    </footer>
+  </body>
+</html>

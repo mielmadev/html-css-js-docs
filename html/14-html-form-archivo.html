@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14. Subida de archivos | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>14. Subida de archivos</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Si necesitamos adjuntar un archivo en el formulario utilizamos el
+          siguiente elemento <code>input</code>:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoCV"&gt;Adjunta tu Curriculum:&lt;/label&gt;
+	&lt;input type="file" name="campoCV" id="campoCV"&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoCV">Adjunta tu Curriculum:</label>
+            <input type="file" name="campoCV" id="campoCV" />
+          </p>
+        </form>
+        <p>
+          De manera nativa no podemos modificar el texto ni la apariencia del
+          botón para adjuntar el archivo. Cualquier modificación en este sentido
+          se realiza con CSS y Javascript.
+        </p>
+        <p>
+          Importante utilizar el atributo con el valor correcto
+          <code>enctype="multipart/form-data"</code> en el elemento
+          <code>form</code>, para que se envíe el archivo y no simplemente su
+          nombre.
+        </p>
+        <h2>Restricción de tamaño</h2>
+        <p>
+          Podemos restringir el tamaño máximo permitido del archivo, en bites:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoCV"&gt;Adjunta tu Curriculum:&lt;/label&gt;
+	&lt;input type="file" name="campoCV" id="campoCV" maxlength="100000"&gt;
+&lt;/p&gt;
+</code></pre>
+        <h2>Restricción de archivo</h2>
+        <p>
+          También podemos controlar el tipo de archivo permitidos, mediante el
+          atributo <code>accept</code> y diferentes valores de tipo MIME.:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoCV"&gt;Adjunta tu Curriculum:&lt;/label&gt;
+	&lt;input type="file" name="campoCV" id="campoCV" accept="image/gif"&gt;
+&lt;/p&gt;
+</code></pre>
+        <h2>Selección múltiple</h2>
+        <p>Es posible hablitar la opción de selección múltiple de archivos:</p>
+        <pre><code>
+&lt;p&gt;
+	&lt;label for="campoCV"&gt;Adjunta tu Curriculum:&lt;/label&gt;
+	&lt;input type="file" name="campoCV" id="campoCV" multiple="multiple"&gt;
+&lt;/p&gt;
+</code></pre>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Referencias</h2>
+      <ol class="descargas-lista">
+        <li>
+          <a
+            href="https://es.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions"
+            rel="external"
+            >¿Qué son los MIME?</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.iana.org/assignments/media-types/media-types.xhtml"
+            rel="external"
+            >Listado IANA de MIME Types</a
+          >
+        </li>
+      </ol>
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ol class="descargas-lista">
+        <li>
+          <a
+            href="https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/"
+            rel="external"
+            >Botón archivo adjunto personalizado</a
+          >
+        </li>
+      </ol>
+    </footer>
+  </body>
+</html>

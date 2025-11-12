@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>15. Campos numéricos | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>15. Campos numéricos</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h2>Número</h2>
+        <p>
+          Es un campo que sólo permite la inserción de números. Se puede indicar
+          un número máximo y mínimo, así como el incremento/decremento entre
+          pasos:
+        </p>
+        <pre><code class="language-html">
+&lt;p&gt;
+	&lt;label for="campoEdad"&gt;Edad:&lt;/label&gt;
+	&lt;input type="number" name="campoEdad" id="campoEdad" min="18" max="75" step="1"&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoEdad">Edad:</label>
+            <input
+              type="number"
+              name="campoEdad"
+              id="campoEdad"
+              min="18"
+              max="75"
+              step="1" />
+            <input type="submit" value="Enviar" />
+          </p>
+        </form>
+        <h2>Rango</h2>
+        <p>
+          Es un campo numérico, pero el usuario no inserta el número, sino que
+          lo elige orientativamente entre un rango:
+        </p>
+        <pre><code class="language-html">
+&lt;p&gt;
+	&lt;label for="campoValoracion"&gt;¿Puntuación de la película?:&lt;/label&gt;
+	&lt;input type="range" name="campoValoracion" id="campoValoracion" min="0" max="100" step="10"&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoValoracion">¿Puntuación de la película?:</label>
+            <input
+              type="range"
+              name="campoValoracion"
+              id="campoValoracion"
+              min="0"
+              max="100"
+              step="10" />
+          </p>
+        </form>
+        <p>
+          Si queremos que en este elemento también se vea el valor que se está
+          eligiendo, tenemos que implementar la funcionalidad mediante
+          Javascript:
+        </p>
+        <form class="ejemplo">
+          <p>
+            <label for="quantity">
+              <input
+                type="range"
+                name="quantity"
+                id="quantity"
+                min="0"
+                max="100" />
+            </label>
+            <output for="quantity"></output>
+          </p>
+        </form>
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const rangeInput = document.getElementById("quantity");
+            const output = document.querySelector('output[for="quantity"]');
+            // Mostrar el valor inicial
+            output.textContent = rangeInput.value;
+            // Actualizar el valor del output cuando cambie el input
+            rangeInput.addEventListener("input", () => {
+              output.textContent = rangeInput.value;
+            });
+          });
+        </script>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ol class="descargas-lista">
+        <li>
+          <a href="https://codepen.io/antxoa/pen/OOLMMb" rel="external"
+            >Elemento <code>range</code> con visualización</a
+          >
+        </li>
+      </ol>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12. Campos de texto | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>12. Campos de texto</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h2>Campo de texto básico</h2>
+        <p>
+          Es el campo más sencillo que podemos utilizar: <br />
+          <code>&lt;input type=&quot;text&quot;&gt;</code>
+        </p>
+        <pre><code class="language-html">
+&lt;p&gt;
+	&lt;label for=&quot;campoNombre&quot;&gt;Nombre:&lt;/label&gt;
+	&lt;input type=&quot;text&quot; name=&quot;campoNombre&quot; id=&quot;campoNombre&quot;&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoNombre">Nombre:</label>
+            <input type="text" name="campoNombre" id="campoNombre" />
+          </p>
+        </form>
+        <h2>Contraseña</h2>
+        <p>
+          Es un campo de texto, igual que el básico, solo que cuando el usuario
+          escribe en él, en vez de aparecer letras, aparecen asteriscos,
+          puntos...:<br />
+          <code>&lt;input type=&quot;password&quot;&gt;</code>
+        </p>
+        <pre><code class="language-html">
+&lt;p&gt;
+	&lt;label for=&quot;campoClave&quot;&gt;Contraseña:&lt;/label&gt;
+	&lt;input type=&quot;password&quot; name=&quot;campoClave&quot; id=&quot;campoClave&quot;&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoClave">Contraseña:</label>
+            <input type="password" name="campoClave" id="campoClave" />
+            <span
+              id="botonAccion"
+              class="icono-ojo"
+              title="Mostrar/Ocultar contraseña">
+              <!-- SVG de ojo abierto (estado inicial) -->
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="ojo-abierto">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </span>
+          </p>
+        </form>
+        <script>
+          document
+            .getElementById("botonAccion")
+            .addEventListener("click", function () {
+              const campoClave = document.getElementById("campoClave");
+              const contenedorIcono = document.getElementById("botonAccion");
+
+              // Si el campo está vacío, no hacemos nada
+              if (campoClave.value === "") {
+                return;
+              }
+
+              // Si el campo tiene contenido
+              if (campoClave.type === "password") {
+                // Mostrar contraseña y cambiar a ojo cerrado
+                campoClave.type = "text";
+                contenedorIcono.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ojo-cerrado">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+                <line x1="3" y1="3" x2="21" y2="21"></line>
+            </svg>
+        `;
+              } else {
+                // Ocultar contraseña y cambiar a ojo abierto
+                campoClave.type = "password";
+                contenedorIcono.innerHTML = `
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ojo-abierto">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+        `;
+              }
+            });
+        </script>
+        <h2>Email</h2>
+        <p>
+          Es un campo de texto, pero destinado a escribir direcciones de
+          e-mail.<br />
+          <code>&lt;input type=&quot;email&quot;&gt;</code>
+        </p>
+        <pre><code class="language-html">
+&lt;p&gt;
+	&lt;label for=&quot;campoEmail&quot;&gt;E-mail:&lt;/label&gt;
+	&lt;input type=&quot;email&quot; name=&quot;campoEmail&quot; id=&quot;campoEmail&quot;&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo" action="#ftextemail">
+          <p>
+            <label for="campoEmail">E-mail:</label>
+            <input type="email" name="campoEmail" id="campoEmail" />
+            <input type="submit" value="Enviar" />
+          </p>
+        </form>
+        <p>
+          El campo ofrece una pequeña validación automática y en un dispositivo
+          con teclado virtual, las teclas variables aparecerán con los
+          caracteres necesarios para escribir un e-mail (la arroba, el
+          punto...):
+        </p>
+        <p>
+          <img
+            src="img/teclado-email.jpg"
+            alt="teclado e-mail"
+            class="noexpand" />
+        </p>
+        <h2>URL</h2>
+        <p>
+          Es un campo de texto, pero destinado a escribir direcciones web.<br />
+          <code>&lt;input type=&quot;url&quot;&gt;</code>
+        </p>
+        <pre><code class="language-html">
+&lt;p&gt;
+	&lt;label for=&quot;campoURL&quot;&gt;Sitio Web:&lt;/label&gt;
+	&lt;input type=&quot;url&quot; name=&quot;campoURL&quot; id=&quot;campoURL&quot;&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoURL">Sitio Web:</label>
+            <input type="url" name="campoURL" id="campoURL" />
+            <input type="submit" value="Enviar" />
+          </p>
+        </form>
+        <p>
+          El campo ofrece una pequeña validación automática de protocolos:
+          http:// | https:// | ftp:// | ftps://
+        </p>
+        <p>
+          En un dispositivo con teclado virtual, las teclas variables aparecerán
+          con los caracteres necesarios para escribir una URL (., /, ...):
+        </p>
+        <p>
+          <img src="img/teclado-url.jpg" alt="teclado url" class="noexpand" />
+        </p>
+        <h2>Teléfono</h2>
+        <p>
+          Es un campo de texto, pero destinado a escribir teléfonos.<br />
+          <code>&lt;input type=&quot;tel&quot;&gt;</code>
+        </p>
+        <pre><code class="language-html">
+&lt;p&gt;
+	&lt;label for=&quot;campoTfno&quot;&gt;Teléfono:&lt;/label&gt;
+	&lt;input type=&quot;tel&quot; name=&quot;campoTfno&quot; id=&quot;campoTfno&quot;&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoTfno">Teléfono:</label>
+            <input type="tel" name="campoTfno" id="campoTfno" />
+          </p>
+        </form>
+        <p>
+          No se realiza ningún tipo de validación porque el formato de teléfono
+          es muy variable según el país (internacional, con guiones,
+          paréntesis...).
+        </p>
+        <p>
+          En un dispositivo con teclado virtual, las teclas variables aparecerán
+          con los caracteres numéricos:
+        </p>
+        <p>
+          <img
+            src="img/teclado-tel.jpg"
+            alt="teclado teléfono"
+            class="noexpand" />
+        </p>
+        <h2>Área de texto</h2>
+        <p>
+          Es un campo de texto multilínea, pensado para que se escriba en él
+          gran cantidad de texto, que tiene una etiqueta propia (no es un
+          <code>input</code>):
+        </p>
+        <p>
+          Para especificar el ancho del área de texto (medido en caracteres)
+          utilizaremos el atributo <code>cols</code>, y para el número de
+          líneas, <code>rows</code>.
+        </p>
+        <pre><code class="language-html">
+&lt;p&gt;
+	&lt;label for=&quot;campoComentarios&quot;&gt;Escriba sus comentarios:&lt;/label&gt;&lt;br&gt;
+	&lt;textarea name=&quot;campoComentarios&quot; id=&quot;campoComentarios&quot; cols=&quot;60&quot; rows=&quot;6&quot;&gt;
+	&lt;/textarea&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoComentarios">Escriba sus comentarios:</label><br />
+            <textarea
+              name="campoComentarios"
+              id="campoComentarios"
+              cols="60"
+              rows="6"></textarea>
+          </p>
+        </form>
+        <h2>Búsqueda</h2>
+        <p>
+          Es un campo de texto, pero destinado al campo del término de
+          búsqueda.<br />
+          <code>&lt;input type=&quot;search&quot;&gt;</code>
+        </p>
+        <pre><code class="language-html">
+&lt;p&gt;
+	&lt;label for=&quot;campoBuscar&quot;&gt;Texto a Buscar:&lt;/label&gt;
+	&lt;input type=&quot;search&quot; name=&quot;campoBuscar&quot; id=&quot;campoBuscar&quot;&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoBuscar">Texto a Buscar:</label>
+            <input type="search" name="campoBuscar" id="campoBuscar" />
+          </p>
+        </form>
+        <p>
+          Los navegadores deberían de implementar este campo con alguna
+          funcionalidad extra que lo diferencie de un campo de texto básico.
+        </p>
+      </article>
+    </main>
+    <footer class="pag-pie"></footer>
+  </body>
+</html>

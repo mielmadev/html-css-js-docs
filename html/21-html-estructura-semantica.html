@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21. Estructura semántica | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>21. Estructura semántica</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>Para estructurar de forma semántica los diferentes bloques estructurales de una página web (cabecera, pie, contenido principal, secciones...) disponemos de varios elementos.</p>
+        <h2>header</h2>
+        <p>El elemento <code>header</code> representa un grupo introductorio de información y donde se incluirá un encabezado (<code>h1-h6</code>).</p>
+        <p>También puede usarse para agrupar la tabla de contenidos de una sección, logotipos relevantes, ayudas de navegación...</p>
+        <p>Pueden existir varios <code>header</code> en una página (en función del contenido).</p>
+        <pre class="no-copy"><code>
+&lt;header&gt;
+...
+&lt;/header&gt;
+</code></pre>
+        <h2>footer</h2>
+        <p>El elemento <code>footer</code> representa el pie de la sección de contenido predecesora más cercana, o la sección del contenido raiz.</p>
+        <p>Normalmente contiene información acerca de su sección, como el autor, enlaces a documentos relacionados, licencias, apéndices, índices... También es posible incluir la información que habitualmente se incluye en el elemento <code>address</code> (información de contacto del autor o editor, por ejemplo).</p>
+        <p>El elemento <code>footer</code> no tiene por que aparecer en el final de la sección.</p>
+        <p>Pueden existir varios <code>footer</code> en una página (en función del contenido).</p>
+        <pre class="no-copy"><code>
+&lt;footer&gt;
+...
+&lt;/footer&gt;
+</code></pre>
+        <h2>nav</h2>
+        <p>El elemento <code>nav</code> representa una sección de la página que contiene enlaces de navegación a zonas de la misma página o a otras páginas.</p>
+        <p>No todos los grupos de enlaces tienen que implementarse con el elemento <code>nav</code>. Sólo se implementarán los bloques principales de navegación. Por ejemplo, el menú principal de la web sí que se incluiría en un elemento <code>nav</code>, pero un listado de enlaces a recursos externos, no..</p>.
+        <pre class="no-copy"><code>
+&lt;header&gt;
+	...
+	&lt;nav&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;a href=""&gt;Quienes Somos&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href=""&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/nav&gt;
+	...
+&lt;/header&gt;
+
+&lt;main&gt;
+	...
+&lt;/main&gt;
+
+&lt;footer&gt;
+	...
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href=""&gt;Aviso Legal&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=""&gt;Política de Privacidad&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=""&gt;Política de Cookies&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	...
+&lt;/footer&gt;
+</code></pre>
+        <h2>aside</h2>
+        <p>El elemento <code>aside</code> representa una sección de la página cuyo contenido está relacionado tangencialmente con el contenido que tiene a su alrededor, pero se considera contenido independiente, adicional.</p>
+        <p>Se puede usar para implementar barras laterales, publicidad, elementos con efectos tipográficos (como las citas)...</p>
+        <p>No es adecuado utilizarlo para estructurar contenido explicativo, porque forma parte del contenido principal.</p>
+        <pre class="no-copy"><code>
+&lt;aside&gt;
+...
+&lt;/aside&gt;
+</code></pre>
+        <h2>main</h2>
+        <p>El elemento <code>main</code> representa la parte de la página donde se encuentra el contenido principal de la misma.</p>
+        <p>Debe ser un contenido único en el documento y excluye el contenido que se repite en la web como por ejemplo menús de navegación, información de copyright, logotipo, banners, formulario de búsqueda (salvo que estemos en la página específica de búsqueda).</p>
+        <p>No puede haber más de un elemento <code>main</code> visible en la página (puede haber más en el código, pero se deberán ocultar a la vista y mostrar uno u otro mediante Javascript, por ejemplo) </p>
+        <p>El elemento <code>main</code> sólo puede tener como ancestros a <code>body, div y form</code> (este último, bajo ciertas circunstancias).</p>
+        <pre class="no-copy"><code>
+&lt;header&gt;
+...
+&lt;/header&gt;
+
+&lt;main&gt;
+...
+&lt;/main&gt;
+
+&lt;footer&gt;
+...
+&lt;/footer&gt;
+</code></pre>
+        <h2>article</h2>
+        <p>El elemento <code>article</code> representa una composición autónoma (contenido único) en un documento, página, aplicación o sitio web, con intención de poder ser reutilizado (por ejemplo, en un lector RSS, al imprimir la página, visualización de página simplificada en dispositivo móvil...).</p>
+        <p>Puede utilizarse en un artículo de un foro, revista, artículo de periódico, entrada (post) de un blog, comentario escrito por un usuario, widget interactivo o gadget e incluso en cualquier otro elemento independiente de contenido.</p>
+        <p>Cada <code>article</code> debe tener obligatoriamente un encabezado (<code>h1–h6</code>) que describa su contenido y de manera opcional puede incluir elementos como <code>header, footer, aside, section</code> internos.</p>
+        <p>Cuando existen elementos <code>article</code> anidados, los elementos <code>article</code> interiores estarían relacionados con los <code>article</code> exteriores (p.e un <code>article</code> que contenga un artículo de un blog, contendrá también <code>article</code> para los comentarios de un usuario).</p>
+        <pre class="no-copy"><code>
+&lt;article&gt;
+...
+&lt;/article&gt;
+
+&lt;article&gt;
+...
+...
+	&lt;article&gt;
+	...
+	&lt;/article&gt;
+&lt;/article&gt;
+</code></pre>
+        <h2>section</h2>
+        <p>El elemento <code>section</code> representa una sección genérica de un documento o aplicación. Una sección, en este contexto, es una agrupación temática de contenido, habitualmente con un encabezado (<code>h1–h6</code>).</p>
+        <p>El elemento <code>section</code> no es un elemento contenedor genérico. Si sólo se necesita el elemento para aplicar estilos, entonces se deberá utilizar el elemento <code>div</code>.</p>
+        <p>Puede contener más elementos <code>section</code> y también elementos <code>article</code>.</p>
+        <pre class="no-copy"><code>
+&lt;section&gt;
+...
+&lt;/section&gt;
+</code></pre>
+        <h2>article vs. section</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Criterio</th>
+              <th><code>&lt;article&gt;</code></th>
+              <th><code>&lt;section&gt;</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Descripción</strong></td>
+              <td>Contenedor para contenido independiente y autocontenido que podría publicarse o reutilizarse fuera del contexto de la página.</td>
+              <td>Contenedor para agrupar contenido temáticamente relacionado dentro de una parte de un documento o página.</td>
+            </tr>
+            <tr>
+              <td><strong>Uso principal</strong></td>
+              <td>Publicaciones de blog, artículos de noticias, comentarios, productos, publicaciones de foros o cualquier bloque con sentido por sí solo.</td>
+              <td>Dividir un documento o artículo en secciones temáticas (por ejemplo, introducción, desarrollo, conclusión).</td>
+            </tr>
+            <tr>
+              <td><strong>Autonomía</strong></td>
+              <td>Alta — puede existir fuera del contexto de la página y conservar su significado completo.</td>
+              <td>Baja — depende de su contexto o del documento en el que se encuentra.</td>
+            </tr>
+            <tr>
+              <td><strong>Anidamiento</strong></td>
+              <td>Puede contener otros <code>&lt;article&gt;</code> o <code>&lt;section&gt;</code> si el contenido lo requiere (por ejemplo, artículos relacionados o comentarios dentro de una noticia).</td>
+              <td>Puede contener subsecciones (<code>&lt;section&gt;</code>) o artículos, pero su objetivo es estructurar, no independizar.</td>
+            </tr>
+            <tr>
+              <td><strong>Encabezado recomendado</strong></td>
+              <td>Debe incluir un encabezado propio (<code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>) que identifique su tema o título.</td>
+              <td>También debe tener un encabezado, pero más como un título de subsección dentro del documento.</td>
+            </tr>
+            <tr>
+              <td><strong>Semántica y SEO</strong></td>
+              <td>Indica a los motores de búsqueda que el contenido es independiente y relevante por sí mismo.</td>
+              <td>Ayuda a estructurar y jerarquizar el contenido, pero no se considera autónomo en el SEO.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <h2>Ejemplos de estructura 1</h2>
+        <p>Vamos a partir del siguiente supuesto: página de portada que tiene varios apartados: un bloque de "últimas noticias", otro de "eventos", otro de "cursos"...</p>
+        <p>Nos vamos a centrar en el bloque de noticias. En función de la cantidad de información que queramos ofrecer por cada una de las noticias, la estructura irá variando:</p>
+        <h3>Escenario 1: Título y enlace</h3>
+        <p>No hay suficiente contenido para considerar cada noticia un <code>&lt;article&gt;</code>.</p>
+        <p>Es solo una lista de enlaces a artículos, por lo que <code>&lt;ul&gt;</code> es la opción más semántica.</p>
+        <pre><code>
+&lt;h1&gt;Empresa ACME&lt;/h1&gt;
+&lt;section&gt;
+	&lt;h2&gt;Noticias&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href="noticia1.html"&gt;Título de la noticia 1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="noticia2.html"&gt;Título de la noticia 2&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/section&gt;
+</code></pre>
+        <h3>Escenario 2: Título, enlace y fecha</h3>
+        <p>Aún sigue siendo una lista de referencias a noticias, no los artículos en sí.</p>
+        <p>El uso de <code>&lt;time&gt;</code> agrega valor semántico sin necesidad de <code>&lt;article&gt;</code>.</p>
+        <pre><code>
+&lt;h1&gt;Empresa ACME&lt;/h1&gt;
+&lt;section&gt;
+	&lt;h2&gt;Noticias&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;a href="noticia1.html"&gt;Título de la noticia 1&lt;/a&gt;
+			&lt;time datetime="2025-11-11"&gt;11 de noviembre de 2025&lt;/time&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;a href="noticia2.html"&gt;Título de la noticia 2&lt;/a&gt;
+			&lt;time datetime="2025-11-11"&gt;11 de noviembre de 2025&lt;/time&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/section&gt;
+</code></pre>
+        <h3>Escenario 3: Título, enlace, fecha y miniatura</h3>
+        <p>Sigue siendo un listado de “entradas” visuales.</p>
+        <p>No hay contenido textual adicional, por lo que la lista es suficiente.</p>
+        <pre><code>
+&lt;h1&gt;Empresa ACME&lt;/h1&gt;
+&lt;section&gt;
+	&lt;h2&gt;Noticias&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;img src="miniatura1.jpg" alt="Imagen de la noticia 1"&gt;
+			&lt;a href="noticia1.html"&gt;Título de la noticia 1&lt;/a&gt;
+			&lt;time datetime="2025-11-11"&gt;11 de noviembre de 2025&lt;/time&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;img src="miniatura2.jpg" alt="Imagen de la noticia 2"&gt;
+			&lt;a href="noticia1.html"&gt;Título de la noticia 2&lt;/a&gt;
+			&lt;time datetime="2025-11-11"&gt;11 de noviembre de 2025&lt;/time&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/section&gt;
+</code></pre>
+        <h3>Escenario 4: Título, enlace, fecha, miniatura y breve introducción</h3>
+        <p>Ahora cada noticia tiene contenido propio (texto, fecha, imagen), así que cada una merece ser un <code>&lt;article&gt;</code>.</p>
+        <p>La lista deja de tener sentido semántico, porque no son simples ítems, sino contenidos autónomos.</p>
+        <pre><code>
+&lt;h1&gt;Empresa ACME&lt;/h1&gt;
+&lt;section&gt;
+	&lt;h2&gt;Noticias&lt;/h2&gt;
+	&lt;article&gt;
+	&lt;article&gt;
+		&lt;img src="miniatura1.jpg" alt="Imagen de la noticia 1"&gt;
+		&lt;h3&gt;&lt;a href="noticia1.html"&gt;Título de la noticia 1&lt;/a&gt;&lt;/h3&gt;
+		&lt;time datetime="2025-11-11"&gt;11 de noviembre de 2025&lt;/time&gt;
+		&lt;p&gt;Resumen breve de la noticia...&lt;/p&gt;
+	&lt;/article&gt;
+		<img src="miniatura2.jpg" alt="Imagen de la noticia 2"&gt;
+		<h3><a href="noticia2.html">Título de la noticia 2</a></h3>
+		<time datetime="2025-11-11">11 de noviembre de 2025</time>
+		<p>Resumen breve de la noticia...</p>
+	</article>
+&lt;/section&gt;
+</code></pre>
+        <h3>Escenario 5: Título, enlace, fecha, miniatura, introducción y “leer más”</h3>
+        <p>Aquí ya tenemos la estructura completa de una "tarjeta" de artículo por tanto, cada noticia es un <code>&lt;article&gt;</code> dentro de la <code>&lt;section&gt;</code> temática.</p>
+        <pre><code>
+&lt;h1&gt;Empresa ACME&lt;/h1&gt;
+&lt;section&gt;
+	&lt;h2&gt;Noticias&lt;/h2&gt;
+	&lt;article&gt;
+	&lt;article&gt;
+		&lt;img src="miniatura1.jpg" alt="Imagen de la noticia 1"&gt;
+		&lt;h3&gt;&lt;a href="noticia1.html"&gt;Título de la noticia 1&lt;/a&gt;&lt;/h3&gt;
+		&lt;time datetime="2025-11-11"&gt;11 de noviembre de 2025&lt;/time&gt;
+		&lt;p&gt;Resumen breve de la noticia...&lt;/p&gt;
+		&lt;p&gt;&lt;a href="noticia1.html"&gt;Leer más&lt;/a&gt;&lt;/p&gt;
+	&lt;/article&gt;
+		<img src="miniatura2.jpg" alt="Imagen de la noticia 2"&gt;
+		<h3><a href="noticia2.html">Título de la noticia 2</a></h3>
+		<time datetime="2025-11-11">11 de noviembre de 2025</time>
+		<p>Resumen breve de la noticia...</p>
+		<p><a href="noticia2.html">Leer más</a></p>
+	</article>
+&lt;/section&gt;
+</code></pre>
+        <p><strong>Nota:</strong> Lo más correcto sería que no existiera el enlace en html e implementarlo desde el lado de javascript, para evitar tener 2 enlaces que apuntan a la misma URL pero con diferente texto (problemas de UX, AccWeb y SEO).</p>
+        <h3>Resumen de ejemplos</h3>
+        <table class="table-todo-left">
+          <thead>
+            <tr>
+              <th>Escenario</th>
+              <th>Estructura recomendada</th>
+              <th>Elemento principal dentro de &lt;section&gt;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Solo título + enlace</td>
+              <td>&lt;ul&gt;&lt;li&gt;</td>
+              <td>Lista simple</td>
+            </tr>
+            <tr>
+              <td>2. Título + enlace + fecha</td>
+              <td>&lt;ul&gt;&lt;li&gt;&lt;time&gt;</td>
+              <td>Lista con metadato</td>
+            </tr>
+            <tr>
+              <td>3. Título + enlace + fecha + miniatura</td>
+              <td>&lt;ul&gt;&lt;li&gt;&lt;img&gt;</td>
+              <td>Lista visual</td>
+            </tr>
+            <tr>
+              <td>4. + párrafo de introducción</td>
+              <td>&lt;article&gt;</td>
+              <td>Contenido autónomo</td>
+            </tr>
+            <tr>
+              <td>5. + “leer más”</td>
+              <td>&lt;article&gt;</td>
+              <td>Contenido autónomo con enlace de acción</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>&nbsp;</p>
+        <h2>Ejemplo de estructura 2</h2>
+        <p>Ahora nos centramos en la página detalle de una noticia.</p>
+        <p>En este caso lo correcto es usar un <code>article</code> para envolver todo el contenido de la noticia, ya que es una unidad de información autónoma (tiene sentido por sí misma incluso fuera del sitio).</p>
+        <p>Dentro de ese <code>article</code> podemos usar varios <code>section</code> para dividir el contenido por temas o partes (por ejemplo, introducción, desarrollo, y reacciones).</p>
+        <pre><code>
+&lt;article&gt;
+	<header>
+		<h1>El nuevo parque urbano abre sus puertas en el centro de la ciudad</h1>
+		<p>
+			<time datetime="2025-11-11">11 de noviembre de 2025</time> &mdash;
+			Por <span class="autor">Gustavo, el reportero más dicharachero</span>
+		</p>
+		<figure>
+			<img src="parque.jpg" alt="Vista del nuevo parque urbano">
+			<figcaption>El nuevo parque urbano durante su inauguración.</figcaption>
+		</figure>
+	</header>
+
+	<section>
+		<h2>Introducción</h2>
+		<p>
+			Esta mañana se ha inaugurado oficialmente el nuevo parque urbano del centro, un proyecto que llevaba más de tres años en desarrollo y que busca ofrecer un espacio verde moderno y sostenible.
+		</p>
+	</section>
+
+	<section>
+		<h2>Detalles del proyecto</h2>
+		<p>
+			El parque cuenta con más de 50 especies vegetales autóctonas, zonas de recreo para niños, áreas deportivas y un anfiteatro al aire libre para eventos culturales.
+		</p>
+		<p>
+			La obra ha sido financiada por el ayuntamiento en colaboración con varias asociaciones vecinales.
+		</p>
+	</section>
+
+	<section>
+		<h2>Declaraciones y reacciones</h2>
+		<p>
+			La alcaldesa destacó la importancia de este nuevo espacio como punto de encuentro ciudadano: “Queremos que este parque sea un lugar de convivencia, naturaleza y cultura”.

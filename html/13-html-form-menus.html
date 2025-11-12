@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13. Menús desplegables | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>13. Menús desplegables</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Estos campos nos van a permitir seleccionar entre uno o varios valores
+          ya definidos.
+        </p>
+        <p>
+          El aspecto gráfico de estos campos es nativo y para cambiarlo
+          necesitaremos aplicar diferentes estilos y trucos que veremos en CSS.
+        </p>
+        <h2>Checkbox</h2>
+        <p>
+          Los checkbox se representan gráficamente como un cuadrado que el
+          usuario puede activar y desactivar. En este campo, el usuario no tiene
+          que introducir ningún dato, simplemente elegir entre los datos que se
+          le ofrecen. Podrá seleccionar, una, varias, todas o ninguna de las
+          opciones.
+        </p>
+        <p>
+          Por lo tanto, estableceremos nosotros el dato/valor de cada campo
+          checkbox, utilizando el atributo <code>value</code>.
+        </p>
+        <p>En este campo, primero se inserta el campo y después su etiqueta:</p>
+        <pre><code>
+&lt;p&gt;
+	¿desea recibir publicidad?
+	&lt;input type="checkbox" name="campoPubli" id="campoPubli" value="si"&gt;
+	&lt;label for="campoPubli"&gt;Sí&lt;/label&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <span class="rotulo-esp-form">¿desea recibir publicidad?</span>
+            <input
+              type="checkbox"
+              name="campoPubli"
+              id="campoPubli"
+              value="si" />
+            <label for="campoPubli">Sí</label>
+          </p>
+        </form>
+        <p>
+          Si queremos que una o varias opciones estén ya marcadas al entrar en
+          la página, basta con añadir el atributo
+          <code>checked="checked"</code> o simplemente <code>checked</code> en
+          el checkbox correspondiente.
+        </p>
+        <h2>Radio</h2>
+        <p>
+          Los radiobuttons se representan gráficamente por botones redondos. Se
+          utilizan normalmente cuando ofrecemos al usuario una lista de opciones
+          de la que sólo puede seleccionar una de ellas, de forma exclusiva.
+        </p>
+        <p>
+          Este elemento es el más especial que tenemos dentro de todos los
+          elementos <code>input</code>. Es la única excepción donde no podremos
+          utilizar el mismo valor para los atributos <code>id</code> y
+          <code>name</code>. Si fueran iguales, entonces se podrían elegir
+          varias opciones (como si fueran checkboxes)
+        </p>
+        <p>
+          Imaginemos que en un cuestionario queremos preguntar si la tortilla se
+          prefiere con cebolla o sin cebolla. Tenemos 2 opciones y el usuario
+          únicamente puede elegir una de ellas:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	¿Cómo te gusta la tortilla?:&lt;br&gt;
+	&lt;input type="radio" name="tortilla" id="tortillaCon" value="con cebolla"&gt;
+	&lt;label for="tortillaCon"&gt;Con Cebolla&lt;/label&gt;&lt;br&gt;
+	&lt;input type="radio" name="tortilla" id="tortillaSin" value="sin cebolla"&gt;
+	&lt;label for="tortillaSin"&gt;Sin Cebolla&lt;/label&gt;
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <span class="rotulo-esp-form">¿Cómo te gusta la tortilla?</span
+            ><br />
+            <input
+              type="radio"
+              name="tortilla"
+              id="tortillaCon"
+              value="con cebolla" />
+            <label for="tortillaCon">Con Cebolla</label><br />
+            <input
+              type="radio"
+              name="tortilla"
+              id="tortillaSin"
+              value="sin cebolla" />
+            <label for="tortillaSin">Sin Cebolla</label>
+          </p>
+        </form>
+        <p>
+          Si queremos que una o varias opciones estén ya marcadas al entrar en
+          la página, basta con añadir el atributo
+          <code>checked="checked"</code> o simplemente <code>checked</code> en
+          el radiobutton correspondiente.
+        </p>
+        <p>
+          Podríamos hacer que unos radiobuttons funcionaran como los checkbox,
+          es decir, que se pudiera hacer una selección múltiple, simplemente con
+          poner valores diferentes en sus atributos name. De la misma manera,
+          podríamos hacer que los checkbox funcionaran como los radiobuttos, si
+          ponemos un mismo valor en los atributos name de todos los checkbox
+          (creando el grupo de opciones).
+        </p>
+        <p>
+          Estas técnicas están desaconsejadas porque el usuario ha aprendido a
+          identificar los checkbox y los radiobuttons y a diferenciar su
+          comportamiento, por lo que si lo modificamos, entorpeceríamos la
+          interacción del usuario con la página y podríamos alterar su patron de
+          conocimiento.
+        </p>
+        <p>
+          Es como si decidimos que el botón de play sirva para subir el volúmen
+          y el del volumen haga las labores del play, los usuarios no lo
+          entenderían.
+        </p>
+        <h2>Select</h2>
+        <p>
+          Las listas de selección tienen una función similar a la de los
+          radiobuttons. Presentamos al usuario múltiples opciones en las que, a
+          priori, solo puede seleccionar una de ellas. La ventaja que tienen las
+          listas desplegables es que apenas ocupan espacio, y son muy útiles
+          cuando tenemos muchas opciones.
+        </p>
+        <h3 data-title="Básico">Selección básica</h3>
+        <p>La estructura nos puede recordar a la de una lista.</p>
+        <pre><code>
+&lt;p&gt;
+	<label for="campoColor">Elige un color favorito:</label>
+	<select name="campoColor" id="campoColor">
+		<option>negro</option>
+		<option>rojo</option>
+		<option>blanco</option>
+		<option>verde</option>
+		<option>azul</option>
+	</select>
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoColor">Elige un color favorito:</label>
+            <select name="campoColor" id="campoColor">
+              <option>negro</option>
+              <option>rojo</option>
+              <option>blanco</option>
+              <option>verde</option>
+              <option>azul</option>
+            </select>
+          </p>
+        </form>
+        <p>
+          Si queremos que una opción esté ya marcada al entrar en la página,
+          basta con añadir el atributo <code>selected="selected"</code> o
+          simplemente <code>selected</code> en la opción correspondiente.
+        </p>
+        <h3 data-title="Valor alternativo">Selección con valor alternativo</h3>
+        <p>
+          Si queremos que, al elegir una opción, el dato que se envíe no sea el
+          texto de la opción, sino otro valor, entonces tenemos que utilizar el
+          atributo <code>value</code> dentro de cada opción:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	<label for="campoProvincia">Elige tu provincia:</label>
+	<select name="campoProvincia" id="campoProvincia">
+		<option value="01">Araba/Álava</option>
+		<option value="48">Bizkaia</option>
+		<option value="20">Gipuzkoa</option>
+	</select>
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoProvincia">Elige tu provincia:</label>
+            <select name="campoProvincia" id="campoProvincia">
+              <option value="01">Araba/Álava</option>
+              <option value="48">Bizkaia</option>
+              <option value="20">Gipuzkoa</option>
+            </select>
+          </p>
+        </form>
+        <h3 data-title="Múltiple">Selección múltiple</h3>
+        <p>
+          Podemos hacer que se pueda seleccionar más de una opción, añadiendo el
+          parámetro <code>multiple</code> al elemento. No es un método
+          recomendable por dos razones:
+        </p>
+        <ul class="lista-facts">
+          <li>
+            Los usuarios dan por sentado que este elemento sólo permite
+            seleccionar una opción (como ocurre el 100% de las veces que se
+            utiliza) y la selección múltiple la asocian a los checkboxes.
+          </li>
+          <li>
+            Es necesaria la intervención del teclado físico para poder llevar a
+            cabo esta selección múltiple y hay usuarios que no disponen de él
+            (bien por dispositivo, situación, etc...).
+          </li>
+        </ul>
+        <pre><code>
+&lt;p&gt;
+	<label for="musica">Selecciona tus géneros musicales favoritos:</label>
+	<select id="musica" name="generos" multiple>
+		<option value="clasica">Clásica</option>
+		<option value="metal">Metal</option>
+		<option value="rock">Rock</option>
+		<option value="pop">Pop</option>
+		<option value="jazz">Jazz</option>
+		<option value="electronica">Electrónica</option>
+	</select>
+&lt;/p&gt;
+</code></pre>
+        <p>
+          Para seleccionar múltiples opciones, el usuario debe mantener
+          presionada la tecla <kbd>Ctrl</kbd> o <kbd>Cmd</kbd>.
+        </p>
+        <form class="ejemplo">
+          <p>
+            <label for="musica"
+              >Selecciona tus géneros musicales favoritos:</label
+            >
+            <select id="musica" name="generos" multiple>
+              <option value="clasica">Clásica</option>
+              <option value="metal">Metal</option>
+              <option value="rock">Rock</option>
+              <option value="pop">Pop</option>
+              <option value="jazz">Jazz</option>
+              <option value="electronica">Electrónica</option>
+            </select>
+          </p>
+        </form>
+        <h3 data-title="Categorizado">Selección categorizada</h3>
+        <p>
+          Si tenemos un listado de opciones que queremos categorizar, podemos
+          hacerlo de la siguiente manera:
+        </p>
+        <pre><code>
+&lt;p&gt;
+	<label for="campoProducto">Seleccione un producto:</label>
+	<select name="campoProducto" id="campoProducto">
+		<optgroup label="software">
+			<option value="1">Ubuntu</option>
+			<option value="2">Gimp</option>
+			<option value="3">Open Office</option>
+		</optgroup>
+			<optgroup label="hardware">
+			<option value="4">Regrabador DVD</option>
+			<option value="5">Tarjeta Gráfica</option>
+		</optgroup>
+		<optgroup label="material">
+			<option value="7">Tarrina 10 CDs</option>
+			<option value="8">Alfombrilla</option>
+			<option value="9">WebCam</option>
+		</optgroup>
+	</select>
+&lt;/p&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoProducto">Seleccione un producto:</label>
+            <select name="campoProducto" id="campoProducto">
+              <optgroup label="software">
+                <option value="1">Ubuntu</option>
+                <option value="2">Gimp</option>
+                <option value="3">Open Office</option>
+              </optgroup>
+              <optgroup label="hardware">
+                <option value="4">Regrabador DVD</option>
+                <option value="5">Tarjeta Gráfica</option>
+              </optgroup>
+              <optgroup label="material">
+                <option value="7">Tarrina 10 CDs</option>
+                <option value="8">Alfombrilla</option>
+                <option value="9">WebCam</option>
+              </optgroup>
+            </select>
+          </p>
+        </form>
+        <h3 data-title="Valor vacío">Valor vacío inicialmente</h3>
+        <p>
+          Por defecto, la primera opción de este elemento aparece de forma
+          visible y seleccionada. Si no queremos que aparezca nada como
+          seleccionado, tenemos la opción de crear una primera opción vacía.
+          Pero esto hace que el usuario pueda seleccionar esa opción que, en
+          realidad, no es una opción.
+        </p>
+        <p>
+          Para evitar todos estos problemas, basta con añadir unos atributos
+          adicionales a la no-opción problemática:
+        </p>
+        <pre><code>
+	<p>
+		<label for="campoProvincia">Elige tu provincia:</label>
+		<select name="campoProvincia" id="campoProvincia">
+			<option value="" disabled hidden selected></option>
+			<option value="01">Araba/Álava</option>
+			<option value="48">Bizkaia</option>
+			<option value="20">Gipuzkoa</option>
+		</select>
+	</p>
+</code></pre>
+        <form class="ejemplo">
+          <p>
+            <label for="campoProvincia2">Elige tu provincia:</label>
+            <select name="campoProvincia2" id="campoProvincia2">
+              <option value="" disabled hidden selected></option>
+              <option value="01">Araba/Álava</option>
+              <option value="48">Bizkaia</option>
+              <option value="20">Gipuzkoa</option>
+            </select>
+          </p>
+        </form>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ol class="descargas-lista">
+        <li>
+          <a
+            href="https://webdesign.tutsplus.com/how-to-make-custom-accessible-checkboxes-and-radio-buttons--cms-32074t"
+            rel="external"
+            >Checkbox y radiobutton personalizados</a
+          >
+        </li>
+      </ol>
+    </footer>
+  </body>
+</html>

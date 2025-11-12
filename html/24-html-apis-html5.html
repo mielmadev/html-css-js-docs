@@ -1,0 +1,362 @@
+scale"img<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24. APIs HTML5 | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>24. APIs HTML5</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Una API - Interfaz de Programacion de Aplicaciones (del inglés,
+          Application Programming Interface) es un trozo de código que permite a
+          diferentes aplicaciones comunicarse entre sí, compartir información y
+          funcionalidades. Es decir, se trata de un intermediario entre dos
+          sistemas, que permite que una aplicación se comunique con otra y pida
+          datos o acciones específicas.
+        </p>
+        <p>
+          Existen APIs de Navegador y APIs de terceros (por ejemplo, la API de
+          Youtube, Vimeo, Google Maps...).
+        </p>
+        <p>
+          Con la llegada de mejoras sustanciales y progresivas de HTML a partir
+          del año 2008, tenemos un extenso listado de APIs JavaScript que
+          permiten al Navegador comunicarse con el Sistema Operativo y Hardware
+          del dispositivo para obtener desde las coordenadas GPS de un
+          dispositivo móvil a detectar el nivel de batería que tiene el
+          dispositivo, o poder acceder a la webcam para realizar una
+          videoconferencia, por ejemplo.
+        </p>
+        <p>
+          Se pueden encontrar también bajo el nombre de APIs de HTML, pero en
+          realidad se gestiona todo con Javascript y se vuelcan los resultados a
+          la página web. Vamos a ver unas cuantas:
+        </p>
+        <h2>Geolocalización</h2>
+        <p>
+          La geolocalización consiste en averiguar en qué lugar del mundo nos
+          encontramos exactamente (mediante la dirección IP, conexión de red
+          inalámbrica, torre de señal móvil,GPS, etc.).
+        </p>
+        <p>
+          Por políticas de seguridad, los navegadores tienen que pedir
+          autorización expresa para ejecutar esta función Javascript:
+        </p>
+        <pre><code>
+navigator.geolocation.getCurrentPosition(function (position) {
+  let latitud = position.coords.latitude;
+  let longitud = position.coords.longitude;
+});
+</code></pre>
+        <dl>
+          <dt><code>geolocation</code></dt>
+          <dd>
+            Contiene tres métodos para controlar la recuperación de los datos
+            geográficos.
+          </dd>
+          <dt><code>position</code></dt>
+          <dd>
+            Representa la posición de un dispositivo en un momento dado — esto
+            contiene un objeto <code>Coordinates</code> que contiene la
+            información de la posición actual, además de una marca de tiempo con
+            el momento exacto.
+          </dd>
+          <dt><code>coords</code></dt>
+          <dd>
+            Contiene una gran cantidad de datos útiles sobre la posición del
+            dispositivo, incluyendo latitud y longitud, altitud, velocidad,
+            dirección de movimiento y más.
+          </dd>
+        </dl>
+        <p>
+          Podemos obtener las coordenadas y después pasar esos datos a la API de
+          Google Maps para mostrar un plano con el marcador de ubicación en esas
+          coordenadas:
+        </p>
+        <div class="ejemplo">
+          <p class="botonera">
+            <input type="button" value="¿Dónde estoy?" id="btnGeo" />
+          </p>
+        </div>
+        <div id="ejem-geo" style="margin-bottom: 80px">
+          <p id="status"></p>
+        </div>
+        <h2 data-title="Fullscreen">Pantalla completa (fullscreen)</h2>
+        <p>
+          Permite controlar si la página, o un contenido particular de la misma,
+          se muestra a pantalla completa (siempre con permiso previo del
+          usuario) o no.
+        </p>
+        <pre><code>
+document.getElementById('btnFullMenu').addEventListener(
+	'click',
+	function(){
+		let elem = document.getElementById('indice');
+		if (elem.requestFullscreen){
+		  elem.requestFullscreen();
+		}
+	},
+	false
+);
+</code></pre>
+        <div class="ejemplo">
+          <p class="botonera">
+            <input type="button" value="Página ⤧" id="btnFullPage" />
+            <input type="button" value="Logo ⤧" id="btnFullLogo" />
+            <input type="button" value="Menú ⤧" id="btnFullMenu" />
+            <input type="button" value="Video ⤧" id="btnFullVideo" />
+          </p>
+        </div>
+        <div class="ej-rwd">
+          <div class="rwd-container">
+            <video muted playsinline id="videoAurora">
+              <source
+                src="../mod-rwd/img/aurora.mp4"
+                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+            </video>
+          </div>
+        </div>
+        <h2>Batería</h2>
+        <p>
+          Podremos detectar el nivel de batería y ejecutar diferentes funciones
+          al respecto. Por motivos de privacidad, algunos navegadores han
+          decidido no implementarlo:
+        </p>
+        <pre><code>
+navigator.getBattery().then(function(result) {});
+
+//Resultado:
+BatteryManagery {
+	charging: false,
+	chargingTime: Infinity,
+	dischargingTime: 8940,
+	level: 0.59,
+	onchargingchange: null,
+	onchargingtimechange: null,
+	ondischargingtimechange: null,
+	onlevelchange: null
+}
+</code></pre>
+        <h2>Vibración</h2>
+        <p>Controla la vibración del dispositivo:</p>
+        <pre><code>
+navigator.vibrate(1000);
+</code></pre>
+        <h2 data-title="Validación formularios">
+          Validación Restringida (formularios) - Constraint Validation API
+        </h2>
+        <p>
+          Permite la validación personalizada de los campos de formulario,
+          incluyendo esa validación como si fuera nativa y dejándonos
+          personalizar el mensaje de error.
+        </p>
+        <p>
+          Esta API tiene varias funciones asociadas, pero vamos a destacar las
+          siguientes:
+        </p>
+        <dl>
+          <dt><code>setCustomValidity()</code></dt>
+          <dd>
+            Permite modificar el mensaje de validación y las reglas de
+            validación en sí mismas.
+          </dd>
+          <dt><code>reportValidity()</code></dt>
+          <dd>
+            Devuelve <code>true</code> si el elemento cumple con la validación,
+            y <code>false</code> si no lo hace.
+          </dd>
+        </dl>
+        <pre><code>
+let password1 = document.getElementById('password1');
+let password2 = document.getElementById('password2');
+
+if (password1.value != password2.value) {
+	password1.setCustomValidity('Los dos campos de Contraseña tienen que coincidir.');
+	password1.reportValidity();
+} else {
+	password1.setCustomValidity('');
+}
+</code></pre>
+        <h2>Drag & Drop</h2>
+        <p>Permite agarrar, arrastrar y soltar elementos en una página web.</p>
+        <p>
+          Para que el elemento tenga la posibilidad de ser arrastable tenemos
+          que añadirle un atributo:
+        </p>
+        <pre><code>
+&lt;div class="elem" draggable="true"&gt;Elemento&lt;/div&gt;
+</code></pre>
+        <p>
+          Para detectar si hemos arrastrado un elemento y lo hemos soltado en
+          una zona de la página tenemos varios eventos asociados, como:
+          <code>drag</code>, <code>dragstart</code>, <code>dragenter</code>,
+          <code>dragleave</code>, <code>dragover</code>, <code>drop</code>,
+          <code>dragend</code>...
+        </p>
+        <h2 data-title="Cámara, micro y video">
+          Control de cámara, micrófono y video
+        </h2>
+        <p>
+          Podemos controlar la webcam de un usuario así como el micrófono, con
+          el fin de grabar video/audio y procesarlo, realizar una videollamada,
+          etc.
+        </p>
+        <h2>Orientación</h2>
+        <p>
+          Se puede detectar la orientación y posición de un dispositivo así como
+          si cambia (por ejemplo, si tenemos un juego que detecta si giramos o
+          no el móvil como si fuera el volante de un coche).
+        </p>
+        <h2 data-title="Almacenamiento">
+          Almacenamiento (local, sesión y base de datos)
+        </h2>
+        <p>
+          Mediante los nuevos sistemas de almacenamiento de HTML 5, vamos a
+          poder almacenar información en el navegador.
+        </p>
+        <p>
+          Las cookies, que actualmente utilizamos están pensadas para almacenar
+          una información escasa y los navegadores las envían al servidor cada
+          vez que se recarga la página, por lo que se consume tiempo y ancho de
+          banda extras.
+        </p>
+        <p>
+          Por lo tanto, se necesita un nuevo sistema para poder almacenar gran
+          cantidad de información y que el intercambio de esta información entre
+          el navegador y el servidor sea rápida y eficaz.
+        </p>
+        <p>
+          Existen 2 tipos de almacenamiento: local y de sesión. En realidad
+          ambos son almacenamiento local (porque se guardan en el navegador),
+          pero se diferencia entre ellos por el tiempo que se mantienen
+          guardados:
+        </p>
+        <h3>Local</h3>
+        <p>
+          Almacena datos (sólo pares clave/valor) en la máquina del usuario. Los
+          datos almacenados son únicos al dominio (preferencias).
+        </p>
+        <pre><code>
+// Creo una clave con el nombre "clave1" y el valor asociado "1234"
+// (3 maneras de hacerlo)
+localStorage.setItem('clave1', '1234');
+localStorage.['clave1'] = '1234';
+localStorage.clave1 = '1234';
+
+//Recojo el valor en una variable
+var miDato1 = localStorage.getItem('clave1');
+
+//Elimino una clave/valor
+localStorage.removeItem('clave1');
+
+//Elimino todas las claves del almacenamiento local
+localStorage.clear();
+</code></pre>
+        <h3>Sesión</h3>
+        <p>
+          Almacenar datos (sólo pares clave/valor) únicamente válidos durante la
+          sesión (carritos de la compra o estado de aplicación).
+        </p>
+        <pre><code>
+// Creo una clave con el nombre "clave1" y el valor asociado "1234"
+// (3 maneras de hacerlo)
+sessionStorage.setItem('clave2', '9876');
+sessionStorage.['clave2'] = '9876';
+sessionStorage.clave2 = '9876';
+
+//Recojo el valor en una variable
+var miDato2 = sessionStorage.getItem('clave2');
+
+//Elimino una clave/valor
+sessionStorage.removeItem('clave2');
+
+//Elimino todas las claves del almacenamiento de sesión
+sessionStorage.clear();
+</code></pre>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Referencias</h2>
+      <ul class="descargas-lista">
+        <li>
+          <a href="https://developer.mozilla.org/es/docs/Web/API"
+            >Todas las APIs</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://developer.chrome.com/blog/voice-driven-web-apps-introduction-to-the-web-speech-api?hl=es-419"
+            rel="external"
+            >Aplicaciones controladas por voz</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.sitepoint.com/html5-forms-javascript-constraint-validation-api/"
+            rel="external"
+            >Validación de Formularios</a
+          >
+        </li>
+      </ul>
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ul class="descargas-lista">
+        <li>
+          <a href="http://html5demos.com/geo" rel="external">Geolocalización</a>
+        </li>
+        <li>
+          <a href="https://codepen.io/antxoa/pen/ExdMMaw" rel="external"
+            >Validación personalizada en formulario</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://code.makery.ch/library/dart-drag-and-drop/"
+            rel="external"
+            >Drag</a
+          >
+        </li>
+        <li>
+          <a
+            href="http://nettutsplus.s3.amazonaws.com/64_html5dragdrop/demo/index.html"
+            rel="external"
+            >Carrito de la compra con Drag & Drop</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://decafbad.com/2009/07/drag-and-drop/outline.html"
+            rel="external"
+            >Reordenar esquema con Drag & Drop</a
+          >
+        </li>
+        <li>
+          <a href="https://webcammictest.io/" rel="external"
+            >Prueba de cámara 1</a
+          >
+          y <a href="https://webcamtests.com/" rel="external">Prueba 2</a>
+        </li>
+        <li>
+          <a href="https://mictests.com/" rel="external">Prueba de Micrófono</a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

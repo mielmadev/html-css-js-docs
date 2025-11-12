@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>22. Multimedia | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-imagenes/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>22. Multimedia</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h2>figure / figcaption</h2>
+        <p>
+          El elemento <code>figure</code> permite asociar contenido embebido
+          (diagramas, ilustraciones, fotos, video, audio...)
+        </p>
+        <p>
+          Lleva conjuntamente el elemento <code>figcaption</code> que se
+          utilizará para implementar el texto asociado al contenido embebido, a
+          modo de pie de foto.
+        </p>
+        <pre><code>
+&lt;figure&gt;
+	&lt;img src="/imagenes/grafica-vida.jpg" alt="Gráfica"&gt;
+	&lt;figcaption&gt;
+		Gráfica 1: Vida de un desarrollador.
+	&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+        <figure>
+          <img src="/imagenes/grafica-vida.jpg" alt="Gráfica" class="noexpand" />
+          <figcaption>Gráfica 1: Vida de un desarrollador.</figcaption>
+        </figure>
+        <p>
+          No debemos utilizar <code>figure</code> de forma indiscriminada, sino
+          en los siguientes casos:
+        </p>
+        <dl class="">
+          <dt>Es auto-contenido:</dt>
+          <dd>
+            El contenido dentro de <code>figure</code> debe tener sentido por sí
+            mismo, incluso si se extrae del contexto del documento principal.
+          </dd>
+          <dt>Complementa el contenido principal:</dt>
+          <dd>
+            No es esencial para entender el texto principal, pero lo enriquece
+            (por ejemplo, una imagen ilustrativa, un gráfico de apoyo o una cita
+            relevante).
+          </dd>
+          <dt>Puede ser referenciado:</dt>
+          <dd>
+            Es un contenido al que se puede hacer referencia en el texto (por
+            ejemplo, "ver Figura 1") o que se beneficiaría de una descripción en
+            un <code>figcaption</code>.
+          </dd>
+          <dt>Incluye una descripción opcional:</dt>
+          <dd>
+            Si el contenido necesita un título, crédito, o explicación (por
+            ejemplo, "Gráfico de ventas 2024"), se incluye en un
+            <code>figcaption</code>.
+          </dd>
+        </dl>
+        <h2>picture / srcset</h2>
+        <p>
+          El elemento <code>picture</code>, junto con el atributo
+          <code>srcset</code> tienen como objetivo dar una solución a los
+          problemas de adaptación de una imagen a los distintos dispositivos
+          (tamaños, calidades...), permitiendo utilizar varias imágenes de las
+          cuales sólo será visible una de ellas (la que sea más óptima en cada
+          dispositivo).
+        </p>
+        <p>
+          Explicaremos su funcionamiento en el Módulo de
+          <abbr title="Responsive Web Design">RWD</abbr>.
+        </p>
+        <pre><code>
+&lt;picture&gt;
+	&lt;source media="(min-width: 1000px)" srcset="/imagenes/kitten-large.png"&gt;
+	&lt;source media="(min-width: 600px)" srcset="/imagenes/kitten-medium.png"&gt;
+	&lt;img src="/imagenes/kitten-small.png" alt="Gatito"&gt;
+&lt;/picture&gt;
+</code></pre>
+        <picture>
+          <source media="(min-width: 1000px)" srcset="/imagenes/kitten-large.png" />
+          <source media="(min-width: 600px)" srcset="/imagenes/kitten-medium.png" />
+          <img src="/imagenes/kitten-small.png" alt="Gatito" class="noexpand" />
+        </picture>
+        <h2>Video</h2>
+        <p>
+          Mediante el elemento <code>video</code> y una serie de atributos,
+          podemos insertar un video de manera nativa:
+        </p>
+        <dl>
+          <dt>src</dt>
+          <dd>
+            La URL del contenido de audio/video (puede reemplazarse por el
+            atributo <code>source</code>).
+          </dd>
+          <dt>autoplay (true|false):</dt>
+          <dd>Indica si el archivo debe reproducirse automáticamente o no.</dd>
+          <dt>loop (true|false):</dt>
+          <dd>
+            Indica si el archivo debe volverse a reproducir una vez llegado a su
+            fin.
+          </dd>
+          <dt>muted (true|false):</dt>
+          <dd>
+            Indica si el sonido debe estar activado inicialmente o no. Si no se
+            indica nada, el sonido estará activado.
+          </dd>
+          <dt>preload (none|metadata|auto):</dt>
+          <dd>
+            Indica al navegador cierta información del archivo.<br />
+            La diferencia entre metadata y auto es que metadata sólo pre-carga
+            la información del archivo (p.e. la duración que va a tener) y con
+            auto se cargará todo el archivo (independientemente de que el
+            usuario lo reproduzca o no).
+          </dd>
+          <dt>controls:</dt>
+          <dd>
+            Indica si se deben mostrar los controles de reproducción o no.
+          </dd>
+          <dt>source:</dt>
+          <dd>
+            Debido a las diferencias de soporte de formatos entre los diferentes
+            navegadores(mp4, webm, ogg), es recomendable ofrecer el contenido en
+            diferentes formatos. Para indicarle al navegador cuáles son,
+            prescindiremos del atributo <code>src</code> (ya que sólo puede
+            enlazar con un único archivo) y lo reemplazaremos por varias
+            instancias del atributo <code>source</code> (tantas como formatos
+            dispongamos).
+          </dd>
+          <dt>poster:</dt>
+          <dd>
+            Si el video tarda en cargarse (o no lo hace por alguna razón),
+            podemos establecer una imagen estática (un fotograma del video, por
+            ejemplo) que se muestre en ese caso.
+          </dd>
+        </dl>
+        <pre class="no-copy"><code>
+&lt;video src="video-publicidad.webm" autoplay="false" loop="true" muted="true" preload="auto" controls poster="caratula-video.png"&gt;&lt;/video&gt;
+
+&lt;video controls&gt;
+	<source src="video-sorteo.mp4">
+	<source src="video-sorteo.webm">
+	<source src="video-sorteo.ogg">
+&lt;/video&gt;
+</code></pre>
+        <h3>Pistas</h3>
+        <p>
+          El elemento <code>track</code> permite ofrecer subtítulos, títulos,
+          descripciones, capítulos o metadatos para el elemento multimedia.
+        </p>
+        <p>
+          La información textual se implementa en un archivo separado del
+          elemento multimedia, que puede estar en diferentes formatos (siempre y
+          cuando sean formatos soportado por los navegadores), aunque es
+          recomendable usar el éstándar que ofrece el W3C, el formato WebVTT.
+        </p>
+        <h3>Controles personalizados:</h3>
+        <p>
+          Es posible programar y diseñar nuestros propios controles
+          personalizados para el reproductor de audio/video. Para ello, será
+          necesario programarlo con Javascript, utilizando los atributos y
+          métodos habilitados para tal efecto, o bien utilizar alguna librería
+          ya creada.
+        </p>
+        <h2>Audio</h2>
+        <p>
+          En el elemento <code>audio</code> vamos a utilizar los mismos
+          atributos que en el elemento <code>video</code> a excepción de la
+          carátula y las pistas.
+        </p>
+        <pre><code>
+&lt;audio src="entrevista.mp3" controls&gt;&lt;/audio&gt;
+</code></pre>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Referencias</h2>
+      <ul class="descargas-lista">
+        <li>
+          <a
+            href="https://developer.mozilla.org/es/docs/Web/HTML/Element/track"
+            rel="external"
+            >Pistas (tracks) de video</a
+          >
+        </li>
+        <li>
+          <a href="https://www.w3.org/TR/webvtt1/" rel="external"
+            >WebVTT (Web Video Text Tracks Format)</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/Media/Audio_and_video_delivery/Video_player_styling_basics"
+            rel="external"
+            >Especificación Controles personalizados</a
+          >
+        </li>
+      </ul>
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ul class="descargas-lista">
+        <li>
+          <a href="https://es.wikipedia.org/wiki/Figura_musical" rel="external"
+            >Ejemplo referencia Figura</a
+          >
+        </li>
+        <li>
+          <a href="https://codepen.io/blackjacques/pen/bgamaj" rel="external"
+            >Controles personalizados</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

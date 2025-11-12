@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9. Tablas | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>9. Tablas</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Las tablas sirven para presentar información de forma tabulada, por
+          ejemplo, un calendario, una tabla de resultados, el resumen de un
+          carrito de la compra...
+        </p>
+        <p>
+          Durante años también se utilizaron con un propósito de diseño, para
+          maquetar los contenidos a modo de rejilla, por lo que su valor valor
+          semántico era incorrecto.
+        </p>
+        <h2>Tablas básicas</h2>
+        <p>Para crear una tabla vamos a utilizar varios elementos:</p>
+        <ul class="lista-facts">
+          <li>El elemento general de tabla es <code>table</code></li>
+          <li>Cada fila de la tabla será un elemento <code>tr</code></li>
+          <li>
+            Cada celda de datos de cada fila será un elemento <code>td</code>
+          </li>
+          <li>
+            Tenemos otros elementos adicionales para indicar las celdas de
+            cabecera (<code>th</code>), para el título asociado a la tabla
+            (<code>caption</code>) y para estructurar las diferentes partes de
+            una tabla (<code>thead, tbody, tfoot</code>)
+          </li>
+        </ul>
+        <p>
+          Para modificar las propiedades de bordes, espacio entre celdas,
+          márgenes dentro de la celda y aspecto gráfico, utilizaremos las
+          propiedades de CSS.
+        </p>
+        <p
+          class="codepen"
+          data-height="500"
+          data-theme-id="dark"
+          data-default-tab="result"
+          data-slug-hash="BaEzmNj"
+          data-user="antxoa"
+          data-token="9c6fafe7a5fb2c4a29595c7a36531d08"
+          style="
+            height: 500px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a
+              href="https://codepen.io/antxoa/pen/BaEzmNj/9c6fafe7a5fb2c4a29595c7a36531d08">
+              Untitled</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <script
+          async
+          src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <pre><code>
+&lt;table&gt; &lt;!-- comienza la tabla --&gt;
+
+	&lt;!-- t&iacute;tulo de la tabla --&gt;
+	&lt;caption&gt;Personal de Dunder Mifflin&lt;/caption&gt;
+
+	&lt;thead&gt; &lt;!-- Cabecera de la tabla --&gt;
+		&lt;tr&gt; &lt;!-- empezamos a escribir la 1&ordf; fila --&gt;
+			&lt;!-- escribimos las celdas de cabecera --&gt;
+			&lt;th&gt;Nombre&lt;/th&gt;
+			&lt;th&gt;Departamento&lt;/th&gt;
+			&lt;th&gt;Extensión&lt;/th&gt;
+		&lt;/tr&gt; &lt;!-- finalizamos la 1&ordf; fila --&gt;
+	&lt;/thead&gt;
+
+	&lt;tbody&gt; &lt;!-- Cuerpo/Contenido de la tabla --&gt;
+		&lt;tr&gt; &lt;!-- empezamos a escribir la 2&ordf; fila --&gt;
+			&lt;!-- escribimos las celdas de datos --&gt;
+			&lt;td&gt;Michael Scott&lt;/td&gt;
+			&lt;td&gt;Gerencia&lt;/td&gt;
+			&lt;td&gt;233&lt;/td&gt;
+		&lt;/tr&gt; &lt;!-- finalizamos la 2&ordf; fila --&gt;
+
+		&lt;tr&gt; &lt;!-- empezamos a escribir la 3&ordf; fila --&gt;
+			&lt;td&gt;Dwight Schrute&lt;/td&gt;
+			&lt;td&gt;Ventas&lt;/td&gt;
+			&lt;td&gt;255&lt;/td&gt;
+		&lt;/tr&gt; &lt;!-- finalizamos la 3&ordf; fila --&gt;
+
+		&lt;tr&gt; &lt;!-- empezamos a escribir la 4&ordf; fila --&gt;
+			&lt;td&gt;Jim Halpert&lt;/td&gt;
+			&lt;td&gt;Ventas&lt;/td&gt;
+			&lt;td&gt;256&lt;/td&gt;
+		&lt;/tr&gt; &lt;!-- finalizamos la 4&ordf; fila --&gt;
+
+		&lt;tr&gt; &lt;!-- empezamos a escribir la 5&ordf; fila --&gt;
+			&lt;td&gt;Pam Beesly&lt;/td&gt;
+			&lt;td&gt;Atención al cliente&lt;/td&gt;
+			&lt;td&gt;211&lt;/td&gt;
+		&lt;/tr&gt; &lt;!-- finalizamos la 5&ordf; fila --&gt;
+	&lt;/tbody&gt;
+
+&lt;/table&gt; &lt;!-- finaliza la tabla --&gt;
+</code></pre>
+        <h2>Expansión de filas y columnas</h2>
+        <p>
+          En ocasiones, es necesario que una celda ocupe más de un espacio (bien
+          de la misma fila o bien de la misma columna). Para ello utilizaremos
+          los atributos <code>colspan</code> y <code>rowspan</code> aplicados en
+          la celda de datos.
+        </p>
+        <p
+          class="codepen"
+          data-height="420"
+          data-theme-id="dark"
+          data-default-tab="result"
+          data-slug-hash="eYozepV"
+          data-user="antxoa"
+          style="
+            height: 420px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/eYozepV"> HTML - Tabla 2</a>
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <pre><code>
+&lt;table&gt;
+	&lt;caption&gt;Novedades en el Videoclub&lt;/caption&gt;
+	&lt;tr&gt;
+		&lt;th&gt;T&iacute;tulo&lt;/th&gt;
+		&lt;th colspan=&quot;2&quot;&gt;G&eacute;neros&lt;/th&gt;
+	&lt;/tr&gt;
+
+	&lt;tr&gt;
+		&lt;td&gt;Sin City&lt;/td&gt;
+		&lt;td&gt;Acci&oacute;n&lt;/td&gt;
+		&lt;td&gt;Comic&lt;/td&gt;
+	&lt;/tr&gt;
+
+	&lt;tr&gt;
+		&lt;td&gt;Charlie y la f&aacute;brica de chocolate&lt;/td&gt;
+		&lt;td&gt;Infantil&lt;/td&gt;
+		&lt;td&gt;Musical&lt;/td&gt;
+	&lt;/tr&gt;
+
+	&lt;tr&gt;
+		&lt;td&gt;La madre del novio&lt;/td&gt;
+		&lt;td rowspan=&quot;2&quot;&gt;Comedia&lt;/td&gt;
+		&lt;td rowspan=&quot;2&quot;&gt;Rom&aacute;ntica&lt;/td&gt;
+	&lt;/tr&gt;
+
+	&lt;tr&gt;
+		&lt;td&gt;Embrujada&lt;/td&gt;
+	&lt;/tr&gt;
+
+&lt;/table&gt;
+</code></pre>
+        <h2>Accesibilidad</h2>
+        <p>
+          Para los usuarios que utilizan un lector de pantalla, la lectura y
+          comprensión de una tabla es algo complejo, aunque sea una tabla
+          simple.
+        </p>
+        <p>
+          Para aumentar la legibilidad de la tabla se pueden añadir dos
+          atributos adicionales (<code>headers</code> e <code>id</code>) para
+          indicar de forma explícita la asociación entre una celda de cabecera y
+          la celda o celdas de datos a los que hace referencia.
+        </p>
+        <p>
+          Lo único que tenemos que hacer es identificar mediante un atributo
+          <code>id</code> cada una de las celdas de cabecera <code>th</code> de
+          la tabla. Después, cada celda de datos <code>td</code> llevará un
+          atributo <code>headers</code> con el valor del atributo
+          <code>id</code> de la celda (o celdas) de cabecera que le corresponde.
+        </p>
+        <p>
+          Por último, añadiremos también a las celdas de cabecera el atributo
+          <code>scope</code> con los valores <code>col</code> o
+          <code>row</code> para indicar si la información está ordenada en
+          columna o en fila.
+        </p>
+        <p
+          class="codepen"
+          data-height="500"
+          data-default-tab="html,result"
+          data-slug-hash="LEpMXYr"
+          data-pen-title="HTML - tabla 3"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/LEpMXYr"> HTML - tabla 3</a>
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <script
+          async
+          src="https://public.codepenassets.com/embed/index.js"></script>
+        <p>
+          Estos atributos son opcionales en tablas sencillas que sólo tengan la
+          información en fila o en columna. Cuando tenemos información mezclada
+          tanto en filas como en columnas, entonces sí que serán necesarios:
+        </p>
+        <p
+          class="codepen"
+          data-height="500"
+          data-default-tab="html,result"
+          data-slug-hash="gbaZQxO"
+          data-pen-title="HTML - tabla 4"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/gbaZQxO"> HTML - tabla 4</a>
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <script
+          async
+          src="https://public.codepenassets.com/embed/index.js"></script>
+        <p>
+          En el pasado también ha existido el atributo <code>summary</code> que
+          proporcionaba un resumen alternativo a la informaciónd de la tabla,
+          pero este atributo está ya obsoleto y si se quiere dar la información
+          en un formato alternativo a la tabla, se realizará con una
+          implementación normal de la información.
+        </p>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Recursos</h2>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a
+            href="https://www.accessify.com/tools-and-wizards/accessibility-tools/table-builder/"
+            rel="external"
+            >Generador de Tablas</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://html.spec.whatwg.org/multipage/tables.html#table-descriptions-techniques"
+            rel="external"
+            >Técnicas para describir tablas</a
+          >
+        </li>
+      </ol>
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a
+            href="https://www.ortuellasanfelix.com/tu-vivienda/#pisos-tabla3"
+            rel="external"
+            >Tablas de pisos</a
+          >
+        </li>
+        <li>
+          <a href="https://www.teatroarriaga.eus/" rel="external">Calendario</a>
+        </li>
+        <li>
+          <a
+            href="https://www.marca.com/futbol/primera-division/clasificacion.html"
+            rel="external"
+            >Clasificación deportiva</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://es.wikipedia.org/wiki/Anexo:Personajes_de_The_Office#Reparto_principal"
+            rel="external"
+            >Tabla compleja</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.kisphp.com/html/how-to-create-a-complex-table-in-html"
+            rel="external"
+            >Tabla muy compleja</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.htmlbestcodes.com/Complex_table.htm"
+            rel="external"
+            >Tabla (mal usada) para maquetar</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://web.archive.org/web/20040131005201/http://logrocket.com:80/"
+            rel="external"
+            >Página antigua maquetada con tablas</a
+          >
+        </li>
+      </ol>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10. Otros elementos | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>10. Otros elementos</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Dentro de la especificación HTML existen más elementos para
+          proporcionar valor semántico al contenido, por ejemplo:
+        </p>
+        <h2>Iframe</h2>
+        <p>
+          El elemento <code>iframe</code> se utiliza para insertar contenido de
+          otra página web dentro de una página existente, por ejemplo, un video
+          de Youtube, un mapa de Google Maps...
+        </p>
+        <p>
+          Por lo general, nosotros no vamos a crear este elemento. Cuando
+          vayamos a insertar este contenido, la página donde se encuentra ese
+          contenido a insertar nos facilitará el código para copiar y pegar, que
+          no podremos modificar.
+        </p>
+        <p>
+          El contenido dentro del <code>iframe</code> es completamente
+          independiente del contenido de nuestra página, por lo que nuestros
+          estilos CSS y funciones Javascript no se aplicarán al contenido dentro
+          del <code>iframe</code>.
+        </p>
+        <pre><code>
+&lt;!-- Video Youtube --&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube-nocookie.com/embed/pxUSYa3u7rs?si=mC4gi8Z2YPkzV2Ad&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;!-- Mapa Google Maps --&gt;
+&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10902.285379700763!2d-2.9266834000090793!3d43.371624242320614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4361a5f31b31%3A0x96d1894e7b4b6d9!2sCastillo%20de%20Butr%C3%B3n%2C%20Bo.%20Butron%2C%2012%2C%2048110%20Gatica%2C%20Vizcaya!5e0!3m2!1ses!2ses!4v1710369254055!5m2!1ses!2ses&quot; width=&quot;600&quot; height=&quot;450&quot; style=&quot;border:0;&quot; allowfullscreen=&quot;&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;no-referrer-when-downgrade&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+        <h2>Dirección</h2>
+        <p>
+          El elemento <code>address</code> se utiliza para marcar la información
+          de contacto del autor/responsable de la página (ya sea una dirección
+          postal, un teléfono, un e-mail...). y sólo debe incluir esta
+          información específica. Generalmente lo vamos a utilizar en el pie de
+          página (que es donde suele ubicarse)
+        </p>
+        <pre><code>
+&lt;address&gt;
+	&lt;p&gt;Empresa ACME&lt;br&gt;
+	C/ Gran V&iacute;a n&ordm; 1&lt;br&gt;
+	48000 Bilbao (Vizcaya)&lt;br&gt;
+	Tel&eacute;fono: 94 444 444 444
+	&lt;/p&gt;
+&lt;/address&gt;
+</code></pre>
+        <p>
+          No debe utilizarse para representar direcciones de manera arbitraria.
+          Por ejemplo, si tuviéramos que implementar un directorio de empresas
+          <a href="https://empresas.elcorreo.com/bizkaia" rel="external"
+            >similar a esta web</a
+          >, el elemento <code>address</code> sólo se implementaría en el pie de
+          página, con la dirección postal del periódico. Las direcciones
+          postales/teléfonos de las empresas se implementarían simplemente con
+          párrafo.
+        </p>
+        <h2>Superíndice y Subíndice</h2>
+        <p>
+          El elemento <code>sup</code> se aplica a un texto que se tiene que
+          mostrar como superíndice, esto es, más alto y más pequeño que el texto
+          principal, como es el caso de números y letras en notaciones
+          científicas, matemáticas o para referencias en un texto.
+        </p>
+        <p>
+          El elemento <code>sub</code> por el contrario, se aplica a un texto
+          que se tiene que mostrar como subíndice:más bajo y pequeño.
+        </p>
+        <pre><code>
+&lt;p&gt;La parcela de mide 20m&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;La f&oacute;rmula qu&iacute;mica de agua es: H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+</code></pre>
+        <p>
+          Estas etiquetas no deben usarse para lograr un efecto visual sin más,
+          para ello utilizaremos CSS.
+        </p>
+        <h2>Elemento <code>b</code></h2>
+        <p>
+          El elemento <code>b</code> representa un fragmento de texto que se
+          resalta por ser importante en relación al contenido: palabras clave de
+          un documento, nombres de productos en una revisión del mismo, o
+          cualquier otro fragmento de texto que se represente en negrita en modo
+          escrito.
+        </p>
+        <pre><code>
+&lt;h2&gt;Opiniones sobre Caracoles Lentos&lt;/h2&gt;
+&lt;p&gt;
+	Los &lt;b class=&quot;nom-product&quot;&gt;Caracoles Lentos&lt;/b&gt;
+	son un nuevo producto de la empresa alimenticia....
+&lt;/p&gt;
+</code></pre>
+        <h2>Elemento <code>i</code></h2>
+        <p>
+          El elemento <code>i</code> representa un fragmento de texto en voz
+          alternativa o contenido que se presenta con itálica (cursiva) en modo
+          escrito: palabras en otro idioma (utilizando el atributo lang),
+          términos técnicos y taxonómicos, notación musical, pensamientos,
+          cambios en el estado de ánimo, referencia a contenido escrito a
+          mano...
+        </p>
+        <p>
+          Es recomendable utilizar clases (atributo <code>class</code>) para
+          indicar el significado que se le quiere dar al elemento
+          <code>i</code> en cada caso (de este modo se demuestra que no se está
+          utilizando como elemento de diseño):
+        </p>
+        <pre><code>
+&lt;p&gt;
+	Los &lt;i lang=&quot;ca&quot;&gt;escargots&lt;/i&gt;, o caracoles,
+	son de la familia de los &lt;i class=&quot;taxonomy&quot;&gt;Helix aspersa&lt;/i&gt;.
+&lt;/p&gt;
+</code></pre>
+        <h2>Tecla</h2>
+        <p>
+          El elemento <code>kbd</code> lo utilizaremos para indicar que el texto
+          mostrado pertenece a una tecla o combinación de teclas que tendremos
+          que introducir por nuestro teclado.
+        </p>
+        <pre><code>
+&lt;p&gt;Pulsa &lt;kbd&gt;F5&lt;/kbd&gt; para refrescar la p&aacute;gina.&lt;/p&gt;
+</code></pre>
+        <p>
+          Mediante CSS se puede simular una tecla física de teclado, como se
+          puede ver en el
+          <a href="../mod-intro/4-extensiones.php" rel="external"
+            >capítulo 4 de la Introducción del Curso</a
+          >.
+        </p>
+        <h2>Insertado y borrado</h2>
+        <p>
+          A veces, cuando modificamos un dato de una página web (p.e. una fecha,
+          precio en rebajas, etc.), nos interesa dejar constancia de esa
+          modificación. Para ello vamos a utilizar los elementos
+          <code>ins</code> y <code>del</code>.
+        </p>
+        <p>
+          <code>del</code> se utiliza para marcar el contenido antiguo e
+          <code>ins</code>, para marcar el contenido nuevo que lo ha sustituído.
+        </p>
+        <pre><code>
+&lt;p&gt;El sorteo se realizar&aacute; el 2 de abril a las &lt;del&gt;11&lt;/del&gt; &lt;ins&gt;12&lt;/ins&gt; de la ma&ntilde;ana.&lt;/p&gt;
+</code></pre>
+        <h2>Preformateo y código</h2>
+        <p>
+          El elemento <code>pre</code> representa texto preformateado, es decir,
+          se respetarán los espacios, saltos de línea y tabulaciones tal y como
+          están escritos:
+        </p>
+        <pre><code>
+&lt;pre&gt;
+	function saludar() {
+		console.log(&apos;&iexcl;Hola, clase!&apos;);
+	}
+&lt;/pre&gt;
+</code></pre>
+        <p>
+          El elemento <code>code</code> sirve para indicar que el texto que
+          estamos mostrando pertenece a un código informático y normalmente
+          suele utilizarse junto con <code>pre</code> para mantener los saltos
+          de línea, sangrías, etc.:
+        </p>
+        <pre><code>
+&lt;code&gt;
+	class HelloWorld {
+		public static void main(String[] args) {
+			System.out.println(&quot;Hello World!&quot;);
+		}
+	}
+&lt;/code&gt;
+</code></pre>
+        <h2>Orden de tabulador</h2>
+        <p>
+          El atributo <code>tabindex</code> permite modificar el orden de
+          navegación mediante el tabulador. El valor de este atributo será
+          numérico, indicando el orden en caso de haber más de uno. Si la
+          información de la página está bien estructurada y en orden, es muy
+          raro que necesitemos este atributo.
+        </p>
+        <p>
+          En ocasiones se utiliza para parchear algo que se ha planteado mal y
+          la solución resultante suele ser aún peor.
+        </p>
+        <p>
+          Por ejemplo, imaginemos que tenemos una página con enlaces de
+          navegación, contenido y un formulario para suscribirse a una
+          newsletter. Al entrar en la página, el foco se coloca automáticamente
+          en el campo de formulario, pasando por alto los enlaces de navegación
+          y cualquier otro elemento interactivo que pueda haber antes.
+        </p>
+        <p
+          class="codepen"
+          data-height="620"
+          data-default-tab="result"
+          data-slug-hash="RNWEqXW"
+          data-pen-title="HTML - Tabindex (mal uso)"
+          data-user="antxoa"
+          style="
+            height: 300px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid;
+            margin: 1em 0;
+            padding: 1em;
+          ">
+          <span
+            >See the Pen
+            <a href="https://codepen.io/antxoa/pen/RNWEqXW">
+              HTML - Tabindex (mal uso)</a
+            >
+            by Antxoa (<a href="https://codepen.io/antxoa">@antxoa</a>) on
+            <a href="https://codepen.io">CodePen</a>.</span
+          >
+        </p>
+        <script
+          async
+          src="https://public.codepenassets.com/embed/index.js"></script>
+        <p>
+          Otro ejemplo podría ser un formulario (mal) maquetado con tablas. Como
+          el orden de navegación sigue siempre la secuencia del código fuente,
+          la secuencia será: nombre, población, apellidos, cp, dirección y
+          teléfono, ya que las tablas se construyen por filas (y no por
+          columnas).
+        </p>
+        <p><img src="img/tabindex1.png" alt="Tabindex" class="noexpand" /></p>
+        <p>
+          Cuando el usuario vaya a rellenar el formulario, si está acostumbrado
+          a pasar de un campo a otro con tabulador del teclado, se le hará muy
+          raro el orden de relleno de los campos, ya que lo normal es introducir
+          el nombre, después los apellidos, después de la población el cp,
+          etc...
+        </p>
+        <p><img src="img/tabindex2.png" alt="Tabindex" class="noexpand" /></p>
+        <pre><code>
+&lt;table&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Nombre:&lt;br /&gt;&lt;input type=&quot;text&quot; name=&quot;nom&quot; tabindex=&quot;1&quot; /&gt;&lt;/td&gt;
+		&lt;td&gt;Poblaci&oacute;n:&lt;br /&gt;&lt;input type=&quot;text&quot; name=&quot;pob&quot; tabindex=&quot;4&quot; /&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Apellidos:&lt;br /&gt;&lt;input type=&quot;text&quot; name=&quot;apel&quot; tabindex=&quot;2&quot; /&gt;&lt;/td&gt;
+		&lt;td&gt;CP:&lt;br /&gt;&lt;input type=&quot;text&quot; name=&quot;cp&quot; tabindex=&quot;5&quot; /&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Direcci&oacute;n:&lt;br /&gt;&lt;input type=&quot;text&quot; name=&quot;dir&quot; tabindex=&quot;3&quot; /&gt;&lt;/td&gt;
+		&lt;td&gt;Tel&eacute;fono:&lt;br /&gt;&lt;input type=&quot;text&quot; name=&quot;tfn&quot; tabindex=&quot;6&quot; /&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+        <p>
+          <strong>Nota:</strong> este código de formulario en incorrecto en
+          muchos sentidos (semántico, accesible) y sólo se utiliza para ilustrar
+          un mal uso del atributo <code>tabindex</code>, no debe tomarse como
+          base para usar en una web real.
+        </p>
+        <h2>Acceso directo</h2>
+        <p>
+          El atributo <code>accesskey</code> permite implementar atajos de
+          teclado para los enlaces más utilizados en nuestra web (al igual que
+          los atajos de teclado en un programa software).
+        </p>
+        <p>
+          Basta con utilizar el atributo con un valor (tecla) de letra o número:
+        </p>
+        <pre><code>
+&lt;a href=&quot;index.html&quot; accesskey=&quot;1&quot;&gt;P&aacute;gina de inicio&lt;/a&gt;
+</code></pre>
+        <p>La combinación de teclas varía de unos navegadores a otros:</p>
+        <table class="tabla-accesskey">
+          <tbody>
+            <tr>
+              <th></th>
+              <th>Windows</th>
+              <th>Linux</th>
+              <th>Mac</th>
+            </tr>
+            <tr>
+              <th>Firefox</th>
+              <td colspan="2">
+                <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd><em>tecla</em></kbd>
+              </td>
+              <td>
+                <kbd>Control</kbd> + <kbd>Option</kbd> +
+                <kbd><em>tecla</em></kbd
+                ><br /><br />o <kbd>Control</kbd> + <kbd>Alt</kbd> +
+                <kbd><em>tecla</em></kbd>
+              </td>
+            </tr>
+            <tr>
+              <th>MS Edge</th>
+              <td rowspan="2">
+                <kbd>Alt</kbd> + <kbd><em>tecla</em></kbd>
+              </td>
+              <td rowspan="2">
+                <kbd>Control</kbd> + <kbd>Option</kbd> +
+                <kbd><em>tecla</em></kbd
+                ><br /><br />o <kbd>Control</kbd> + <kbd>Option</kbd> +
+                <kbd>Shift</kbd> +
+                <kbd><em>tecla</em></kbd>
+              </td>
+              <td rowspan="2">
+                <kbd>Control</kbd> + <kbd>Option</kbd> +
+                <kbd><em>tecla</em></kbd>
+              </td>
+            </tr>
+            <tr>
+              <th>Google Chrome</th>
+            </tr>
+            <tr>
+              <th>Safari</th>
+              <td colspan="2">n/a</td>
+              <td>
+                <kbd>Control</kbd> + <kbd>Option</kbd> +
+                <kbd><em>tecla</em></kbd>
+              </td>
+            </tr>
+            <tr>
+              <th>Opera</th>
+              <td colspan="2">
+                <kbd>Alt</kbd> + <kbd><em>tecla</em></kbd>
+              </td>
+              <td>
+                <kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd><em>tecla</em></kbd>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Es recomendable utilizar sólo los números para evitar posibles
+          interferencias con las letras que sirven como atajo de teclado en los
+          navegadores y ayudas técnicas. También se recomienda utilizar el
+          número "1" para la página de inicio.
+        </p>
+        <p>Chrome suele ignorar estos accesos directos.</p>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a href="https://codepen.io/antxoa/pen/zYXKGWz" rel="external"
+            >Todos los ejemplos de este capítulo</a
+          >
+        </li>
+        <li><a href="index.php" accesskey="1">Prueba acceso directo</a></li>
+      </ol>
+    </footer>
+  </body>
+</html>

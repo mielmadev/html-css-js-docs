@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17. Botones | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>17. Botones</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Para poder enviar o restablecer (borrar) los datos del formulario,
+          necesitamos botones.
+        </p>
+        <p>
+          Los botones no llevan una etiqueta a la que asociarse porque ellos
+          mismos ya tienen la etiqueta dentro del botón.
+        </p>
+        <p>Tenemos los siguientes 5 tipos de botones:</p>
+        <h2 data-title="submit">Ejecución del formulario:</h2>
+        <p>
+          Ejecuta el <code>action</code> del formulario. Es decir, envía el
+          formulario.
+        </p>
+        <pre><code>
+&lt;input type="submit" value="Enviar Formulario"&gt;
+</code></pre>
+        <h2 data-title="reset">Restablecimiento (reseteo) del formulario</h2>
+        <p>
+          Deja los campos de formulario tal y como estaban al entrar en la
+          página (si hemos rellenado datos, los borraría).
+        </p>
+        <pre><code>
+&lt;input type="reset" value="Restablecer Formulario"&gt;
+</code></pre>
+        <h2 data-title="button">Sin función</h2>
+        <p>
+          Este botón no hace nada, servirá para programar funciones
+          personalizadas mediante Javascript.
+        </p>
+        <pre><code>
+&lt;input type="button" value="No hago nada"&gt;
+</code></pre>
+        <h2 data-title="image">Botón de imagen</h2>
+        <p>
+          Hacemos que una imagen funcione como un
+          <code>&lt;input type="submit"&gt;</code>.
+        </p>
+        <pre><code>
+&lt;input type="image" src="img/boton-1.png" alt="Ver detalles"&gt;
+</code></pre>
+        <h2>Botón complejo</h2>
+        <p>Permite insertar en el botón tanto texto como imagen.</p>
+        <p>
+          Por defecto, es como un <code>&lt;input type="submit"&gt;</code>, pero
+          se le puede cambiar la funcionalidad mediante el atributo
+          <code>type</code> y la acción correspondiente (reset, button).
+        </p>
+        <pre><code>
+	&lt;button&gt;
+		Llámame
+		&lt;img src="img/boton-2.png" alt="Whatsapp"&gt;
+		y reserva ya
+	&lt;/button&gt;
+</code></pre>
+        <form class="ejemplo">
+          <p class="botonera">
+            <input type="submit" value="Enviar Formulario" />
+            <input type="reset" value="Restablecer Formulario" />
+            <input type="button" value="No hago nada" />
+            <input type="image" src="img/boton-1.png" alt="Ver detalles" />
+          </p>
+          <p>
+            <button>
+              Llámame<br />
+              <img src="img/boton-2.png" alt="Whatsapp" /><br />
+              y reserva ya
+            </button>
+          </p>
+        </form>
+      </article>
+    </main>
+    <footer class="pag-pie"></footer>
+  </body>
+</html>

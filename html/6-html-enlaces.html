@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Enlaces | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>6. Enlaces</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Los enlaces, o también llamados vínculos, hiperenlaces... son la
+          piedra angular de las páginas web.
+        </p>
+        <h2>Estructura general</h2>
+        <p>
+          Los enlaces se implementan mediante el elemento <code>a</code> y se
+          componen, básicamente, de dos partes: ruta (atributo
+          <code>href</code>) y texto del enlace.
+        </p>
+        <p>
+          Si la página que vamos a enlazar se encuentra en la misma carpeta que
+          la página en la que estamos, bastará con escribir el nombre del
+          fichero.
+        </p>
+        <p>
+          Si está alojada en una subcarpeta, entonces utilizamos una barra
+          <code>/</code> para indicar el camino y si se encuentra en una carpeta
+          de un nivel superior, utilizamos dos puntos y una barra
+          <code>../</code> para subir de nivel:
+        </p>
+        <pre class="no-copy"><code>
+&lt;a href=&quot;ruta&quot;&gt;texto del enlace&lt;/a&gt;
+
+&lt;a href=&quot;mipagina.html&quot;&gt;p&aacute;gina personal&lt;/a&gt;
+
+&lt;a href=&quot;personal/mipagina.html&quot;&gt;mi p&aacute;gina&lt;/a&gt; (en subdirectorio)
+
+&lt;a href=&quot;../mipagina.html&quot;&gt;mi p&aacute;gina&lt;/a&gt; (en nivel superior)
+</code></pre>
+        <p>Podemos subir o bajar de nivel las veces que sea necesario:</p>
+        <pre class="no-copy"><code>
+&lt;a href=&quot;personal/io/mio/mipagina.html&quot;&gt;mi p&aacute;gina&lt;/a&gt;
+
+&lt;a href=&quot;../../../mipagina.html&quot;&gt;mi p&aacute;gina&lt;/a&gt;
+</code></pre>
+        <h2 data-title="Externos">Enlace a una página externa:</h2>
+        <p>
+          Los enlaces externos necesitan llevar una estructura estándar en
+          cuanto a su ruta:
+        </p>
+        <ul class="lista-facts">
+          <li>Empiezan por <code>http://</code> o <code>https://</code></li>
+          <li>Después puede ir <code>www</code> o un subdominio</li>
+          <li>Finaliza con el nombre del domino</li>
+        </ul>
+        <pre class="no-copy"><code>
+Incorrecto:
+&lt;a href=&quot;google.es&quot;&gt;Google&lt;/a&gt;
+&lt;a href=&quot;www.google.es&quot;&gt;Google&lt;/a&gt;
+&lt;a href=&quot;http:www.google.es&quot;&gt;Google&lt;/a&gt;
+&lt;a href=&quot;https://www.play.google.com/&quot;&gt;Google Play&lt;/a&gt;
+</code></pre>
+        <pre class="no-copy"><code>
+Correcto:
+&lt;a href=&quot;http://www.google.es&quot;&gt;Google&lt;/a&gt;
+&lt;a href=&quot;https://www.google.es&quot;&gt;Google&lt;/a&gt;
+&lt;a href=&quot;https://play.google.com/&quot;&gt;Google Play&lt;/a&gt;
+</code></pre>
+        <pre class="no-copy"><code>
+Correcto, si se ha configurado el dominio para permitirlo:
+&lt;a href=&quot;http://google.es&quot;&gt;Google&lt;/a&gt;
+&lt;a href=&quot;https://google.es&quot;&gt;Google&lt;/a&gt;
+</code></pre>
+        <h3 data-title="Complementar info">
+          Complementar información del enlace
+        </h3>
+        <p>
+          Podemos utilizar el atributo <code>title</code> para ofrecer una
+          pequeña descripción de la página a la que vamos a enlazar. No tendrá
+          mucho sentido si el texto del título es idéntico o similar al texto
+          del enlace.
+        </p>
+        <p>
+          Este atributo es opcional y sólo debe usarse sabiendo muy bien el por
+          qué y en caso de ofrecer información adicional
+        </p>
+        <pre class="no-copy"><code>
+Incorrecto:
+&lt;a href=&quot;http://www.yahoo.com&quot; title=&quot;Yahoo&quot;&gt;Yahoo&lt;/a&gt;
+
+Correcto:
+&lt;a href=&quot;http://www.yahoo.com&quot; title=&quot;Yahoo: noticias, e-mail, fotos, grupos, etc...&quot;&gt;Yahoo&lt;/a&gt;
+</code></pre>
+        <h3 data-title="Nueva ventana/pestaña">
+          Enlaces en nueva ventana/pestaña
+        </h3>
+        <p>
+          Durante años, la costumbre más extendida para abrir los enlaces
+          externos en una nueva ventana era utilizar el atributo
+          <code>target="_blank"</code> en el enlace.
+        </p>
+        <p>
+          Sin embargo, en la actualidad, esta práctica está desaconsejada,
+          puesto que los navegadores utilizan mecanismos para no abrir en una
+          nueva ventana (sino en una nueva pestaña) o incluso pueden bloquer
+          esta orden.
+        </p>
+        <p>
+          Por lo tanto utilizaremos soluciones javascript (por ejemplo, marcando
+          el enlace como externo con el atributo <code>rel="external"</code> y
+          aplicando una función javascript sobre este atributo) que veremos a su
+          debido tiempo.
+        </p>
+        <h2 data-title="Dentro de la página">Enlaces dentro de una página</h2>
+        <p>
+          Para enlaces dentro de la misma página o dentro de otra página,
+          utilizamos lo que se denomina una referencia. En el elemento donde
+          queremos saltar, insertamos una referencia mediante el atributo
+          <code>id</code> y después implementamos un enlace que lleve a ese
+          elemento.
+        </p>
+        <p>
+          Como el enlace no apunta ni a un archivo ni a una página externa, sino
+          que apunta a una referencia, será necesario empezar la ruta del enlace
+          con una almohadilla <code>#</code>:
+        </p>
+        <pre class="no-copy"><code>
+&lt;a href=&quot;#cancion2&quot;&gt;Canci&oacute;n 2&lt;/a&gt;
+
+&lt;a href=&quot;noticias.html#referencia1&quot;&gt;Referencia&lt;/a&gt;
+
+...........
+
+&lt;p id=&quot;cancion2&quot;&gt;Esta es la Canci&oacute;n 2&lt;/p&gt;
+</code></pre>
+        <p>
+          El valor del atributo <code>id</code> es libre pero tiene que seguir
+          unas normas:
+        </p>
+        <ul class="lista-facts">
+          <li>Tiene que ser único en la página, no puede haber duplicados</li>
+          <li>
+            No puede empezar con un número pero sí puede contenerlo (cancion8 es
+            correcto, pero 8canción es incorrecto)
+          </li>
+          <li>No puede contener espacios</li>
+          <li>No puede contener caracteres especiales, acentuados...</li>
+        </ul>
+        <h2>Otros enlaces</h2>
+        <p>
+          Podemos hacer enlaces especiales a una dirección de e-mail, un
+          teléfono, whatsapp, etc...
+        </p>
+        <pre><code>
+&lt;a href=&quot;mailto:hola@acme.es&quot;&gt;env&iacute;a a un e-mail&lt;/a&gt;
+
+&lt;a href=&quot;tel:944 444 444&quot;&gt;944 444 444&lt;/a&gt;
+
+&lt;a href=&quot;https://wa.me/34944444444?text=hola&quot;&gt;Env&iacute;a por Whatsapp&lt;/a&gt;
+
+&lt;a href=&quot;https://api.whatsapp.com/send?phone=+34944444444&amp;text=hola&quot;&gt;Env&iacute;a por Whatsapp&lt;/a&gt;
+</code></pre>
+        <br /><br />
+        <ul class="lista-facts">
+          <li>
+            <a href="mailto:hola@acme.es" rel="external">envía a un e-mail</a>
+          </li>
+          <li><a href="tel:944 444 444" rel="external">944 444 444</a></li>
+          <li>
+            <a href="https://wa.me/34944444444?text=hola" rel="external"
+              >Envía por Whatsapp</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://api.whatsapp.com/send?phone=+34944444444&text=hola"
+              rel="external"
+              >Envía por Whatsapp</a
+            >
+          </li>
+        </ul>
+        <h2 data-title="Idioma destino">Idioma de destino de un enlace</h2>
+        <p>
+          Si un enlace apunta a una página en un idioma diferente al que
+          estamos, podemos indicar ese lenguaje mediante el atributo
+          <code>hreflang</code>:
+        </p>
+        <pre><code>
+&lt;a href=&quot;http://www.nasa.gov&quot; hreflang=&quot;en&quot;&gt;NASA&lt;/a&gt;
+
+&lt;a href=&quot;http://www.paris.fr&quot; hreflang=&quot;fr&quot;&gt;Ayuntamiento de Par&iacute;s&lt;/a&gt;
+</code></pre>
+        <p>
+          Este atributo es similar al atributo <code>lang</code>, en cuanto a
+          los códigos de idioma/región.
+        </p>
+        <h2>Imágenes como enlace</h2>
+        <p>
+          Es posible utilizar una imagen como enlace, basta con reemplazar el
+          texto del enlace con la imagen:
+        </p>
+        <pre><code>
+&lt;a href=&quot;index.html&quot;&gt;mapa web&lt;/a&gt;
+
+&lt;a href=&quot;index.html&quot;&gt;
+	&lt;img src=&quot;mapa.gif&quot; alt=&quot;mapa web&quot;&gt;
+&lt;/a&gt;
+</code></pre>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Ejemplos</h2>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a
+            href="https://www.marca.com/futbol/primera-division/clasificacion.html"
+            rel="external"
+            >title mal</a
+          >
+          (menús)
+        </li>
+      </ol>
+      <h2 class="titulo-indice articulo-titulo-indice">Recursos</h2>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a href="https://faq.whatsapp.com/425247423114725/" rel="external"
+            >Referencia Whatsapp</a
+          >
+        </li>
+      </ol>
+    </footer>
+  </body>
+</html>

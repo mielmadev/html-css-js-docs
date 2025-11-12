@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Esquema básico | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/html-header.jpg" alt="" /></p>
+      <h1>2. Esquema básico</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Ahora que conocemos la mecánica de las etiquetas y los atributos,
+          vamos a empezar a crear nuestro primer código web.
+        </p>
+        <h2 data-title="html">html: Elemento/Etiqueta principal</h2>
+        <p>
+          El elemento principal es <strong>html</strong> que se representa con
+          las etiquetas de apertura <code>&lt;html&gt;</code> y de cierre
+          <code>&lt;/html&gt;</code>. Entre la apertura y el cierre se
+          insertarán el resto de elementos.
+        </p>
+        <pre class="no-copy"><code>
+&lt;html&gt;
+
+&lt;/html&gt;
+</code></pre>
+        <p>
+          Además, para indicar explícitamente al navegador que estamos haciendo
+          una página html, indicamos con una línea estándar, al principio de
+          todo de nuestro código, el estándar que estamos escribiendo.
+        </p>
+        <p>
+          Esta línea en realidad es una etiqueta especial que no tiene etiqueta
+          de cierre. Se tiene que poner tal cual.
+        </p>
+        <pre class="no-copy"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;/html&gt;
+</code></pre>
+        <h3 data-title="lang">lang: Idioma principal</h3>
+        <p>
+          En la etiqueta <code>&lt;html&gt;</code> vamos a añadir un atributo
+          que sirve para indicar el idioma en el que vamos a tener la
+          información de la página web. Esto servirá posteriormente para que los
+          buscadores puedan indexar mejor el idioma de los contenidos, que se
+          puedan hacer traducciones en el propio navegador, etc.
+        </p>
+        <p>
+          Este atributo es <code>lang</code> y el valor tiene que corresponder
+          con el código ISO 639 de 2 caracteres:
+        </p>
+        <pre class="no-copy"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+
+&lt;/html&gt;
+</code></pre>
+        <p>
+          Adicionalmente también se puede establecer el código ISO 3166
+          correspondiente a idioma y región:
+        </p>
+        <pre class="no-copy"><code>
+&lt;html lang=&quot;es&quot;&gt;   &lt;html lang=&quot;es-ES&quot;&gt;   &lt;html lang=&quot;es-MX&quot;&gt;
+
+&lt;html lang=&quot;en&quot;&gt;   &lt;html lang=&quot;en-UK&quot;&gt;   &lt;html lang=&quot;en-US&quot;&gt;   &lt;html lang=&quot;en-AU&quot;&gt;
+</code></pre>
+        <p>
+          Este atributo no es obligatorio pero es esencial para el buen
+          funcionamiento de nuestra página web, por lo tanto, lo vamos a poner
+          siempre.
+        </p>
+        <h2 data-title="head">head: el encabezado (invisible)</h2>
+        <p>
+          El elemento <code>html</code> va a contener obligatoriamente 2
+          elementos más. Estos 2 elementos serán sus hijos y no se puede
+          prescindir de ellos, ni añadir otros. Son dos elementos únicos.
+        </p>
+        <p>
+          El primer elemento es <code>head</code>, representado por la etiqueta
+          <code>&lt;head&gt;</code>. Esta etiqueta va inmediatamente después de
+          abrir <code>&lt;html&gt;</code>, es decir, es su primer hijo:
+        </p>
+        <pre class="no-copy"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+
+    &lt;head&gt;
+
+    &lt;/head&gt;
+
+&lt;/html&gt;
+</code></pre>
+        <p>
+          Dentro de <code>head</code> se ubica una gran cantidad de información
+          técnica que no será visible en el navegador, pero sí se necesitará a
+          nivel operativo, por ejemplo: asociación con código CSS, JavaScript,
+          iconos para marcadores, codificación de caracteres, información para
+          buscadores, redes sociales, etc.
+        </p>
+        <p>
+          A medida que avance el curso iremos añadiendo más información a este
+          elemento, pero por el momento nos vamos a centrar en lo
+          imprescindible: la codificación de caracteres y el título interno de
+          la página.
+        </p>
+        <h3>Codificación de caracteres</h3>
+        <p>
+          Para que el navegador sepa qué codificación de caracteres debe
+          utilizar a la hora de mostrar los textos, es necesario indicar
+          explícitamente esta información. No es lo mismo tener una página
+          escriba en inglés que una en chino, puesto que los caracteres son
+          totalmente diferentes.
+        </p>
+        <p>
+          Existen múltiples codificaciones y para los idiomas occidentales vamos
+          a utilizar <strong>utf-8</strong> (en el pasado se utilizaba
+          ISO-8859-1) y para indicarlo en nuestra página web vamos a hacer uso
+          del elemento <code>meta</code> y el atributo <code>charset</code>:
+        </p>
+        <pre class="no-copy"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+
+    &lt;head&gt;
+
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+
+    &lt;/head&gt;
+
+&lt;/html&gt;
+</code></pre>
+        <p>
+          La etiqueta <code>meta</code> se usa exclusivamente dentro de
+          <code>head</code> y tiene múltiples usos. Es por ello que podemos
+          tener varias <code>meta</code>, cada una con diferentes atributos y
+          valores.
+        </p>
+        <p>
+          Es una etiqueta autoconclusiva, es decir, no va a existir etiqueta de
+          cierre, por lo que no podemos inventarnos la etiqueta de cierre:
+        </p>
+        <pre class="no-copy"><code>
+&lt;!-- esto es incorrecto --&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;/meta&gt;
+</code></pre>
+        <h3 data-title="title">title: título interno</h3>
+        <p>
+          Cuando navegamos, en las pestañas siempre aparece un icono y un texto.
+          De tal manera de con la combinación de ambos podemos diferenciar una
+          pestaña de otra. Y si añadimos la página a nuestros
+          marcadores/favoritos también aparecerá esa información.
+        </p>
+        <p>
+          Ese texto que aparece en la pestaña es el elemento
+          <code>title</code> de la página. No tiene por qué coincidir con el que
+          aparecerá en nuestra pantalla de contenidos, es un título para
+          visualizar en la pestaña y marcadores.
+        </p>
+        <p>
+          Este elemento es único y va ubicado dentro de <code>head</code>,
+          preferiblemente después de la codificación de caracteres. Si va antes,
+          es posible que si el texto que pongamos tiene caracteres especiales no
+          se visualicen correctamente puesto que aún no le hemos dicho al
+          navegador cuál es la codificación de caracteres:
+        </p>
+        <pre class="no-copy"><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+
+    &lt;head&gt;
+
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Mi primera página&lt;/title&gt;
+
+    &lt;/head&gt;
+
+&lt;/html&gt;
+</code></pre>
+        <h2 data-title="body">body: el cuerpo (visible)</h2>
+        <p>
+          El segundo elemento hijo de <code>html</code> es <code>body</code>,
+          representado por la etiqueta <code>&lt;body&gt;</code>. Esta etiqueta
+          va inmediatamente después de cerrar <code>&lt;head&gt;</code>, es
+          decir, es su hermano y el segundo hijo de <code>html</code>:
+        </p>
+        <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+
+    &lt;head&gt;
+
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;Mi primera página&lt;/title&gt;
+
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+        ... El contenido visible ...
+
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+        <p>
+          Dentro de <code>body</code> se ubican todas las etiquetas que
+          necesitamos para elaborar la página web, cuyo resultado se visualizará
+          en el navegador.
+        </p>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Referencias</h2>
+      <ul class="descargas-lista articulo-indice">
+        <li>
+          <a
+            href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes"
+            rel="external"
+            >ISO 639</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes"
+            rel="external"
+            >ISO 3166</a
+          >
+        </li>
+        <li>
+          <a href="https://htmlhead.dev/" rel="external">Opciones de head</a>
+        </li>
+        <li>
+          <a href="https://realfavicongenerator.net/" rel="external"
+            >Generador de Favicon</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
