@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Validación | Documentación de HTML, CSS y JS</title>
+    <title>2. Validación CSS | Documentación de HTML, CSS y JS</title>
     <link
       rel="icon"
       type="image/x-icon"
@@ -17,13 +17,12 @@
     <link rel="stylesheet" href="/estilos/root.css" />
     <link rel="stylesheet" href="/estilos/estilos.css" />
   </head>
-
   <body>
-    <header>
+    <header class="pag-cabecera">
       <h1>2. Validación</h1>
     </header>
-    <main>
-      <section>
+    <main class="pag-main">
+      <article class="articulo">
         <p>
           Al igual que hemos hecho con el código HTML, el código CSS lo
           tendremos que validar para evitar errores y malas implementaciones.
@@ -37,26 +36,27 @@
           Utilizaremos el validador de código CSS que el W3C pone a nuestra
           disposición. Y también lo podemos validar de 3 maneras diferentes:
         </p>
-        <ul>
-          <li>Indicando la dirección web de una página que sea pública.</li>
-          <li>El validador busca las CSS enlazadas, embebidas...</li>
+        <ul class="lista-pasos">
+          <li>
+            Indicando la dirección web de una página que sea pública.<br />El
+            validador busca las CSS enlazadas, embebidas...
+          </li>
           <li>Subiendo nuestro archivo css local</li>
           <li>Copiando y pegando todo el código fuente</li>
         </ul>
-      </section>
-      <section>
-        <h2>Referencias</h2>
-        <ul>
-          <li>
-            <a href="https://jigsaw.w3.org/css-validator/#validate_by_upload"
-              >CSS Validator</a
-            >
-          </li>
-        </ul>
-      </section>
+      </article>
     </main>
-    <footer>
-      <!-- Puedes añadir información de contacto, copyright, etc. aquí si lo deseas -->
+    <footer class="pag-pie">
+      <h2 class="titulo-indice">Referencias</h2>
+      <ul class="descargas-lista articulo-indice">
+        <li>
+          <a
+            href="https://jigsaw.w3.org/css-validator/#validate_by_upload"
+            rel="external"
+            >CSS Validator</a
+          >
+        </li>
+      </ul>
     </footer>
   </body>
 </html>
