@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Insertar CSS | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/css-header.jpg" alt="" /></p>
+      <h1>1. Insertar CSS</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>Existen 4 métodos para insertar código CSS en nuestra página Web:</p>
+        <h2>Estilos externos</h2>
+        <p>
+          También llamados estilos enlazados, es el método más utilizado.
+          Crearemos uno o varios archivos CSS donde estarán todas las
+          propiedades que vamos a utilizar y desde nuestra página HTML
+          llamaremos al archivo (o archivos) CSS en el elemento
+          <code>head</code>.
+        </p>
+        <p>
+          El elemento que sirve para incluir el archivo de estilos es
+          <code>link</code> y va a necesitar 4 atributos:
+        </p>
+        <pre><code>&lt;link rel="stylesheet" href="ruta/estilos.css" type="text/css" media="all"&gt;</code></pre>
+        <h3>Atributo <code>href</code></h3>
+        <p>
+          Indica la ruta al archivo de estilos (igual que si estamos creando un
+          enlace a otro archivo html). Los archivos a enlazar tendrán extensión
+          <code>.css</code> y el nombre deberá cumplir la misma normativa que
+          para los archivos <code>.html</code> (<a
+            href="../mod-html/1-normas.php#esq-archivo"
+            rel="external"
+            >ver normativa</a
+          >).
+        </p>
+        <h3>Atributo <code>rel</code></h3>
+        <p>
+          Este atributo establece una relación de tipo de hoja de estilo entre
+          el archivo html y el archivo css. Siempre será
+          <code>stylesheet</code>.
+        </p>
+        <h3>Atributo <code>type</code></h3>
+        <p>
+          Este atributo indica que el contenido del archivo css es texto y con
+          código css (se utiliza el MIME type adecuado para los archivos .css).
+        </p>
+        <h3>Atributo <code>media</code></h3>
+        <p>
+          El atributo <code>media</code> puede llevar diferentes valores, en
+          función del dispositivo en el que queremos que se cargue el archivo de
+          estilos:
+        </p>
+        <dl>
+          <dt><code>media="all"</code></dt>
+          <dd>Para todos los dispositivos</dd>
+          <dt><code>media="screen"</code></dt>
+          <dd>Para dispositivos de pantalla</dd>
+          <dt><code>media="print"</code></dt>
+          <dd>Para dispositivos de impresión</dd>
+        </dl>
+        <p>
+          Si omitimos el atributo <code>media</code>, los dispositivos asumen
+          que el archivo se va a cargar siempre, para todos (es decir, sería
+          como usar un valor <code>all</code>):
+        </p>
+        <pre><code>&lt;link rel="stylesheet" href="ruta/estilos.css" type="text/css"&gt;</code></pre>
+        <p>
+          Es posible cargar el archivo en varios dispositivos, separando los
+          valores con comas:
+        </p>
+        <pre><code>&lt;link rel="stylesheet" href="ruta/estilos.css" type="text/css" media="screen,print"&gt;</code></pre>
+        <h2>Estilos embebidos</h2>
+        <p>
+          Este método se utiliza principalmente para insertar estilos únicos de
+          la página/sección en la que nos encontramos. También se insertará en
+          el elemento <code>head</code> de nuestra página HTML:
+        </p>
+        <pre><code>&lt;style type="text/css" media="all"&gt;
+  a{text-decoration:none;}
+&lt;/style&gt;</code></pre>
+        <h2>Estilos en línea</h2>
+        <p>
+          En este método, insertamos las propiedades CSS mediante el atributo
+          <code>style</code> en nuestro archivo HTML, por lo que sólo se
+          aplicará a ese elemento concreto:
+        </p>
+        <pre><code>&lt;a href="index.html" style="text-decoration:none"&gt;Inicio&lt;/a&gt;</code></pre>
+        <p>Este método sólo se debe utilizar en los siguientes dos casos:</p>
+        <ul class="lista-facts">
+          <li>
+            Mientras estamos desarrollando una página web, haciendo pruebas, en
+            una formación..., pero nunca en la web publicada.
+          </li>
+          <li>
+            Si en nuestra página web existe un editor
+            <a href="https://es.wikipedia.org/wiki/WYSIWYG" rel="external"
+              >WYSIWYG</a
+            >
+            (como <a href="https://www.tiny.cloud/" rel="external">TinyMCE</a>,
+            <a href="https://ckeditor.com/" rel="external">CKEditor</a> o
+            similares) y por lo tanto no tenemos ningún control sobre el
+            contenido que va a generar el usuario, como ocurre en gestores de
+            contenido (CMS) como Wordpress, Magento...
+          </li>
+        </ul>
+        <p>En cualquier otro caso, no se debe utilizar este método.</p>
+        <p>
+          El motivo es que este método dificulta mucho el mantenimiento de la
+          web, ya que si queremos cambiar una propiedad que hemos aplicado a
+          varios elementos, tendremos que buscar y modificar cada uno de ellos.
+        </p>
+        <p>
+          Además, este método tiene la máxima prioridad, por lo que si en un
+          futuro queremos cambiar esa propiedad desde una hoja de estilos
+          externa o embebida, no podremos hacerlo a menos que utilicemos
+          <code>!important</code>, lo que complicará aún más el mantenimiento de
+          la web.
+        </p>
+        <h2>La regla @import</h2>
+        <p>
+          La regla @import permite importar hojas de estilo desde otras hojas de
+          estilo. Se puede usar de las siguientes formas:
+        </p>
+        <pre class="no-copy"><code>@import "ruta/hoja_de_estilo.css";
+@import url("ruta/hoja_de_estilo.css");</code></pre>
+        <p>
+          Esta declaración deberá ir antes que cualquier otra regla en la hoja
+          de estilo.
+        </p>
+        <p>
+          Cuando se utiliza este método, el navegador primero carga todo el
+          código HTML de forma secuencial, saltándose los estilos. Y hasta que
+          no haya cargado completamente la página web no es cuando descarga y
+          aplica los estilos. Es por ello que primero veremos la página sin
+          estilos y después de un tiempo (medio segundo, varios segundos...) se
+          cargarán.
+        </p>
+        <p>
+          A este comportamiento se le denomina <strong>FUOC</strong>: Flash of
+          Unstyled Content (también puede ocurrir al implementar determinadas
+          librerías javascript en diferido) y por lo general es bastante
+          molesto.
+        </p>
+        <p>
+          Por lo tanto, este método está desaconsejado salvo que sea necesario
+          por requerimientos específicos y se sepa muy bien el por qué se va a
+          utilizar.
+        </p>
+        <h2>Archivos</h2>
+        <p>
+          <a
+            href="https://www.antxoa-dev.com/curso/mod-css/descargas/css-0-insercion.zip"
+            >Ejemplos inserción css</a
+          >
+        </p>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Referencias</h2>
+      <ul class="descargas-lista articulo-indice">
+        <li>
+          <a
+            href="https://es.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions"
+            rel="external"
+            >¿Qué son los MIME?</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.iana.org/assignments/media-types/media-types.xhtml"
+            rel="external"
+            >Listado IANA de MIME Types</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://drafts.csswg.org/mediaqueries-4/#media-type"
+            rel="external"
+            >Atributos media</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content"
+            rel="external"
+            >FUOC</a
+          >
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=5OkkUtAs9qU" rel="external"
+            >Ejemplo FUOC</a
+          >
+          y
+          <a href="https://www.youtube.com/watch?v=sKhpFxyIhHU" rel="external"
+            >otro ejemplo</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

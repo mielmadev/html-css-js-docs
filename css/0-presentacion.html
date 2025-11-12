@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0. Presentación CSS | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+
+  <body>
+    <header class="pag-cabecera">
+      <p><img src="/imagenes/css-header.jpg" alt="" /></p>
+      <h1>0. Presentación</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          <strong>CSS</strong> (Cascading Style Sheets - Hojas de Estilo en
+          Cascada) es un lenguaje de hoja de estilo creado por el
+          <strong>W3C</strong> que permite añadir estilos (tipografías, tamaños,
+          espaciado, color...) y maquetación a los documentos Web.
+        </p>
+        <p>
+          Separando el estilo de presentación del contenido de los documentos,
+          CSS simplifica la creación y mantenimiento de los sitios Web.
+        </p>
+        <h2 data-title="Estado actual">
+          Estado actual de la especificación CSS
+        </h2>
+        <p>
+          CSS está dividido en diferentes módulos (colores, bordes,
+          posicionamiento...) y en cada módulo, los editores trabajan a ritmos
+          diferentes, por lo que algunos módulos han finalizado su desarrollo y
+          otros acaban de empezar a trabajar.
+        </p>
+        <h2>Soporte actual</h2>
+        <p>
+          Un motor de renderizado es el encargado de traducir el código de una
+          página web (HTML, CSS, JavaScript) en los elementos visuales que
+          podemos ver y con los que podremos interactuar en nuestro navegador.
+        </p>
+        <p>
+          Cada navegador utiliza un motor de renderizado concreto y va adoptando
+          las nuevas propiedades a su ritmo. Hasta hace unos años, mientras los
+          navegadores probaban que la propiedad funcionase bien, solían
+          implementar una versión <em>beta</em> de dicha propiedad. Esta
+          implementación se realizaba utilizando unos prefijos específicos (en
+          función de cada motor de renderizado) delante de la propiedad CSS a
+          utilizar (por ejemplo <code>-moz-nombrePropiedad</code>,
+          <code>-webkit-nombrePropiedad</code>...) y en algunos ejemplos y
+          páginas de referencia aparecerán.
+        </p>
+        <p>
+          En la actualidad, los navegadores han modificado este método por otro
+          más óptimo. En vez de utilizar prefijos, utilizamos directamente la
+          propiedad estándar y en la configuración del navegador habilitamos la
+          característica experimental.
+        </p>
+      </article>
+    </main>
+    <footer class="pag-pie">
+      <h2 class="titulo-indice articulo-titulo-indice">Ejercicios</h2>
+      <ul class="descargas-lista articulo-indice">
+        <li><a href="descargas/CSS-ejercicios.zip">Todos los ejercicios</a></li>
+      </ul>
+      <h2 class="titulo-indice articulo-titulo-indice">Referencias</h2>
+      <ul class="descargas-lista articulo-indice">
+        <li><a href="https://www.w3.org/Style/CSS/" rel="external">CSS</a></li>
+        <li>
+          <a href="https://www.w3.org/Style/CSS/current-work" rel="external"
+            >Estado actual de CSS</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://en.wikipedia.org/wiki/Comparison_of_browser_engines"
+            rel="external"
+            >Comparativa Motores de Renderizado</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://css-tricks.com/is-vendor-prefixing-dead/"
+            rel="external"
+            >¿Están los prefijos muertos?</a
+          >
+        </li>
+        <li>
+          <a href="https://caniuse.com/" rel="external"
+            >Comprobar soporte CSS y HTML</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
