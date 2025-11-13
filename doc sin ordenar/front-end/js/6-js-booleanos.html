@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booleanos en JavaScript | Documentación de HTML, CSS y JS</title>
+    <link rel="icon" type="image/x-icon" href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Booleanos en JavaScript</h1>
+    </header>
+    <main>
+      <article class="js-booleanos" id="js-booleanos">
+        <h2>Operaciones básicas con booleanos</h2>
+
+        <h3>¿Qué es un booleano?</h3>
+
+        <p>Los booleanos son un tipo de dato que solo puede tener dos valores: <code>true</code> (verdadero) o <code>false</code> (falso). Se utilizan para representar estados binarios, como encendido/apagado, sí/no, verdadero/falso, etc.</p>
+
+        <p><strong>En programación puedes verificar que algo sea mayor, menor o igual</strong>, con booleanos se puede hacer comparaciones.</p>
+
+        <p>Los booleanos son muy útiles en estructuras de control como condicionales y bucles, donde se evalúa una condición para determinar el flujo del programa.</p>
+
+        <h3 id="nega">Negación</h3>
+
+        <p>El operador de negación (<code>!</code>) invierte el valor de un booleano:</p>
+
+        <pre><code>var rebajas = true;
+console.log(rebajas);   // true
+console.log(!rebajas);  // false
+
+var activado = false;
+console.log(activado);	// false
+console.log(!activado);	// true</code></pre>
+
+        <h3 id="oplogic">Operadores lógicos</h3>
+
+        <p>Los operadores lógicos permiten combinar múltiples condiciones booleanas:</p>
+
+        <ul>
+          <li><strong>AND (<code>&&</code>):</strong> Devuelve <code>true</code> solo si ambas condiciones son verdaderas</li>
+          <li><strong>OR (<code>||</code>):</strong> Devuelve <code>true</code> si al menos una condición es verdadera</li>
+        </ul>
+
+        <section class="codepen-operadores-logicos">
+          <h4>Ejemplo práctico: Operadores lógicos</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="gbPgdVj" data-pen-title="JS - Booleanos: Operadores lógicos" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/gbPgdVj">JS - Booleanos: Operadores lógicos</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+        </section>
+
+        <pre><code>var valor1 = true;
+var valor2 = true;
+var valor3 = false;
+var valor4 = false;
+
+// AND - &&
+var resultado1 = valor1 && valor2; // true
+document.write("¿valor1 y valor2 son verdaderos? " + resultado1 + "<br>");
+var resultado2 = valor1 && valor3; // false
+document.write("¿valor1 y valor3 son verdaderos? " + resultado2 + "<br>");
+var resultado3 = valor3 && valor4; // false
+document.write("¿valor3 y valor4 son verdaderos? " + resultado3 + "<br>");
+
+// OR - ||
+var resultado4 = valor1 || valor2; // true
+document.write("¿valor1 o valor2 es verdadero? " + resultado4 + "<br>");
+var resultado5 = valor1 || valor3; // true
+document.write("¿valor1 o valor3 es verdadero? " + resultado5 + "<br>");
+var resultado6 = valor3 || valor4; // false
+document.write("¿valor3 o valor4 es verdadero? " + resultado6 + "<br>");</code></pre>
+
+        <h3 id="oprelac">Operadores relacionales</h3>
+
+        <p>Los operadores relacionales se utilizan para comparar valores y devuelven un resultado booleano:</p>
+
+        <h4>Operadores de comparación</h4>
+        <ul>
+          <li>
+            <strong><code>&gt;</code></strong> - Mayor que
+          </li>
+          <li>
+            <strong><code>&lt;</code></strong> - Menor que
+          </li>
+          <li>
+            <strong><code>&gt;=</code></strong> - Mayor o igual que
+          </li>
+          <li>
+            <strong><code>&lt;=</code></strong> - Menor o igual que
+          </li>
+          <li>
+            <strong><code>!=</code></strong> - Diferente (no igual)
+          </li>
+        </ul>
+
+        <h4>Operadores de igualdad</h4>
+        <p>Para comparar valores se usan <code>==</code> y <code>===</code>:</p>
+
+        <ul>
+          <li>
+            <strong>El operador <code>==</code></strong> compara los valores de dos variables, pero no su tipo. Por ejemplo, <code>5 == '5'</code> es verdadero porque ambos tienen el mismo valor, aunque uno es un número y el otro es una cadena de texto.
+          </li>
+
+          <li>
+            <strong>El operador <code>===</code></strong> compara tanto el valor como el tipo de las variables. Por ejemplo, <code>5 === '5'</code> es falso porque uno es un número y el otro es una cadena de texto, a pesar de que tienen el mismo valor.
+          </li>
+        </ul>
+
+        <p><strong>Recomendación:</strong> Es recomendable usar siempre <code>===</code> para evitar resultados inesperados debido a la coerción de tipos que ocurre con <code>==</code>.</p>
+
+        <section class="codepen-operadores-relacionales">
+          <h4>Ejemplo práctico: Operadores relacionales</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="html,result" data-slug-hash="VYePGgM" data-pen-title="JS - Booleanos " data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/VYePGgM">JS - Booleanos </a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+        </section>
+
+        <h4>Buenas prácticas y notas importantes</h4>
+        <ul>
+          <li><strong>Se recomienda poner las comparaciones entre paréntesis</strong>, ya que más adelante será obligatorio al usarlas dentro de otras estructuras.</li>
+          <li><strong>No se pueden comparar arrays directamente</strong> con <code>==</code> o <code>===</code>, ya que estos operadores comparan referencias, no el contenido. Dos arrays con el mismo contenido serán considerados diferentes si no son el mismo objeto.</li>
+        </ul>
+
+        <pre><code>var numero1 = 10;
+var numero2 = 50;
+var numero3 = 50;
+
+var rdo1 = numero1 > numero2;   // false
+var rdo2 = numero1 < numero2;   // true
+
+var rdo3 = numero1 >= numero2;  // false
+var rdo4 = numero1 <= numero2;  // true
+
+var rdo5 = numero2 <= numero3;  // true
+var rdo6 = numero2 >= numero3;  // true
+
+var rdo7 = numero1 == numero2;  // false
+var rdo8 = numero2 == numero3;  // true
+var rdo9 = numero1 != numero3;  // true
+var rdo10 = numero2 != numero3; // false
+
+var texto1 = 'día';
+var texto2 = 'noche';
+var texto3 = 'día';
+var texto4 = 'dia';
+var texto5 = 'Día';
+
+var rdo7 = texto1 == texto2;   // false
+var rdo8 = texto1 == texto3;   // true
+var rdo8a = texto1 == texto4;  // false
+var rdo8b = texto1 == texto5;  // false
+
+var rdo9 = texto1 != texto2;   // true
+var rdo10 = texto1 != texto3;  // false
+var rdo10b = texto1 != texto4; // true
+
+// Comparación de tipos diferentes
+var n1 = 100;
+var n2 = '100';
+
+var r1 = n1 == n2;  // true  (solo compara valor)
+var r2 = n1 === n2; // false (compara valor y tipo)
+var r3 = n1 !== n2; // true  (diferentes tipos)</code></pre>
+
+        <h3>Referencias y recursos adicionales</h3>
+
+        <div class="referencias">
+          <h4>Documentación oficial:</h4>
+          <ul>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank">MDN - Boolean</a> - Documentación completa del tipo de dato Boolean</li>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Logical_Operators" target="_blank">MDN - Operadores lógicos</a> - Guía de operadores lógicos en JavaScript</li>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Comparison_Operators" target="_blank">MDN - Operadores de comparación</a> - Documentación de operadores relacionales</li>
+          </ul>
+
+          <h4>Guías y tutoriales:</h4>
+          <ul>
+            <li><a href="https://www.w3schools.com/js/js_booleans.asp" target="_blank">W3Schools - JavaScript Booleans</a> - Tutorial básico sobre booleanos</li>
+            <li><a href="https://javascript.info/logical-operators" target="_blank">JavaScript.info - Operadores lógicos</a> - Guía detallada con ejemplos</li>
+            <li><a href="https://eloquentjavascript.net/01_values.html#h_9jzBbAAV3K" target="_blank">Eloquent JavaScript - Values</a> - Capítulo sobre valores y tipos</li>
+          </ul>
+
+          <h4>Herramientas de práctica:</h4>
+          <ul>
+            <li><a href="https://codepen.io/collection/DPgLez" target="_blank">CodePen - Ejemplos de Booleanos</a> - Colección de ejemplos prácticos</li>
+            <li><a href="https://jsfiddle.net/" target="_blank">JSFiddle</a> - Editor online para practicar</li>
+          </ul>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

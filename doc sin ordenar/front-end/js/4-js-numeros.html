@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Números en JavaScript | Documentación de HTML, CSS y JS</title>
+    <link rel="icon" type="image/x-icon" href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Números en JavaScript</h1>
+    </header>
+    <main>
+      <article class="js-numeros" id="js-numeros">
+        <h2>Operaciones básicas con números</h2>
+
+        <h3 id="oper-numeros">Operaciones matemáticas básicas</h3>
+
+        <p>JavaScript soporta todas las operaciones matemáticas fundamentales:</p>
+
+        <ul>
+          <li>
+            <strong>Suma:</strong> <code>+</code>
+            <ul>
+              <li>Ejemplo: <code>2 + 2</code> (el resultado es 4)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Resta:</strong> <code>-</code>
+            <ul>
+              <li>Ejemplo: <code>5 - 2</code> (el resultado es 3)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Multiplicación:</strong> <code>*</code>
+            <ul>
+              <li>Ejemplo: <code>3 * 4</code> (el resultado es 12)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>División:</strong> <code>/</code>
+            <ul>
+              <li>Ejemplo: <code>10 / 2</code> (el resultado es 5)</li>
+              <li>Ejemplo: <code>11 / 2</code> (el resultado es 5.5)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Módulo (resto de una división):</strong> <code>%</code>
+            <ul>
+              <li>Ejemplo: <code>5 % 2</code> (el resultado es 1, porque 2 cabe 2 veces en 5 y sobra 1)</li>
+            </ul>
+          </li>
+        </ul>
+        <
+        <section class="codepen-operaciones-basicas">
+          <h4>Ejemplo práctico: Operaciones matemáticas</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="KwVgQJy" data-pen-title="4. Operaciones mates numeros -JS" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/KwVgQJy">4. Operaciones mates numeros -JS</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+        </section>
+
+        <pre><code>var nombreVariable1 = 10;
+var nombreVariable2 = 5;
+
+var suma = nombreVariable1 + nombreVariable2;
+var resta = nombreVariable1 - nombreVariable2;
+var multiplicacion = nombreVariable1 * nombreVariable2;
+var division = nombreVariable1 / nombreVariable2;
+var resto = nombreVariable1 % nombreVariable2; //resto de una división = módulo</code></pre>
+
+        <h3 id="incr">Incremento y decremento</h3>
+
+        <p>Los operadores de incremento y decremento son formas abreviadas de sumar o restar 1 a una variable:</p>
+
+        <ul>
+          <li>
+            <strong>Incremento:</strong> <code>++</code>
+            <ul>
+              <li>Ejemplo: <code>let a = 5; a++;</code> (el resultado es 6)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Decremento:</strong> <code>--</code>
+            <ul>
+              <li>Ejemplo: <code>let b = 5; b--;</code> (el resultado es 4)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <pre><code>var edad = 18;
+edad = edad + 1; // 18 + 1 = 19
+
+var altura = 180;
+altura = altura - 10; // 180 - 10 = 170
+
+var volumen = 50;
+volumen++; // es igual que volumen = volumen + 1
+
+var brillo = 50;
+brillo--; // es igual que brillo = brillo - 1
+
+var volumen = 50;
+++volumen; // es igual que volumen = volumen + 1
+
+var brillo = 50;
+--brillo; // es igual que brillo = brillo - 1</code></pre>
+
+        <h4>Diferencias entre ++variable y variable++ (y --)</h4>
+
+        <p><strong>Comportamiento importante:</strong> La posición del operador importa cuando se usa dentro de una expresión:</p>
+
+        <ul>
+          <li><strong>++ o -- por delante o detrás</strong> hace lo mismo si lo llamas como <code>num3++</code>, sin declarar variable</li>
+          <li><strong>Si es ++ por detrás</strong>, se suma 1 después de la operación, es decir, hace la suma y luego agrega el incremento o decremento</li>
+          <li><strong>Si es ++ por delante</strong>, se suma 1 antes de la operación, es decir, agrega el incremento o decremento y luego hace la suma</li>
+        </ul>
+
+        <pre><code>var numero1 = 10;
+var numero2 = 5;
+
+numero3 = numero1++ + numero2;
+
+console.log(numero3); // numero3 = 15
+console.log(numero1); // numero1 = 11
+
+//El incremento de numero1 se realiza después de haber hecho la suma.
+
+var numero1 = 10;
+var numero2 = 5;
+
+numero3 = ++numero1 + numero2;
+
+console.log(numero3); // numero3 = 16
+console.log(numero1); // numero1 = 11
+
+//El incremento de numero1 se realiza antes de haber hecho la suma.</code></pre>
+
+        <h3 id="conver">Conversión de tipos</h3>
+        <p>Si tenemos una variable que contiene un número, pero en formato texto, tendrémos que transformarla en formato número para poder hacer operaciones matemáticas con ese dato:</p>
+
+        <ul>
+          <li>
+            <strong>Función <code>Number()</code>:</strong>
+            <ul>
+              <li>Convierte un valor a número.</li>
+              <li>Si el valor no puede convertirse, devuelve <code>NaN</code>.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Función <code>parseInt()</code>:</strong>
+            <ul>
+              <li>Convierte un valor a número entero.</li>
+              <li>Si el valor no puede convertirse, devuelve <code>NaN</code>.</li>
+              <li>Elimina decimales si los tuviera.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Función <code>parseFloat()</code>:</strong>
+            <ul>
+              <li>Convierte un valor a número decimal.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <section class="codepen-conversion">
+          <h4>Ejemplo práctico: Conversión de tipos</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="PwZGeYe" data-pen-title="4. Números conversion -JS" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/PwZGeYe">4. Números conversion -JS</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+        </section>
+
+        <pre><code>var dato1 = '5';
+var dato2 = '5.7';
+var numero1 = parseInt(dato1);	 //para números enteros
+var numero2 = parseFloat(dato2); //para números con decimales
+
+var sumaDatos = dato1 + dato2; // '5' + '5.7' = '55.7'
+var sumaNumeros = numero1 + numero2; // 5 + 5.7 = 10.7</code></pre>
+
+        <p><strong>Importante:</strong> Si utilizamos <code>prompt</code> para solicitar un dato numérico, la variable donde se recogerá ese dato será una variable de texto, por lo que después habrá que transformarla en variable numérica si queremos operar con el número.</p>
+
+        <h3 id="esnum">Comprobar si es número o texto</h3>
+
+        <p>Para comprobar si un valor es un número o no, se utiliza la función <code>isNaN()</code> (is Not a Number). Esta función devuelve <code>true</code> si el valor no es un número y <code>false</code> si el valor es un número.</p>
+
+        <section class="codepen-comprobar-numero-texto">
+          <h4>Ejemplo práctico: Comprobar número o texto</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="azdmGzZ" data-pen-title="4. Comprobar numero o texto - JS" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/azdmGzZ">4. Comprobar numero o texto - JS</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+        </section>
+
+        <pre><code>var num0 = 'abc';
+var num1 = '5';
+var num2 = 5;
+var num3 = 5.7;
+
+// Is Not a Number?
+isNaN(num0); //true (no es un número, sino un texto)
+isNaN(num1); //false  (aunque es un texto, solo contiene número)
+isNaN(num2); //false  (es un número)
+isNaN(num3); //false  (es un número)</code></pre>
+
+        <h3 id="aleat">Generar número aleatorio y redondear</h3>
+
+        <p>JavaScript ofrece varias funciones matemáticas para generar números aleatorios y realizar redondeos:</p>
+
+        <ul>
+          <li>
+            <strong><code>Math.random()</code>:</strong> Genera un número decimal aleatorio entre 0 (incluido) y 1 (excluido).
+          </li>
+          <li>
+            <strong><code>Math.round()</code>:</strong> Redondea un número al entero más cercano.
+          </li>
+          <li>
+            <strong><code>Math.ceil()</code>:</strong> Redondea un número hacia arriba al entero más próximo.
+          </li>
+          <li>
+            <strong><code>Math.floor()</code>:</strong> Redondea un número hacia abajo al entero más próximo.
+          </li>
+        </ul>
+
+        <p><strong>Tip importante:</strong> Si quieres que el número aleatorio esté entre 1 y 10, debes multiplicar por 9 y sumar 1 al resultado.</p>
+        <p><strong>Ejemplo:</strong> <code>Math.floor(Math.random() * 9) + 1</code></p>
+
+        <section class="codepen-generar-numero-aleatorio">
+          <h4>Ejemplo práctico: Número aleatorio y redondeo</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="pvgEVwo" data-pen-title="4. Numero aleatorio y redondeo - JS" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/pvgEVwo">4. Numero aleatorio y redondeo - JS</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+        </section>
+
+        <pre><code>var aleatorio = Math.random(); // devuelve un valor entre 0 y 1
+
+var sorteo = aleatorio * 10; //devuelve un valor entre 0 y 10
+
+var redondeoArriba = Math.ceil(sorteo); // Entero superior más cercano
+var redondeoAbajo = Math.floor(sorteo); // Entero inferior más cercano
+
+// 0.5 o mayor -> Entero superior
+// menor que 0.5 -> Entero inferior
+var redondeoCondicional = Math.round(sorteo);</code></pre>
+
+        <section class="ejemplos-adicionales">
+          <h4>Ejemplos adicionales</h4>
+
+          <div class="codepen-numero-pruebas-clase">
+            <h5>Pruebas de clase - Números</h5>
+            <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="yyeajGJ" data-pen-title="JS - Pruebas Clase: Números" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+              <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/yyeajGJ">JS - Pruebas Clase: Números</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+          </div>
+
+          <div class="codepen-numero-ejercicios">
+            <h5>Ejercicios con números</h5>
+            <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="myVrLva" data-pen-title="JS - 4 Números" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+              <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/myVrLva">JS - 4 Números</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+          </div>
+        </section>
+
+        <p>Existen más funciones útiles para el redondeo y otros cálculos matemáticos del <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Numbers_and_dates#el_objeto_math" rel="external">Objeto Math</a>. También existe una propuesta para <a href="https://github.com/tc39/proposal-random-functions" rel="external">mejorar la función de aleatorio</a>, pero todavía está en desarrollo.</p>
+
+        <footer>
+          <section class="ejercicios">
+            <h4>💪 Ejercicios</h4>
+            <ul>
+              <li><a href="https://codepen.io/antxoa/pen/jOeZGwE" rel="external">Ejercicios básicos</a></li>
+              <li><a href="https://codepen.io/antxoa/pen/VYemZGJ" rel="external">Ejercicios de refuerzo</a></li>
+              <li><a href="https://codepen.io/antxoa/pen/wvZZNmm" rel="external">Pruebas en clase</a></li>
+              <li><a href="https://codepen.io/MielmaDev/pen/myVrLva" rel="external">Ejercicios adicionales</a></li>
+            </ul>
+          </section>
+
+          <section class="referencias">
+            <h4>📚 Referencias</h4>
+            <h5>Documentación oficial:</h5>
+            <ul>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Numbers_and_dates" rel="external">Números y Fechas - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Numbers_and_dates#el_objeto_math" rel="external">Objeto Math - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/parseInt" rel="external">parseInt() - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/parseFloat" rel="external">parseFloat() - MDN</a></li>
+              <li><a href="https://www.w3schools.com/js/js_numbers.asp" rel="external">JavaScript Numbers - W3Schools</a></li>
+            </ul>
+            <h5>Ejemplos prácticos:</h5>
+            <ul>
+              <li><a href="https://codepen.io/MielmaDev/pen/KwVgQJy" rel="external">Operaciones matemáticas</a></li>
+              <li><a href="https://codepen.io/MielmaDev/pen/PwZGeYe" rel="external">Conversión de tipos</a></li>
+              <li><a href="https://codepen.io/MielmaDev/pen/azdmGzZ" rel="external">Comprobar números o texto</a></li>
+              <li><a href="https://codepen.io/MielmaDev/pen/pvgEVwo" rel="external">Números aleatorios</a></li>
+              <li><a href="https://codepen.io/MielmaDev/pen/yyeajGJ" rel="external">Pruebas de números</a></li>
+            </ul>
+            <h5>Recursos adicionales:</h5>
+            <ul>
+              <li><a href="https://github.com/tc39/proposal-random-functions" rel="external">Propuesta de mejora para aleatorios</a></li>
+            </ul>
+          </section>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

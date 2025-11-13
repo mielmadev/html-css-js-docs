@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays en JavaScript | Documentación de HTML, CSS y JS</title>
+    <link rel="icon" type="image/x-icon" href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Arrays en JavaScript</h1>
+    </header>
+    <main>
+      <article class="js-arrays" id="js-arrays">
+        <h2>Operaciones básicas con arrays</h2>
+
+        <h3>¿Qué es un array?</h3>
+
+        <p>Los arrays son estructuras de datos que permiten almacenar múltiples valores en una sola variable. En JavaScript, los arrays son objetos especiales que facilitan el manejo de colecciones de datos. <strong>Son como una cajonera en la que en cada cajón puedes guardar diferentes cosas.</strong></p>
+
+        <p>Los elementos de un array se escriben dentro de corchetes <code>[]</code> y se separan por comas <code>,</code>.</p>
+
+        <p><strong>Importante:</strong> Se empieza a contar desde <code>0</code>. El índice del primer elemento es <code>0</code>, el del segundo elemento es <code>1</code>, y así sucesivamente.</p>
+
+        <h3 id="oper-arrays">Operaciones básicas</h3>
+
+        <p><strong>Reglas importantes para trabajar con arrays:</strong></p>
+        <ul>
+          <li>No se deben juntar varios arrays utilizando el operador <code>+</code>, ya que esto convierte los arrays en cadenas y puede dar errores.</li>
+          <li>Para unir arrays correctamente, se debe usar el método <code>concat()</code>.</li>
+          <li>El método <code>length</code> de un array indica el número de elementos.</li>
+          <li><strong>La última posición es la longitud menos uno.</strong></li>
+        </ul>
+
+        <p>
+          <strong><code>join()</code>:</strong> Este método se utiliza para unir todos los elementos de un array en una sola cadena, separándolos por un delimitador especificado (por defecto, una coma). Ejemplo: <code>array.join(" - ")</code> devuelve una cadena con los elementos del array separados por " - ".
+        </p>
+
+        <pre><code>// cuenta cuántos datos hay
+var vocales = ['a', 'e', 'i', 'o', 'u'];
+var contarVocales = vocales.length;
+
+// juntamos 2 arrays
+var vocalesMayusculas = ['A', 'E', 'I', 'O', 'U'];
+var vocalesTotales = vocales.concat(vocalesMayusculas);
+
+// join(): lo opuesto a split()
+var palabras = ['hola', 'adios'];
+var frase = palabras.join(' ');</code></pre>
+
+        <h3 id="manip">Manipulación de arrays</h3>
+
+        <p>Existen varios métodos para manipular arrays en JavaScript:</p>
+
+        <h4>Métodos de eliminación</h4>
+        <ul>
+          <li>
+            <strong><code>shift()</code>:</strong> Elimina el primer elemento de un array y lo devuelve.
+          </li>
+          <li>
+            <strong><code>pop()</code>:</strong> Elimina el último elemento de un array y lo devuelve.
+          </li>
+        </ul>
+
+        <h4>Métodos de adición</h4>
+        <ul>
+          <li>
+            <strong><code>push()</code>:</strong> Añade uno o más elementos al final de un array.
+          </li>
+          <li>
+            <strong><code>unshift()</code>:</strong> Añade uno o más elementos al principio de un array.
+          </li>
+        </ul>
+
+        <h4>Métodos avanzados</h4>
+        <ul>
+          <li>
+            <strong><code>splice()</code>:</strong> Cambia el contenido de un array eliminando o reemplazando elementos existentes y/o agregando nuevos elementos.
+            <ul>
+              <li>
+                <code>letras.splice(1, 0, 'b');</code>
+                <ul>
+                  <li>El primer parámetro (1) indica la posición en la que se va a realizar la operación (en este caso, la segunda posición).</li>
+                  <li>El segundo parámetro (0) indica cuántos elementos se van a eliminar a partir de la posición indicada (en este caso, ninguno).</li>
+                  <li>Los parámetros siguientes ('b') son los elementos que se van a agregar en la posición indicada.</li>
+                </ul>
+              </li>
+              <li>
+                <code>letras.splice(1, 0, 'x', 's');</code>
+                <ul>
+                  <li>El primer parámetro (1) indica la posición en la que se va a realizar la operación (en este caso, la segunda posición).</li>
+                  <li>El segundo parámetro (0) indica cuántos elementos se van a eliminar a partir de la posición indicada (en este caso, ninguno).</li>
+                  <li>Los parámetros siguientes ('x', 's') son los elementos que se van a agregar en la posición indicada.</li>
+                </ul>
+              </li>
+              <li>
+                <code>letras.splice(0,0,'r');</code>
+                <ul>
+                  <li>El primer parámetro (0) indica la posición en la que se va a realizar la operación (en este caso, la primera posición).</li>
+                  <li>El segundo parámetro (0) indica cuántos elementos se van a eliminar a partir de la posición indicada (en este caso, ninguno).</li>
+                  <li>El parámetro siguiente ('r') es el elemento que se va a agregar en la posición indicada.</li>
+                </ul>
+              </li>
+              <li>
+                <code>letras.splice(1,1);</code>
+                <ul>
+                  <li>El primer parámetro (1) indica la posición en la que se va a realizar la operación (en este caso, la segunda posición).</li>
+                  <li>El segundo parámetro (1) indica cuántos elementos se van a eliminar a partir de la posición indicada (en este caso, uno).</li>
+                  <li>No hay parámetros siguientes, por lo que no se agregan nuevos elementos.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong><code>slice()</code>:</strong> Extrae una porción de un array y devuelve un nuevo array con los elementos extraídos.
+            <ul>
+              <li>
+                <code>letras.slice(0, 2);</code>
+                <ul>
+                  <li>El primer parámetro (0) indica la posición inicial de la porción a extraer (en este caso, la primera posición).</li>
+                  <li>El segundo parámetro (2) indica la posición final de la porción a extraer (en este caso, la tercera posición, sin incluirla).</li>
+                  <li>Este método devuelve un nuevo array con los elementos extraídos.</li>
+                </ul>
+              </li>
+              <li>
+                <code>letras.slice(0, -1);</code>
+                <ul>
+                  <li>El primer parámetro (0) indica la posición inicial de la porción a extraer (en este caso, la primera posición).</li>
+                  <li>El segundo parámetro (-1) indica la posición final de la porción a extraer (en este caso, la última posición, sin incluirla).</li>
+                  <li>Este método devuelve un nuevo array con los elementos extraídos.</li>
+                </ul>
+              </li>
+              <li>
+                <code>letras.slice();</code> Devuelve una copia superficial del array original.
+                <ul>
+                  <li>Este método no recibe parámetros, por lo que se extrae toda la porción del array.</li>
+                  <li>Este método devuelve un nuevo array con todos los elementos del array original.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong><code>reverse()</code>:</strong> Invierte el orden de los elementos en un array.
+          </li>
+        </ul>
+
+        <pre><code>var letras = ['a', 'c', 'd'];
+
+// Devuelve el valor de la primera posición y lo elimina del array
+var quitarPrimeraLetra = letras.shift();
+
+// Devuelve el valor de la última posición y lo elimina del array
+var quitarUltimaLetra = letras.pop();
+
+// Añade el valor al inicio del array
+letras.unshift('n');
+
+// Añade el valor al final del array
+letras.push('n');
+
+// podemos añadir más de un elemento a la vez:
+letras.push('j','k');
+
+//Añade el valor en la posición indicada
+letras.splice(1,0,'b');
+// 1 = posición donde lo insertamos
+// 0 = elementos que queremos borrar
+//'b' = el contenido del elemento(s) que queremos insertar
+
+// Lo agregamos en la segunda posición
+letras.splice(1,0,'x','s');
+
+// Lo agregamos en la primera posición
+letras.splice(0,0,'r'); // (en este caso es igual que unshift)
+
+// Borramos el segundo elemento del array
+letras.splice(1,1);
+
+//Muestra las 2 primeras posiciones del array
+var mostrarLetras1 = letras.slice(0,2);
+// 0 = posición desde la que empieza a mostrar el array
+// 2 = nº de posiciones que va a mostrar
+
+//Muestra todas las posiciones excepto la última
+var mostrarLetras2 = letras.slice(0,-1);
+// -1 = nº de posiciones que NO tiene que mostrar empezando por el final
+
+//Seleccionamos todas las posiciones del array (es como hacer una copia del array)
+var mostrarClon = letras.slice();
+
+// Invierte las posiciones del array
+var letrasInvertidas = letras.reverse();</code></pre>
+
+        <h4>Métodos de búsqueda</h4>
+        <p>También podemos utilizar <code>indexOf()</code> y <code>lastIndexOf()</code> de la misma manera que las utilizamos en cadenas de texto. En este caso nos devolverá la posición del array donde se encuentra nuestro dato.</p>
+
+        <footer>
+          <section class="ejercicios">
+            <h4>💪 Ejercicios</h4>
+            <ul>
+              <li><a href="https://codepen.io/antxoa/pen/eYPVGVg" rel="external">Ejercicios básicos</a></li>
+              <li><a href="https://codepen.io/antxoa/pen/wBMowZo" rel="external">Ejercicios de refuerzo</a></li>
+              <li><a href="https://codepen.io/antxoa/pen/poBXeJj" rel="external">Pruebas en clase</a></li>
+            </ul>
+          </section>
+
+          <section class="referencias">
+            <h4>📚 Referencias</h4>
+            <h5>Documentación oficial:</h5>
+            <ul>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array" rel="external">Arrays en JavaScript - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/push" rel="external">Array.push() - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/pop" rel="external">Array.pop() - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/shift" rel="external">Array.shift() - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift" rel="external">Array.unshift() - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/splice" rel="external">Array.splice() - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" rel="external">Array.slice() - MDN</a></li>
+              <li><a href="https://www.w3schools.com/js/js_arrays.asp" rel="external">JavaScript Arrays - W3Schools</a></li>
+            </ul>
+          </section>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

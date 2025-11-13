@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables en JavaScript | Documentación de HTML, CSS y JS</title>
+    <link rel="icon" type="image/x-icon" href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Variables en JavaScript</h1>
+    </header>
+    <main>
+      <article class="js-variables" id="js-variables">
+        <h2>Variables básicas</h2>
+
+        <h3>¿Qué es una variable?</h3>
+        <p>Una <strong>variable</strong> es un elemento donde almacenamos datos, ya sean números, textos, booleanos o arrays.</p>
+        <p>Las variables tienen un <strong>nombre</strong>, con el que las identificamos.</p>
+        <p>Lo habitual es crear una variable y asignarle un valor. A esta acción se le llama <strong>declarar una variable</strong>.</p>
+        <p>Para asignar un valor a la variable utilizamos el símbolo de asignación <code>=</code> (igual).</p>
+        <p>Además, al declarar la variable utilizamos por delante la palabra reservada <code>var</code>.</p>
+
+        <h3 id="declaracion">Declarar variables con <code>var</code></h3>
+
+        <p>La palabra <code>var</code> solo se utiliza para <strong>declarar la variable</strong>. Después se usa llamándola por su nombre.</p>
+
+        <section class="codepen-variables-declarar">
+          <h4>Ejemplo práctico - Declarar variables</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="YPwWbzg" data-pen-title="2. Variables declarar - JS" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/YPwWbzg">2. Variables declarar - JS</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+        </section>
+
+        <h4>Otras formas de declarar variables</h4>
+        <p>Existen 2 maneras adicionales de crear variables, con <code>let</code> y <code>const</code>, pero lo veremos más adelante.</p>
+
+        <p>En JavaScript podemos declarar variables usando las palabras clave <code>var</code>, <code>let</code> o <code>const</code>:</p>
+
+        <pre><code>var nombre = "Juan";
+let edad = 25;
+const PI = 3.14159;</code></pre>
+
+        <h3 id="tipos-datos">Tipos de datos en JavaScript</h3>
+
+        <p>Vamos a tener diferentes tipos de datos que veremos en detenimiento en los próximos capítulos del curso, pero a modo resumen, son los siguientes:</p>
+
+        <ul>
+          <li><strong>Textos:</strong> <code>'Hola'</code>, <code>"Hola"</code></li>
+          <li><strong>Números:</strong> <code>123</code>, <code>3.14</code></li>
+          <li><strong>Arrays:</strong> <code>['manzana', 'pera', 'plátano']</code></li>
+        </ul>
+
+        <p><strong>Tip importante:</strong> Para introducir comillas dentro de un texto, usa una barra invertida <code>\</code> delante de cada comillas. Ejemplo: <code>"Ella dijo: \"Hola\""</code></p>
+
+        <h4>¿Qué es un array?</h4>
+        <p>Un <code>array</code> es una estructura de datos que permite almacenar múltiples valores en una sola variable. Los elementos de un <code>array</code> se pueden acceder mediante su índice, que comienza en 0.</p>
+        <p><strong>Es como una cajonera</strong> donde cada variable es un cajón y puedes guardar diferentes tipos de datos en cada uno de ellos.</p>
+        <p>Los <code>arrays</code> se crean con corchetes <code>[]</code> y los datos se separan con comas <code>,</code>. El último elemento no lleva coma.</p>
+        <p><strong>Importante:</strong> Los arrays comienzan a contar sus posiciones desde el <code>0</code>, no desde el <code>1</code>, ya que el cero es el primer dígito que hay.</p>
+        <p>Si intentas acceder a una posición de un array que no existe, el resultado será <code>undefined</code>.</p>
+
+        <section class="codepen-variables-tipos-datos">
+          <h4>Variables y tipos de datos</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="MYKjaVd" data-pen-title="2. Variables Tipo Datos - JS" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/MYKjaVd">2. Variables Tipo Datos - JS</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+        </section>
+
+        <h4>Ejemplos detallados por tipo</h4>
+
+        <h5>Cadenas de texto (String)</h5>
+        <pre><code>var nombre = "María";
+let apellido = 'González';
+const mensaje = `Hola mundo`;</code></pre>
+
+        <h5>Números (Number)</h5>
+        <pre><code>var entero = 42;
+let decimal = 3.14;
+const negativo = -10;</code></pre>
+
+        <h5>Booleanos (Boolean)</h5>
+        <pre><code>var esVerdadero = true;
+let esFalso = false;</code></pre>
+
+        <h5>Arrays</h5>
+        <pre><code>var frutas = ['manzana', 'pera', 'plátano'];
+let num = [1, 2, 3, 4, 5];
+const mixto = ['texto', 42, true];</code></pre>
+
+        <h5>Undefined y Null</h5>
+        <pre><code>var indefinida; // undefined
+let nulo = null;</code></pre>
+
+        <h3 id="reglas-nombres">Restricciones para nombres de variables</h3>
+
+        <p>El nombre de una variable tiene que respetar una serie de condiciones:</p>
+        <ul>
+          <li>Sólo puede estar formado por letras, números y los símbolos <code>$</code> (dólar) y <code>_</code> (guión bajo).</li>
+          <li><strong>No pueden empezar con un número</strong>, pero sí contenerlo.</li>
+          <li>No puede contener espacios.</li>
+          <li>No puede contener guión medio (<code>-</code>).</li>
+          <li>Evitaremos los caracteres especiales, tildes y eñes.</li>
+          <li>No se puede utilizar una serie de palabras reservadas para la propia sintaxis de Javascript.</li>
+          <li>Javascript es un lenguaje sensible a mayúsculas y minúsculas, por lo que <code>Variable</code> y <code>variable</code> serían dos variables diferentes.</li>
+        </ul>
+
+        <section class="codepen-restricciones-nombres">
+          <h4>Ejemplo práctico - Restricciones en nombres</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="OPMRyPg" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>Ver ejemplo en CodePen</span>
+          </p>
+        </section>
+
+        <pre><code>// Válidos
+var nombre;
+let _edad;
+const $precio;
+var usuario1;
+
+// No válidos
+// var 1usuario;    // Error: comienza con número
+// let for;         // Error: palabra reservada
+// const class;     // Error: palabra reservada</code></pre>
+
+        <h3 id="buenas-practicas">Buenas prácticas al nombrar variables</h3>
+
+        <ul>
+          <li>Usar nombres descriptivos: <code>let edadUsuario</code> en lugar de <code>let e</code></li>
+          <li>Usar camelCase: <code>let nombreCompleto</code></li>
+          <li>Usar <code>const</code> para valores que no cambiarán</li>
+          <li>Usar <code>let</code> para variables que sí cambiarán</li>
+          <li>Evitar usar <code>var</code> en código moderno</li>
+        </ul>
+
+        <h3 id="pedir-valores">Solicitar valores al usuario</h3>
+
+        <p>JavaScript nos permite interactuar con el usuario a través de diferentes métodos para solicitar información:</p>
+
+        <h4>Usando prompt()</h4>
+        <pre><code>var nombre = prompt("¿Cuál es tu nombre?");
+var edad = prompt("¿Cuántos años tienes?");
+
+console.log("Hola " + nombre + ", tienes " + edad + " años");</code></pre>
+
+        <p><strong>Nota importante:</strong> El método <code>prompt()</code> siempre devuelve un string (texto), incluso si el usuario introduce números.</p>
+
+        <h3 id="ejemplos-practicos">Ejemplos de uso de variables</h3>
+
+        <pre><code>// Declaración y asignación
+let nombre = "Ana";
+let edad = 30;
+const esMayorDeEdad = edad >= 18;
+
+// Modificación de variables
+nombre = "Ana María";
+edad = 31;
+
+// Uso en operaciones
+let añoNacimiento = 2024 - edad;
+let saludo = "Hola, mi nombre es " + nombre;
+
+console.log(saludo);
+console.log("Nació en: " + añoNacimiento);
+
+// Ejemplo con arrays
+var frutas = ['manzana', 'pera', 'plátano'];
+console.log(frutas[0]); // manzana
+console.log(frutas[2]); // plátano
+console.log(frutas[5]); // undefined</code></pre>
+
+        <footer>
+          <section class="ejercicios">
+            <h4>💪 Ejercicios</h4>
+            <ul>
+              <li><a href="https://codepen.io/collection/KprNpj" rel="external">Colección de Ejercicios</a></li>
+            </ul>
+          </section>
+
+          <section class="referencias">
+            <h4>📚 Referencias</h4>
+            <h5>Documentación oficial:</h5>
+            <ul>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Grammar_and_types#variables" rel="external">Variables - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Data_structures" rel="external">Tipos de datos - MDN</a></li>
+              <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array" rel="external">Arrays - MDN</a></li>
+              <li><a href="https://www.w3schools.com/js/js_variables.asp" rel="external">Variables JavaScript - W3Schools</a></li>
+            </ul>
+            <h5>Ejercicios prácticos:</h5>
+            <ul>
+              <li><a href="https://codepen.io/antxoa/pen/poxarPq" rel="external">Ejercicios de variables</a></li>
+              <li><a href="https://codepen.io/MielmaDev" rel="external">Ejemplos en CodePen</a></li>
+            </ul>
+          </section>
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>

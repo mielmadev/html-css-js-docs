@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Uso de JavaScript | Documentación de HTML, CSS y JS</title>
+    <link rel="icon" type="image/x-icon" href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript: Uso</h1>
+    </header>
+    <main>
+      <article class="js-uso" id="js-uso">
+        <h2>1. Formas de uso</h2>
+        <p>Podemos incluir nuestro código javascript de 3 maneras (similares a como se incluye código CSS):</p>
+
+        <h3 id="codenl">1.1 Código enlazado</h3>
+
+        <p>Es el método más habitual y se puede insertar tanto dentro del elemento <code>&lt;head&gt;</code> como en cualquier punto del elemento <code>&lt;body&gt;</code> (por lo general, se inserta antes de cerrar éste.):</p>
+
+        <section class="codepen-uso-codigo-enlazado">
+          <h4>Ejemplo práctico: Código enlazado</h4>
+          <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js,result" data-slug-hash="WbrOzEb" data-pen-title="JS - Uso: Código enlazado" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+            <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/WbrOzEb"> JS - Uso: Código enlazado</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+          </p>
+
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;Javascript&lt;/title&gt;
+	&lt;link rel="stylesheet" href="estilos.css"&gt;
+
+	&lt;!-- JS enlazado --&gt;
+	&lt;script src="scripts.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;h1&gt;Javascript&lt;/h1&gt;
+
+	&lt;!-- JS enlazado --&gt;
+	&lt;script src="scripts.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+          <h3 id="codemb">1.2 Código embebido</h3>
+
+          <p>Este método se utiliza principalmente para insertar código JS único de la página/sección en la que nos encontremos.</p>
+          <p><strong>Se usa para algo concreto de las páginas</strong></p>
+          <p>Al igual que en el método anterior, se puede insertar tanto dentro del elemento <code>&lt;head&gt;</code> como en cualquier punto del elemento <code>&lt;body&gt;</code>:</p>
+
+          <section class="codepen-uso-codigo-embebido">
+            <h4>Ejemplo práctico: Código embebido</h4>
+            <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js" data-slug-hash="NPxgYXP" data-pen-title="JS - Uso: Código embebido" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+              <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/NPxgYXP"> JS - Uso: Código embebido</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+          </section>
+
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;Javascript&lt;/title&gt;
+	&lt;link rel="stylesheet" href="estilos.css"&gt;
+
+	&lt;!-- JS embebido --&gt;
+	&lt;script&gt;
+	//Aquí nuestro código JS
+	&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;h1&gt;Javascript&lt;/h1&gt;
+
+	&lt;!-- JS embebido --&gt;
+	&lt;script&gt;
+	//Aquí nuestro código JS
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+          <h3 id="codinl">1.3 Código en línea</h3>
+
+          <p>Este método se utiliza principalmente para insertar código JS único de la página/sección en la que nos encontremos.</p>
+          <p><strong>Se usa para algo concreto de las páginas como un botón o enlace</strong>, aunque también puedes hacerlo desde js.</p>
+          <p><strong>Debemos evitar este método en la medida de lo posible</strong>, ya que mezclamos el código JS con el código HTML:</p>
+
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;Javascript&lt;/title&gt;
+	&lt;link rel="stylesheet" href="estilos.css"&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;h1&gt;Javascript&lt;/h1&gt;
+
+	&lt;!-- JS en línea --&gt;
+	&lt;p&gt;&lt;a href="#" onClick="window.print();"&gt;Imprimir pantalla&lt;/a&gt;&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+          <h3 id="comen">2. Comentarios en JavaScript</h3>
+
+          <p>Podemos usar comentarios de bloque o comentarios de una sola línea:</p>
+
+          <pre><code>&lt;script&gt;
+
+	/*
+	Este comentario
+	está en bloque
+	*/
+
+	//Este comentario es sólo para una línea.
+	
+&lt;/script&gt;</code></pre>
+
+          <h3 id="visu">3. Visualización de resultados</h3>
+
+          <p>El resultado de nuestra programación se mostrará en la página web, pero tenemos otras maneras de poder visualizar el resultado:</p>
+
+          <h4>Con alertas</h4>
+          <pre><code>alert('texto');
+alert("texto");</code></pre>
+
+          <h4>Por la consola del inspector</h4>
+          <pre><code>console.log('texto');
+console.log("texto");</code></pre>
+
+          <h4>Al final de la página</h4>
+          <pre><code>document.write('texto');
+document.write("texto");</code></pre>
+
+          <p>Existen otras maneras, que veremos más adelante.</p>
+
+          <section class="codepen-visualizacion">
+            <h4>Ejemplo práctico - Visualización</h4>
+            <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="js,result" data-slug-hash="qEbNvjb" data-pen-title="Visualización" data-preview="true" data-user="MielmaDev" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em">
+              <span>See the Pen <a href="https://codepen.io/MielmaDev/pen/qEbNvjb"> Visualización</a> by MielmaDev (<a href="https://codepen.io/MielmaDev">@MielmaDev</a>) on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+          </section>
+
+          <section class="notas-adicionales">
+            <h4>💡 Notas importantes y mejores prácticas</h4>
+            <ul>
+              <li><strong>Extensión de archivos:</strong> Los archivos JavaScript tienen extensión <code>.js</code></li>
+              <li><strong>Llamar librerías JS:</strong> Pueden estar en <code>&lt;head&gt;</code> o en cualquier sitio del documento</li>
+              <li><strong>Etiqueta script:</strong> Se usa la etiqueta <code>&lt;script&gt;</code> para incluir JavaScript</li>
+              <li>
+                <strong>Mejor práctica:</strong> Poner los scripts <strong>antes de cerrar el <code>&lt;body&gt;</code></strong>
+              </li>
+              <li><strong>Librerías de terceros:</strong> Google y algunas librerías necesitan tener el código para poder monitorizar y obtener estadísticas</li>
+              <li>
+                <strong>Comillas:</strong> Cuando se usa JS es preferible usar <strong>comillas simples <code>''</code></strong> para cadenas de texto para evitar problemas de interpretación
+              </li>
+              <li><strong>document.write:</strong> Si usamos <code>document.write</code> podemos usar etiquetas HTML, te visualiza el código en la consola, no se ven en el HTML final</li>
+              <li><strong>Visualización temporal:</strong> La visualización se usa para ver resultados en pantalla durante desarrollo, <strong>no se dejan al finalizar</strong> el proyecto (especialmente <code>document.write</code>)</li>
+            </ul>
+          </section>
+
+          <footer>
+            <section class="ejercicios">
+              <h4>💪 Ejercicios</h4>
+              <ul>
+                <li><a href="https://codepen.io/collection/KprNpj" rel="external">Colección de Ejercicios</a></li>
+              </ul>
+            </section>
+
+            <section class="referencias">
+              <h4>📚 Referencias</h4>
+              <h5>Documentación oficial:</h5>
+              <ul>
+                <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Introduction" rel="external">Introducción a JavaScript - MDN</a></li>
+                <li><a href="https://developer.mozilla.org/es/docs/Web/HTML/Element/script" rel="external">Elemento &lt;script&gt; - MDN</a></li>
+                <li><a href="https://www.w3schools.com/js/js_whereto.asp" rel="external">Dónde colocar JavaScript - W3Schools</a></li>
+              </ul>
+              <h5>Recursos adicionales:</h5>
+              <ul>
+                <li><a href="https://www.antxoa-dev.com/curso/mod-js/descargas/js1-introduccion.zip" rel="external">Plantilla básica para descargar</a></li>
+                <li><a href="https://codepen.io/MielmaDev" rel="external">Ejemplos en CodePen</a></li>
+              </ul>
+            </section>
+          </footer>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
