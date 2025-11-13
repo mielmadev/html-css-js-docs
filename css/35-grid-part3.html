@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0. Presentación CSS | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header><h1>CSS</h1></header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h1>35. Grid (parte 3)</h1>
+
+        <p>
+          En la especificación CSS Grid, además de las unidades de medida
+          generales (%, px, fr, auto...) tenemos disponibles otra unidades y
+          funciones, orientadas al RWD.
+        </p>
+
+        <h2><code>minmax()</code></h2>
+
+        <p>
+          La función <code>minmax()</code> establece el tamaño mínimo que debe
+          tener la columna (o fila) y el tamaño máximo. Es por ello que deberá
+          llevar 2 valores: el primer valor corresponderá al tamaño mínimo y el
+          segundo valor, al tamaño máximo.
+        </p>
+
+        <pre><code>
+.contenedor{
+  display:grid
+  grid-template-columns: minmax(150px, 300px) 1fr;
+}
+</code></pre>
+
+        <p>
+          Los valores pueden ser cualquiera de las unidades de medida y también
+          la palabra <code>auto</code>, que hará que la columna o fila crezca o
+          decrezca en función del tamaño del contenido.
+        </p>
+
+        <p>
+          Sólo hay 2 normas que debemos cumplir cuando establezcamos los
+          valores:
+        </p>
+
+        <ul class="lista-pasos">
+          <li>
+            El valor máximo tendrá que ser mayor que el mínimo. Si no es así,
+            entonces se ignora el valor máximo y se implementa únicamente el
+            valor mínimo.
+          </li>
+          <li>
+            El valor mínimo no puede indicarse con la unidad fracción
+            <code>fr</code> (pero sí se puede utilizar como valor máximo).
+          </li>
+        </ul>
+
+        <pre class="no-copy"><code>
+Incorrecto: el valor máximo es menor que el mínimo:
+grid-template-columns: minmax(200px, 100px) 1fr;
+
+Correcto: el valor máximo es mayor que el mínimo:
+grid-template-columns: minmax(200px, 300px) 1fr;
+
+
+Incorrecto: el valor mínimo no se puede expresar con fracción:
+grid-template-columns: minmax(1fr, 300px) 1fr;
+</code></pre>
+
+        <h2>
+          <code>min-content</code> | <code>max-content</code> |
+          <code>fit-content()</code>
+        </h2>
+
+        <p>
+          Los valores <code>min-content</code> y <code>max-content</code> se
+          utilizan de igual manera que los pixels, fracciones y demás unidades
+          de medida.
+        </p>
+
+        <dl class="incolumn">
+          <dt><code>min-content</code></dt>
+          <dd>
+            Equivale a la anchura de la palabra más larga que haya en el
+            elemento.
+          </dd>
+
+          <dt><code>max-content</code></dt>
+          <dd>
+            Equivale a la anchura de todas las palabras que haya en el elemento.
+          </dd>
+        </dl>
+
+        <pre><code>
+.contenedor{
+  display:grid
+  grid-template-columns: min-content 1fr max-content;
+}
+</code></pre>
+
+        <p>
+          La función <code>fit-content()</code> se aplica como si fuera una
+          unidad de medida más. Entre paréntesis establecemos una unidad de
+          medida, por ejemplo <code>fit-content(200px)</code> y en función del
+          contenido que tenga el elemento su funcionamiento variará de la
+          siguiente manera:
+        </p>
+
+        <h3>Caso 1: el contenido es texto</h3>
+        <p>
+          Si el contenido es menor del tamaño indicado en la función, la anchura
+          resultante será la del contenido (sería como haber puesto un
+          <code>min-content</code>).
+        </p>
+        <p>
+          Si por el contrario, el contenido es mayor del tamaño indicado en la
+          función, la anchura quedará limitada al tamaño que se haya indicado en
+          la función (funcionará con una anchura máxima).
+        </p>
+
+        <h3>Caso 2: el contenido es imagen</h3>
+        <p>
+          Si la imagen es más grande que el tamaño indicado en la función, se
+          ignora el tamaño de la función y la imagen se visualizará a su tamaño
+          nativo.
+        </p>
+        <p>
+          Si indicamos una limitación de anchura del 100% sobre la propia
+          imagen, <code>fit-content()</code> funciona normalmente.
+        </p>
+        <p>
+          Si indicamos una limitación de anchura menor del 100% sobre la imagen,
+          <code>fit-content()</code> ignora esa limitación y reserva el espacio
+          como si la imagen ocupara el 100%.
+        </p>
+
+        <pre><code>
+.contenedor{
+  display:grid
+  grid-template-columns: fit-content(150px) fit-content(300px);
+}
+</code></pre>
+
+        <h2><code>auto-fill</code> | <code>auto-fit</code></h2>
+
+        <p>
+          Estos dos valores se encargan de hacer un cálculo dinámico de la
+          cantidad de columnas (o filas) que queramos, según el tamaño del
+          contenedor padre y el definido en <code>repeat()</code>.
+        </p>
+
+        <h3><code>auto-fill</code></h3>
+        <p>
+          Nos permite generar columnas (o filas) de forma dinámica según el
+          valor que indiquemos en <code>repeat()</code> y el espacio del
+          contenedor.
+        </p>
+        <p>
+          En el momento que la cantidad de elementos creados no cubra todo el
+          espacio del contenedor, se generarán las columnas ficticias que
+          falten.
+        </p>
+
+        <pre><code>
+.contenedor{
+  display:grid
+  grid-template-columns: repeat(auto-fill, 300px);
+}
+</code></pre>
+
+        <h3><code>auto-fit</code></h3>
+        <p>
+          También nos permite generar columnas (o filas) de forma dinámica según
+          el valor que indiquemos en <code>repeat()</code> y el espacio del
+          contenedor.
+        </p>
+        <p>
+          A diferencia de <code>auto-fill</code>, cuando no haya suficientes
+          elementos para cubrir todo el espacio entonces seguirán creciendo las
+          columnas (o filas) sin generarse nuevas.
+        </p>
+
+        <pre><code>
+.contenedor{
+  display:grid
+  grid-template-columns: repeat(auto-fit, 300px);
+}
+</code></pre>
+      </article>
+    </main>
+
+    <footer class="pag-pie">
+      <p class="titulo-indice articulo-titulo-indice">Ejemplos</p>
+      <ul class="descargas-lista">
+        <li>
+          <a href="https://codepen.io/antxoa/pen/NWmoBax/" rel="external"
+            >minmax()</a
+          >
+        </li>
+        <li>
+          <a href="https://codepen.io/antxoa/pen/WNWPdzz" rel="external"
+            >min-content, max-content, fit-content()</a
+          >
+        </li>
+        <li>
+          <a href="https://codepen.io/antxoa/pen/rNbPZXX" rel="external"
+            >auto-fill, auto-fit</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

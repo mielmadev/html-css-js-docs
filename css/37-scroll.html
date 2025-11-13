@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0. Presentación CSS | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <header><h1>CSS</h1></header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h1>37. Scroll</h1>
+
+        <h2>Estilos de las barras de scroll</h2>
+
+        <p>
+          Si necesitamos modificar los colores de las barras de scroll, vamos a
+          utilizar un código estándar y otro con prefijo <code>-webkit-</code>.
+        </p>
+        <p>
+          Primero establecemos dos colores, uno para el fondo de la barra de
+          scroll y otro para la barra propiamente dicha. Después establecemos la
+          anchura de la barra:
+        </p>
+
+        <pre class="prescroll"><code>
+:root{
+	--color-fondo: #deeafc;		/* Azul claro */
+	--color-barra: #006eba;		/* Azul oscuro */
+}
+
+
+*{
+  scrollbar-width: thin;			/* valores auto | thin */
+  scrollbar-color: var(--color-barra) var(--color-fondo);
+}
+
+
+/* Para Safari y Navegadores móviles (excepto Firefox) */
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-fondo);
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: var(--color-barra);
+	border-radius:0;
+	border:0;
+}
+</code></pre>
+
+        <p>
+          Aunque en el código con prefijos es posible establecer una anchura
+          determinada y unos bordes a la barra de scroll, esto no forma parte de
+          la especificación estándar y cuando los navegadores adopten al 100% la
+          especificación, eliminarán esas opcione que no son estándar.
+        </p>
+
+        <h3>Barras de scroll en un elemento concreto</h3>
+
+        <p>
+          Si queremos aplicar los estilos de las barras a un único elemento,
+          entonces llamamos al selector del elemento, en vez de al selector
+          universal:
+        </p>
+
+        <pre><code>
+elemento{
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-barra) var(--color-fondo);
+}
+</code></pre>
+
+        <h2>Comportamiento del scroll</h2>
+        <p>
+          Cuando ejecutamos un enlace dentro de la misma página, el movimiento
+          automático del scroll no es brusco, sino que tiene una "animación".
+        </p>
+        <p>
+          Históricamente este efecto se realizaba con Javascript pero a día de
+          hoy es posible implementarlo desde CSS con la propiedad
+          <code>scroll-behavior</code> aplicada al elemento <code>html</code>:
+        </p>
+
+        <pre><code>
+html{scroll-behavior: smooth;}	/* Hay animación */
+
+html{scroll-behavior: auto;}		/* No hay animación, el scroll es brusco */
+</code></pre>
+
+        <h2>Separación al hacer scroll</h2>
+
+        <p>
+          En muchas ocasiones, cuando ejecutamos un enlace dentro de la página,
+          nos damos cuenta que el scroll no se posiciona en el elemento sino que
+          se posiciona unos cuantos pixels antes o después.
+        </p>
+        <p>
+          Esto provoca un efecto molesto ya que el usuario tiene que corregir la
+          posición del scroll para poder ver el contenido correctamente (sobre
+          todo cuando la cabecera de página se mantiene fija).
+        </p>
+        <p>
+          Para corregir la posición del scroll, hasta hace relativamente poco
+          tiempo teníamos que utilizar Javascript, pero por fin tenemos una
+          solución 100% en CSS, mediante la propiedad
+          <code>scroll-padding-top</code>:
+        </p>
+        <pre><code>
+html{scroll-padding-top: 60px;}
+</code></pre>
+
+        <p>
+          El valor que indiquemos será la separación que se añadirá a la
+          posición del scroll.
+        </p>
+
+        <p>
+          Además podemos modificar también el padding inferior y los dos
+          laterales, si fuera necesario.
+        </p>
+      </article>
+    </main>
+
+    <footer class="pag-pie">
+      <p class="titulo-indice articulo-titulo-indice">Ejemplos</p>
+      <ul class="descargas-lista">
+        <li>
+          <a href="descargas/css-ejemplos-scroll.zip" rel="external"
+            >Ejemplos con Scroll</a
+          >
+        </li>
+      </ul>
+
+      <p class="titulo-indice articulo-titulo-indice">Referencias</p>
+      <ul class="descargas-lista">
+        <li>
+          <a href="https://caniuse.com/css-scrollbar" rel="external"
+            >Soporte Estilos Scroll</a
+          >
+        </li>
+        <li>
+          <a href="https://caniuse.com/css-scroll-behavior" rel="external"
+            >Soporte Comportamiento</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding"
+            rel="external"
+            >Scroll Padding</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

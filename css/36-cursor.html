@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0. Presentación CSS | Documentación de HTML, CSS y JS</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/MielmaDev-img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+<body>
+<header><h1>CSS</h1>
+</header>
+	<main class="pag-main">
+
+
+
+		<article class="articulo">
+			
+			<h1>36.  Cursor</h1>
+
+
+<p>Si necesitamos modificar el cursor estándar por uno personalizado, bien a nivel global de página o en ciertos elementos (formularios, enlaces...), existe la propiedad <code>cursor</code> para ello.</p>
+
+<p>Esta propiedad tiene una larga lista de valores estándar y éstos utilizarán los iconos definidos a nivel del Sistema Operativo.</p>
+
+
+<pre><code>
+abbr{
+	cursor: help;
+}
+</code></pre>
+
+<div class="ejcss ej-cursor">
+	<p>Esta semana hay un <abbr title="descuento">dto.</abbr> del 25% en relojes.</p>
+</div>
+
+<p>Los valores admitidos son los siguientes:</p>
+
+<div class="ejcss ej-cursor">
+	<div class="cursores">
+	    <div class="auto">auto</div>
+	    <div class="default">default</div>
+	    <div class="none">none</div>
+	    <div class="context-menu">context-menu</div>
+	    <div class="help">help</div>
+	    <div class="pointer">pointer</div>
+	    <div class="progress">progress</div>
+	    <div class="wait">wait</div>
+	    <div class="cell">cell</div>
+	    <div class="crosshair">crosshair</div>
+	    <div class="text">text</div>
+	    <div class="vertical-text">vertical-text</div>
+	    <div class="alias">alias</div>
+	    <div class="copy">copy</div>
+	    <div class="move">move</div>
+	    <div class="no-drop">no-drop</div>
+			<div class="zoom-in">zoom-in</div>
+			<div class="zoom-out">zoom-out</div>
+			<div class="not-allowed">not-allowed</div>
+			<div class="all-scroll">all-scroll</div>
+			<div class="grab">grab</div>
+			<div class="grabbing">grabbing</div>
+	    <div class="col-resize">col-resize</div>
+	    <div class="row-resize">row-resize</div>
+	    <div class="n-resize">n-resize</div>
+	    <div class="s-resize">s-resize</div>
+	    <div class="e-resize">e-resize</div>
+	    <div class="w-resize">w-resize</div>
+	    <div class="ns-resize">ns-resize</div>
+	    <div class="ew-resize">ew-resize</div>
+	    <div class="ne-resize">ne-resize</div>
+	    <div class="nw-resize">nw-resize</div>
+	    <div class="se-resize">se-resize</div>
+	    <div class="sw-resize">sw-resize</div>
+	    <div class="nesw-resize">nesw-resize</div>
+	    <div class="nwse-resize">nwse-resize</div>
+	</div>
+</div>
+
+<p>En algunos desarrollos aún se puede encontrar, bien por herencia o bien por desconocimiento, el valor <code>hand</code>. Este valor nunca ha sido estándar, sólo funcionaba en algunos IE, simulando el valor <code>pointer</code>.</p>
+
+
+<h2>Cursor Personalizado</h2>
+
+<p>También podemos añadir nuestro propio cursor personalizado, que será una imagen:</p>
+
+<pre><code>
+.bloque{
+	cursor: url(ruta/archivo.ext), auto;
+}
+</code></pre>
+
+<div class="ejcss ej-cursor">
+	<div class="cursores cursorperso">
+	    <div class="perso">personalizado</div>
+	</div>
+</div>
+
+
+<p>Si necesitamos ajustar las coordenadas del cursor, en el eje X e Y, se añaden en la declaración (similar a como ajustaríamos una imagen de fondo):</p>
+
+<pre><code>
+.bloque{
+	cursor: url(ruta/archivo.ext) 15 15, auto;
+}
+</code></pre>
+<div class="ejcss ej-cursor">
+	<div class="cursores cursorperso">
+	    <div class="perso2">personalizado</div>
+	</div>
+</div>
+
+
+<p>Hay que tener mucho cuidado con estos cambios porque los usuarios estamos acostumbrados a unos cursores estándar. Si resulta complicado apuntar a los elementos con el cursor personalizado y/o no se entiende el propósito del mismo, va a tener un efecto disuasorio.</p>
+
+
+
+
+
+
+
+</article>
+
+
+
+
+</main>
+
+
+
+
+
+<footer class="pag-pie">
+
+	<p class="titulo-indice articulo-titulo-indice">Referencias</p>
+	<ul class="descargas-lista">
+		<li><a href="https://developer.mozilla.org/es/docs/Web/CSS/cursor" rel="external">Especificación </a></li>
+		<li><a href="https://blog.logrocket.com/creating-custom-mouse-cursor-css/#how-create-custom-cursor-javascript" rel="external">Crear cursor animado con Javascript</a></li>
+	</ul>
+
+
+</footer>
+
+
+</body>
+
+</html>
