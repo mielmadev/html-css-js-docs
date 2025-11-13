@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS &gt; Herencia y Especificidad</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/imagenes/MielmaDev-img/favicon.png" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header-img">
+      <img src="/imagenes/css-header.jpg" alt="" />
+      <h1>CSS: Herencia y Especificidad</h1>
+    </header>
+    <main class="pag-main">
+      <article class="articulo">
+        <h1>6. Colores</h1>
+
+        <h2>Propiedad color de Texto</h2>
+        <p>
+          La propiedad para aplicar un color a un texto es de las más sencillas
+          que tenemos en la especificación. Basta con usar la propiedad
+          <code>color</code> y después, como valor, indicar el color que
+          queramos:
+        </p>
+
+        <pre class="no-copy"><code>
+color: valor del color;
+</code></pre>
+
+        <div class="ejcss ej-colores">
+          <div class="wrap-colores">
+            <span>red</span>
+            <span class="confondo2">RGB(255,0,0)</span>
+            <span class="confondo">RGBA(255,0,0,0.7)</span>
+            <span>#FF0000</span>
+          </div>
+        </div>
+
+        <p>
+          Sin embargo, tenemos diferentes maneras de poder indicar el color.
+          Estas formas de llamar a un color nos van a servir posteriormente para
+          indicar los colores de fondo, bordes, sombras, etc.
+        </p>
+
+        <h2>Color con nombre estándar</h2>
+        <p>
+          Disponemos de una lista de nombres oficiales de colores que podemos
+          utilizar (no podemos inventarnos el nombre).
+        </p>
+
+        <pre><code>
+color: red;
+</code></pre>
+
+        <div class="svg-colores-circulo">
+          <svg
+            id="svg-colores-nombres"
+            width="100%"
+            height="100%"
+            viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+        <p id="preview"></p>
+
+        <p>
+          Rueda de colores por
+          <a href="https://github.com/arantius/web-color-wheel" rel="external"
+            >Anthony Lieuallen.</a
+          >
+        </p>
+
+        <h2>Color RGB / RGBA</h2>
+        <p>
+          Representa el color mezclando diferentes valores de Rojo, Verde y Azul
+          (en inglés: Red, Green, Blue = RGB).
+        </p>
+        <p>
+          El término <strong>RGB</strong> se puede escribir en mayúsculas o en
+          minúsculas <strong>rgb</strong>.
+        </p>
+        <p>
+          Cada valor tiene un rango de 0 a 255 máximo y se representa entre
+          paréntesis, con los valores separados por una coma.
+        </p>
+
+        <p class="destacaimg"><img src="img/rgb.jpg" alt="Color RGB" /></p>
+
+        <pre class="no-copy"><code>
+color: RGB(0-255, 0-255, 0-255);
+</code></pre>
+
+        <p>
+          Por lo tanto, si queremos utilizar el color rojo máximo, por ejemplo,
+          necesitaremos el valor máximo de rojo, nada de verde y nada de azul:
+        </p>
+
+        <pre><code>
+color: RGB(255,0,0);
+</code></pre>
+
+        <p>
+          El siguiente mezclador de colores permite obtener tanto el código RGB
+          como el código Hexadecimal que veremos más adelante:
+        </p>
+
+        <div id="mixer-rgb" class="container">
+          <div id="colorPreview" class="color-preview"></div>
+          <div class="sliders">
+            <div class="slider-container">
+              <div class="slider-label">
+                <label for="redSlider">Red - Rojo</label>
+                <span id="redValue">128</span>
+              </div>
+              <input
+                type="range"
+                id="redSlider"
+                min="0"
+                max="255"
+                value="128" />
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">
+                <label for="greenSlider">Green - Verde</label>
+                <span id="greenValue">128</span>
+              </div>
+              <input
+                type="range"
+                id="greenSlider"
+                min="0"
+                max="255"
+                value="128" />
+            </div>
+            <div class="slider-container">
+              <div class="slider-label">
+                <label for="blueSlider">Blue - Azul</label>
+                <span id="blueValue">128</span>
+              </div>
+              <input
+                type="range"
+                id="blueSlider"
+                min="0"
+                max="255"
+                value="128" />
+            </div>
+          </div>
+          <div class="color-values">
+            <div class="color-code">
+              <p id="rgbValue">RGB: 128, 128, 128</p>
+              <p id="hexValue">HEX: #808080</p>
+            </div>
+            <div class="wrap-buttons">
+              <button id="copyButton" class="copy-button">Copiar RGB</button>
+              <button id="copyButtonHex" class="copy-button">Copiar HEX</button>
+            </div>
+          </div>
+        </div>
+
+        <h3>RGBA</h3>
+        <p>
+          Es igual que el color RGB pero añadiendo un parámetro más, el canal
+          Alpha, donde podemos indicar el grado de transparencia del color:
+        </p>
+
+        <pre><code>
+/* rojo 50% de transparencia (valores 0-1) */
+
+color: RGBA(255,0,0,0.5);
+</code></pre>
+
+        <h3>RGB actualizado</h3>
+        <p>
+          La especificación CSS ha creado otra manera de especificar el canal
+          Alpha, usando simplemente RGB. Se indican los tres valores de RGB sin
+          comas, y después se pone una barra para indicar que es un parámetro
+          diferente al resto (no es una división matemática):
+        </p>
+
+        <pre><code>
+color: RGB(255 0 0 / 0.5);
+</code></pre>
+
+        <h2>Color hexadecimal</h2>
+        <p>
+          Representa el color RGB en formato hexadecimal. Es un código de 6
+          caracteres (en determinadas ocasiones puede estar minimizado a 3
+          caracteres).
+        </p>
+        <p>
+          Los dos primeros caracteres representan la cantidad de rojo; los dos
+          siguientes, la cantidad de verde; y los dos últimos, la cantidad de
+          azul. El rango en este caso va de 0 a F (ya que estamos en un sistema
+          hexadecimal).
+        </p>
+
+        <table class="decimalhex">
+          <caption>
+            Equivalencia dígitos Decimal a Hexadecimal
+          </caption>
+          <tr>
+            <th scope="row">Decimal</th>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <th scope="row">Hexadecimal</th>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>E</td>
+            <td>F</td>
+          </tr>
+        </table>
+
+        <p>
+          En el color hexadecimal siempre hay que escribir el símbolo # por
+          delante del número.
+        </p>
+
+        <p class="destacaimg">
+          <img src="img/hex.jpg" alt="Color Hexadecimal" />
+        </p>
+
+        <pre><code>
+color: #FF0000;
+</code></pre>
+
+        <h3>Hexadecimal abreviado</h3>
+        <p>
+          Cuando los dos dígitos de cada componente (rojo, verde, azul) son
+          idénticos, el código hexadecimal se puede abreviar a 3 caracteres
+          (#RGB):
+        </p>
+        <pre class="no-copy"><code>
+color: #FF0000;		color: #F00;
+color: #FFFFFF;		color: #FFF;
+color: #003355;		color: #035;
+color: #00AAAA;		color: #0AA;
+color: #CCCCAA;		color: #CCA;
+</code></pre>
+
+        <p>
+          No se podría abreviar, por ejemplo <code>#C0FE57</code> ya que C0, FE
+          y 57 no tienen dígitos repetidos.
+        </p>
+
+        <p>
+          Tampoco se podría abreviar, por ejemplo <code>#CC8857</code> ya que,
+          aunque CC y 88 sí que se tienen dígitos repetidos, 57 no lo tiene.
+        </p>
+
+        <h3>Hexadecimal con canal Alpha</h3>
+        <p>Es posible añadir el canal Alpha, añadiendo dos dígitos más:</p>
+
+        <pre><code>
+color: #FF000080;		/* Rojo con transparencia al 50% */
+</code></pre>
+
+        <h2>Color HSL/HSLA</h2>
+        <p>
+          En este caso, el color se expresa mediante 3 parámetros: Tono (Hue),
+          Saturación (Saturation) y Luminosidad (Lightness).
+        </p>
+        <p>
+          Si queremos añadir una transparencia, utilizaríamos un 4º parámetro
+          (igual que hemos hecho en RGBA) o utilizar el método actualizado con
+          la barra divisoria:
+        </p>
+
+        <pre><code>
+color: hsl(207,38%,47%);
+color: hsla(207,38%,47%, 0.8);
+color: hsl(207 38% 47% / 0.8);
+</code></pre>
+
+        <h2>Otros Colores</h2>
+        <p>
+          En la actualidad disponemos de otras maneras adicionales para indicar
+          un color, como p3, lch, oklch, mezclador de colores, etc. pero se
+          requieren conocimientos específicos sobre color, por lo que se verán
+          en un curso avanzado de esta materia.
+        </p>
+      </article>
+    </main>
+
+    <footer class="pag-pie">
+      <p class="titulo-indice articulo-titulo-indice">Referencias</p>
+      <ul class="descargas-lista articulo-indice">
+        <li>
+          <a
+            href="https://www.joshwcomeau.com/css/color-formats/"
+            rel="external"
+            >Color en profundidad</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://lea.verou.me/blog/2020/04/lch-colors-in-css-what-why-and-how/"
+            rel="external"
+            >Color LCH avanzado</a
+          >
+        </li>
+        <li>
+          <a href="https://css-tricks.com/nerds-guide-color-web/" rel="external"
+            >Otras expresiones de color</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.w3.org/wiki/CSS/Properties/color/keywords"
+            rel="external"
+            >Lista de Colores oficiales</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://es.wikipedia.org/wiki/Sistema_hexadecimal"
+            rel="external"
+            >Sistema Hexadecimal</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4"
+            rel="external"
+            >Valores Alpha en Hex</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://dev.to/joacod/the-special-meaning-behind-the-new-css-logo-rebeccapurple-2205"
+            rel="external"
+            >#rebeccapurple</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.microsiervos.com/archivo/internet/hiperenlaces-azules.html"
+            rel="external"
+            >¿Por qué los enlaces son azules?</a
+          >
+        </li>
+      </ul>
+
+      <p class="titulo-indice articulo-titulo-indice">Recursos</p>
+      <ol class="descargas-lista articulo-indice">
+        <li>
+          <a href="https://htmlcolorcodes.com/es/" rel="external"
+            >Recursos de Colores</a
+          >
+        </li>
+        <li>
+          <a href="https://fffuel.co/" rel="external"
+            >Múltiples herramientas para colores</a
+          >
+        </li>
+        <li>
+          <a href="https://www.colourlovers.com/palettes" rel="external"
+            >Elegir paleta de colores 1</a
+          >
+        </li>
+        <li>
+          <a href="https://palettes.shecodes.io/" rel="external"
+            >Elegir paleta de colores 2</a
+          >
+        </li>
+        <li>
+          <a href="https://fffuel.co/pppalette/" rel="external"
+            >Crear paletas de colores 1</a
+          >
+        </li>
+        <li>
+          <a href="https://coolors.co" rel="external"
+            >Crear paletas de colores 2</a
+          >
+        </li>
+        <li>
+          <a href="https://supercolorpalette.com/" rel="external"
+            >Crear paletas de colores 3</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.learnui.design/tools/data-color-picker.html#palette"
+            rel="external"
+            >Crear paletas de colores para visualización de datos</a
+          >
+        </li>
+
+        <li>
+          <a href="https://colorkit.co/color-palette-from-image/" rel="external"
+            >Generar paleta de colores en base a una imagen</a
+          >
+        </li>
+      </ol>
+    </footer>
+  </body>
+</html>
