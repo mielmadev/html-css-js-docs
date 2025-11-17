@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>0. Presentación CSS | Documentación de HTML, CSS y JS</title>
+    <title>Media Queries en CSS | Documentación de HTML, CSS y JS</title>
     <link
       rel="icon"
       type="image/x-icon"
@@ -18,72 +17,83 @@
     <link rel="stylesheet" href="/estilos/root.css" />
     <link rel="stylesheet" href="/estilos/estilos.css" />
   </head>
-<body>
-<header><h1>CSS</h1>
-</header>
-	<main class="pag-main">
+  <body>
+    <header><h1 data-numero="38.">Media Queries en CSS</h1></header>
+    <main class="pag-main">
+      <article class="articulo">
+        <p>
+          Debido a la multitud de dispositivos desde los que accedemos a
+          Internet, las posibles dimensiones de la pantalla del dispositivo así
+          como sus capacidades se han disparado. De ahí que haya nacido el
+          concepto de Responsive Web Design.
+        </p>
 
+        <p>
+          CSS permite comprobar diferentes valores del dispositivo, como la
+          anchura y altura tanto del dispositivo como de la pantalla y el tipo
+          de color de la pantalla (color, monocromo...), entre otras.
+        </p>
 
+        <p>
+          Estas comprobaciones son lo que llamamos <em>Media queries</em> (en
+          singular, Media Query) y funcionan como condiciones que el navegador
+          evalúa para determinar si tiene que aplicar unos estilos o no. Por
+          ejemplo, podemos indicar que se aplique un fondo de un color cuando la
+          pantalla es menor de un tamaño determinado y que se aplique otro color
+          diferente si la pantalla es mayor de ese tamaño.
+        </p>
 
-		<article class="articulo">
-			
-			<h1>38.  Media Queries</h1>
+        <p>
+          Las condiciones se pueden utilizar directamente en la llamada del
+          archivo css, por ejemplo:
+        </p>
 
-<p>Debido a la multitud de dispositivos desde los que accedemos a Internet, las posibles dimensiones de la pantalla del dispositivo así como sus capacidades se han disparado. De ahí que haya nacido el concepto de Responsive Web Design.</p>
-
-<p>CSS permite comprobar diferentes valores del dispositivo, como la anchura y altura tanto del dispositivo como de la pantalla y el tipo de color de la pantalla (color, monocromo...), entre otras.</p>
-
-<p>Estas comprobaciones son lo que llamamos <em>Media queries</em> (en singular, Media Query) y funcionan como condiciones que el navegador evalúa para determinar si tiene que aplicar unos estilos o no. Por ejemplo, podemos indicar que se aplique un fondo de un color cuando la pantalla es menor de un tamaño determinado y que se aplique otro color diferente si la pantalla es mayor de ese tamaño.</p>
-
-
-<p>Las condiciones se pueden utilizar directamente en la llamada del archivo css, por ejemplo:</p>
-
-<pre><code>
+        <pre><code>
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;estilos.css&quot; media=&quot;screen and (max-width: 980px)&quot;&gt;
 
 </code></pre>
 
-<p>O en el propio código CSS, que será la forma habitual:</p>
-<pre class="no-copy"><code>
+        <p>O en el propio código CSS, que será la forma habitual:</p>
+        <pre class="no-copy"><code>
 @media screen and (max-width: 980px) {
 	Código CSS
 	...
 }
 </code></pre>
 
+        <p>
+          Indicaremos también en qué dispositivos se tiene que aplicar la
+          condición, puesto que podemos crear un código css para un dispositivo
+          de pantalla, impresora, proyección, etc.
+        </p>
 
-<p>Indicaremos también en qué dispositivos se tiene que aplicar la condición, puesto que podemos crear un código css para un dispositivo de pantalla, impresora, proyección, etc.</p>
+        <p>
+          Además es necesario indicar explícitamente a los navegadores que
+          estamos utilizando <em>Media queries</em> para que nos apliquen las
+          condiciones, añadiendo en la cabecera de la página la siguiente línea:
+        </p>
 
-
-<p>Además es necesario indicar explícitamente a los navegadores que estamos utilizando <em>Media queries</em> para que nos apliquen las condiciones, añadiendo en la cabecera de la página la siguiente línea:</p>
-
-<pre><code>
+        <pre><code>
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
 </code></pre>
 
+        <p>
+          Las <em>Media queries</em> por sí mismas no hacen que una página tenga
+          automáticamente un RWD. En el módulo específico de Responsive Web
+          Design aprenderemos a utilizarlas en toda su extensión.
+        </p>
+      </article>
+    </main>
 
-<p>Las <em>Media queries</em> por sí mismas no hacen que una página tenga automáticamente un RWD. En el módulo específico de Responsive Web Design aprenderemos a utilizarlas en toda su extensión.</p>
-
-
-</article>
-
-
-
-
-</main>
-
-
-<footer class="pag-pie">
-
-	<p class="titulo-indice articulo-titulo-indice">Referencias</p>
-	<ul class="descargas-lista">
-		<li><a href="https://www.w3.org/TR/css3-mediaqueries/" rel="external">Especificación</a></li>
-	</ul>
-
-
-</footer>
-
-
-</body>
-
+    <footer class="pag-pie">
+      <p class="titulo-indice articulo-titulo-indice">Referencias</p>
+      <ul class="descargas-lista">
+        <li>
+          <a href="https://www.w3.org/TR/css3-mediaqueries/" rel="external"
+            >Especificación</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
 </html>

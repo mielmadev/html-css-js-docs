@@ -1,3 +1,9 @@
+/* Numeración visual automática para títulos de temas usando data-numero */
+h1[data-numero]::before {
+  content: attr(data-numero) " ";
+  margin-right: 5px;
+}
+
 /* ===== Reset y normalización ===== */
 * {
   box-sizing: border-box;
