@@ -73,7 +73,7 @@
       <div class="cookie-tipo">
         <label><input type="checkbox" checked disabled /> Cookies Técnicas (Obligatorias)</label>
         <button type="button" onclick="mostrarDetalles('tecnicas')">Detalles Técnicas</button>
-        <div class="detalle-cookies" id="detalle-tecnicas" style="display:none">
+        <div class="detalle-cookies" id="detalle-tecnicas" style="display: none">
           <strong>Ejemplos:</strong>
           <ul>
             <li>Recordar idioma seleccionado</li>
@@ -84,16 +84,16 @@
             <li>Autenticación y seguridad de usuario</li>
             <li>Configuración de la interfaz (menú abierto/cerrado)</li>
           </ul>
-          <strong>Origen:</strong> Propia<br>
-          <strong>Finalidad:</strong> Funcionamiento básico de la web<br>
-          <strong>Duración:</strong> Sesión o persistente (según la cookie)<br>
+          <strong>Origen:</strong> Propia<br />
+          <strong>Finalidad:</strong> Funcionamiento básico de la web<br />
+          <strong>Duración:</strong> Sesión o persistente (según la cookie)<br />
           <strong>Responsable:</strong> Titular de la web
         </div>
       </div>
       <div class="cookie-tipo">
         <label><input type="checkbox" id="analiticas" /> Cookies Analíticas</label>
         <button type="button" onclick="mostrarDetalles('analiticas')">Detalles Analíticas</button>
-        <div class="detalle-cookies" id="detalle-analiticas" style="display:none">
+        <div class="detalle-cookies" id="detalle-analiticas" style="display: none">
           <strong>Ejemplos:</strong>
           <ul>
             <li>Google Analytics: páginas visitadas, tiempo en la web, origen del tráfico</li>
@@ -103,16 +103,16 @@
             <li>Analizar tasa de rebote y conversiones</li>
             <li>Segmentación de usuarios por país/dispositivo</li>
           </ul>
-          <strong>Origen:</strong> Terceros (Google, Matomo, Hotjar, etc.)<br>
-          <strong>Finalidad:</strong> Medir visitas y comportamiento de usuarios<br>
-          <strong>Duración:</strong> 1-2 años (según herramienta)<br>
+          <strong>Origen:</strong> Terceros (Google, Matomo, Hotjar, etc.)<br />
+          <strong>Finalidad:</strong> Medir visitas y comportamiento de usuarios<br />
+          <strong>Duración:</strong> 1-2 años (según herramienta)<br />
           <strong>Responsable:</strong> Google LLC, Titular de la web, otros proveedores
         </div>
       </div>
       <div class="cookie-tipo">
         <label><input type="checkbox" id="publicitarias" /> Cookies Publicitarias</label>
         <button type="button" onclick="mostrarDetalles('publicitarias')">Detalles Publicitarias</button>
-        <div class="detalle-cookies" id="detalle-publicitarias" style="display:none">
+        <div class="detalle-cookies" id="detalle-publicitarias" style="display: none">
           <strong>Ejemplos:</strong>
           <ul>
             <li>Google Ads: mostrar anuncios relevantes según búsquedas previas</li>
@@ -122,9 +122,9 @@
             <li>Medición de la efectividad de campañas publicitarias</li>
             <li>Segmentación de audiencia para anuncios personalizados</li>
           </ul>
-          <strong>Origen:</strong> Terceros (Google, Facebook, DoubleClick, etc.)<br>
-          <strong>Finalidad:</strong> Mostrar anuncios personalizados y medir campañas<br>
-          <strong>Duración:</strong> 1 año (puede variar según proveedor)<br>
+          <strong>Origen:</strong> Terceros (Google, Facebook, DoubleClick, etc.)<br />
+          <strong>Finalidad:</strong> Mostrar anuncios personalizados y medir campañas<br />
+          <strong>Duración:</strong> 1 año (puede variar según proveedor)<br />
           <strong>Responsable:</strong> Google LLC, Meta Platforms, Inc., otros proveedores
         </div>
       </div>
@@ -156,19 +156,18 @@
         <li>Mantén siempre actualizado el panel de cookies y la documentación legal.</li>
       </ul>
     </div>
+    <script>
+      function mostrarDetalles(tipo) {
+        // Oculta todos los detalles
+        document.querySelectorAll('.detalle-cookies').forEach(function (div) {
+          div.style.display = 'none';
+        });
+        // Muestra el detalle correspondiente
+        var detalle = document.getElementById('detalle-' + tipo);
+        if (detalle) {
+          detalle.style.display = 'block';
+        }
+      }
+    </script>
   </body>
-</body>
-<script>
-function mostrarDetalles(tipo) {
-  // Oculta todos los detalles
-  document.querySelectorAll('.detalle-cookies').forEach(function(div) {
-    div.style.display = 'none';
-  });
-  // Muestra el detalle correspondiente
-  var detalle = document.getElementById('detalle-' + tipo);
-  if (detalle) {
-    detalle.style.display = 'block';
-  }
-}
-</script>
 </html>
