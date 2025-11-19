@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Google Fonts: Montserrat, Metal Mania, Roboto Flex -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:wdth,wght@25..151,400&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookies y Protección de Datos</title>
+    <link rel="stylesheet" href="/estilos/norm-reset.css" />
+    <link rel="stylesheet" href="/estilos/root.css" />
+    <link rel="stylesheet" href="/estilos/estilos.css" />
+  </head>
+  <body>
+    <h1>Cookies y Protección de Datos</h1>
+
+    <h2>1. ¿Qué son las Cookies?</h2>
+    <p>Una cookie es como una variable que se guarda en el navegador. Permite almacenar información (texto, números, preferencias) que puede ser leída por el propio sitio web o por otros servicios (analítica, publicidad, etc.).</p>
+    <ul>
+      <li><b>JavaScript</b> puede crear, leer y modificar cookies desde el cliente.</li>
+      <li><b>PHP, .NET</b> y otros lenguajes pueden gestionarlas desde el servidor.</li>
+    </ul>
+
+    <h2>2. Parámetros de una Cookie</h2>
+    <ul>
+      <li><b>nombre=valor</b> (obligatorio)</li>
+      <li><b>expires</b>: fecha de caducidad (si no se indica, se borra al cerrar el navegador)</li>
+      <li><b>max-age</b>: duración en segundos</li>
+      <li><b>domain</b>: dominio donde es válida</li>
+      <li><b>path</b>: ruta donde es válida</li>
+      <li><b>secure</b>: solo se envía por HTTPS</li>
+      <li><b>httponly</b>: impide acceso desde JavaScript</li>
+      <li><b>SameSite</b>: protección contra ataques CSRF (Strict, Lax, None)</li>
+    </ul>
+
+    <h2>3. Tipos de Cookies</h2>
+    <ul>
+      <li>
+        <b>Técnicas</b>: necesarias para el funcionamiento básico (no requieren aviso legal)<br />
+        <i>Ejemplo:</i> recordar el idioma seleccionado, mantener la sesión iniciada, guardar el carrito de la compra.
+      </li>
+      <li>
+        <b>Analíticas</b>: recogen datos de uso (requieren consentimiento)<br />
+        <i>Ejemplo:</i> Google Analytics, Matomo, medir visitas y comportamiento de usuarios.
+      </li>
+      <li>
+        <b>Publicitarias</b>: muestran anuncios personalizados (requieren consentimiento)<br />
+        <i>Ejemplo:</i> Google Ads, Facebook Pixel, mostrar anuncios adaptados al usuario.
+      </li>
+      <li>
+        <b>Personalización</b>: guardan preferencias del usuario (tema, idioma, etc.)<br />
+        <i>Ejemplo:</i> guardar el tema oscuro/claro, tamaño de letra, preferencias de visualización.
+      </li>
+    </ul>
+
+    <h2>4. Legislación y RGPD</h2>
+    <div class="nota">
+      <b>¿Qué significan las siglas RGPD?</b><br />
+      <b>RGPD</b>: Reglamento General de Protección de Datos (en inglés, GDPR: General Data Protection Regulation). Es la normativa europea que regula la protección de datos personales y la privacidad de los ciudadanos en la Unión Europea.<br />
+      <b>LOPDGDD</b>: Ley Orgánica de Protección de Datos y Garantía de los Derechos Digitales. Es la ley española que adapta el RGPD al marco legal nacional.
+    </div>
+    <ul>
+      <li><b>Cookies técnicas</b>: pueden estar activadas por defecto.</li>
+      <li><b>Cookies no técnicas</b>: deben estar desactivadas por defecto. El usuario debe activarlas manualmente.</li>
+      <li><b>Panel de cookies</b>: debe permitir aceptar/rechazar cada tipo de cookie y mostrar información detallada (origen, finalidad, duración, responsable, contacto, etc.).</li>
+      <li><b>Consentimiento</b>: debe ser explícito y registrado.</li>
+    </ul>
+
+    <h3>Ejemplo de panel de cookies (HTML):</h3>
+    <div class="panel-cookies">
+      <h4>Configuración de Cookies</h4>
+      <div class="cookie-tipo">
+        <label><input type="checkbox" checked disabled /> Cookies Técnicas (Obligatorias)</label>
+        <button type="button" onclick="mostrarDetalles('tecnicas')">Detalles Técnicas</button>
+        <div class="detalle-cookies" id="detalle-tecnicas" style="display:none">
+          <strong>Ejemplos:</strong>
+          <ul>
+            <li>Recordar idioma seleccionado</li>
+            <li>Mantener sesión iniciada</li>
+            <li>Guardar el carrito de la compra</li>
+            <li>Preferencias de accesibilidad (contraste, tamaño de fuente)</li>
+            <li>Guardar si has aceptado el aviso de cookies</li>
+            <li>Autenticación y seguridad de usuario</li>
+            <li>Configuración de la interfaz (menú abierto/cerrado)</li>
+          </ul>
+          <strong>Origen:</strong> Propia<br>
+          <strong>Finalidad:</strong> Funcionamiento básico de la web<br>
+          <strong>Duración:</strong> Sesión o persistente (según la cookie)<br>
+          <strong>Responsable:</strong> Titular de la web
+        </div>
+      </div>
+      <div class="cookie-tipo">
+        <label><input type="checkbox" id="analiticas" /> Cookies Analíticas</label>
+        <button type="button" onclick="mostrarDetalles('analiticas')">Detalles Analíticas</button>
+        <div class="detalle-cookies" id="detalle-analiticas" style="display:none">
+          <strong>Ejemplos:</strong>
+          <ul>
+            <li>Google Analytics: páginas visitadas, tiempo en la web, origen del tráfico</li>
+            <li>Matomo: rutas de navegación, clics en enlaces</li>
+            <li>Hotjar: mapas de calor y grabaciones de sesión</li>
+            <li>Contar número de usuarios únicos</li>
+            <li>Analizar tasa de rebote y conversiones</li>
+            <li>Segmentación de usuarios por país/dispositivo</li>
+          </ul>
+          <strong>Origen:</strong> Terceros (Google, Matomo, Hotjar, etc.)<br>
+          <strong>Finalidad:</strong> Medir visitas y comportamiento de usuarios<br>
+          <strong>Duración:</strong> 1-2 años (según herramienta)<br>
+          <strong>Responsable:</strong> Google LLC, Titular de la web, otros proveedores
+        </div>
+      </div>
+      <div class="cookie-tipo">
+        <label><input type="checkbox" id="publicitarias" /> Cookies Publicitarias</label>
+        <button type="button" onclick="mostrarDetalles('publicitarias')">Detalles Publicitarias</button>
+        <div class="detalle-cookies" id="detalle-publicitarias" style="display:none">
+          <strong>Ejemplos:</strong>
+          <ul>
+            <li>Google Ads: mostrar anuncios relevantes según búsquedas previas</li>
+            <li>Facebook Pixel: seguimiento de conversiones y remarketing</li>
+            <li>DoubleClick: limitar la frecuencia de anuncios</li>
+            <li>Publicidad basada en intereses y comportamiento</li>
+            <li>Medición de la efectividad de campañas publicitarias</li>
+            <li>Segmentación de audiencia para anuncios personalizados</li>
+          </ul>
+          <strong>Origen:</strong> Terceros (Google, Facebook, DoubleClick, etc.)<br>
+          <strong>Finalidad:</strong> Mostrar anuncios personalizados y medir campañas<br>
+          <strong>Duración:</strong> 1 año (puede variar según proveedor)<br>
+          <strong>Responsable:</strong> Google LLC, Meta Platforms, Inc., otros proveedores
+        </div>
+      </div>
+      <button type="button" onclick="aceptarSeleccion()">Aceptar selección</button>
+      <button type="button" onclick="rechazarTodas()">Rechazar todas</button>
+    </div>
+
+    <h2>5. Requisitos legales actuales (2025)</h2>
+    <ul>
+      <li>Las cookies no técnicas <b>NO pueden estar seleccionadas por defecto</b>.</li>
+      <li>El usuario debe poder activar/desactivar cada tipo.</li>
+      <li>Información detallada para cada cookie: origen, finalidad, duración, responsable, contacto, terceros.</li>
+      <li>Consultar siempre la <a href="https://www.aepd.es/" target="_blank">AEPD</a> para normativa actualizada.</li>
+    </ul>
+
+    <h2>6. Recursos oficiales</h2>
+    <ul>
+      <li><a href="https://www.aepd.es/es/guias-y-herramientas/guias" target="_blank">Guía de cookies AEPD</a></li>
+      <li><a href="https://www.aepd.es/es/documento/guia-cookies.pdf" target="_blank">Guía sobre cookies - AEPD España (PDF)</a></li>
+      <li><a href="https://ec.europa.eu/info/law/law-topic/data-protection_es" target="_blank">Protección de datos - Comisión Europea</a></li>
+    </ul>
+
+    <hr />
+    <div class="nota">
+      <b>Nota:</b>
+      <ul>
+        <li>Los usuarios pueden evitar cookies desactivando JavaScript o modificando la configuración del navegador.</li>
+        <li>No almacenes información sensible en cookies.</li>
+        <li>Mantén siempre actualizado el panel de cookies y la documentación legal.</li>
+      </ul>
+    </div>
+  </body>
+</body>
+<script>
+function mostrarDetalles(tipo) {
+  // Oculta todos los detalles
+  document.querySelectorAll('.detalle-cookies').forEach(function(div) {
+    div.style.display = 'none';
+  });
+  // Muestra el detalle correspondiente
+  var detalle = document.getElementById('detalle-' + tipo);
+  if (detalle) {
+    detalle.style.display = 'block';
+  }
+}
+</script>
+</html>

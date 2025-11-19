@@ -60,10 +60,13 @@ dd {
 
 /* ===== Elementos de formulario ===== */
 input,
-button,
+
 select,
 textarea {
   color: var(--body-text);
+}
+button {
+  color: var(--body-bg);
 }
 
 blockquote {
@@ -100,6 +103,12 @@ h6 {
   font-weight: 500;
   margin: 0.25em 0;
   padding: 0;
+}
+h1,
+h2,
+h3 {
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 h1 {
